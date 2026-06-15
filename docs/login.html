@@ -89,8 +89,8 @@ select:focus,input:focus{border-color:#1B3A6B;}
 </div>
 
 <script>
-const STUDENTS = [{"key": "reya", "name": "Reya", "pin": "1234"}, {"key": "arnav", "name": "Arnav", "pin": "2345"}, {"key": "sanjith", "name": "Sanjith", "pin": "3456"}];
-const PARENTS  = [{"key": "peppin", "name": "Peppin", "pin": "9001", "child_key": "reya", "child_name": "Reya"}, {"key": "viren", "name": "Viren", "pin": "9002", "child_key": "arnav", "child_name": "Arnav"}, {"key": "muthu", "name": "Muthu", "pin": "9003", "child_key": "sanjith", "child_name": "Sanjith"}];
+const STUDENTS = [{"key": "reya", "name": "Reya", "pin": "1234", "gist_id": "596ed45ef328868e3821291401944209", "gist_file": "reya.json", "token": "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"}, {"key": "arnav", "name": "Arnav", "pin": "2345", "gist_id": "0240c1565265ad78c4ab120e5241767a", "gist_file": "arnav.json", "token": "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"}, {"key": "sanjith", "name": "Sanjith", "pin": "3456", "gist_id": "c9cc27d5130466b6276b1cb30ae1945f", "gist_file": "sanjith.json", "token": "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"}];
+const PARENTS  = [{"key": "peppin", "name": "Peppin", "pin": "9001", "child_key": "reya", "child_name": "Reya", "child_gist": "596ed45ef328868e3821291401944209", "child_file": "reya.json", "token": "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"}, {"key": "viren", "name": "Viren", "pin": "9002", "child_key": "arnav", "child_name": "Arnav", "child_gist": "0240c1565265ad78c4ab120e5241767a", "child_file": "arnav.json", "token": "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"}, {"key": "muthu", "name": "Muthu", "pin": "9003", "child_key": "sanjith", "child_name": "Sanjith", "child_gist": "c9cc27d5130466b6276b1cb30ae1945f", "child_file": "sanjith.json", "token": "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"}];
 let currentRole = 'student';
 
 function switchRole(role, btn){
@@ -120,7 +120,7 @@ function doLogin(){
     var pin=getPin('s');
     var match=STUDENTS.find(s=>s.key===key && s.pin===pin);
     if(match){
-      sessionStorage.setItem('ptc_session', JSON.stringify({role:'student',key:match.key,name:match.name}));
+      sessionStorage.setItem('ptc_session', JSON.stringify({role:'student',key:match.key,name:match.name,gist_id:match.gist_id,gist_file:match.gist_file,token:match.token}));
       location.replace('index.html');
     } else {
       document.getElementById('error-msg').style.display='block';
@@ -132,7 +132,7 @@ function doLogin(){
     var pin=getPin('p');
     var match=PARENTS.find(p=>p.key===key && p.pin===pin);
     if(match){
-      sessionStorage.setItem('ptc_session', JSON.stringify({role:'parent',key:match.key,name:match.name,child_key:match.child_key,child_name:match.child_name}));
+      sessionStorage.setItem('ptc_session', JSON.stringify({role:'parent',key:match.key,name:match.name,child_key:match.child_key,child_name:match.child_name,child_gist:match.child_gist,child_file:match.child_file,token:match.token}));
       location.replace('parent.html');
     } else {
       document.getElementById('error-msg').style.display='block';

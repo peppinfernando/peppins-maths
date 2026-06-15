@@ -591,6 +591,7 @@ def html_head(title, extra_css=""):
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Merriweather:wght@700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script src="gist_store.js"></script>
 {extra_css}
 </head>"""
 
@@ -1118,15 +1119,17 @@ for _d in DAYS:
 
 
 # ─── USERS CONFIG ─────────────────────────────────────────────────────────────
+GIST_TOKEN = "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"
+
 STUDENTS = [
-    {"key": "reya",    "name": "Reya",    "pin": "1234"},
-    {"key": "arnav",   "name": "Arnav",   "pin": "2345"},
-    {"key": "sanjith", "name": "Sanjith", "pin": "3456"},
+    {"key": "reya",    "name": "Reya",    "pin": "1234", "gist_id": "596ed45ef328868e3821291401944209",  "gist_file": "reya.json"},
+    {"key": "arnav",   "name": "Arnav",   "pin": "2345", "gist_id": "0240c1565265ad78c4ab120e5241767a",  "gist_file": "arnav.json"},
+    {"key": "sanjith", "name": "Sanjith", "pin": "3456", "gist_id": "c9cc27d5130466b6276b1cb30ae1945f",  "gist_file": "sanjith.json"},
 ]
 PARENTS = [
-    {"key": "peppin", "name": "Peppin", "pin": "9001", "child_key": "reya",    "child_name": "Reya"},
-    {"key": "viren",  "name": "Viren",  "pin": "9002", "child_key": "arnav",   "child_name": "Arnav"},
-    {"key": "muthu",  "name": "Muthu",  "pin": "9003", "child_key": "sanjith", "child_name": "Sanjith"},
+    {"key": "peppin", "name": "Peppin", "pin": "9001", "child_key": "reya",    "child_name": "Reya",    "child_gist": "596ed45ef328868e3821291401944209",  "child_file": "reya.json"},
+    {"key": "viren",  "name": "Viren",  "pin": "9002", "child_key": "arnav",   "child_name": "Arnav",   "child_gist": "0240c1565265ad78c4ab120e5241767a",  "child_file": "arnav.json"},
+    {"key": "muthu",  "name": "Muthu",  "pin": "9003", "child_key": "sanjith", "child_name": "Sanjith", "child_gist": "c9cc27d5130466b6276b1cb30ae1945f",  "child_file": "sanjith.json"},
 ]
 
 AUTH_GUARD = """
@@ -1189,9 +1192,11 @@ if(_s){{var el=document.getElementById('nav-student-name');if(el)el.textContent=
 
 # ─── LOGIN PAGE ───────────────────────────────────────────────────────────────
 def generate_login():
-    students_json = json.dumps([{"key": s["key"], "name": s["name"], "pin": s["pin"]} for s in STUDENTS])
+    students_json = json.dumps([{"key": s["key"], "name": s["name"], "pin": s["pin"], "gist_id": s["gist_id"], "gist_file": s["gist_file"], "token": GIST_TOKEN} for s in STUDENTS])
     parents_json  = json.dumps([{"key": p["key"], "name": p["name"], "pin": p["pin"],
-                                  "child_key": p["child_key"], "child_name": p["child_name"]} for p in PARENTS])
+                                  "child_key": p["child_key"], "child_name": p["child_name"],
+                                  "child_gist": p["child_gist"], "child_file": p["child_file"],
+                                  "token": GIST_TOKEN} for p in PARENTS])
     return f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -1314,7 +1319,7 @@ function doLogin(){{
     var pin=getPin('s');
     var match=STUDENTS.find(s=>s.key===key && s.pin===pin);
     if(match){{
-      sessionStorage.setItem('ptc_session', JSON.stringify({{role:'student',key:match.key,name:match.name}}));
+      sessionStorage.setItem('ptc_session', JSON.stringify({{role:'student',key:match.key,name:match.name,gist_id:match.gist_id,gist_file:match.gist_file,token:match.token}}));
       location.replace('index.html');
     }} else {{
       document.getElementById('error-msg').style.display='block';
@@ -1326,7 +1331,7 @@ function doLogin(){{
     var pin=getPin('p');
     var match=PARENTS.find(p=>p.key===key && p.pin===pin);
     if(match){{
-      sessionStorage.setItem('ptc_session', JSON.stringify({{role:'parent',key:match.key,name:match.name,child_key:match.child_key,child_name:match.child_name}}));
+      sessionStorage.setItem('ptc_session', JSON.stringify({{role:'parent',key:match.key,name:match.name,child_key:match.child_key,child_name:match.child_name,child_gist:match.child_gist,child_file:match.child_file,token:match.token}}));
       location.replace('parent.html');
     }} else {{
       document.getElementById('error-msg').style.display='block';
@@ -1415,32 +1420,29 @@ def generate_parent():
 <script>
 const DAY_TOPICS = {day_topics_json};
 
-function loadParentDashboard(){{
+async function loadParentDashboard(){{
   var sess = JSON.parse(sessionStorage.getItem('ptc_session')||'null');
   if(!sess || sess.role!=='parent') return;
 
   document.getElementById('parent-greeting').textContent = 'Hi, ' + sess.name + '!';
   document.getElementById('dashboard-title').textContent = sess.child_name + "'s Progress Dashboard";
-  document.getElementById('dashboard-sub').textContent = "Viewing " + sess.child_name + "'s Junior Cycle Maths journey";
+  document.getElementById('dashboard-sub').textContent = "Viewing " + sess.child_name + "'s Junior Cycle Maths journey — live from the cloud";
   document.getElementById('progress-title').textContent = sess.child_name + "'s Overall Progress";
 
-  // Read child's localStorage — parent must be on same device OR child shares device
-  // Progress keys are prefixed with child's key
-  var childKey = sess.child_key;
-  var done = 0;
-  var total = 45;
-  var html = '';
+  document.getElementById('p-day-tracker').innerHTML = '<div style="padding:1rem;color:var(--muted);font-size:.88rem">⏳ Loading ' + sess.child_name + "'s progress…</div>";
 
+  // Load directly from child's Gist
+  var data = await gistLoadForStudent(sess.child_gist, sess.child_file, sess.token);
+  var completed = data.completed || {{}};
+  var scores    = data.scores    || {{}};
+
+  var done=0, total=45, html='';
   for(var i=1; i<=total; i++){{
-    var complete = !!localStorage.getItem('day_complete_' + childKey + '_' + i);
+    var complete = !!completed[i]||!!completed[String(i)];
     if(complete) done++;
     var topic = DAY_TOPICS[i] || '';
-    var scoreData = localStorage.getItem('score_' + childKey + '_' + i);
-    var scoreLine = '';
-    if(scoreData) {{
-      var sc = JSON.parse(scoreData);
-      scoreLine = '<span style="font-size:.65rem;margin-top:.1rem;font-weight:700;color:'+(complete?'rgba(255,255,255,.85)':'var(--purple)')+'">'+sc.earned+'/'+sc.total+'</span>';
-    }}
+    var sc = scores[i]||scores[String(i)];
+    var scoreLine = sc ? '<span style="font-size:.65rem;margin-top:.1rem;font-weight:700;color:'+(complete?'rgba(255,255,255,.85)':'var(--purple)')+'">'+sc.earned+'/'+sc.total+' ('+sc.pct+'%)</span>' : '';
     var bg = complete ? 'linear-gradient(135deg,var(--green),#10B981)' : '#fff';
     html += '<div title="Day '+i+': '+topic+'" style="display:flex;flex-direction:column;align-items:center;justify-content:center;background:'+bg+';color:'+(complete?'#fff':'var(--text)')+';border:2px solid '+(complete?'transparent':'var(--border)')+';border-radius:12px;padding:.5rem .25rem;font-weight:800;font-size:.82rem;text-align:center;box-shadow:'+(complete?'0 2px 8px rgba(5,150,105,.3)':'none')+';">'
       + '<span style="font-size:1rem">'+(complete?'✅':'📖')+'</span>'
@@ -1506,27 +1508,27 @@ def generate_progress():
 <script>
 const DAY_TOPICS = {day_topics_json};
 
-function getStudentKey(){{
-  var sess = JSON.parse(sessionStorage.getItem('ptc_session')||'null');
-  return sess ? sess.key : null;
-}}
-
-function storageKey(day){{
-  return 'day_complete_' + getStudentKey() + '_' + day;
-}}
-
-function loadProgress(){{
+async function loadProgress(){{
   var sess = JSON.parse(sessionStorage.getItem('ptc_session')||'null');
   if(sess) document.getElementById('progress-sub').textContent = sess.name + "'s journey through the 45-day programme";
 
+  document.getElementById('day-tracker').innerHTML='<div style="padding:1rem;color:var(--muted);font-size:.88rem">⏳ Loading your progress from the cloud…</div>';
+  var data = await gistLoad();
+  var completed = data.completed || {{}};
+  var scores = data.scores || {{}};
+
   var done=0, total=45, html='';
   for(var i=1;i<=total;i++){{
-    var complete=!!localStorage.getItem(storageKey(i));
+    var complete=!!completed[i]||!!completed[String(i)];
     if(complete) done++;
     var topic=DAY_TOPICS[i]||'';
-    html+='<a href="day'+i+'.html" title="Day '+i+': '+topic+'" style="display:flex;flex-direction:column;align-items:center;justify-content:center;background:'+(complete?'var(--green)':'#fff')+';color:'+(complete?'#fff':'var(--text)')+';border:2px solid '+(complete?'var(--green)':'var(--border)')+';border-radius:10px;padding:.5rem .25rem;font-weight:800;font-size:.82rem;text-decoration:none;">'
-      +'<span style="font-size:1.1rem">'+(complete?'✅':'📖')+'</span>'
+    var sc=scores[i]||scores[String(i)];
+    var scoreLine=sc?'<span style="font-size:.65rem;font-weight:700;color:'+(complete?'rgba(255,255,255,.85)':'var(--purple)')+'">'+sc.earned+'/'+sc.total+'</span>':'';
+    var bg=complete?'linear-gradient(135deg,var(--green),#10B981)':'#fff';
+    html+='<a href="day'+i+'.html" title="Day '+i+': '+topic+'" style="display:flex;flex-direction:column;align-items:center;justify-content:center;background:'+bg+';color:'+(complete?'#fff':'var(--text)')+';border:2px solid '+(complete?'transparent':'var(--border)')+';border-radius:12px;padding:.5rem .25rem;font-weight:800;font-size:.82rem;text-decoration:none;box-shadow:'+(complete?'0 2px 8px rgba(5,150,105,.3)':'none')+';text-align:center;">'
+      +'<span style="font-size:1rem">'+(complete?'✅':'📖')+'</span>'
       +'<span>Day '+i+'</span>'
+      +scoreLine
       +'</a>';
   }}
   document.getElementById('day-tracker').innerHTML=html;
@@ -1537,11 +1539,11 @@ function loadProgress(){{
   document.getElementById('overall-fill').style.width=Math.round(done/total*100)+'%';
 }}
 
-function resetProgress(){{
-  if(confirm('Reset all your progress? This cannot be undone.')){{
-    var k=getStudentKey();
-    for(var i=1;i<=45;i++) localStorage.removeItem('day_complete_'+k+'_'+i);
-    loadProgress();
+async function resetProgress(){{
+  if(confirm('Reset ALL your progress? This cannot be undone.')){{
+    var ok=await gistSave({{}});
+    if(ok) loadProgress();
+    else alert('Could not reset — check your connection.');
   }}
 }}
 
@@ -1630,10 +1632,13 @@ def generate_index():
   // personalise
   document.getElementById('hero-sub').textContent=sess.name+"'s Junior Cycle Maths · The 3 Amigos Tuition Centre, Cork · Kildare · Limerick";
   var el=document.getElementById('nav-student-name');if(el)el.textContent=sess.name;
-  // load completion marks scoped to this student
-  document.querySelectorAll('[id^="mark-"]').forEach(function(el){
-    var day=el.id.replace('mark-','');
-    if(localStorage.getItem('day_complete_'+sess.key+'_'+day)) el.textContent='✅';
+  // load completion marks from Gist
+  gistLoad().then(function(data){
+    var completed=data.completed||{};
+    document.querySelectorAll('[id^="mark-"]').forEach(function(el){
+      var day=el.id.replace('mark-','');
+      if(completed[day]||completed[String(day)]) el.textContent='✅';
+    });
   });
 })();
 </script>
@@ -1770,9 +1775,13 @@ def generate_day_page(d):
   </div>
   {concept_html}
   {q_html}
-  <div style="display:flex;gap:.75rem;justify-content:space-between;align-items:center;flex-wrap:wrap;margin-top:2rem;padding-top:1rem;border-top:2px solid var(--border);">
+  <div id="loading-status" style="display:none;text-align:center;padding:.75rem;background:#EEF2FF;border-radius:10px;color:var(--navy);font-weight:700;font-size:.88rem;margin-top:1rem;">⏳ Loading your progress…</div>
+  <div style="display:flex;gap:.75rem;justify-content:space-between;align-items:center;flex-wrap:wrap;margin-top:1.25rem;padding-top:1rem;border-top:2px solid var(--border);">
     {prev_link}
-    <button class="btn btn-gold btn-lg" id="complete-btn-{day_num}" onclick="markComplete({day_num})">✅ Mark Day {day_num} Complete</button>
+    <div style="text-align:center;">
+      <button class="btn btn-gold btn-lg" id="complete-btn-{day_num}" onclick="markComplete({day_num})">✅ Mark Day {day_num} Complete</button>
+      <div><span id="save-status" style="display:none;font-size:.75rem;color:var(--green);font-weight:700;margin-top:.3rem;"></span></div>
+    </div>
     {next_link}
   </div>
 </div>
@@ -1796,21 +1805,11 @@ function toggleHint(day,q){{
   var el=document.getElementById('hint-'+day+'-'+q);
   el.style.display=el.style.display==='block'?'none':'block';
 }}
-function getKey(){{
-  var s=JSON.parse(sessionStorage.getItem('ptc_session')||'null');
-  return s?s.key:null;
+function showSaving(msg){{
+  var el=document.getElementById('save-status');
+  if(el){{el.textContent=msg;el.style.display='inline';setTimeout(function(){{el.style.display='none';}},2500);}}
 }}
-function submitAnswers(day,total){{
-  if(submitted) return;
-  var k=getKey(); if(!k) return;
-  // Save first-attempt answers
-  var answers={{}};
-  Object.keys(Q_MARKS).forEach(function(qn){{
-    var inp=document.getElementById('input-'+day+'-'+qn);
-    if(inp){{ answers[qn]=inp.value||''; inp.disabled=true; }}
-  }});
-  localStorage.setItem('answers_'+k+'_'+day, JSON.stringify({{ts:Date.now(),answers:answers}}));
-  // Reveal model answers + marking buttons
+function revealAndMark(day){{
   Object.keys(Q_MARKS).forEach(function(qn){{
     document.getElementById('ans-'+day+'-'+qn).style.display='block';
     var res=document.getElementById('result-'+day+'-'+qn);
@@ -1822,9 +1821,21 @@ function submitAnswers(day,total){{
   }});
   document.getElementById('submit-bar-'+day).style.display='none';
   document.getElementById('marking-section-'+day).style.display='block';
-  submitted=true;
 }}
-function markQ(day,qn,correct){{
+async function submitAnswers(day,total){{
+  if(submitted) return;
+  var answers={{}};
+  Object.keys(Q_MARKS).forEach(function(qn){{
+    var inp=document.getElementById('input-'+day+'-'+qn);
+    if(inp){{ answers[qn]=inp.value||''; inp.disabled=true; }}
+  }});
+  submitted=true;
+  showSaving('💾 Saving answers…');
+  await saveAnswers(day, answers);
+  showSaving('✅ Saved!');
+  revealAndMark(day);
+}}
+async function markQ(day,qn,correct){{
   markedQs[qn]=correct;
   var res=document.getElementById('result-'+day+'-'+qn);
   var m=Q_MARKS[qn];
@@ -1835,38 +1846,147 @@ function markQ(day,qn,correct){{
   var pct=TOTAL>0?Math.round(earnedMarks/TOTAL*100):0;
   var el=document.getElementById('score-num-'+day);
   if(el) el.textContent=earnedMarks+'/'+TOTAL+' ('+pct+'%)';
-  // Save score once all marked
-  var k=getKey();
-  if(k && Object.keys(markedQs).length===Object.keys(Q_MARKS).length){{
-    localStorage.setItem('score_'+k+'_'+day, JSON.stringify({{earned:earnedMarks,total:TOTAL,pct:pct,ts:Date.now()}}));
+  if(Object.keys(markedQs).length===Object.keys(Q_MARKS).length){{
+    showSaving('💾 Saving score…');
+    await saveScore(day, earnedMarks, TOTAL);
+    showSaving('✅ Score saved!');
   }}
 }}
-function markComplete(day){{
-  var k=getKey(); if(!k) return;
-  localStorage.setItem('day_complete_'+k+'_'+day,'1');
+async function markComplete(day){{
   var btn=document.getElementById('complete-btn-'+day);
-  if(btn){{btn.textContent='🎉 Day '+day+' Complete!';btn.style.background='var(--green)';btn.disabled=true;}}
+  if(btn){{btn.textContent='💾 Saving…';btn.disabled=true;}}
+  var ok=await markDayComplete(day);
+  if(btn){{
+    if(ok){{btn.textContent='🎉 Day '+day+' Complete!';btn.style.background='var(--green)';}}
+    else{{btn.textContent='✅ Mark Day '+day+' Complete';btn.disabled=false;alert('Could not save — check your connection and try again.');}}
+  }}
 }}
-// On load — restore state
-(function(){{
-  var k=getKey(); if(!k) return;
-  if(localStorage.getItem('day_complete_'+k+'_{day_num}')){{
+// On load — restore state from Gist
+(async function(){{
+  var loadingEl=document.getElementById('loading-status');
+  if(loadingEl) loadingEl.style.display='block';
+  var data=await gistLoad();
+  if(loadingEl) loadingEl.style.display='none';
+  // Restore completion
+  if(data.completed && data.completed['{day_num}']){{
     var btn=document.getElementById('complete-btn-{day_num}');
     if(btn){{btn.textContent='🎉 Day {day_num} Complete!';btn.style.background='var(--green)';btn.disabled=true;}}
   }}
-  var saved=localStorage.getItem('answers_'+k+'_{day_num}');
-  if(saved){{
-    var data=JSON.parse(saved);
-    var ans=data.answers||data;
+  // Restore previous answers
+  if(data.answers && data.answers['{day_num}']){{
+    var ans=data.answers['{day_num}'].answers||{{}};
     Object.keys(ans).forEach(function(qn){{
       var inp=document.getElementById('input-{day_num}-'+qn);
       if(inp) inp.value=ans[qn];
     }});
+    // If already submitted, restore marking state too
+    submitted=true;
+    revealAndMark({day_num});
+    if(data.scores && data.scores['{day_num}']){{
+      var sc=data.scores['{day_num}'];
+      var el=document.getElementById('score-num-{day_num}');
+      if(el) el.textContent=sc.earned+'/'+sc.total+' ('+sc.pct+'%)';
+    }}
   }}
 }})();
 </script>
 """
     return html_head(f"Day {day_num} · {d['topic']} · 3 Amigos Maths") + "<body>" + body + "</body></html>"
+
+def generate_gist_js():
+    """Shared Gist storage library — saved as gist_store.js in docs/"""
+    return """// gist_store.js — shared cloud storage via GitHub Gist
+// All progress/scores stored in student's personal Gist file
+
+function getSession() {
+  return JSON.parse(sessionStorage.getItem('ptc_session') || 'null');
+}
+
+async function gistLoad() {
+  var sess = getSession();
+  if (!sess || !sess.gist_id) return {};
+  try {
+    var res = await fetch('https://api.github.com/gists/' + sess.gist_id, {
+      headers: { 'Authorization': 'token ' + sess.token, 'Accept': 'application/vnd.github.v3+json' }
+    });
+    if (!res.ok) return {};
+    var data = await res.json();
+    var file = data.files[sess.gist_file];
+    if (!file || !file.content) return {};
+    return JSON.parse(file.content || '{}');
+  } catch(e) { console.error('gistLoad error', e); return {}; }
+}
+
+async function gistSave(obj) {
+  var sess = getSession();
+  if (!sess || !sess.gist_id) return false;
+  var files = {};
+  files[sess.gist_file] = { content: JSON.stringify(obj, null, 2) };
+  try {
+    var res = await fetch('https://api.github.com/gists/' + sess.gist_id, {
+      method: 'PATCH',
+      headers: {
+        'Authorization': 'token ' + sess.token,
+        'Accept': 'application/vnd.github.v3+json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ files: files })
+    });
+    return res.ok;
+  } catch(e) { console.error('gistSave error', e); return false; }
+}
+
+// Load data for a specific student (used by parent dashboard)
+async function gistLoadForStudent(gist_id, gist_file, token) {
+  try {
+    var res = await fetch('https://api.github.com/gists/' + gist_id, {
+      headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json' }
+    });
+    if (!res.ok) return {};
+    var data = await res.json();
+    var file = data.files[gist_file];
+    if (!file || !file.content) return {};
+    return JSON.parse(file.content || '{}');
+  } catch(e) { return {}; }
+}
+
+// High-level helpers
+async function markDayComplete(day) {
+  var data = await gistLoad();
+  if (!data.completed) data.completed = {};
+  data.completed[day] = { ts: Date.now() };
+  return gistSave(data);
+}
+
+async function isDayComplete(day) {
+  var data = await gistLoad();
+  return !!(data.completed && data.completed[day]);
+}
+
+async function saveScore(day, earned, total) {
+  var data = await gistLoad();
+  if (!data.scores) data.scores = {};
+  data.scores[day] = { earned: earned, total: total, pct: Math.round(earned/total*100), ts: Date.now() };
+  return gistSave(data);
+}
+
+async function saveAnswers(day, answers) {
+  var data = await gistLoad();
+  if (!data.answers) data.answers = {};
+  // Only save first attempt — don't overwrite if already saved
+  if (!data.answers[day]) {
+    data.answers[day] = { ts: Date.now(), answers: answers };
+    return gistSave(data);
+  }
+  return true;
+}
+
+async function getAnswers(day) {
+  var data = await gistLoad();
+  return (data.answers && data.answers[day]) ? data.answers[day].answers : null;
+}
+"""
+
 
 
 
@@ -1880,6 +2000,9 @@ def build():
 
     (OUT / "style.css").write_text(generate_css(), encoding="utf-8")
     print("  ✅ style.css")
+
+    (OUT / "gist_store.js").write_text(generate_gist_js(), encoding="utf-8")
+    print("  ✅ gist_store.js  (cloud storage via GitHub Gist)")
 
     (OUT / "login.html").write_text(generate_login(), encoding="utf-8")
     print("  ✅ login.html  (students + parents)")

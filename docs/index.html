@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Merriweather:wght@700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script src="gist_store.js"></script>
 
 </head><body>
 <script>
@@ -824,10 +825,13 @@ if(_s){var el=document.getElementById('nav-student-name');if(el)el.textContent=_
   // personalise
   document.getElementById('hero-sub').textContent=sess.name+"'s Junior Cycle Maths · The 3 Amigos Tuition Centre, Cork · Kildare · Limerick";
   var el=document.getElementById('nav-student-name');if(el)el.textContent=sess.name;
-  // load completion marks scoped to this student
-  document.querySelectorAll('[id^="mark-"]').forEach(function(el){
-    var day=el.id.replace('mark-','');
-    if(localStorage.getItem('day_complete_'+sess.key+'_'+day)) el.textContent='✅';
+  // load completion marks from Gist
+  gistLoad().then(function(data){
+    var completed=data.completed||{};
+    document.querySelectorAll('[id^="mark-"]').forEach(function(el){
+      var day=el.id.replace('mark-','');
+      if(completed[day]||completed[String(day)]) el.textContent='✅';
+    });
   });
 })();
 </script>

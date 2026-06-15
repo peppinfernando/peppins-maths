@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Merriweather:wght@700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script src="gist_store.js"></script>
 
 </head><body>
 
@@ -324,9 +325,13 @@ if(_s){var el=document.getElementById('nav-student-name');if(el)el.textContent=_
   </div>
 </div>
 
-  <div style="display:flex;gap:.75rem;justify-content:space-between;align-items:center;flex-wrap:wrap;margin-top:2rem;padding-top:1rem;border-top:2px solid var(--border);">
+  <div id="loading-status" style="display:none;text-align:center;padding:.75rem;background:#EEF2FF;border-radius:10px;color:var(--navy);font-weight:700;font-size:.88rem;margin-top:1rem;">⏳ Loading your progress…</div>
+  <div style="display:flex;gap:.75rem;justify-content:space-between;align-items:center;flex-wrap:wrap;margin-top:1.25rem;padding-top:1rem;border-top:2px solid var(--border);">
     <a href="day39.html" class="btn btn-primary">← Day 39</a>
-    <button class="btn btn-gold btn-lg" id="complete-btn-40" onclick="markComplete(40)">✅ Mark Day 40 Complete</button>
+    <div style="text-align:center;">
+      <button class="btn btn-gold btn-lg" id="complete-btn-40" onclick="markComplete(40)">✅ Mark Day 40 Complete</button>
+      <div><span id="save-status" style="display:none;font-size:.75rem;color:var(--green);font-weight:700;margin-top:.3rem;"></span></div>
+    </div>
     <a href="day41.html" class="btn btn-green">Day 41 →</a>
   </div>
 </div>
@@ -350,21 +355,11 @@ function toggleHint(day,q){
   var el=document.getElementById('hint-'+day+'-'+q);
   el.style.display=el.style.display==='block'?'none':'block';
 }
-function getKey(){
-  var s=JSON.parse(sessionStorage.getItem('ptc_session')||'null');
-  return s?s.key:null;
+function showSaving(msg){
+  var el=document.getElementById('save-status');
+  if(el){el.textContent=msg;el.style.display='inline';setTimeout(function(){el.style.display='none';},2500);}
 }
-function submitAnswers(day,total){
-  if(submitted) return;
-  var k=getKey(); if(!k) return;
-  // Save first-attempt answers
-  var answers={};
-  Object.keys(Q_MARKS).forEach(function(qn){
-    var inp=document.getElementById('input-'+day+'-'+qn);
-    if(inp){ answers[qn]=inp.value||''; inp.disabled=true; }
-  });
-  localStorage.setItem('answers_'+k+'_'+day, JSON.stringify({ts:Date.now(),answers:answers}));
-  // Reveal model answers + marking buttons
+function revealAndMark(day){
   Object.keys(Q_MARKS).forEach(function(qn){
     document.getElementById('ans-'+day+'-'+qn).style.display='block';
     var res=document.getElementById('result-'+day+'-'+qn);
@@ -376,9 +371,21 @@ function submitAnswers(day,total){
   });
   document.getElementById('submit-bar-'+day).style.display='none';
   document.getElementById('marking-section-'+day).style.display='block';
-  submitted=true;
 }
-function markQ(day,qn,correct){
+async function submitAnswers(day,total){
+  if(submitted) return;
+  var answers={};
+  Object.keys(Q_MARKS).forEach(function(qn){
+    var inp=document.getElementById('input-'+day+'-'+qn);
+    if(inp){ answers[qn]=inp.value||''; inp.disabled=true; }
+  });
+  submitted=true;
+  showSaving('💾 Saving answers…');
+  await saveAnswers(day, answers);
+  showSaving('✅ Saved!');
+  revealAndMark(day);
+}
+async function markQ(day,qn,correct){
   markedQs[qn]=correct;
   var res=document.getElementById('result-'+day+'-'+qn);
   var m=Q_MARKS[qn];
@@ -389,33 +396,47 @@ function markQ(day,qn,correct){
   var pct=TOTAL>0?Math.round(earnedMarks/TOTAL*100):0;
   var el=document.getElementById('score-num-'+day);
   if(el) el.textContent=earnedMarks+'/'+TOTAL+' ('+pct+'%)';
-  // Save score once all marked
-  var k=getKey();
-  if(k && Object.keys(markedQs).length===Object.keys(Q_MARKS).length){
-    localStorage.setItem('score_'+k+'_'+day, JSON.stringify({earned:earnedMarks,total:TOTAL,pct:pct,ts:Date.now()}));
+  if(Object.keys(markedQs).length===Object.keys(Q_MARKS).length){
+    showSaving('💾 Saving score…');
+    await saveScore(day, earnedMarks, TOTAL);
+    showSaving('✅ Score saved!');
   }
 }
-function markComplete(day){
-  var k=getKey(); if(!k) return;
-  localStorage.setItem('day_complete_'+k+'_'+day,'1');
+async function markComplete(day){
   var btn=document.getElementById('complete-btn-'+day);
-  if(btn){btn.textContent='🎉 Day '+day+' Complete!';btn.style.background='var(--green)';btn.disabled=true;}
+  if(btn){btn.textContent='💾 Saving…';btn.disabled=true;}
+  var ok=await markDayComplete(day);
+  if(btn){
+    if(ok){btn.textContent='🎉 Day '+day+' Complete!';btn.style.background='var(--green)';}
+    else{btn.textContent='✅ Mark Day '+day+' Complete';btn.disabled=false;alert('Could not save — check your connection and try again.');}
+  }
 }
-// On load — restore state
-(function(){
-  var k=getKey(); if(!k) return;
-  if(localStorage.getItem('day_complete_'+k+'_40')){
+// On load — restore state from Gist
+(async function(){
+  var loadingEl=document.getElementById('loading-status');
+  if(loadingEl) loadingEl.style.display='block';
+  var data=await gistLoad();
+  if(loadingEl) loadingEl.style.display='none';
+  // Restore completion
+  if(data.completed && data.completed['40']){
     var btn=document.getElementById('complete-btn-40');
     if(btn){btn.textContent='🎉 Day 40 Complete!';btn.style.background='var(--green)';btn.disabled=true;}
   }
-  var saved=localStorage.getItem('answers_'+k+'_40');
-  if(saved){
-    var data=JSON.parse(saved);
-    var ans=data.answers||data;
+  // Restore previous answers
+  if(data.answers && data.answers['40']){
+    var ans=data.answers['40'].answers||{};
     Object.keys(ans).forEach(function(qn){
       var inp=document.getElementById('input-40-'+qn);
       if(inp) inp.value=ans[qn];
     });
+    // If already submitted, restore marking state too
+    submitted=true;
+    revealAndMark(40);
+    if(data.scores && data.scores['40']){
+      var sc=data.scores['40'];
+      var el=document.getElementById('score-num-40');
+      if(el) el.textContent=sc.earned+'/'+sc.total+' ('+sc.pct+'%)';
+    }
   }
 })();
 </script>

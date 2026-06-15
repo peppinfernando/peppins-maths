@@ -75,27 +75,27 @@ if(_s){var el=document.getElementById('nav-student-name');if(el)el.textContent=_
 <script>
 const DAY_TOPICS = {"1": "Natural Numbers", "2": "Natural Numbers", "3": "Integers", "4": "Fractions", "5": "Decimals & Percentages", "6": "Number Systems & Sets", "7": "Applied Arithmetic", "8": "Algebra", "9": "Algebra", "10": "Algebra", "11": "Algebra", "12": "Algebra", "13": "Algebra", "14": "Patterns & Sequences", "15": "Functions", "16": "Algebra", "17": "Algebra Review", "18": "Geometry", "19": "Geometry", "20": "Geometry", "21": "Geometry", "22": "Geometry", "23": "Coordinate Geometry", "24": "Coordinate Geometry", "25": "Trigonometry", "26": "Trigonometry", "27": "Geometry", "28": "Coordinate Geometry", "29": "Statistics", "30": "Statistics", "31": "Statistics", "32": "Statistics", "33": "Probability", "34": "Probability", "35": "Probability", "36": "Statistics", "37": "Statistics & Probability", "38": "Statistics", "39": "Revision", "40": "Revision", "41": "Revision", "42": "Mock Exam", "43": "Mock Exam", "44": "Mock Exam", "45": "Final Day"};
 
-function getStudentKey(){
-  var sess = JSON.parse(sessionStorage.getItem('ptc_session')||'null');
-  return sess ? sess.key : null;
-}
-
-function storageKey(day){
-  return 'day_complete_' + getStudentKey() + '_' + day;
-}
-
-function loadProgress(){
+async function loadProgress(){
   var sess = JSON.parse(sessionStorage.getItem('ptc_session')||'null');
   if(sess) document.getElementById('progress-sub').textContent = sess.name + "'s journey through the 45-day programme";
 
+  document.getElementById('day-tracker').innerHTML='<div style="padding:1rem;color:var(--muted);font-size:.88rem">⏳ Loading your progress from the cloud…</div>';
+  var data = await gistLoad();
+  var completed = data.completed || {};
+  var scores = data.scores || {};
+
   var done=0, total=45, html='';
   for(var i=1;i<=total;i++){
-    var complete=!!localStorage.getItem(storageKey(i));
+    var complete=!!completed[i]||!!completed[String(i)];
     if(complete) done++;
     var topic=DAY_TOPICS[i]||'';
-    html+='<a href="day'+i+'.html" title="Day '+i+': '+topic+'" style="display:flex;flex-direction:column;align-items:center;justify-content:center;background:'+(complete?'var(--green)':'#fff')+';color:'+(complete?'#fff':'var(--text)')+';border:2px solid '+(complete?'var(--green)':'var(--border)')+';border-radius:10px;padding:.5rem .25rem;font-weight:800;font-size:.82rem;text-decoration:none;">'
-      +'<span style="font-size:1.1rem">'+(complete?'✅':'📖')+'</span>'
+    var sc=scores[i]||scores[String(i)];
+    var scoreLine=sc?'<span style="font-size:.65rem;font-weight:700;color:'+(complete?'rgba(255,255,255,.85)':'var(--purple)')+'">'+sc.earned+'/'+sc.total+'</span>':'';
+    var bg=complete?'linear-gradient(135deg,var(--green),#10B981)':'#fff';
+    html+='<a href="day'+i+'.html" title="Day '+i+': '+topic+'" style="display:flex;flex-direction:column;align-items:center;justify-content:center;background:'+bg+';color:'+(complete?'#fff':'var(--text)')+';border:2px solid '+(complete?'transparent':'var(--border)')+';border-radius:12px;padding:.5rem .25rem;font-weight:800;font-size:.82rem;text-decoration:none;box-shadow:'+(complete?'0 2px 8px rgba(5,150,105,.3)':'none')+';text-align:center;">'
+      +'<span style="font-size:1rem">'+(complete?'✅':'📖')+'</span>'
       +'<span>Day '+i+'</span>'
+      +scoreLine
       +'</a>';
   }
   document.getElementById('day-tracker').innerHTML=html;
@@ -106,11 +106,11 @@ function loadProgress(){
   document.getElementById('overall-fill').style.width=Math.round(done/total*100)+'%';
 }
 
-function resetProgress(){
-  if(confirm('Reset all your progress? This cannot be undone.')){
-    var k=getStudentKey();
-    for(var i=1;i<=45;i++) localStorage.removeItem('day_complete_'+k+'_'+i);
-    loadProgress();
+async function resetProgress(){
+  if(confirm('Reset ALL your progress? This cannot be undone.')){
+    var ok=await gistSave({});
+    if(ok) loadProgress();
+    else alert('Could not reset — check your connection.');
   }
 }
 

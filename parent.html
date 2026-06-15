@@ -73,32 +73,29 @@
 <script>
 const DAY_TOPICS = {"1": "Natural Numbers", "2": "Natural Numbers", "3": "Integers", "4": "Fractions", "5": "Decimals & Percentages", "6": "Number Systems & Sets", "7": "Applied Arithmetic", "8": "Algebra", "9": "Algebra", "10": "Algebra", "11": "Algebra", "12": "Algebra", "13": "Algebra", "14": "Patterns & Sequences", "15": "Functions", "16": "Algebra", "17": "Algebra Review", "18": "Geometry", "19": "Geometry", "20": "Geometry", "21": "Geometry", "22": "Geometry", "23": "Coordinate Geometry", "24": "Coordinate Geometry", "25": "Trigonometry", "26": "Trigonometry", "27": "Geometry", "28": "Coordinate Geometry", "29": "Statistics", "30": "Statistics", "31": "Statistics", "32": "Statistics", "33": "Probability", "34": "Probability", "35": "Probability", "36": "Statistics", "37": "Statistics & Probability", "38": "Statistics", "39": "Revision", "40": "Revision", "41": "Revision", "42": "Mock Exam", "43": "Mock Exam", "44": "Mock Exam", "45": "Final Day"};
 
-function loadParentDashboard(){
+async function loadParentDashboard(){
   var sess = JSON.parse(sessionStorage.getItem('ptc_session')||'null');
   if(!sess || sess.role!=='parent') return;
 
   document.getElementById('parent-greeting').textContent = 'Hi, ' + sess.name + '!';
   document.getElementById('dashboard-title').textContent = sess.child_name + "'s Progress Dashboard";
-  document.getElementById('dashboard-sub').textContent = "Viewing " + sess.child_name + "'s Junior Cycle Maths journey";
+  document.getElementById('dashboard-sub').textContent = "Viewing " + sess.child_name + "'s Junior Cycle Maths journey — live from the cloud";
   document.getElementById('progress-title').textContent = sess.child_name + "'s Overall Progress";
 
-  // Read child's localStorage — parent must be on same device OR child shares device
-  // Progress keys are prefixed with child's key
-  var childKey = sess.child_key;
-  var done = 0;
-  var total = 45;
-  var html = '';
+  document.getElementById('p-day-tracker').innerHTML = '<div style="padding:1rem;color:var(--muted);font-size:.88rem">⏳ Loading ' + sess.child_name + "'s progress…</div>";
 
+  // Load directly from child's Gist
+  var data = await gistLoadForStudent(sess.child_gist, sess.child_file, sess.token);
+  var completed = data.completed || {};
+  var scores    = data.scores    || {};
+
+  var done=0, total=45, html='';
   for(var i=1; i<=total; i++){
-    var complete = !!localStorage.getItem('day_complete_' + childKey + '_' + i);
+    var complete = !!completed[i]||!!completed[String(i)];
     if(complete) done++;
     var topic = DAY_TOPICS[i] || '';
-    var scoreData = localStorage.getItem('score_' + childKey + '_' + i);
-    var scoreLine = '';
-    if(scoreData) {
-      var sc = JSON.parse(scoreData);
-      scoreLine = '<span style="font-size:.65rem;margin-top:.1rem;font-weight:700;color:'+(complete?'rgba(255,255,255,.85)':'var(--purple)')+'">'+sc.earned+'/'+sc.total+'</span>';
-    }
+    var sc = scores[i]||scores[String(i)];
+    var scoreLine = sc ? '<span style="font-size:.65rem;margin-top:.1rem;font-weight:700;color:'+(complete?'rgba(255,255,255,.85)':'var(--purple)')+'">'+sc.earned+'/'+sc.total+' ('+sc.pct+'%)</span>' : '';
     var bg = complete ? 'linear-gradient(135deg,var(--green),#10B981)' : '#fff';
     html += '<div title="Day '+i+': '+topic+'" style="display:flex;flex-direction:column;align-items:center;justify-content:center;background:'+bg+';color:'+(complete?'#fff':'var(--text)')+';border:2px solid '+(complete?'transparent':'var(--border)')+';border-radius:12px;padding:.5rem .25rem;font-weight:800;font-size:.82rem;text-align:center;box-shadow:'+(complete?'0 2px 8px rgba(5,150,105,.3)':'none')+';">'
       + '<span style="font-size:1rem">'+(complete?'✅':'📖')+'</span>'
