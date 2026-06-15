@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Day 41 · Revision · Peppin's Maths</title>
+<title>Day 41 · Revision · 3 Amigos Maths</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Merriweather:wght@700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
@@ -24,7 +24,7 @@
   <div class="nav-brand">
     <span class="nav-logo">🍀</span>
     <div>
-      <div class="nav-title">Peppin's Maths</div>
+      <div class="nav-title">3 Amigos Maths</div>
       <div class="nav-sub">Junior Cycle · First Year</div>
     </div>
   </div>
@@ -47,22 +47,20 @@ function doLogout(){
 var _s=JSON.parse(sessionStorage.getItem('ptc_session')||'null');
 if(_s){var el=document.getElementById('nav-student-name');if(el)el.textContent=_s.name;}
 </script>
-<div style="background:#C0392B;color:#fff;padding:1.5rem 1.5rem 1rem;">
+<div style="background:linear-gradient(135deg,#C0392Bee,#C0392B99);color:#fff;padding:1.5rem 1.5rem 1.25rem;">
   <div style="max-width:900px;margin:0 auto;">
-    <a href="index.html" style="color:rgba(255,255,255,.7);font-size:.82rem;font-weight:700;">← Back to Home</a>
-    <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-top:.6rem;">
+    <a href="index.html" style="color:rgba(255,255,255,.75);font-size:.8rem;font-weight:700;display:inline-flex;align-items:center;gap:.3rem;margin-bottom:.75rem;">← Back to Home</a>
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
       <div>
-        <div style="font-size:.75rem;opacity:.7;font-weight:800;letter-spacing:.1em;text-transform:uppercase;">Day 41 of 45 · Revision</div>
-        <h1 style="font-family:'Merriweather',serif;font-size:clamp(1.3rem,3vw,2rem);margin:.3rem 0;">Revision</h1>
-        <div style="font-size:1rem;opacity:.85;">Statistics & Probability Rapid-Fire</div>
-        <div style="margin-top:.6rem;display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;">
-          <span class="level-badge" style="background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4)">Mixed</span>
-          <span style="font-size:.78rem;opacity:.7">10 questions · 33 marks total</span>
+        <div style="font-size:.68rem;opacity:.75;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.2rem;">Day 41 of 45 · Revision</div>
+        <h1 style="font-family:'Merriweather',serif;font-size:clamp(1.3rem,3vw,2rem);margin:.2rem 0;">Revision</h1>
+        <div style="font-size:.95rem;opacity:.85;margin-bottom:.6rem;">Statistics & Probability Rapid-Fire</div>
+        <div style="display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;">
+          <span style="background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.35);padding:.18rem .6rem;border-radius:20px;font-size:.72rem;font-weight:700;">Mixed</span>
+          <span style="font-size:.75rem;opacity:.75">10 questions · 33 marks total</span>
         </div>
       </div>
-      <div style="text-align:center;">
-        <div style="font-size:2.5rem;line-height:1">📝</div>
-      </div>
+      <div style="font-size:3rem;line-height:1;opacity:.9">📝</div>
     </div>
   </div>
 </div>
@@ -70,16 +68,16 @@ if(_s){var el=document.getElementById('nav-student-name');if(el)el.textContent=_
 <div class="container" style="max-width:900px;">
   <div class="tab-bar">
     <button class="tab active" onclick="switchTab('concept',this)">📖 Concept</button>
-    <button class="tab" onclick="switchTab('questions',this)">✏️ Practice Questions</button>
+    <button class="tab" onclick="switchTab('questions',this)">✏️ Practice (10Q · 33M)</button>
   </div>
   
 <div class="tab-content active" id="tab-concept">
   <div class="concept-section mt2">
-    <div class="section-label" style="color:#1565C0">📘 What is this topic?</div>
+    <div class="section-label" style="color:var(--navy)">📘 What is this topic?</div>
     <div class="explain-box"><p>Rapid-fire revision of Statistics and Probability (Days 29−38). These topics are consistently examined and well-rewarded.</p><p>STATS CHECKLIST: Mean (show steps), Median (ORDER data first!), IQR (Q3−Q1), Scatter (show mean point). PROBABILITY CHECKLIST: P(A)=f/total; complement 1−P(A); tree (×along, +across).</p></div>
   </div>
   <div class="concept-section">
-    <div class="section-label" style="color:var(--gold)">💡 Analogy — How to picture it</div>
+    <div class="section-label" style="color:var(--gold)">💡 Analogy</div>
     <div class="analogy-box"><p>Pre-flight checklist. You are confirming every instrument works before the flight. If any 'fails' (you can't do it), that's what to revise tonight.</p></div>
   </div>
   <div class="concept-section">
@@ -90,11 +88,11 @@ if(_s){var el=document.getElementById('nav-student-name');if(el)el.textContent=_
     </div>
   </div>
   <div class="concept-section">
-    <div class="section-label" style="color:#BF360C">⚠️ Common Mistakes</div>
+    <div class="section-label" style="color:var(--red)">⚠️ Common Mistakes</div>
     <div class="mistake-box"><ul style="padding-left:1.2rem"><li>Always ORDER data before finding median or quartiles</li><li>Without replacement: update BOTH total AND colour count after each draw</li><li>IQR=Q3−Q1 (not range, not Q2−Q1)</li></ul></div>
   </div>
   <div class="concept-section">
-    <div class="section-label" style="color:var(--navy)">📌 Key Formulae</div>
+    <div class="section-label" style="color:var(--purple)">📌 Key Formulae</div>
     <div class="formula-box"><code>All Stats & Probability formulae from Days 29−38</code></div>
   </div>
   <div class="tip-box mt2">
@@ -102,190 +100,322 @@ if(_s){var el=document.getElementById('nav-student-name');if(el)el.textContent=_
   </div>
 </div>
 
-  <div class="tab-content" id="tab-questions">
-
-<div class="question-card">
+  
+<div class="tab-content" id="tab-questions">
+  <div style="background:#EEF2FF;border:1px solid #C7D2FE;border-radius:12px;padding:1rem 1.25rem;margin:1rem 0;font-size:.88rem;color:#312E81;">
+    <strong>📝 How this works:</strong> Write your answer in each box, then click
+    <strong>Submit All Answers</strong>. Model answers will be revealed — mark yourself and
+    record your score for the day.
+  </div>
+  
+<div class="question-card" id="qcard-41-1">
   <div class="q-header">
     <span class="q-num">Q1</span>
-    <span style="flex:1;font-size:.9rem">Mean and median of: 4, 7, 2, 9, 3, 6, 8.</span>
+    <span style="flex:1;font-size:.9rem;line-height:1.5;padding:0 .5rem">Mean and median of: 4, 7, 2, 9, 3, 6, 8.</span>
     <span class="q-marks">2 marks</span>
+  </div>
+  <div class="q-input-area">
+    <div class="q-input-label">Your Answer</div>
+    <textarea class="q-input" id="input-41-1" rows="2" placeholder="Write your working and answer here…"></textarea>
   </div>
   <div class="q-hint" id="hint-41-1">💡 <em>Order data before finding median.</em></div>
-  <div class="q-answer" id="ans-41-1"><strong>✅ Answer:</strong> Mean≈5.57; Ordered: 2,3,4,6,7,8,9. Median=6</div>
   <div class="q-actions">
-    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-41-1')">💡 Hint</button>
-    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-41-1')">✅ Show Answer</button>
+    <button class="btn btn-hint btn-sm" onclick="toggleHint(41,1)">💡 Hint</button>
+  </div>
+  <div class="q-result" id="result-41-1"></div>
+  <div class="q-answer-reveal" id="ans-41-1">
+    <strong>✅ Model Answer:</strong> Mean≈5.57; Ordered: 2,3,4,6,7,8,9. Median=6
   </div>
 </div>
 
-<div class="question-card">
+<div class="question-card" id="qcard-41-2">
   <div class="q-header">
     <span class="q-num">Q2</span>
-    <span style="flex:1;font-size:.9rem">Bag: 3R, 4G, 5Y. P(red)?</span>
+    <span style="flex:1;font-size:.9rem;line-height:1.5;padding:0 .5rem">Bag: 3R, 4G, 5Y. P(red)?</span>
     <span class="q-marks">2 marks</span>
   </div>
+  <div class="q-input-area">
+    <div class="q-input-label">Your Answer</div>
+    <textarea class="q-input" id="input-41-2" rows="2" placeholder="Write your working and answer here…"></textarea>
+  </div>
   <div class="q-hint" id="hint-41-2">💡 <em>Favourable (3 red) ÷ total (12).</em></div>
-  <div class="q-answer" id="ans-41-2"><strong>✅ Answer:</strong> 3/12=1/4</div>
   <div class="q-actions">
-    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-41-2')">💡 Hint</button>
-    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-41-2')">✅ Show Answer</button>
+    <button class="btn btn-hint btn-sm" onclick="toggleHint(41,2)">💡 Hint</button>
+  </div>
+  <div class="q-result" id="result-41-2"></div>
+  <div class="q-answer-reveal" id="ans-41-2">
+    <strong>✅ Model Answer:</strong> 3/12=1/4
   </div>
 </div>
 
-<div class="question-card">
+<div class="question-card" id="qcard-41-3">
   <div class="q-header">
     <span class="q-num">Q3</span>
-    <span style="flex:1;font-size:.9rem">Fair die: P(score ≥ 4).</span>
+    <span style="flex:1;font-size:.9rem;line-height:1.5;padding:0 .5rem">Fair die: P(score ≥ 4).</span>
     <span class="q-marks">3 marks</span>
+  </div>
+  <div class="q-input-area">
+    <div class="q-input-label">Your Answer</div>
+    <textarea class="q-input" id="input-41-3" rows="2" placeholder="Write your working and answer here…"></textarea>
   </div>
   <div class="q-hint" id="hint-41-3">💡 <em>Count how many outcomes satisfy ≥4.</em></div>
-  <div class="q-answer" id="ans-41-3"><strong>✅ Answer:</strong> P(4)+P(5)+P(6)=3/6=1/2</div>
   <div class="q-actions">
-    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-41-3')">💡 Hint</button>
-    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-41-3')">✅ Show Answer</button>
+    <button class="btn btn-hint btn-sm" onclick="toggleHint(41,3)">💡 Hint</button>
+  </div>
+  <div class="q-result" id="result-41-3"></div>
+  <div class="q-answer-reveal" id="ans-41-3">
+    <strong>✅ Model Answer:</strong> P(4)+P(5)+P(6)=3/6=1/2
   </div>
 </div>
 
-<div class="question-card">
+<div class="question-card" id="qcard-41-4">
   <div class="q-header">
     <span class="q-num">Q4</span>
-    <span style="flex:1;font-size:.9rem">Two from Q2 bag (no replacement). P(both red).</span>
+    <span style="flex:1;font-size:.9rem;line-height:1.5;padding:0 .5rem">Two from Q2 bag (no replacement). P(both red).</span>
     <span class="q-marks">3 marks</span>
+  </div>
+  <div class="q-input-area">
+    <div class="q-input-label">Your Answer</div>
+    <textarea class="q-input" id="input-41-4" rows="2" placeholder="Write your working and answer here…"></textarea>
   </div>
   <div class="q-hint" id="hint-41-4">💡 <em>After taking one red: 11 left, 2 red.</em></div>
-  <div class="q-answer" id="ans-41-4"><strong>✅ Answer:</strong> 3/12×2/11=1/22</div>
   <div class="q-actions">
-    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-41-4')">💡 Hint</button>
-    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-41-4')">✅ Show Answer</button>
+    <button class="btn btn-hint btn-sm" onclick="toggleHint(41,4)">💡 Hint</button>
+  </div>
+  <div class="q-result" id="result-41-4"></div>
+  <div class="q-answer-reveal" id="ans-41-4">
+    <strong>✅ Model Answer:</strong> 3/12×2/11=1/22
   </div>
 </div>
 
-<div class="question-card">
+<div class="question-card" id="qcard-41-5">
   <div class="q-header">
     <span class="q-num">Q5</span>
-    <span style="flex:1;font-size:.9rem">P(one red, one green) from Q2 bag (no replacement).</span>
+    <span style="flex:1;font-size:.9rem;line-height:1.5;padding:0 .5rem">P(one red, one green) from Q2 bag (no replacement).</span>
     <span class="q-marks">3 marks</span>
   </div>
+  <div class="q-input-area">
+    <div class="q-input-label">Your Answer</div>
+    <textarea class="q-input" id="input-41-5" rows="2" placeholder="Write your working and answer here…"></textarea>
+  </div>
   <div class="q-hint" id="hint-41-5">💡 <em>Two orders: RG and GR. Add both probabilities.</em></div>
-  <div class="q-answer" id="ans-41-5"><strong>✅ Answer:</strong> P(RG)+P(GR)=(3/12)(4/11)+(4/12)(3/11)=2/11</div>
   <div class="q-actions">
-    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-41-5')">💡 Hint</button>
-    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-41-5')">✅ Show Answer</button>
+    <button class="btn btn-hint btn-sm" onclick="toggleHint(41,5)">💡 Hint</button>
+  </div>
+  <div class="q-result" id="result-41-5"></div>
+  <div class="q-answer-reveal" id="ans-41-5">
+    <strong>✅ Model Answer:</strong> P(RG)+P(GR)=(3/12)(4/11)+(4/12)(3/11)=2/11
   </div>
 </div>
 
-<div class="question-card">
+<div class="question-card" id="qcard-41-6">
   <div class="q-header">
     <span class="q-num">Q6</span>
-    <span style="flex:1;font-size:.9rem">Data: 3,1,4,2,3,5,2,1,3,4. Find mode, median and mean.</span>
+    <span style="flex:1;font-size:.9rem;line-height:1.5;padding:0 .5rem">Data: 3,1,4,2,3,5,2,1,3,4. Find mode, median and mean.</span>
     <span class="q-marks">4 marks</span>
+  </div>
+  <div class="q-input-area">
+    <div class="q-input-label">Your Answer</div>
+    <textarea class="q-input" id="input-41-6" rows="2" placeholder="Write your working and answer here…"></textarea>
   </div>
   <div class="q-hint" id="hint-41-6">💡 <em>Order data first for median!</em></div>
-  <div class="q-answer" id="ans-41-6"><strong>✅ Answer:</strong> Mode=3. Ordered: 1,1,2,2,3,3,3,4,4,5. Median=3. Mean=2.8</div>
   <div class="q-actions">
-    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-41-6')">💡 Hint</button>
-    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-41-6')">✅ Show Answer</button>
+    <button class="btn btn-hint btn-sm" onclick="toggleHint(41,6)">💡 Hint</button>
+  </div>
+  <div class="q-result" id="result-41-6"></div>
+  <div class="q-answer-reveal" id="ans-41-6">
+    <strong>✅ Model Answer:</strong> Mode=3. Ordered: 1,1,2,2,3,3,3,4,4,5. Median=3. Mean=2.8
   </div>
 </div>
 
-<div class="question-card">
+<div class="question-card" id="qcard-41-7">
   <div class="q-header">
     <span class="q-num">Q7</span>
-    <span style="flex:1;font-size:.9rem">x=(1,2,3,4,5), y=(2,4,5,7,9). Describe correlation and find mean point.</span>
+    <span style="flex:1;font-size:.9rem;line-height:1.5;padding:0 .5rem">x=(1,2,3,4,5), y=(2,4,5,7,9). Describe correlation and find mean point.</span>
     <span class="q-marks">4 marks</span>
+  </div>
+  <div class="q-input-area">
+    <div class="q-input-label">Your Answer</div>
+    <textarea class="q-input" id="input-41-7" rows="2" placeholder="Write your working and answer here…"></textarea>
   </div>
   <div class="q-hint" id="hint-41-7">💡 <em>The line of best fit must pass through the mean point.</em></div>
-  <div class="q-answer" id="ans-41-7"><strong>✅ Answer:</strong> Strong positive. x̄=3, ȳ=5.4. Mean point (3,5.4)</div>
   <div class="q-actions">
-    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-41-7')">💡 Hint</button>
-    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-41-7')">✅ Show Answer</button>
+    <button class="btn btn-hint btn-sm" onclick="toggleHint(41,7)">💡 Hint</button>
+  </div>
+  <div class="q-result" id="result-41-7"></div>
+  <div class="q-answer-reveal" id="ans-41-7">
+    <strong>✅ Model Answer:</strong> Strong positive. x̄=3, ȳ=5.4. Mean point (3,5.4)
   </div>
 </div>
 
-<div class="question-card">
+<div class="question-card" id="qcard-41-8">
   <div class="q-header">
     <span class="q-num">Q8</span>
-    <span style="flex:1;font-size:.9rem">Team wins with P=0.6. Next 2 games: P(win both), P(lose both), P(one each).</span>
+    <span style="flex:1;font-size:.9rem;line-height:1.5;padding:0 .5rem">Team wins with P=0.6. Next 2 games: P(win both), P(lose both), P(one each).</span>
     <span class="q-marks">4 marks</span>
+  </div>
+  <div class="q-input-area">
+    <div class="q-input-label">Your Answer</div>
+    <textarea class="q-input" id="input-41-8" rows="2" placeholder="Write your working and answer here…"></textarea>
   </div>
   <div class="q-hint" id="hint-41-8">💡 <em>Independent events: multiply probabilities. One each=P(WL)+P(LW).</em></div>
-  <div class="q-answer" id="ans-41-8"><strong>✅ Answer:</strong> P(WW)=0.36; P(LL)=0.16; P(one each)=0.48</div>
   <div class="q-actions">
-    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-41-8')">💡 Hint</button>
-    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-41-8')">✅ Show Answer</button>
+    <button class="btn btn-hint btn-sm" onclick="toggleHint(41,8)">💡 Hint</button>
+  </div>
+  <div class="q-result" id="result-41-8"></div>
+  <div class="q-answer-reveal" id="ans-41-8">
+    <strong>✅ Model Answer:</strong> P(WW)=0.36; P(LL)=0.16; P(one each)=0.48
   </div>
 </div>
 
-<div class="question-card">
+<div class="question-card" id="qcard-41-9">
   <div class="q-header">
     <span class="q-num">Q9</span>
-    <span style="flex:1;font-size:.9rem">Game: win €2(p=0.3), break even(p=0.5), lose €1(p=0.2). Expected gain.</span>
+    <span style="flex:1;font-size:.9rem;line-height:1.5;padding:0 .5rem">Game: win €2(p=0.3), break even(p=0.5), lose €1(p=0.2). Expected gain.</span>
     <span class="q-marks">4 marks</span>
+  </div>
+  <div class="q-input-area">
+    <div class="q-input-label">Your Answer</div>
+    <textarea class="q-input" id="input-41-9" rows="2" placeholder="Write your working and answer here…"></textarea>
   </div>
   <div class="q-hint" id="hint-41-9">💡 <em>E(X)=Σ[x×P(x)]=2(0.3)+0(0.5)+(−1)(0.2)</em></div>
-  <div class="q-answer" id="ans-41-9"><strong>✅ Answer:</strong> E(X)=0.6+0−0.2=€0.40 per game</div>
   <div class="q-actions">
-    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-41-9')">💡 Hint</button>
-    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-41-9')">✅ Show Answer</button>
+    <button class="btn btn-hint btn-sm" onclick="toggleHint(41,9)">💡 Hint</button>
+  </div>
+  <div class="q-result" id="result-41-9"></div>
+  <div class="q-answer-reveal" id="ans-41-9">
+    <strong>✅ Model Answer:</strong> E(X)=0.6+0−0.2=€0.40 per game
   </div>
 </div>
 
-<div class="question-card">
+<div class="question-card" id="qcard-41-10">
   <div class="q-header">
     <span class="q-num">Q10</span>
-    <span style="flex:1;font-size:.9rem">Find IQR for: 23,15,29,18,35,20,27,12,31,24. Any outliers? (Use 1.5×IQR rule)</span>
+    <span style="flex:1;font-size:.9rem;line-height:1.5;padding:0 .5rem">Find IQR for: 23,15,29,18,35,20,27,12,31,24. Any outliers? (Use 1.5×IQR rule)</span>
     <span class="q-marks">4 marks</span>
   </div>
+  <div class="q-input-area">
+    <div class="q-input-label">Your Answer</div>
+    <textarea class="q-input" id="input-41-10" rows="2" placeholder="Write your working and answer here…"></textarea>
+  </div>
   <div class="q-hint" id="hint-41-10">💡 <em>Q1=median of lower half; Q3=median of upper half. Outlier if outside Q1−1.5×IQR or Q3+1.5×IQR.</em></div>
-  <div class="q-answer" id="ans-41-10"><strong>✅ Answer:</strong> Q1=18, Q3=27. IQR=9. Fences: 4.5 and 40.5. No outliers.</div>
   <div class="q-actions">
-    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-41-10')">💡 Hint</button>
-    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-41-10')">✅ Show Answer</button>
+    <button class="btn btn-hint btn-sm" onclick="toggleHint(41,10)">💡 Hint</button>
+  </div>
+  <div class="q-result" id="result-41-10"></div>
+  <div class="q-answer-reveal" id="ans-41-10">
+    <strong>✅ Model Answer:</strong> Q1=18, Q3=27. IQR=9. Fences: 4.5 and 40.5. No outliers.
   </div>
 </div>
+
+  <div class="submit-bar" id="submit-bar-41">
+    <h3>Ready to check your answers?</h3>
+    <p>Click submit to reveal model answers and mark yourself.</p>
+    <button class="btn btn-primary btn-lg" onclick="submitAnswers(41,33)">✅ Submit All Answers</button>
+  </div>
+  <div id="marking-section-41" style="display:none">
+    <div class="score-card" id="score-display-41">
+      <div class="score-big" id="score-num-41">0/33</div>
+      <div class="score-label">marks — tap ✅ Got it or ❌ Wrong on each question below</div>
+    </div>
+    <div style="background:#F0FDF4;border:2px solid #6EE7B7;border-radius:12px;padding:.9rem 1.1rem;margin-bottom:1rem;font-size:.85rem;color:#065F46;">
+      <strong>How to mark:</strong> Read the model answer shown under each question and tap whether you got it right or wrong. Your score is saved automatically.
+    </div>
+  </div>
 </div>
 
-  <div style="display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wrap;margin-top:2rem;padding-top:1rem;border-top:2px solid var(--border);">
+  <div style="display:flex;gap:.75rem;justify-content:space-between;align-items:center;flex-wrap:wrap;margin-top:2rem;padding-top:1rem;border-top:2px solid var(--border);">
     <a href="day40.html" class="btn btn-primary">← Day 40</a>
-    <button class="btn btn-gold" id="complete-btn" onclick="markComplete(41)">✅ Mark Day 41 Complete</button>
+    <button class="btn btn-gold btn-lg" id="complete-btn-41" onclick="markComplete(41)">✅ Mark Day 41 Complete</button>
     <a href="day42.html" class="btn btn-green">Day 42 →</a>
   </div>
 </div>
 
-<footer style="background:var(--navy);color:rgba(255,255,255,.7);text-align:center;padding:1.5rem;font-size:.82rem;margin-top:3rem;">
-  <strong style="color:#fff">Peppin's Tuition Centre, Cork</strong> · Day 41 · Revision
+<footer>
+  <strong>The 3 Amigos Tuition Centre, Cork · Kildare · Limerick</strong> · Day 41 · Revision
 </footer>
 
 <script>
+var DAY=41, TOTAL=33;
+var Q_MARKS={"1": 2, "2": 2, "3": 3, "4": 3, "5": 3, "6": 4, "7": 4, "8": 4, "9": 4, "10": 4};
+var submitted=false, markedQs={}, earnedMarks=0;
+
 function switchTab(name,btn){
-  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
-  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(function(t){t.classList.remove('active');});
+  document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active');});
   document.getElementById('tab-'+name).classList.add('active');
   btn.classList.add('active');
 }
-function toggleEl(id){
-  var el=document.getElementById(id);
+function toggleHint(day,q){
+  var el=document.getElementById('hint-'+day+'-'+q);
   el.style.display=el.style.display==='block'?'none':'block';
 }
-function getStudentKey(){
-  var sess=JSON.parse(sessionStorage.getItem('ptc_session')||'null');
-  return sess?sess.key:null;
+function getKey(){
+  var s=JSON.parse(sessionStorage.getItem('ptc_session')||'null');
+  return s?s.key:null;
+}
+function submitAnswers(day,total){
+  if(submitted) return;
+  var k=getKey(); if(!k) return;
+  // Save first-attempt answers
+  var answers={};
+  Object.keys(Q_MARKS).forEach(function(qn){
+    var inp=document.getElementById('input-'+day+'-'+qn);
+    if(inp){ answers[qn]=inp.value||''; inp.disabled=true; }
+  });
+  localStorage.setItem('answers_'+k+'_'+day, JSON.stringify({ts:Date.now(),answers:answers}));
+  // Reveal model answers + marking buttons
+  Object.keys(Q_MARKS).forEach(function(qn){
+    document.getElementById('ans-'+day+'-'+qn).style.display='block';
+    var res=document.getElementById('result-'+day+'-'+qn);
+    res.style.display='flex';
+    res.className='q-result';
+    res.innerHTML='<span style="flex:1;font-size:.82rem;font-weight:600">Mark this question:</span>'
+      +'<button class="btn btn-green btn-sm" onclick="markQ('+day+','+qn+',true)">✅ Got it</button>'
+      +'<button class="btn btn-red btn-sm" style="margin-left:.35rem" onclick="markQ('+day+','+qn+',false)">❌ Wrong</button>';
+  });
+  document.getElementById('submit-bar-'+day).style.display='none';
+  document.getElementById('marking-section-'+day).style.display='block';
+  submitted=true;
+}
+function markQ(day,qn,correct){
+  markedQs[qn]=correct;
+  var res=document.getElementById('result-'+day+'-'+qn);
+  var m=Q_MARKS[qn];
+  if(correct){ res.className='q-result correct'; res.innerHTML='✅ Correct! +'+m+' mark'+(m>1?'s':''); }
+  else { res.className='q-result incorrect'; res.innerHTML='❌ Incorrect — review the model answer above'; }
+  earnedMarks=0;
+  Object.keys(markedQs).forEach(function(q){ if(markedQs[q]) earnedMarks+=Q_MARKS[q]; });
+  var pct=TOTAL>0?Math.round(earnedMarks/TOTAL*100):0;
+  var el=document.getElementById('score-num-'+day);
+  if(el) el.textContent=earnedMarks+'/'+TOTAL+' ('+pct+'%)';
+  // Save score once all marked
+  var k=getKey();
+  if(k && Object.keys(markedQs).length===Object.keys(Q_MARKS).length){
+    localStorage.setItem('score_'+k+'_'+day, JSON.stringify({earned:earnedMarks,total:TOTAL,pct:pct,ts:Date.now()}));
+  }
 }
 function markComplete(day){
-  var k=getStudentKey();
-  if(!k) return;
+  var k=getKey(); if(!k) return;
   localStorage.setItem('day_complete_'+k+'_'+day,'1');
-  var btn=document.getElementById('complete-btn');
-  btn.textContent='🎉 Day '+day+' Complete!';
-  btn.style.background='var(--green)';
-  btn.disabled=true;
+  var btn=document.getElementById('complete-btn-'+day);
+  if(btn){btn.textContent='🎉 Day '+day+' Complete!';btn.style.background='var(--green)';btn.disabled=true;}
 }
-// Check if already complete
+// On load — restore state
 (function(){
-  var k=getStudentKey();
-  if(k && localStorage.getItem('day_complete_'+k+'_41')){
-    var btn=document.getElementById('complete-btn');
+  var k=getKey(); if(!k) return;
+  if(localStorage.getItem('day_complete_'+k+'_41')){
+    var btn=document.getElementById('complete-btn-41');
     if(btn){btn.textContent='🎉 Day 41 Complete!';btn.style.background='var(--green)';btn.disabled=true;}
+  }
+  var saved=localStorage.getItem('answers_'+k+'_41');
+  if(saved){
+    var data=JSON.parse(saved);
+    var ans=data.answers||data;
+    Object.keys(ans).forEach(function(qn){
+      var inp=document.getElementById('input-41-'+qn);
+      if(inp) inp.value=ans[qn];
+    });
   }
 })();
 </script>

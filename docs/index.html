@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Peppin's Maths · Home</title>
+<title>3 Amigos Maths · Home</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Merriweather:wght@700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
@@ -23,7 +23,7 @@
   <div class="nav-brand">
     <span class="nav-logo">🍀</span>
     <div>
-      <div class="nav-title">Peppin's Maths</div>
+      <div class="nav-title">3 Amigos Maths</div>
       <div class="nav-sub">Junior Cycle · First Year</div>
     </div>
   </div>
@@ -49,7 +49,7 @@ if(_s){var el=document.getElementById('nav-student-name');if(el)el.textContent=_
 <div class="page-hero">
   <div style="font-size:2.5rem;margin-bottom:.5rem">📐 🔢 📊</div>
   <h1>Junior Cycle Mathematics</h1>
-  <p id="hero-sub">Peppin's Tuition Centre, Cork · First Year · 45-Day Study Programme</p>
+  <p id="hero-sub">The 3 Amigos Tuition Centre, Cork · Kildare · Limerick · First Year · 45-Day Study Programme</p>
   <div style="display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin-top:1.25rem;">
     <a href="plan.html" class="btn btn-gold btn-lg">📅 View 45-Day Plan</a>
     <a href="quiz.html" class="btn btn-primary btn-lg" style="background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.4);">⚡ Quick Quiz</a>
@@ -812,7 +812,7 @@ if(_s){var el=document.getElementById('nav-student-name');if(el)el.textContent=_
   </div>
 </div>
   <footer style="background:var(--navy);color:rgba(255,255,255,.7);text-align:center;padding:1.5rem;font-size:.82rem;margin-top:3rem;">
-    <strong style="color:#fff">Peppin's Tuition Centre, Cork</strong> · Junior Cycle Mathematics · 45-Day Tuition Programme
+    <strong style="color:#fff">The 3 Amigos Tuition Centre, Cork · Kildare · Limerick</strong> · Junior Cycle Mathematics · 45-Day Tuition Programme
   </footer>
 
 <script>
@@ -822,7 +822,7 @@ if(_s){var el=document.getElementById('nav-student-name');if(el)el.textContent=_
   if(!sess){location.replace('login.html');return;}
   if(sess.role==='parent'){location.replace('parent.html');return;}
   // personalise
-  document.getElementById('hero-sub').textContent=sess.name+"'s Junior Cycle Maths · Peppin's Tuition Centre, Cork";
+  document.getElementById('hero-sub').textContent=sess.name+"'s Junior Cycle Maths · The 3 Amigos Tuition Centre, Cork · Kildare · Limerick";
   var el=document.getElementById('nav-student-name');if(el)el.textContent=sess.name;
   // load completion marks scoped to this student
   document.querySelectorAll('[id^="mark-"]').forEach(function(el){

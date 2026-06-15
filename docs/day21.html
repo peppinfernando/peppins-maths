@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Day 21 · Geometry · Peppin's Maths</title>
+<title>Day 21 · Geometry · 3 Amigos Maths</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Merriweather:wght@700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
@@ -24,7 +24,7 @@
   <div class="nav-brand">
     <span class="nav-logo">🍀</span>
     <div>
-      <div class="nav-title">Peppin's Maths</div>
+      <div class="nav-title">3 Amigos Maths</div>
       <div class="nav-sub">Junior Cycle · First Year</div>
     </div>
   </div>
@@ -47,22 +47,20 @@ function doLogout(){
 var _s=JSON.parse(sessionStorage.getItem('ptc_session')||'null');
 if(_s){var el=document.getElementById('nav-student-name');if(el)el.textContent=_s.name;}
 </script>
-<div style="background:#B8860B;color:#fff;padding:1.5rem 1.5rem 1rem;">
+<div style="background:linear-gradient(135deg,#B8860Bee,#B8860B99);color:#fff;padding:1.5rem 1.5rem 1.25rem;">
   <div style="max-width:900px;margin:0 auto;">
-    <a href="index.html" style="color:rgba(255,255,255,.7);font-size:.82rem;font-weight:700;">← Back to Home</a>
-    <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-top:.6rem;">
+    <a href="index.html" style="color:rgba(255,255,255,.75);font-size:.8rem;font-weight:700;display:inline-flex;align-items:center;gap:.3rem;margin-bottom:.75rem;">← Back to Home</a>
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
       <div>
-        <div style="font-size:.75rem;opacity:.7;font-weight:800;letter-spacing:.1em;text-transform:uppercase;">Day 21 of 45 · Geometry</div>
-        <h1 style="font-family:'Merriweather',serif;font-size:clamp(1.3rem,3vw,2rem);margin:.3rem 0;">Geometry</h1>
-        <div style="font-size:1rem;opacity:.85;">Area & Perimeter of 2D Shapes</div>
-        <div style="margin-top:.6rem;display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;">
-          <span class="level-badge" style="background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4)">Foundation→Ordinary</span>
-          <span style="font-size:.78rem;opacity:.7">6 questions · 21 marks total</span>
+        <div style="font-size:.68rem;opacity:.75;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.2rem;">Day 21 of 45 · Geometry</div>
+        <h1 style="font-family:'Merriweather',serif;font-size:clamp(1.3rem,3vw,2rem);margin:.2rem 0;">Geometry</h1>
+        <div style="font-size:.95rem;opacity:.85;margin-bottom:.6rem;">Area & Perimeter of 2D Shapes</div>
+        <div style="display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;">
+          <span style="background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.35);padding:.18rem .6rem;border-radius:20px;font-size:.72rem;font-weight:700;">Foundation→Ordinary</span>
+          <span style="font-size:.75rem;opacity:.75">6 questions · 21 marks total</span>
         </div>
       </div>
-      <div style="text-align:center;">
-        <div style="font-size:2.5rem;line-height:1">📐</div>
-      </div>
+      <div style="font-size:3rem;line-height:1;opacity:.9">📐</div>
     </div>
   </div>
 </div>
@@ -70,16 +68,16 @@ if(_s){var el=document.getElementById('nav-student-name');if(el)el.textContent=_
 <div class="container" style="max-width:900px;">
   <div class="tab-bar">
     <button class="tab active" onclick="switchTab('concept',this)">📖 Concept</button>
-    <button class="tab" onclick="switchTab('questions',this)">✏️ Practice Questions</button>
+    <button class="tab" onclick="switchTab('questions',this)">✏️ Practice (6Q · 21M)</button>
   </div>
   
 <div class="tab-content active" id="tab-concept">
   <div class="concept-section mt2">
-    <div class="section-label" style="color:#1565C0">📘 What is this topic?</div>
+    <div class="section-label" style="color:var(--navy)">📘 What is this topic?</div>
     <div class="explain-box"><p>PERIMETER=distance around outside (linear units: cm, m). AREA=space covered (square units: cm², m²).</p><p>Sector: fraction of full circle. Sector area=(θ/360)×πr². Arc length=(θ/360)×2πr. Perimeter of sector=arc+2 radii.</p><p>All formulae are in the Tables booklet — know WHICH to choose and HOW to use it.</p></div>
   </div>
   <div class="concept-section">
-    <div class="section-label" style="color:var(--gold)">💡 Analogy — How to picture it</div>
+    <div class="section-label" style="color:var(--gold)">💡 Analogy</div>
     <div class="analogy-box"><p>Area is how much paint you need to cover a surface. Perimeter is how much frame goes around the edge. 'How much carpet?'=area. 'How much fencing?'=perimeter.</p></div>
   </div>
   <div class="concept-section">
@@ -90,11 +88,11 @@ if(_s){var el=document.getElementById('nav-student-name');if(el)el.textContent=_
     </div>
   </div>
   <div class="concept-section">
-    <div class="section-label" style="color:#BF360C">⚠️ Common Mistakes</div>
+    <div class="section-label" style="color:var(--red)">⚠️ Common Mistakes</div>
     <div class="mistake-box"><ul style="padding-left:1.2rem"><li>Triangle area=½×base×HEIGHT (perpendicular height, not slant!)</li><li>Always include units: cm² for area, cm for perimeter</li><li>Sector perimeter=arc+TWO radii</li></ul></div>
   </div>
   <div class="concept-section">
-    <div class="section-label" style="color:var(--navy)">📌 Key Formulae</div>
+    <div class="section-label" style="color:var(--purple)">📌 Key Formulae</div>
     <div class="formula-box"><code>Triangle: A=½bh</code><code>Circle: A=πr²; C=2πr</code><code>Trapezium: A=½(a+b)h</code><code>Sector: A=(θ/360)πr²; Arc=(θ/360)2πr</code></div>
   </div>
   <div class="tip-box mt2">
@@ -102,134 +100,242 @@ if(_s){var el=document.getElementById('nav-student-name');if(el)el.textContent=_
   </div>
 </div>
 
-  <div class="tab-content" id="tab-questions">
-
-<div class="question-card">
+  
+<div class="tab-content" id="tab-questions">
+  <div style="background:#EEF2FF;border:1px solid #C7D2FE;border-radius:12px;padding:1rem 1.25rem;margin:1rem 0;font-size:.88rem;color:#312E81;">
+    <strong>📝 How this works:</strong> Write your answer in each box, then click
+    <strong>Submit All Answers</strong>. Model answers will be revealed — mark yourself and
+    record your score for the day.
+  </div>
+  
+<div class="question-card" id="qcard-21-1">
   <div class="q-header">
     <span class="q-num">Q1</span>
-    <span style="flex:1;font-size:.9rem">Find the area of a triangle with base 10cm and height 6cm.</span>
+    <span style="flex:1;font-size:.9rem;line-height:1.5;padding:0 .5rem">Find the area of a triangle with base 10cm and height 6cm.</span>
     <span class="q-marks">2 marks</span>
   </div>
+  <div class="q-input-area">
+    <div class="q-input-label">Your Answer</div>
+    <textarea class="q-input" id="input-21-1" rows="2" placeholder="Write your working and answer here…"></textarea>
+  </div>
   <div class="q-hint" id="hint-21-1">💡 <em>A=½×base×height (perpendicular height).</em></div>
-  <div class="q-answer" id="ans-21-1"><strong>✅ Answer:</strong> A=½×10×6=30 cm²</div>
   <div class="q-actions">
-    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-21-1')">💡 Hint</button>
-    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-21-1')">✅ Show Answer</button>
+    <button class="btn btn-hint btn-sm" onclick="toggleHint(21,1)">💡 Hint</button>
+  </div>
+  <div class="q-result" id="result-21-1"></div>
+  <div class="q-answer-reveal" id="ans-21-1">
+    <strong>✅ Model Answer:</strong> A=½×10×6=30 cm²
   </div>
 </div>
 
-<div class="question-card">
+<div class="question-card" id="qcard-21-2">
   <div class="q-header">
     <span class="q-num">Q2</span>
-    <span style="flex:1;font-size:.9rem">Find area and circumference of a circle radius 7cm.</span>
+    <span style="flex:1;font-size:.9rem;line-height:1.5;padding:0 .5rem">Find area and circumference of a circle radius 7cm.</span>
     <span class="q-marks">3 marks</span>
+  </div>
+  <div class="q-input-area">
+    <div class="q-input-label">Your Answer</div>
+    <textarea class="q-input" id="input-21-2" rows="2" placeholder="Write your working and answer here…"></textarea>
   </div>
   <div class="q-hint" id="hint-21-2">💡 <em>A=πr² and C=2πr with r=7.</em></div>
-  <div class="q-answer" id="ans-21-2"><strong>✅ Answer:</strong> A=49π≈153.94 cm²; C=14π≈43.98 cm</div>
   <div class="q-actions">
-    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-21-2')">💡 Hint</button>
-    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-21-2')">✅ Show Answer</button>
+    <button class="btn btn-hint btn-sm" onclick="toggleHint(21,2)">💡 Hint</button>
+  </div>
+  <div class="q-result" id="result-21-2"></div>
+  <div class="q-answer-reveal" id="ans-21-2">
+    <strong>✅ Model Answer:</strong> A=49π≈153.94 cm²; C=14π≈43.98 cm
   </div>
 </div>
 
-<div class="question-card">
+<div class="question-card" id="qcard-21-3">
   <div class="q-header">
     <span class="q-num">Q3</span>
-    <span style="flex:1;font-size:.9rem">Trapezium: parallel sides 5cm and 9cm, height 4cm. Find area.</span>
+    <span style="flex:1;font-size:.9rem;line-height:1.5;padding:0 .5rem">Trapezium: parallel sides 5cm and 9cm, height 4cm. Find area.</span>
     <span class="q-marks">3 marks</span>
   </div>
+  <div class="q-input-area">
+    <div class="q-input-label">Your Answer</div>
+    <textarea class="q-input" id="input-21-3" rows="2" placeholder="Write your working and answer here…"></textarea>
+  </div>
   <div class="q-hint" id="hint-21-3">💡 <em>A=½(a+b)×h where a and b are the parallel sides.</em></div>
-  <div class="q-answer" id="ans-21-3"><strong>✅ Answer:</strong> A=½(5+9)×4=28 cm²</div>
   <div class="q-actions">
-    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-21-3')">💡 Hint</button>
-    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-21-3')">✅ Show Answer</button>
+    <button class="btn btn-hint btn-sm" onclick="toggleHint(21,3)">💡 Hint</button>
+  </div>
+  <div class="q-result" id="result-21-3"></div>
+  <div class="q-answer-reveal" id="ans-21-3">
+    <strong>✅ Model Answer:</strong> A=½(5+9)×4=28 cm²
   </div>
 </div>
 
-<div class="question-card">
+<div class="question-card" id="qcard-21-4">
   <div class="q-header">
     <span class="q-num">Q4</span>
-    <span style="flex:1;font-size:.9rem">Sector: radius 8cm, angle 120°. Find area and arc length.</span>
+    <span style="flex:1;font-size:.9rem;line-height:1.5;padding:0 .5rem">Sector: radius 8cm, angle 120°. Find area and arc length.</span>
     <span class="q-marks">4 marks</span>
+  </div>
+  <div class="q-input-area">
+    <div class="q-input-label">Your Answer</div>
+    <textarea class="q-input" id="input-21-4" rows="2" placeholder="Write your working and answer here…"></textarea>
   </div>
   <div class="q-hint" id="hint-21-4">💡 <em>Calculate the fraction of the full circle first (120/360=1/3).</em></div>
-  <div class="q-answer" id="ans-21-4"><strong>✅ Answer:</strong> Area=(120/360)×64π=64π/3≈67.02 cm²; Arc=(120/360)×16π≈16.76 cm</div>
   <div class="q-actions">
-    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-21-4')">💡 Hint</button>
-    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-21-4')">✅ Show Answer</button>
+    <button class="btn btn-hint btn-sm" onclick="toggleHint(21,4)">💡 Hint</button>
+  </div>
+  <div class="q-result" id="result-21-4"></div>
+  <div class="q-answer-reveal" id="ans-21-4">
+    <strong>✅ Model Answer:</strong> Area=(120/360)×64π=64π/3≈67.02 cm²; Arc=(120/360)×16π≈16.76 cm
   </div>
 </div>
 
-<div class="question-card">
+<div class="question-card" id="qcard-21-5">
   <div class="q-header">
     <span class="q-num">Q5</span>
-    <span style="flex:1;font-size:.9rem">Rectangle 12cm×10cm with circle radius 4cm removed. Find shaded area.</span>
+    <span style="flex:1;font-size:.9rem;line-height:1.5;padding:0 .5rem">Rectangle 12cm×10cm with circle radius 4cm removed. Find shaded area.</span>
     <span class="q-marks">4 marks</span>
   </div>
+  <div class="q-input-area">
+    <div class="q-input-label">Your Answer</div>
+    <textarea class="q-input" id="input-21-5" rows="2" placeholder="Write your working and answer here…"></textarea>
+  </div>
   <div class="q-hint" id="hint-21-5">💡 <em>Shaded area = total area − area of removed circle.</em></div>
-  <div class="q-answer" id="ans-21-5"><strong>✅ Answer:</strong> Rectangle=120; Circle=16π≈50.27; Shaded≈69.73 cm²</div>
   <div class="q-actions">
-    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-21-5')">💡 Hint</button>
-    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-21-5')">✅ Show Answer</button>
+    <button class="btn btn-hint btn-sm" onclick="toggleHint(21,5)">💡 Hint</button>
+  </div>
+  <div class="q-result" id="result-21-5"></div>
+  <div class="q-answer-reveal" id="ans-21-5">
+    <strong>✅ Model Answer:</strong> Rectangle=120; Circle=16π≈50.27; Shaded≈69.73 cm²
   </div>
 </div>
 
-<div class="question-card">
+<div class="question-card" id="qcard-21-6">
   <div class="q-header">
     <span class="q-num">Q6</span>
-    <span style="flex:1;font-size:.9rem">Sector: radius 10cm, angle 80°. Find the perimeter of the sector.</span>
+    <span style="flex:1;font-size:.9rem;line-height:1.5;padding:0 .5rem">Sector: radius 10cm, angle 80°. Find the perimeter of the sector.</span>
     <span class="q-marks">5 marks</span>
   </div>
+  <div class="q-input-area">
+    <div class="q-input-label">Your Answer</div>
+    <textarea class="q-input" id="input-21-6" rows="2" placeholder="Write your working and answer here…"></textarea>
+  </div>
   <div class="q-hint" id="hint-21-6">💡 <em>Perimeter of sector = arc length + 2 radii.</em></div>
-  <div class="q-answer" id="ans-21-6"><strong>✅ Answer:</strong> Arc=(80/360)×20π=40π/9≈13.96; Perimeter=13.96+20≈33.96 cm</div>
   <div class="q-actions">
-    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-21-6')">💡 Hint</button>
-    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-21-6')">✅ Show Answer</button>
+    <button class="btn btn-hint btn-sm" onclick="toggleHint(21,6)">💡 Hint</button>
+  </div>
+  <div class="q-result" id="result-21-6"></div>
+  <div class="q-answer-reveal" id="ans-21-6">
+    <strong>✅ Model Answer:</strong> Arc=(80/360)×20π=40π/9≈13.96; Perimeter=13.96+20≈33.96 cm
   </div>
 </div>
+
+  <div class="submit-bar" id="submit-bar-21">
+    <h3>Ready to check your answers?</h3>
+    <p>Click submit to reveal model answers and mark yourself.</p>
+    <button class="btn btn-primary btn-lg" onclick="submitAnswers(21,21)">✅ Submit All Answers</button>
+  </div>
+  <div id="marking-section-21" style="display:none">
+    <div class="score-card" id="score-display-21">
+      <div class="score-big" id="score-num-21">0/21</div>
+      <div class="score-label">marks — tap ✅ Got it or ❌ Wrong on each question below</div>
+    </div>
+    <div style="background:#F0FDF4;border:2px solid #6EE7B7;border-radius:12px;padding:.9rem 1.1rem;margin-bottom:1rem;font-size:.85rem;color:#065F46;">
+      <strong>How to mark:</strong> Read the model answer shown under each question and tap whether you got it right or wrong. Your score is saved automatically.
+    </div>
+  </div>
 </div>
 
-  <div style="display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wrap;margin-top:2rem;padding-top:1rem;border-top:2px solid var(--border);">
+  <div style="display:flex;gap:.75rem;justify-content:space-between;align-items:center;flex-wrap:wrap;margin-top:2rem;padding-top:1rem;border-top:2px solid var(--border);">
     <a href="day20.html" class="btn btn-primary">← Day 20</a>
-    <button class="btn btn-gold" id="complete-btn" onclick="markComplete(21)">✅ Mark Day 21 Complete</button>
+    <button class="btn btn-gold btn-lg" id="complete-btn-21" onclick="markComplete(21)">✅ Mark Day 21 Complete</button>
     <a href="day22.html" class="btn btn-green">Day 22 →</a>
   </div>
 </div>
 
-<footer style="background:var(--navy);color:rgba(255,255,255,.7);text-align:center;padding:1.5rem;font-size:.82rem;margin-top:3rem;">
-  <strong style="color:#fff">Peppin's Tuition Centre, Cork</strong> · Day 21 · Geometry
+<footer>
+  <strong>The 3 Amigos Tuition Centre, Cork · Kildare · Limerick</strong> · Day 21 · Geometry
 </footer>
 
 <script>
+var DAY=21, TOTAL=21;
+var Q_MARKS={"1": 2, "2": 3, "3": 3, "4": 4, "5": 4, "6": 5};
+var submitted=false, markedQs={}, earnedMarks=0;
+
 function switchTab(name,btn){
-  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
-  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(function(t){t.classList.remove('active');});
+  document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active');});
   document.getElementById('tab-'+name).classList.add('active');
   btn.classList.add('active');
 }
-function toggleEl(id){
-  var el=document.getElementById(id);
+function toggleHint(day,q){
+  var el=document.getElementById('hint-'+day+'-'+q);
   el.style.display=el.style.display==='block'?'none':'block';
 }
-function getStudentKey(){
-  var sess=JSON.parse(sessionStorage.getItem('ptc_session')||'null');
-  return sess?sess.key:null;
+function getKey(){
+  var s=JSON.parse(sessionStorage.getItem('ptc_session')||'null');
+  return s?s.key:null;
+}
+function submitAnswers(day,total){
+  if(submitted) return;
+  var k=getKey(); if(!k) return;
+  // Save first-attempt answers
+  var answers={};
+  Object.keys(Q_MARKS).forEach(function(qn){
+    var inp=document.getElementById('input-'+day+'-'+qn);
+    if(inp){ answers[qn]=inp.value||''; inp.disabled=true; }
+  });
+  localStorage.setItem('answers_'+k+'_'+day, JSON.stringify({ts:Date.now(),answers:answers}));
+  // Reveal model answers + marking buttons
+  Object.keys(Q_MARKS).forEach(function(qn){
+    document.getElementById('ans-'+day+'-'+qn).style.display='block';
+    var res=document.getElementById('result-'+day+'-'+qn);
+    res.style.display='flex';
+    res.className='q-result';
+    res.innerHTML='<span style="flex:1;font-size:.82rem;font-weight:600">Mark this question:</span>'
+      +'<button class="btn btn-green btn-sm" onclick="markQ('+day+','+qn+',true)">✅ Got it</button>'
+      +'<button class="btn btn-red btn-sm" style="margin-left:.35rem" onclick="markQ('+day+','+qn+',false)">❌ Wrong</button>';
+  });
+  document.getElementById('submit-bar-'+day).style.display='none';
+  document.getElementById('marking-section-'+day).style.display='block';
+  submitted=true;
+}
+function markQ(day,qn,correct){
+  markedQs[qn]=correct;
+  var res=document.getElementById('result-'+day+'-'+qn);
+  var m=Q_MARKS[qn];
+  if(correct){ res.className='q-result correct'; res.innerHTML='✅ Correct! +'+m+' mark'+(m>1?'s':''); }
+  else { res.className='q-result incorrect'; res.innerHTML='❌ Incorrect — review the model answer above'; }
+  earnedMarks=0;
+  Object.keys(markedQs).forEach(function(q){ if(markedQs[q]) earnedMarks+=Q_MARKS[q]; });
+  var pct=TOTAL>0?Math.round(earnedMarks/TOTAL*100):0;
+  var el=document.getElementById('score-num-'+day);
+  if(el) el.textContent=earnedMarks+'/'+TOTAL+' ('+pct+'%)';
+  // Save score once all marked
+  var k=getKey();
+  if(k && Object.keys(markedQs).length===Object.keys(Q_MARKS).length){
+    localStorage.setItem('score_'+k+'_'+day, JSON.stringify({earned:earnedMarks,total:TOTAL,pct:pct,ts:Date.now()}));
+  }
 }
 function markComplete(day){
-  var k=getStudentKey();
-  if(!k) return;
+  var k=getKey(); if(!k) return;
   localStorage.setItem('day_complete_'+k+'_'+day,'1');
-  var btn=document.getElementById('complete-btn');
-  btn.textContent='🎉 Day '+day+' Complete!';
-  btn.style.background='var(--green)';
-  btn.disabled=true;
+  var btn=document.getElementById('complete-btn-'+day);
+  if(btn){btn.textContent='🎉 Day '+day+' Complete!';btn.style.background='var(--green)';btn.disabled=true;}
 }
-// Check if already complete
+// On load — restore state
 (function(){
-  var k=getStudentKey();
-  if(k && localStorage.getItem('day_complete_'+k+'_21')){
-    var btn=document.getElementById('complete-btn');
+  var k=getKey(); if(!k) return;
+  if(localStorage.getItem('day_complete_'+k+'_21')){
+    var btn=document.getElementById('complete-btn-21');
     if(btn){btn.textContent='🎉 Day 21 Complete!';btn.style.background='var(--green)';btn.disabled=true;}
+  }
+  var saved=localStorage.getItem('answers_'+k+'_21');
+  if(saved){
+    var data=JSON.parse(saved);
+    var ans=data.answers||data;
+    Object.keys(ans).forEach(function(qn){
+      var inp=document.getElementById('input-21-'+qn);
+      if(inp) inp.value=ans[qn];
+    });
   }
 })();
 </script>

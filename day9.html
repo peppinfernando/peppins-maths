@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Day 9 · Algebra · Peppin's Maths</title>
+<title>Day 9 · Algebra · 3 Amigos Maths</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Merriweather:wght@700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
@@ -24,7 +24,7 @@
   <div class="nav-brand">
     <span class="nav-logo">🍀</span>
     <div>
-      <div class="nav-title">Peppin's Maths</div>
+      <div class="nav-title">3 Amigos Maths</div>
       <div class="nav-sub">Junior Cycle · First Year</div>
     </div>
   </div>
@@ -47,22 +47,20 @@ function doLogout(){
 var _s=JSON.parse(sessionStorage.getItem('ptc_session')||'null');
 if(_s){var el=document.getElementById('nav-student-name');if(el)el.textContent=_s.name;}
 </script>
-<div style="background:#2E7D32;color:#fff;padding:1.5rem 1.5rem 1rem;">
+<div style="background:linear-gradient(135deg,#2E7D32ee,#2E7D3299);color:#fff;padding:1.5rem 1.5rem 1.25rem;">
   <div style="max-width:900px;margin:0 auto;">
-    <a href="index.html" style="color:rgba(255,255,255,.7);font-size:.82rem;font-weight:700;">← Back to Home</a>
-    <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-top:.6rem;">
+    <a href="index.html" style="color:rgba(255,255,255,.75);font-size:.8rem;font-weight:700;display:inline-flex;align-items:center;gap:.3rem;margin-bottom:.75rem;">← Back to Home</a>
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
       <div>
-        <div style="font-size:.75rem;opacity:.7;font-weight:800;letter-spacing:.1em;text-transform:uppercase;">Day 9 of 45 · Algebra</div>
-        <h1 style="font-family:'Merriweather',serif;font-size:clamp(1.3rem,3vw,2rem);margin:.3rem 0;">Algebra</h1>
-        <div style="font-size:1rem;opacity:.85;">Expanding Brackets</div>
-        <div style="margin-top:.6rem;display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;">
-          <span class="level-badge" style="background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4)">Ordinary</span>
-          <span style="font-size:.78rem;opacity:.7">6 questions · 19 marks total</span>
+        <div style="font-size:.68rem;opacity:.75;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.2rem;">Day 9 of 45 · Algebra</div>
+        <h1 style="font-family:'Merriweather',serif;font-size:clamp(1.3rem,3vw,2rem);margin:.2rem 0;">Algebra</h1>
+        <div style="font-size:.95rem;opacity:.85;margin-bottom:.6rem;">Expanding Brackets</div>
+        <div style="display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;">
+          <span style="background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.35);padding:.18rem .6rem;border-radius:20px;font-size:.72rem;font-weight:700;">Ordinary</span>
+          <span style="font-size:.75rem;opacity:.75">6 questions · 19 marks total</span>
         </div>
       </div>
-      <div style="text-align:center;">
-        <div style="font-size:2.5rem;line-height:1">✖️</div>
-      </div>
+      <div style="font-size:3rem;line-height:1;opacity:.9">✖️</div>
     </div>
   </div>
 </div>
@@ -70,16 +68,16 @@ if(_s){var el=document.getElementById('nav-student-name');if(el)el.textContent=_
 <div class="container" style="max-width:900px;">
   <div class="tab-bar">
     <button class="tab active" onclick="switchTab('concept',this)">📖 Concept</button>
-    <button class="tab" onclick="switchTab('questions',this)">✏️ Practice Questions</button>
+    <button class="tab" onclick="switchTab('questions',this)">✏️ Practice (6Q · 19M)</button>
   </div>
   
 <div class="tab-content active" id="tab-concept">
   <div class="concept-section mt2">
-    <div class="section-label" style="color:#1565C0">📘 What is this topic?</div>
+    <div class="section-label" style="color:var(--navy)">📘 What is this topic?</div>
     <div class="explain-box"><p>To expand (a+b)(c+d): use FOIL — First, Outer, Inner, Last. Then collect like terms.</p><p>Special patterns: (a+b)²=a²+2ab+b²; (a−b)²=a²−2ab+b²; (a+b)(a−b)=a²−b² (Difference of Two Squares).</p></div>
   </div>
   <div class="concept-section">
-    <div class="section-label" style="color:var(--gold)">💡 Analogy — How to picture it</div>
+    <div class="section-label" style="color:var(--gold)">💡 Analogy</div>
     <div class="analogy-box"><p>Expanding brackets is like distributing food: 3×(2 burgers+5 chips) = 6 burgers + 15 chips. With double brackets, EVERY person in the first group shakes hands with EVERY person in the second group.</p></div>
   </div>
   <div class="concept-section">
@@ -90,11 +88,11 @@ if(_s){var el=document.getElementById('nav-student-name');if(el)el.textContent=_
     </div>
   </div>
   <div class="concept-section">
-    <div class="section-label" style="color:#BF360C">⚠️ Common Mistakes</div>
+    <div class="section-label" style="color:var(--red)">⚠️ Common Mistakes</div>
     <div class="mistake-box"><ul style="padding-left:1.2rem"><li>(x+3)² ≠ x²+9. Must be x²+6x+9 — never skip the middle '2ab' term!</li><li>−2(x+4) means −2x−8. The negative applies to BOTH terms.</li><li>Always collect Outer+Inner terms (the x-terms) at the end</li></ul></div>
   </div>
   <div class="concept-section">
-    <div class="section-label" style="color:var(--navy)">📌 Key Formulae</div>
+    <div class="section-label" style="color:var(--purple)">📌 Key Formulae</div>
     <div class="formula-box"><code>(a+b)²=a²+2ab+b²</code><code>(a−b)²=a²−2ab+b²</code><code>(a+b)(a−b)=a²−b²  [DoTS]</code></div>
   </div>
   <div class="tip-box mt2">
@@ -102,134 +100,242 @@ if(_s){var el=document.getElementById('nav-student-name');if(el)el.textContent=_
   </div>
 </div>
 
-  <div class="tab-content" id="tab-questions">
-
-<div class="question-card">
+  
+<div class="tab-content" id="tab-questions">
+  <div style="background:#EEF2FF;border:1px solid #C7D2FE;border-radius:12px;padding:1rem 1.25rem;margin:1rem 0;font-size:.88rem;color:#312E81;">
+    <strong>📝 How this works:</strong> Write your answer in each box, then click
+    <strong>Submit All Answers</strong>. Model answers will be revealed — mark yourself and
+    record your score for the day.
+  </div>
+  
+<div class="question-card" id="qcard-9-1">
   <div class="q-header">
     <span class="q-num">Q1</span>
-    <span style="flex:1;font-size:.9rem">Expand: 3x(2x − 5)</span>
+    <span style="flex:1;font-size:.9rem;line-height:1.5;padding:0 .5rem">Expand: 3x(2x − 5)</span>
     <span class="q-marks">2 marks</span>
   </div>
+  <div class="q-input-area">
+    <div class="q-input-label">Your Answer</div>
+    <textarea class="q-input" id="input-9-1" rows="2" placeholder="Write your working and answer here…"></textarea>
+  </div>
   <div class="q-hint" id="hint-9-1">💡 <em>Multiply 3x by each term inside the bracket.</em></div>
-  <div class="q-answer" id="ans-9-1"><strong>✅ Answer:</strong> 6x² − 15x</div>
   <div class="q-actions">
-    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-9-1')">💡 Hint</button>
-    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-9-1')">✅ Show Answer</button>
+    <button class="btn btn-hint btn-sm" onclick="toggleHint(9,1)">💡 Hint</button>
+  </div>
+  <div class="q-result" id="result-9-1"></div>
+  <div class="q-answer-reveal" id="ans-9-1">
+    <strong>✅ Model Answer:</strong> 6x² − 15x
   </div>
 </div>
 
-<div class="question-card">
+<div class="question-card" id="qcard-9-2">
   <div class="q-header">
     <span class="q-num">Q2</span>
-    <span style="flex:1;font-size:.9rem">Expand: (x + 3)(x + 5)</span>
+    <span style="flex:1;font-size:.9rem;line-height:1.5;padding:0 .5rem">Expand: (x + 3)(x + 5)</span>
     <span class="q-marks">3 marks</span>
+  </div>
+  <div class="q-input-area">
+    <div class="q-input-label">Your Answer</div>
+    <textarea class="q-input" id="input-9-2" rows="2" placeholder="Write your working and answer here…"></textarea>
   </div>
   <div class="q-hint" id="hint-9-2">💡 <em>Use FOIL: First, Outer, Inner, Last.</em></div>
-  <div class="q-answer" id="ans-9-2"><strong>✅ Answer:</strong> x²+5x+3x+15 = x²+8x+15</div>
   <div class="q-actions">
-    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-9-2')">💡 Hint</button>
-    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-9-2')">✅ Show Answer</button>
+    <button class="btn btn-hint btn-sm" onclick="toggleHint(9,2)">💡 Hint</button>
+  </div>
+  <div class="q-result" id="result-9-2"></div>
+  <div class="q-answer-reveal" id="ans-9-2">
+    <strong>✅ Model Answer:</strong> x²+5x+3x+15 = x²+8x+15
   </div>
 </div>
 
-<div class="question-card">
+<div class="question-card" id="qcard-9-3">
   <div class="q-header">
     <span class="q-num">Q3</span>
-    <span style="flex:1;font-size:.9rem">Expand and simplify: (2x − 1)(3x + 4)</span>
+    <span style="flex:1;font-size:.9rem;line-height:1.5;padding:0 .5rem">Expand and simplify: (2x − 1)(3x + 4)</span>
     <span class="q-marks">3 marks</span>
+  </div>
+  <div class="q-input-area">
+    <div class="q-input-label">Your Answer</div>
+    <textarea class="q-input" id="input-9-3" rows="2" placeholder="Write your working and answer here…"></textarea>
   </div>
   <div class="q-hint" id="hint-9-3">💡 <em>Apply FOIL carefully with the negative sign.</em></div>
-  <div class="q-answer" id="ans-9-3"><strong>✅ Answer:</strong> 6x²+8x−3x−4 = 6x²+5x−4</div>
   <div class="q-actions">
-    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-9-3')">💡 Hint</button>
-    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-9-3')">✅ Show Answer</button>
+    <button class="btn btn-hint btn-sm" onclick="toggleHint(9,3)">💡 Hint</button>
+  </div>
+  <div class="q-result" id="result-9-3"></div>
+  <div class="q-answer-reveal" id="ans-9-3">
+    <strong>✅ Model Answer:</strong> 6x²+8x−3x−4 = 6x²+5x−4
   </div>
 </div>
 
-<div class="question-card">
+<div class="question-card" id="qcard-9-4">
   <div class="q-header">
     <span class="q-num">Q4</span>
-    <span style="flex:1;font-size:.9rem">Expand: (x + 5)²</span>
+    <span style="flex:1;font-size:.9rem;line-height:1.5;padding:0 .5rem">Expand: (x + 5)²</span>
     <span class="q-marks">3 marks</span>
   </div>
+  <div class="q-input-area">
+    <div class="q-input-label">Your Answer</div>
+    <textarea class="q-input" id="input-9-4" rows="2" placeholder="Write your working and answer here…"></textarea>
+  </div>
   <div class="q-hint" id="hint-9-4">💡 <em>Use (a+b)²=a²+2ab+b² with a=x, b=5.</em></div>
-  <div class="q-answer" id="ans-9-4"><strong>✅ Answer:</strong> x²+10x+25</div>
   <div class="q-actions">
-    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-9-4')">💡 Hint</button>
-    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-9-4')">✅ Show Answer</button>
+    <button class="btn btn-hint btn-sm" onclick="toggleHint(9,4)">💡 Hint</button>
+  </div>
+  <div class="q-result" id="result-9-4"></div>
+  <div class="q-answer-reveal" id="ans-9-4">
+    <strong>✅ Model Answer:</strong> x²+10x+25
   </div>
 </div>
 
-<div class="question-card">
+<div class="question-card" id="qcard-9-5">
   <div class="q-header">
     <span class="q-num">Q5</span>
-    <span style="flex:1;font-size:.9rem">Expand and simplify: (3x − 2)²</span>
+    <span style="flex:1;font-size:.9rem;line-height:1.5;padding:0 .5rem">Expand and simplify: (3x − 2)²</span>
     <span class="q-marks">4 marks</span>
+  </div>
+  <div class="q-input-area">
+    <div class="q-input-label">Your Answer</div>
+    <textarea class="q-input" id="input-9-5" rows="2" placeholder="Write your working and answer here…"></textarea>
   </div>
   <div class="q-hint" id="hint-9-5">💡 <em>Use (a−b)²=a²−2ab+b² with a=3x, b=2.</em></div>
-  <div class="q-answer" id="ans-9-5"><strong>✅ Answer:</strong> 9x²−12x+4</div>
   <div class="q-actions">
-    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-9-5')">💡 Hint</button>
-    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-9-5')">✅ Show Answer</button>
+    <button class="btn btn-hint btn-sm" onclick="toggleHint(9,5)">💡 Hint</button>
+  </div>
+  <div class="q-result" id="result-9-5"></div>
+  <div class="q-answer-reveal" id="ans-9-5">
+    <strong>✅ Model Answer:</strong> 9x²−12x+4
   </div>
 </div>
 
-<div class="question-card">
+<div class="question-card" id="qcard-9-6">
   <div class="q-header">
     <span class="q-num">Q6</span>
-    <span style="flex:1;font-size:.9rem">Expand: (2x+3)(2x−3). What pattern is this called?</span>
+    <span style="flex:1;font-size:.9rem;line-height:1.5;padding:0 .5rem">Expand: (2x+3)(2x−3). What pattern is this called?</span>
     <span class="q-marks">4 marks</span>
   </div>
+  <div class="q-input-area">
+    <div class="q-input-label">Your Answer</div>
+    <textarea class="q-input" id="input-9-6" rows="2" placeholder="Write your working and answer here…"></textarea>
+  </div>
   <div class="q-hint" id="hint-9-6">💡 <em>Notice the middle terms cancel out.</em></div>
-  <div class="q-answer" id="ans-9-6"><strong>✅ Answer:</strong> 4x²−9. This is the Difference of Two Squares: (a+b)(a−b)=a²−b²</div>
   <div class="q-actions">
-    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-9-6')">💡 Hint</button>
-    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-9-6')">✅ Show Answer</button>
+    <button class="btn btn-hint btn-sm" onclick="toggleHint(9,6)">💡 Hint</button>
+  </div>
+  <div class="q-result" id="result-9-6"></div>
+  <div class="q-answer-reveal" id="ans-9-6">
+    <strong>✅ Model Answer:</strong> 4x²−9. This is the Difference of Two Squares: (a+b)(a−b)=a²−b²
   </div>
 </div>
+
+  <div class="submit-bar" id="submit-bar-9">
+    <h3>Ready to check your answers?</h3>
+    <p>Click submit to reveal model answers and mark yourself.</p>
+    <button class="btn btn-primary btn-lg" onclick="submitAnswers(9,19)">✅ Submit All Answers</button>
+  </div>
+  <div id="marking-section-9" style="display:none">
+    <div class="score-card" id="score-display-9">
+      <div class="score-big" id="score-num-9">0/19</div>
+      <div class="score-label">marks — tap ✅ Got it or ❌ Wrong on each question below</div>
+    </div>
+    <div style="background:#F0FDF4;border:2px solid #6EE7B7;border-radius:12px;padding:.9rem 1.1rem;margin-bottom:1rem;font-size:.85rem;color:#065F46;">
+      <strong>How to mark:</strong> Read the model answer shown under each question and tap whether you got it right or wrong. Your score is saved automatically.
+    </div>
+  </div>
 </div>
 
-  <div style="display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wrap;margin-top:2rem;padding-top:1rem;border-top:2px solid var(--border);">
+  <div style="display:flex;gap:.75rem;justify-content:space-between;align-items:center;flex-wrap:wrap;margin-top:2rem;padding-top:1rem;border-top:2px solid var(--border);">
     <a href="day8.html" class="btn btn-primary">← Day 8</a>
-    <button class="btn btn-gold" id="complete-btn" onclick="markComplete(9)">✅ Mark Day 9 Complete</button>
+    <button class="btn btn-gold btn-lg" id="complete-btn-9" onclick="markComplete(9)">✅ Mark Day 9 Complete</button>
     <a href="day10.html" class="btn btn-green">Day 10 →</a>
   </div>
 </div>
 
-<footer style="background:var(--navy);color:rgba(255,255,255,.7);text-align:center;padding:1.5rem;font-size:.82rem;margin-top:3rem;">
-  <strong style="color:#fff">Peppin's Tuition Centre, Cork</strong> · Day 9 · Algebra
+<footer>
+  <strong>The 3 Amigos Tuition Centre, Cork · Kildare · Limerick</strong> · Day 9 · Algebra
 </footer>
 
 <script>
+var DAY=9, TOTAL=19;
+var Q_MARKS={"1": 2, "2": 3, "3": 3, "4": 3, "5": 4, "6": 4};
+var submitted=false, markedQs={}, earnedMarks=0;
+
 function switchTab(name,btn){
-  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
-  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(function(t){t.classList.remove('active');});
+  document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active');});
   document.getElementById('tab-'+name).classList.add('active');
   btn.classList.add('active');
 }
-function toggleEl(id){
-  var el=document.getElementById(id);
+function toggleHint(day,q){
+  var el=document.getElementById('hint-'+day+'-'+q);
   el.style.display=el.style.display==='block'?'none':'block';
 }
-function getStudentKey(){
-  var sess=JSON.parse(sessionStorage.getItem('ptc_session')||'null');
-  return sess?sess.key:null;
+function getKey(){
+  var s=JSON.parse(sessionStorage.getItem('ptc_session')||'null');
+  return s?s.key:null;
+}
+function submitAnswers(day,total){
+  if(submitted) return;
+  var k=getKey(); if(!k) return;
+  // Save first-attempt answers
+  var answers={};
+  Object.keys(Q_MARKS).forEach(function(qn){
+    var inp=document.getElementById('input-'+day+'-'+qn);
+    if(inp){ answers[qn]=inp.value||''; inp.disabled=true; }
+  });
+  localStorage.setItem('answers_'+k+'_'+day, JSON.stringify({ts:Date.now(),answers:answers}));
+  // Reveal model answers + marking buttons
+  Object.keys(Q_MARKS).forEach(function(qn){
+    document.getElementById('ans-'+day+'-'+qn).style.display='block';
+    var res=document.getElementById('result-'+day+'-'+qn);
+    res.style.display='flex';
+    res.className='q-result';
+    res.innerHTML='<span style="flex:1;font-size:.82rem;font-weight:600">Mark this question:</span>'
+      +'<button class="btn btn-green btn-sm" onclick="markQ('+day+','+qn+',true)">✅ Got it</button>'
+      +'<button class="btn btn-red btn-sm" style="margin-left:.35rem" onclick="markQ('+day+','+qn+',false)">❌ Wrong</button>';
+  });
+  document.getElementById('submit-bar-'+day).style.display='none';
+  document.getElementById('marking-section-'+day).style.display='block';
+  submitted=true;
+}
+function markQ(day,qn,correct){
+  markedQs[qn]=correct;
+  var res=document.getElementById('result-'+day+'-'+qn);
+  var m=Q_MARKS[qn];
+  if(correct){ res.className='q-result correct'; res.innerHTML='✅ Correct! +'+m+' mark'+(m>1?'s':''); }
+  else { res.className='q-result incorrect'; res.innerHTML='❌ Incorrect — review the model answer above'; }
+  earnedMarks=0;
+  Object.keys(markedQs).forEach(function(q){ if(markedQs[q]) earnedMarks+=Q_MARKS[q]; });
+  var pct=TOTAL>0?Math.round(earnedMarks/TOTAL*100):0;
+  var el=document.getElementById('score-num-'+day);
+  if(el) el.textContent=earnedMarks+'/'+TOTAL+' ('+pct+'%)';
+  // Save score once all marked
+  var k=getKey();
+  if(k && Object.keys(markedQs).length===Object.keys(Q_MARKS).length){
+    localStorage.setItem('score_'+k+'_'+day, JSON.stringify({earned:earnedMarks,total:TOTAL,pct:pct,ts:Date.now()}));
+  }
 }
 function markComplete(day){
-  var k=getStudentKey();
-  if(!k) return;
+  var k=getKey(); if(!k) return;
   localStorage.setItem('day_complete_'+k+'_'+day,'1');
-  var btn=document.getElementById('complete-btn');
-  btn.textContent='🎉 Day '+day+' Complete!';
-  btn.style.background='var(--green)';
-  btn.disabled=true;
+  var btn=document.getElementById('complete-btn-'+day);
+  if(btn){btn.textContent='🎉 Day '+day+' Complete!';btn.style.background='var(--green)';btn.disabled=true;}
 }
-// Check if already complete
+// On load — restore state
 (function(){
-  var k=getStudentKey();
-  if(k && localStorage.getItem('day_complete_'+k+'_9')){
-    var btn=document.getElementById('complete-btn');
+  var k=getKey(); if(!k) return;
+  if(localStorage.getItem('day_complete_'+k+'_9')){
+    var btn=document.getElementById('complete-btn-9');
     if(btn){btn.textContent='🎉 Day 9 Complete!';btn.style.background='var(--green)';btn.disabled=true;}
+  }
+  var saved=localStorage.getItem('answers_'+k+'_9');
+  if(saved){
+    var data=JSON.parse(saved);
+    var ans=data.answers||data;
+    Object.keys(ans).forEach(function(qn){
+      var inp=document.getElementById('input-9-'+qn);
+      if(inp) inp.value=ans[qn];
+    });
   }
 })();
 </script>

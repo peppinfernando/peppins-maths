@@ -1,10 +1,10 @@
-# Peppin's Tuition Centre, Cork — Junior Cycle Mathematics Study App
+# The 3 Amigos Tuition Centre, Cork · Kildare · Limerick — Junior Cycle Mathematics Study App
 
 ## 🍀 Live Study App
 
 **➡️ Open the app:** [https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/](https://your-username.github.io/your-repo-name/)
 
-A complete, mobile-friendly Junior Cycle Maths study app for First Year students at Peppin's Tuition Centre, Cork. Covers all 45 days of the tuition programme.
+A complete, mobile-friendly Junior Cycle Maths study app for First Year students at The 3 Amigos Tuition Centre, Cork · Kildare · Limerick. Covers all 45 days of the tuition programme.
 
 ## Features
 
@@ -57,7 +57,7 @@ All output goes into the `docs/` folder, ready to commit and push.
 
 - NCCA Junior Cycle Mathematics Specification 2018
 - SEC Junior Cycle Exam Papers 2021–2025
-- Peppin's Tuition Centre, Cork teaching sequence
+- The 3 Amigos Tuition Centre, Cork · Kildare · Limerick teaching sequence
 
 ---
-*Built for Peppin's Tuition Centre Junior Cycle Maths Tuition Programme*
+*Built for The 3 Amigos Tuition Centre Junior Cycle Maths Tuition Programme*

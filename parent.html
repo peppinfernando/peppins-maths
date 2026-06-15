@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Parent Dashboard · Peppin's Tuition Centre</title>
+<title>Parent Dashboard · The 3 Amigos Tuition Centre</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Merriweather:wght@700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -21,7 +21,7 @@
   <div class="nav-brand">
     <span class="nav-logo">🍀</span>
     <div>
-      <div class="nav-title">Peppin's Maths</div>
+      <div class="nav-title">3 Amigos Maths</div>
       <div class="nav-sub">Parent Dashboard</div>
     </div>
   </div>
@@ -67,7 +67,7 @@
 </div>
 
 <footer style="background:var(--navy);color:rgba(255,255,255,.7);text-align:center;padding:1.5rem;font-size:.82rem;margin-top:3rem;">
-  <strong style="color:#fff">Peppin's Tuition Centre, Cork</strong> · Parent Dashboard · Junior Cycle Mathematics
+  <strong style="color:#fff">The 3 Amigos Tuition Centre, Cork · Kildare · Limerick</strong> · Parent Dashboard · Junior Cycle Mathematics
 </footer>
 
 <script>
@@ -93,9 +93,17 @@ function loadParentDashboard(){
     var complete = !!localStorage.getItem('day_complete_' + childKey + '_' + i);
     if(complete) done++;
     var topic = DAY_TOPICS[i] || '';
-    html += '<div title="Day '+i+': '+topic+'" style="display:flex;flex-direction:column;align-items:center;justify-content:center;background:'+(complete?'var(--green)':'#fff')+';color:'+(complete?'#fff':'var(--text)')+';border:2px solid '+(complete?'var(--green)':'var(--border)')+';border-radius:10px;padding:.5rem .25rem;font-weight:800;font-size:.82rem;text-align:center;">'
-      + '<span style="font-size:1.1rem">'+(complete?'✅':'📖')+'</span>'
+    var scoreData = localStorage.getItem('score_' + childKey + '_' + i);
+    var scoreLine = '';
+    if(scoreData) {
+      var sc = JSON.parse(scoreData);
+      scoreLine = '<span style="font-size:.65rem;margin-top:.1rem;font-weight:700;color:'+(complete?'rgba(255,255,255,.85)':'var(--purple)')+'">'+sc.earned+'/'+sc.total+'</span>';
+    }
+    var bg = complete ? 'linear-gradient(135deg,var(--green),#10B981)' : '#fff';
+    html += '<div title="Day '+i+': '+topic+'" style="display:flex;flex-direction:column;align-items:center;justify-content:center;background:'+bg+';color:'+(complete?'#fff':'var(--text)')+';border:2px solid '+(complete?'transparent':'var(--border)')+';border-radius:12px;padding:.5rem .25rem;font-weight:800;font-size:.82rem;text-align:center;box-shadow:'+(complete?'0 2px 8px rgba(5,150,105,.3)':'none')+';">'
+      + '<span style="font-size:1rem">'+(complete?'✅':'📖')+'</span>'
       + '<span>Day '+i+'</span>'
+      + scoreLine
       + '</div>';
   }
 

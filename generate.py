@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Peppin's Tuition Centre, Cork — Junior Cycle Maths Study App
+The 3 Amigos Tuition Centre, Cork · Kildare · Limerick — Junior Cycle Maths Study App
 Static site generator: run `python3 generate.py` to build the full app.
 Output goes to ./docs/ — ready to publish on GitHub Pages.
 """
@@ -456,7 +456,7 @@ DAYS = [
   },
   { "day":38,"topic":"Statistics","subtopic":"CBA Investigation Practice","level":"Ordinary",
     "block":"Statistics","color":"#6A0572",
-    "concept":{"explain":["CBA 2 at Peppin's Tuition Centre: POSE question→COLLECT data→REPRESENT→ANALYSE→COMMUNICATE. Good question: specific, measurable, has a COMPARISON."],"analogy":"A statistical investigation is science with numbers instead of test tubes. Start with a HYPOTHESIS. Collect data. Analyse. Conclude: does data SUPPORT or REFUTE your hypothesis? Let the DATA speak!","worked":{"title":"Well-posed vs poorly-posed CBA question","steps":["POOR: 'Do students like sport?' (yes/no, not measurable)","BETTER: 'Do 1st year students at Peppin's Tuition Centre spend >2h/week on sport compared to music?'","Why better: specific GROUP, specific VARIABLES, COMPARISON","Analysis: compare mean, median and IQR for both variables","Always state LIMITATIONS: sample size, response bias"]},"mistakes":["Never draw conclusion WITHOUT citing your data values","Small samples (n<30) limit generalisation — mention this!","Response bias: students may answer based on what they THINK they should say"],"formulae":["CBA cycle: Pose→Collect→Represent→Analyse→Communicate","Limitations: sample size, response bias, self-report accuracy"]},
+    "concept":{"explain":["CBA 2 at The 3 Amigos Tuition Centre: POSE question→COLLECT data→REPRESENT→ANALYSE→COMMUNICATE. Good question: specific, measurable, has a COMPARISON."],"analogy":"A statistical investigation is science with numbers instead of test tubes. Start with a HYPOTHESIS. Collect data. Analyse. Conclude: does data SUPPORT or REFUTE your hypothesis? Let the DATA speak!","worked":{"title":"Well-posed vs poorly-posed CBA question","steps":["POOR: 'Do students like sport?' (yes/no, not measurable)","BETTER: 'Do 1st year students at The 3 Amigos Tuition Centre spend >2h/week on sport compared to music?'","Why better: specific GROUP, specific VARIABLES, COMPARISON","Analysis: compare mean, median and IQR for both variables","Always state LIMITATIONS: sample size, response bias"]},"mistakes":["Never draw conclusion WITHOUT citing your data values","Small samples (n<30) limit generalisation — mention this!","Response bias: students may answer based on what they THINK they should say"],"formulae":["CBA cycle: Pose→Collect→Represent→Analyse→Communicate","Limitations: sample size, response bias, self-report accuracy"]},
     "questions":[
       {"q":1,"marks":4,"text":"Pose a suitable statistical investigation question for a first-year student. Identify data type and whether to use primary or secondary data.","answer":"E.g. 'Do 1st year students spend more time on social media on weekdays vs weekends?' Primary data: survey. Continuous numerical data.","hint":"Make sure the question is specific, measurable, and has a comparison."},
       {"q":2,"marks":4,"text":"Describe three different sampling methods. Which would you recommend for fairness?","answer":"Random (each person equally likely), Systematic (every kth person), Stratified (proportional from each class). Recommend: stratified — fairest representation.","hint":"Think about how to ensure every group in the year is fairly represented."},
@@ -596,19 +596,22 @@ def html_head(title, extra_css=""):
 
 def generate_css():
     return """:root {
-  --navy: #1B3A6B;
-  --green: #2E7D32;
-  --gold: #C8960C;
-  --red: #C0392B;
-  --purple: #6A0572;
-  --bg: #F7F8FC;
-  --card: #FFFFFF;
-  --text: #1A1A2E;
-  --muted: #6B7280;
-  --border: #E5E7EB;
-  --radius: 14px;
-  --shadow: 0 2px 12px rgba(0,0,0,0.08);
-  --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
+  /* Modern palette — electric indigo + emerald + amber */
+  --navy:   #4F46E5;
+  --green:  #059669;
+  --gold:   #D97706;
+  --red:    #DC2626;
+  --purple: #7C3AED;
+  --teal:   #0891B2;
+  --pink:   #DB2777;
+  --bg:     #F1F5F9;
+  --card:   #FFFFFF;
+  --text:   #0F172A;
+  --muted:  #64748B;
+  --border: #E2E8F0;
+  --radius: 16px;
+  --shadow: 0 1px 8px rgba(79,70,229,.08), 0 4px 16px rgba(0,0,0,.06);
+  --shadow-lg: 0 8px 40px rgba(79,70,229,.15);
 }
 
 *{box-sizing:border-box;margin:0;padding:0;}
@@ -616,31 +619,34 @@ body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-
 a{color:inherit;text-decoration:none;}
 
 /* ── Navbar ── */
-.navbar{position:sticky;top:0;z-index:100;background:#fff;border-bottom:3px solid var(--navy);display:flex;align-items:center;gap:1rem;padding:.75rem 1.5rem;box-shadow:0 2px 8px rgba(0,0,0,.06);}
-.nav-brand{display:flex;align-items:center;gap:.6rem;margin-right:auto;}
+.navbar{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:1rem;padding:.7rem 1.5rem;box-shadow:0 1px 12px rgba(79,70,229,.08);}
+.nav-brand{display:flex;align-items:center;gap:.6rem;}
 .nav-logo{font-size:1.6rem;}
-.nav-title{font-weight:900;font-size:1.05rem;color:var(--navy);line-height:1.1;}
-.nav-sub{font-size:.7rem;color:var(--muted);}
-.nav-links{display:flex;gap:.3rem;flex-wrap:wrap;}
-.nav-link{padding:.4rem .8rem;border-radius:8px;font-weight:700;font-size:.85rem;transition:all .2s;color:var(--muted);}
-.nav-link:hover,.nav-link.active{background:var(--navy);color:#fff;}
-.nav-toggle{display:none;background:none;border:2px solid var(--navy);border-radius:8px;padding:.3rem .6rem;cursor:pointer;font-size:1.1rem;color:var(--navy);}
+.nav-title{font-weight:900;font-size:1rem;background:linear-gradient(135deg,var(--navy),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1.1;}
+.nav-sub{font-size:.68rem;color:var(--muted);}
+.nav-links{display:flex;gap:.25rem;flex-wrap:wrap;margin-left:1rem;}
+.nav-link{padding:.38rem .8rem;border-radius:10px;font-weight:700;font-size:.82rem;transition:all .18s;color:var(--muted);}
+.nav-link:hover{background:#EEF2FF;color:var(--navy);}
+.nav-link.active{background:linear-gradient(135deg,var(--navy),var(--purple));color:#fff;box-shadow:0 2px 8px rgba(79,70,229,.3);}
+.nav-toggle{display:none;background:none;border:2px solid var(--border);border-radius:10px;padding:.3rem .6rem;cursor:pointer;font-size:1.1rem;color:var(--navy);}
 @media(max-width:680px){
-  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;padding:1rem;border-bottom:2px solid var(--border);box-shadow:0 8px 20px rgba(0,0,0,.1);}
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;flex-direction:column;padding:1rem;border-bottom:1px solid var(--border);box-shadow:0 8px 20px rgba(0,0,0,.08);}
   .nav-links.open{display:flex;}
   .nav-toggle{display:block;}
+  .nav-brand{flex:1;}
 }
 
 /* ── Layout ── */
 .container{max-width:1100px;margin:0 auto;padding:1.5rem 1rem;}
-.page-hero{background:linear-gradient(135deg,var(--navy) 0%,#2d5496 100%);color:#fff;padding:2.5rem 1.5rem;text-align:center;}
-.page-hero h1{font-family:'Merriweather',serif;font-size:clamp(1.5rem,4vw,2.4rem);margin-bottom:.5rem;}
-.page-hero p{font-size:1rem;opacity:.85;max-width:600px;margin:0 auto;}
+.page-hero{background:linear-gradient(135deg,#4F46E5 0%,#7C3AED 50%,#0891B2 100%);color:#fff;padding:3rem 1.5rem;text-align:center;position:relative;overflow:hidden;}
+.page-hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");}
+.page-hero h1{font-family:'Merriweather',serif;font-size:clamp(1.6rem,4vw,2.6rem);margin-bottom:.5rem;position:relative;}
+.page-hero p{font-size:1rem;opacity:.88;max-width:600px;margin:0 auto;position:relative;}
 .badge{display:inline-block;padding:.25rem .7rem;border-radius:20px;font-size:.75rem;font-weight:700;letter-spacing:.03em;}
 
 /* ── Cards ── */
 .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;transition:transform .2s,box-shadow .2s;}
-.card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);}
+.card:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg);}
 .card-header{padding:1rem 1.25rem;display:flex;align-items:center;gap:.75rem;}
 .card-body{padding:1rem 1.25rem;}
 
@@ -649,97 +655,116 @@ a{color:inherit;text-decoration:none;}
 .grid-3{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem;}
 
 /* ── Day card ── */
-.day-card{border-left:5px solid var(--navy);cursor:pointer;}
-.day-num{font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;opacity:.8;}
-.day-topic{font-weight:800;font-size:1rem;margin:.1rem 0;}
-.day-sub{font-size:.82rem;color:var(--muted);}
-.day-meta{display:flex;gap:.5rem;align-items:center;margin-top:.6rem;flex-wrap:wrap;}
-.level-badge{padding:.2rem .55rem;border-radius:12px;font-size:.7rem;font-weight:700;color:#fff;}
-.completed-mark{margin-left:auto;font-size:1.1rem;}
+.day-card{border-left:4px solid var(--navy);cursor:pointer;}
+.day-num{font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;opacity:.75;}
+.day-topic{font-weight:800;font-size:.97rem;margin:.15rem 0;}
+.day-sub{font-size:.8rem;color:var(--muted);}
+.day-meta{display:flex;gap:.4rem;align-items:center;margin-top:.55rem;flex-wrap:wrap;}
+.level-badge{padding:.18rem .55rem;border-radius:20px;font-size:.68rem;font-weight:700;color:#fff;}
+.completed-mark{margin-left:auto;font-size:1rem;}
 
 /* ── Concept page ── */
 .concept-section{margin-bottom:1.25rem;}
-.section-label{font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.5rem;display:flex;align-items:center;gap:.4rem;}
-.explain-box{background:#EAF4FB;border-left:5px solid #1565C0;border-radius:8px;padding:1rem 1.25rem;}
+.section-label{font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.5rem;display:flex;align-items:center;gap:.4rem;}
+.explain-box{background:linear-gradient(135deg,#EEF2FF,#F0F9FF);border-left:4px solid var(--navy);border-radius:12px;padding:1rem 1.25rem;}
 .explain-box p{margin:.4rem 0;font-size:.95rem;}
-.analogy-box{background:#FFF8E1;border-left:5px solid var(--gold);border-radius:8px;padding:1rem 1.25rem;}
-.mistake-box{background:#FBE9E7;border-left:5px solid #BF360C;border-radius:8px;padding:1rem 1.25rem;}
-.mistake-box li{margin:.3rem 0;font-size:.95rem;}
-.formula-box{background:#EEF2FF;border:2px solid var(--navy);border-radius:8px;padding:1rem 1.25rem;}
-.formula-box code{display:block;font-family:'Courier New',monospace;font-size:.95rem;font-weight:700;margin:.25rem 0;color:var(--navy);}
-.worked-box{background:#E8F5E9;border-left:5px solid var(--green);border-radius:8px;padding:1rem 1.25rem;}
+.analogy-box{background:linear-gradient(135deg,#FFFBEB,#FEF3C7);border-left:4px solid var(--gold);border-radius:12px;padding:1rem 1.25rem;}
+.mistake-box{background:linear-gradient(135deg,#FFF1F2,#FFE4E6);border-left:4px solid var(--red);border-radius:12px;padding:1rem 1.25rem;}
+.mistake-box li{margin:.3rem 0;font-size:.93rem;}
+.formula-box{background:linear-gradient(135deg,#F5F3FF,#EDE9FE);border:2px solid var(--purple);border-radius:12px;padding:1rem 1.25rem;}
+.formula-box code{display:block;font-family:'Courier New',monospace;font-size:.93rem;font-weight:700;margin:.25rem 0;color:var(--purple);}
+.worked-box{background:linear-gradient(135deg,#ECFDF5,#D1FAE5);border-left:4px solid var(--green);border-radius:12px;padding:1rem 1.25rem;}
 .step-list{list-style:none;counter-reset:steps;}
 .step-list li{counter-increment:steps;display:flex;gap:.75rem;margin:.5rem 0;align-items:flex-start;}
-.step-list li::before{content:counter(steps);background:var(--green);color:#fff;border-radius:50%;width:24px;height:24px;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:800;flex-shrink:0;margin-top:.1rem;}
+.step-list li::before{content:counter(steps);background:linear-gradient(135deg,var(--green),#10B981);color:#fff;border-radius:50%;width:26px;height:26px;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:800;flex-shrink:0;margin-top:.1rem;box-shadow:0 2px 6px rgba(5,150,105,.3);}
 
-/* ── Question card ── */
-.question-card{background:var(--card);border-radius:12px;box-shadow:var(--shadow);margin-bottom:1rem;overflow:hidden;}
-.q-header{display:flex;align-items:center;gap:.75rem;padding:.8rem 1.1rem;background:var(--navy);color:#fff;}
-.q-num{background:rgba(255,255,255,.2);border-radius:8px;padding:.2rem .55rem;font-weight:800;font-size:.85rem;}
-.q-marks{margin-left:auto;font-size:.75rem;opacity:.75;}
-.q-text{padding:.9rem 1.1rem;font-size:.97rem;line-height:1.7;}
-.q-hint{background:#FFFDE7;border-top:1px dashed #FFD54F;padding:.6rem 1.1rem;font-size:.83rem;color:#5D4037;display:none;}
-.q-answer{background:#F1F8E9;border-top:1px solid #C8E6C9;padding:.8rem 1.1rem;font-size:.88rem;display:none;}
-.q-answer strong{color:var(--green);}
-.q-actions{padding:.6rem 1.1rem;display:flex;gap:.5rem;flex-wrap:wrap;border-top:1px solid var(--border);}
-.btn{display:inline-flex;align-items:center;gap:.35rem;padding:.45rem .9rem;border-radius:8px;font-size:.82rem;font-weight:700;cursor:pointer;border:none;transition:all .2s;font-family:'Nunito',sans-serif;}
-.btn-hint{background:#FFF9C4;color:#5D4037;border:1px solid #FFD54F;}
-.btn-hint:hover{background:#FFE082;}
-.btn-answer{background:#E8F5E9;color:#1B5E20;border:1px solid #A5D6A7;}
-.btn-answer:hover{background:#C8E6C9;}
-.btn-primary{background:var(--navy);color:#fff;}
-.btn-primary:hover{background:#2d5496;}
-.btn-green{background:var(--green);color:#fff;}
-.btn-green:hover{background:#1B5E20;}
-.btn-red{background:var(--red);color:#fff;}
-.btn-red:hover{background:#922b21;}
-.btn-gold{background:var(--gold);color:#fff;}
-.btn-gold:hover{background:#a57c0a;}
+/* ── Question card (answer-entry mode) ── */
+.question-card{background:var(--card);border-radius:14px;box-shadow:var(--shadow);margin-bottom:1rem;overflow:hidden;border:1px solid var(--border);}
+.q-header{display:flex;align-items:center;gap:.75rem;padding:.8rem 1.1rem;background:linear-gradient(135deg,var(--navy),var(--purple));color:#fff;}
+.q-num{background:rgba(255,255,255,.2);border-radius:8px;padding:.2rem .55rem;font-weight:800;font-size:.82rem;}
+.q-marks{margin-left:auto;font-size:.72rem;opacity:.8;background:rgba(255,255,255,.15);padding:.15rem .5rem;border-radius:6px;}
+.q-text{padding:.9rem 1.1rem;font-size:.97rem;line-height:1.7;border-bottom:1px solid var(--border);}
+.q-input-area{padding:.9rem 1.1rem;}
+.q-input-label{font-size:.75rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:.4rem;}
+.q-input{width:100%;padding:.65rem .9rem;border:2px solid var(--border);border-radius:10px;font-family:'Nunito',sans-serif;font-size:.95rem;font-weight:600;outline:none;transition:border .18s;resize:vertical;min-height:60px;}
+.q-input:focus{border-color:var(--navy);box-shadow:0 0 0 3px rgba(79,70,229,.12);}
+.q-input:disabled{background:#F8FAFC;color:var(--muted);cursor:not-allowed;}
+.q-result{padding:.75rem 1.1rem;display:none;align-items:center;gap:.6rem;font-size:.88rem;font-weight:700;}
+.q-result.correct{background:#ECFDF5;color:#065F46;border-top:1px solid #D1FAE5;}
+.q-result.incorrect{background:#FFF1F2;color:#9F1239;border-top:1px solid #FFE4E6;}
+.q-answer-reveal{padding:.8rem 1.1rem;background:#F8FAFC;border-top:1px solid var(--border);display:none;font-size:.88rem;}
+.q-answer-reveal strong{color:var(--green);}
+.q-actions{padding:.65rem 1.1rem;display:flex;gap:.5rem;flex-wrap:wrap;border-top:1px solid var(--border);background:#FAFBFF;}
+.q-hint{background:#FFFBEB;border-top:1px dashed #FCD34D;padding:.65rem 1.1rem;font-size:.83rem;color:#78350F;display:none;}
+
+/* ── Submit bar ── */
+.submit-bar{background:linear-gradient(135deg,#F5F3FF,#EDE9FE);border:2px solid var(--purple);border-radius:14px;padding:1.25rem;margin:1.25rem 0;text-align:center;}
+.submit-bar h3{color:var(--purple);font-size:1.05rem;margin-bottom:.4rem;}
+.submit-bar p{font-size:.85rem;color:var(--muted);margin-bottom:.9rem;}
+
+/* ── Score card ── */
+.score-card{background:linear-gradient(135deg,var(--navy),var(--purple));color:#fff;border-radius:16px;padding:1.5rem;text-align:center;margin:1rem 0;}
+.score-big{font-size:3rem;font-weight:900;line-height:1;}
+.score-label{font-size:.9rem;opacity:.8;margin-top:.3rem;}
+
+/* ── Buttons ── */
+.btn{display:inline-flex;align-items:center;gap:.35rem;padding:.45rem .9rem;border-radius:10px;font-size:.82rem;font-weight:700;cursor:pointer;border:none;transition:all .18s;font-family:'Nunito',sans-serif;}
+.btn-hint{background:#FFFBEB;color:#78350F;border:1px solid #FCD34D;}
+.btn-hint:hover{background:#FEF3C7;}
+.btn-answer{background:#ECFDF5;color:#065F46;border:1px solid #6EE7B7;}
+.btn-answer:hover{background:#D1FAE5;}
+.btn-primary{background:linear-gradient(135deg,var(--navy),var(--purple));color:#fff;box-shadow:0 2px 8px rgba(79,70,229,.25);}
+.btn-primary:hover{box-shadow:0 4px 16px rgba(79,70,229,.35);transform:translateY(-1px);}
+.btn-green{background:linear-gradient(135deg,var(--green),#10B981);color:#fff;box-shadow:0 2px 8px rgba(5,150,105,.25);}
+.btn-green:hover{box-shadow:0 4px 16px rgba(5,150,105,.35);transform:translateY(-1px);}
+.btn-red{background:linear-gradient(135deg,var(--red),#EF4444);color:#fff;}
+.btn-red:hover{transform:translateY(-1px);}
+.btn-gold{background:linear-gradient(135deg,var(--gold),#F59E0B);color:#fff;box-shadow:0 2px 8px rgba(217,119,6,.25);}
+.btn-gold:hover{box-shadow:0 4px 16px rgba(217,119,6,.35);transform:translateY(-1px);}
+.btn-purple{background:linear-gradient(135deg,var(--purple),#8B5CF6);color:#fff;}
 .btn-sm{padding:.3rem .65rem;font-size:.75rem;}
-.btn-lg{padding:.7rem 1.4rem;font-size:1rem;}
+.btn-lg{padding:.75rem 1.5rem;font-size:1rem;}
 .btn-block{width:100%;justify-content:center;}
 
 /* ── Progress bar ── */
 .progress-bar{background:var(--border);border-radius:20px;height:10px;overflow:hidden;margin:.35rem 0;}
-.progress-fill{height:100%;border-radius:20px;transition:width .6s ease;}
+.progress-fill{height:100%;border-radius:20px;transition:width .6s ease;background:linear-gradient(90deg,var(--navy),var(--purple),var(--teal));}
 .progress-label{display:flex;justify-content:space-between;font-size:.75rem;color:var(--muted);}
 
 /* ── Quiz ── */
-.quiz-option{display:block;padding:.8rem 1.1rem;border:2px solid var(--border);border-radius:10px;margin:.5rem 0;cursor:pointer;font-weight:600;transition:all .18s;background:#fff;}
-.quiz-option:hover{border-color:var(--navy);background:#F0F4FF;}
-.quiz-option.correct{border-color:var(--green);background:#E8F5E9;color:var(--green);}
-.quiz-option.incorrect{border-color:var(--red);background:#FFEBEE;color:var(--red);}
+.quiz-option{display:block;padding:.8rem 1.1rem;border:2px solid var(--border);border-radius:12px;margin:.5rem 0;cursor:pointer;font-weight:600;transition:all .18s;background:#fff;}
+.quiz-option:hover{border-color:var(--navy);background:#EEF2FF;}
+.quiz-option.correct{border-color:var(--green);background:#ECFDF5;color:#065F46;}
+.quiz-option.incorrect{border-color:var(--red);background:#FFF1F2;color:#9F1239;}
 .quiz-score{text-align:center;padding:2rem;font-size:3rem;font-weight:900;}
 
 /* ── Stats strip ── */
 .stats-strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:.75rem;margin:1.25rem 0;}
-.stat-box{background:var(--card);border-radius:12px;padding:1rem;text-align:center;box-shadow:var(--shadow);}
-.stat-num{font-size:1.8rem;font-weight:900;line-height:1;}
-.stat-label{font-size:.72rem;color:var(--muted);margin-top:.25rem;}
+.stat-box{background:var(--card);border-radius:14px;padding:1rem;text-align:center;box-shadow:var(--shadow);border:1px solid var(--border);}
+.stat-num{font-size:1.9rem;font-weight:900;line-height:1;background:linear-gradient(135deg,var(--navy),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.stat-label{font-size:.72rem;color:var(--muted);margin-top:.3rem;font-weight:600;}
 
 /* ── Tabs ── */
-.tab-bar{display:flex;gap:.3rem;margin:1rem 0;border-bottom:2px solid var(--border);overflow-x:auto;padding-bottom:-2px;}
-.tab{padding:.55rem 1rem;font-weight:700;font-size:.88rem;border-radius:8px 8px 0 0;cursor:pointer;color:var(--muted);background:none;border:none;border-bottom:3px solid transparent;transition:all .2s;white-space:nowrap;font-family:'Nunito',sans-serif;}
-.tab.active{color:var(--navy);border-bottom-color:var(--navy);background:#f0f4ff;}
+.tab-bar{display:flex;gap:.3rem;margin:1rem 0;border-bottom:2px solid var(--border);overflow-x:auto;}
+.tab{padding:.55rem 1rem;font-weight:700;font-size:.88rem;border-radius:10px 10px 0 0;cursor:pointer;color:var(--muted);background:none;border:none;border-bottom:3px solid transparent;transition:all .2s;white-space:nowrap;font-family:'Nunito',sans-serif;}
+.tab:hover{color:var(--navy);background:#EEF2FF;}
+.tab.active{color:var(--navy);border-bottom-color:var(--navy);background:#EEF2FF;}
 .tab-content{display:none;}
 .tab-content.active{display:block;}
 
 /* ── Misc ── */
 .mt1{margin-top:.5rem;} .mt2{margin-top:1rem;} .mt3{margin-top:1.5rem;} .mt4{margin-top:2rem;}
 .mb1{margin-bottom:.5rem;} .mb2{margin-bottom:1rem;}
-.flex{display:flex;} .flex-center{align-items:center;} .gap{gap:.75rem;}
 .text-center{text-align:center;}
 .muted{color:var(--muted);}
-.emoji-big{font-size:2.5rem;}
-.tip-box{background:#FFF3E0;border-left:4px solid var(--gold);border-radius:8px;padding:.9rem 1.1rem;font-size:.9rem;color:#4E342E;}
-.inline-correct{color:var(--green);font-weight:800;}
-.back-link{display:inline-flex;align-items:center;gap:.4rem;color:var(--navy);font-weight:700;font-size:.88rem;margin-bottom:1rem;padding:.4rem .8rem;border-radius:8px;border:2px solid var(--border);}
+.tip-box{background:linear-gradient(135deg,#FFFBEB,#FEF3C7);border-left:4px solid var(--gold);border-radius:12px;padding:.9rem 1.1rem;font-size:.9rem;color:#78350F;}
+.back-link{display:inline-flex;align-items:center;gap:.4rem;color:var(--navy);font-weight:700;font-size:.85rem;margin-bottom:1rem;padding:.4rem .85rem;border-radius:10px;border:2px solid var(--border);transition:all .18s;}
 .back-link:hover{background:var(--navy);color:#fff;border-color:var(--navy);}
-footer{background:var(--navy);color:rgba(255,255,255,.7);text-align:center;padding:1.5rem;font-size:.82rem;margin-top:3rem;}
+footer{background:linear-gradient(135deg,#0F172A,#1E1B4B);color:rgba(255,255,255,.6);text-align:center;padding:1.5rem;font-size:.82rem;margin-top:3rem;}
 footer strong{color:#fff;}
+/* ── Glassmorphism hero card ── */
+.hero-glass{background:rgba(255,255,255,.12);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.2);border-radius:16px;padding:1.25rem 1.5rem;margin-top:1.25rem;display:inline-block;}
 """
-
-
 def level_color(level):
     if "Higher" in level: return "#C0392B"
     if "Ordinary" in level: return "#1B3A6B"
@@ -749,12 +774,18 @@ def level_color(level):
 
 
 def generate_plan():
+    block_ranges = {}
+    for d in DAYS:
+        b = d["block"]
+        block_ranges.setdefault(b, [d["day"], d["day"]])
+        block_ranges[b][1] = d["day"]
     rows = ""
     prev_block = None
     for d in DAYS:
         if d["block"] != prev_block:
             info = BLOCKS.get(d["block"], {"color":"#555","icon":"📚"})
-            rows += f"""<tr><td colspan="5" style="background:{info['color']};color:#fff;font-weight:800;padding:.6rem 1rem;font-size:.9rem;">{info['icon']} {d['block']} Block · Days {d['day']}–</td></tr>\n"""
+            r = block_ranges[d["block"]]
+            rows += f"""<tr><td colspan="5" style="background:{info['color']};color:#fff;font-weight:800;padding:.6rem 1rem;font-size:.9rem;">{info['icon']} {d['block']} Block · Days {r[0]}\u2013{r[1]}</td></tr>\n"""
             prev_block = d["block"]
         lc = level_color(d["level"])
         qs = len(d["questions"])
@@ -791,10 +822,10 @@ def generate_plan():
 </div>
 </div>
 <footer>
-  <strong>Peppin's Tuition Centre, Cork</strong> · Junior Cycle Mathematics · 45-Day Tuition Programme
+  <strong>The 3 Amigos Tuition Centre, Cork · Kildare · Limerick</strong> · Junior Cycle Mathematics · 45-Day Tuition Programme
 </footer>
 """
-    return html_head("45-Day Plan · Peppin's Maths") + "<body>" + body + "</body></html>"
+    return html_head("45-Day Plan · 3 Amigos Maths") + "<body>" + body + "</body></html>"
 
 
 def generate_quiz():
@@ -901,7 +932,7 @@ def generate_quiz():
 </div>
 
 <footer>
-  <strong>Peppin's Tuition Centre, Cork</strong> · Junior Cycle Mathematics Quiz
+  <strong>The 3 Amigos Tuition Centre, Cork · Kildare · Limerick</strong> · Junior Cycle Mathematics Quiz
 </footer>
 
 <script>
@@ -994,17 +1025,17 @@ function resetQuiz(){{
 }}
 </script>
 """
-    return html_head("Quick Quiz · Peppin's Maths") + "<body>" + body + "</body></html>"
+    return html_head("Quick Quiz · 3 Amigos Maths") + "<body>" + body + "</body></html>"
 
 
 def generate_readme():
-    return """# Peppin's Tuition Centre, Cork — Junior Cycle Mathematics Study App
+    return """# The 3 Amigos Tuition Centre, Cork · Kildare · Limerick — Junior Cycle Mathematics Study App
 
 ## 🍀 Live Study App
 
 **➡️ Open the app:** [https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/](https://your-username.github.io/your-repo-name/)
 
-A complete, mobile-friendly Junior Cycle Maths study app for First Year students at Peppin's Tuition Centre, Cork. Covers all 45 days of the tuition programme.
+A complete, mobile-friendly Junior Cycle Maths study app for First Year students at The 3 Amigos Tuition Centre, Cork · Kildare · Limerick. Covers all 45 days of the tuition programme.
 
 ## Features
 
@@ -1057,10 +1088,10 @@ All output goes into the `docs/` folder, ready to commit and push.
 
 - NCCA Junior Cycle Mathematics Specification 2018
 - SEC Junior Cycle Exam Papers 2021–2025
-- Peppin's Tuition Centre, Cork teaching sequence
+- The 3 Amigos Tuition Centre, Cork · Kildare · Limerick teaching sequence
 
 ---
-*Built for Peppin's Tuition Centre Junior Cycle Maths Tuition Programme*
+*Built for The 3 Amigos Tuition Centre Junior Cycle Maths Tuition Programme*
 """
 
 
@@ -1081,7 +1112,7 @@ def generate_404():
 
 
 # ─── INJECT TIPS ─────────────────────────────────────────────────────────────
-_TIPS = {1: 'BEMDAS appears in ~80% of SEC papers in Q1. Always show each step on a separate line — each step earns marks even if you make an arithmetic error later.', 2: 'HCF/LCM: the most common error is confusing HCF (lowest powers) with LCM (highest powers). Prime factorisation always works and is worth showing in full.', 3: 'Directed numbers are tested inside almost every algebra question. The most penalised error: not using brackets around negative substitutions, e.g. x=−3 must become (−3)²=9.', 4: 'Fractions appear in Q1 and embedded in algebra. The SEC awards marks for showing the LCD step even if the final answer is wrong — never skip it.', 5: '% change is in every paper. Always divide by the ORIGINAL value. Two successive % changes must be applied separately — never add the percentages together.', 6: "Venn diagrams appear in Q6 most years. Always fill the INTERSECTION (both) first, then find 'only A' and 'only B' by subtracting. Formula |A∪B|=|A|+|B|−|A∩B| is in the Tables booklet.", 7: 'Ratio and tax questions: always calculate each income tax band separately; subtract credits AFTER calculating gross tax. The multiplier method (×1.12 for VAT) is fastest.', 8: 'Algebra substitution: put negative values in BRACKETS every time. The examiner awards a method mark for your substitution step, even before any arithmetic is done.', 9: 'Expanding double brackets is tested in almost every Q2. The DoTS pattern (a+b)(a−b)=a²−b² saves time and is heavily used in later algebraic fractions questions.', 10: 'Factorising: SEC examiners award marks for each correct factor. Always CHECK by expanding — takes 10 seconds and can confirm or save 4 marks.', 11: 'Linear equations: the SEC always awards method marks for expanding brackets, collecting terms, and the final answer separately. Never skip showing the CHECK substitution.', 12: 'Simultaneous equations appear every year, often in word-problem context. The elimination method is most reliable. ALWAYS verify both values in BOTH original equations.', 13: 'Quadratic equations appear in at least 2 questions yearly. The quadratic formula is in the Tables & Formulae booklet — you must know when to use it. Check solutions by substituting back.', 14: "Sequence questions: common SEC pattern is (a) find Tₙ; (b) find a specific term; (c) 'is x a term?' Set Tₙ=value, solve for n. If n is a whole number, yes — it is in the sequence.", 15: 'Functions: always make a TABLE of at least 5 values before drawing — never sketch freehand. Roots and turning point are common part (c) questions worth significant marks.', 16: 'Algebraic fractions appear in Higher Level. Key: factorise BOTH numerator and denominator before cancelling. Only cancel FACTORS (things that multiply), never TERMS (things that add).', 17: "Mixed algebra mirrors the SEC format. Read all parts (a)(b)(c) before writing anything. 'Hence' means use your previous answer — the link is always deliberate and saves calculation.", 18: "Angle theorems: always NAME the theorem before applying it. 'By the Exterior Angle Theorem…' — naming earns marks in proofs even if a calculation step has errors.", 19: 'Circle Theorem 6 (angle at centre = 2×angle at circumference) is the most tested. Corollary (angle in semicircle = 90°) appears in nearly every SEC paper — know it cold.', 20: 'Constructions: never erase your compass arcs — they show the examiner you used the correct geometric method and earn construction marks even if the final shape is imprecise.', 21: 'Area and sectors: sector perimeter = arc + TWO radii (students often forget the two straight sides). All formulae are in the Tables booklet — use it for every calculation.', 22: 'Volume: composite solid questions are common. Calculate each part separately and ADD. Cone slant height l=√(r²+h²) must be calculated using Pythagoras — it is not given directly.', 23: 'Coordinate geometry: perpendicular slope (−1/m) is frequently needed. Remember: perpendicular means FLIP the fraction AND CHANGE the sign. m=3/4 → m⊥=−4/3.', 24: "Circle equations: practice 'state centre and radius', 'find where circle meets axes', and 'is point inside/outside?' These three are the most common part-types in SEC questions.", 25: 'SOH CAH TOA appears in every paper. Draw a labelled diagram FIRST. Calculator must be in DEGREE mode. Angle of elevation/depression is always measured from the HORIZONTAL.', 26: 'Sine/Cosine Rule decision: angle BETWEEN two sides and you know them → Cosine Rule. Know one angle and opposite side + another side → Sine Rule. Area=½ab sinC is in the booklet.', 27: 'Multi-step geometry: always show sub-answers clearly labelled. If an early step is wrong, consequential marks reward correct use of your wrong value in all subsequent steps.', 28: 'Coordinate geometry questions follow a consistent SEC pattern: (a) slope/distance/midpoint; (b) equation of line or circle; (c) intersection or inside/outside. Practice this 3-part structure.', 29: 'Statistics questions: drawing a neat, labelled frequency table — even if not explicitly asked — demonstrates organised thinking and earns presentation marks.', 30: 'Mean, median and IQR: the most common error is finding median WITHOUT ordering data first. Write the ordered list as your very first step — every time.', 31: 'Histograms: if class widths are EQUAL, y-axis can show frequency. If widths DIFFER, y-axis MUST show frequency density=freq÷class width. Check widths before drawing.', 32: 'Scatter diagrams: the line of best fit MUST pass through the mean point (x̄,ȳ). Mark the mean point as a cross on the diagram BEFORE drawing the line. Examiners look for this explicitly.', 33: 'Basic probability: P(A or B)=P(A)+P(B) ONLY for mutually exclusive events. If events can overlap (e.g. even AND prime on a die), always subtract P(A∩B) to avoid double-counting.', 34: 'Tree diagrams: without replacement — BOTH the total and the selected colour count must decrease after each draw. Always verify all terminal branches sum to exactly 1.', 35: "Counting principles: ask 'does order matter?' Roles (president, secretary) → order matters → Permutation nPr. Committees/groups → order doesn't matter → Combination nCr.", 36: 'Standard deviation and normal distribution: the 68-95-99.7 rule is the most tested. 68% within ±1σ; 95% within ±2σ. Show the full σ calculation step by step — each step earns marks.', 37: "Statistics exam part (c) is usually interpretation. Write at least 2 sentences, name BOTH variables, and cite the specific numbers you calculated. 'Positive correlation' alone is not enough.", 38: "CBA 2 at Peppin's Tuition Centre is your statistical investigation. The most common weakness: vague conclusions. Always write: 'My data shows X because mean hours sport (Y) > mean hours music (Z).'", 39: 'Rapid-fire revision: in timed conditions, tackle questions you are MOST confident about first. Every mark counts — a simple BEMDAS question is worth the same as a hard algebra question.', 40: "Geometry revision: know what's in the Formulae & Tables booklet: trig ratios, Sine Rule, Cosine Rule, area, volume formulae. Never memorise what is given to you in the exam.", 41: 'Statistics revision: the most common lost marks are: median without ordering; IQR confused with range; line of best fit not through mean point; conditional probability wrong denominator.', 42: 'Mock Paper 1: time management — 8–10 minutes per question. If stuck after 3 minutes, write the formula and move on. Return at the end. A formula alone earns the method mark.', 43: 'Mock Paper 2: geometry rewards neat diagrams. Draw large, clear figures with all measurements labelled. Statistics: always show your frequency table BEFORE calculating the mean.', 44: 'Full mock: the real SEC paper has 10 questions with 3 parts each. Parts (a) and (b) are usually accessible — secure those first. Attempt part (c) for method marks even if unsure.', 45: 'Exam day: open the Formulae & Tables booklet at the start and flag the pages you use most: area/volume formulae, trig, sequences, statistics. Everything you need is there.'}
+_TIPS = {1: 'BEMDAS appears in ~80% of SEC papers in Q1. Always show each step on a separate line — each step earns marks even if you make an arithmetic error later.', 2: 'HCF/LCM: the most common error is confusing HCF (lowest powers) with LCM (highest powers). Prime factorisation always works and is worth showing in full.', 3: 'Directed numbers are tested inside almost every algebra question. The most penalised error: not using brackets around negative substitutions, e.g. x=−3 must become (−3)²=9.', 4: 'Fractions appear in Q1 and embedded in algebra. The SEC awards marks for showing the LCD step even if the final answer is wrong — never skip it.', 5: '% change is in every paper. Always divide by the ORIGINAL value. Two successive % changes must be applied separately — never add the percentages together.', 6: "Venn diagrams appear in Q6 most years. Always fill the INTERSECTION (both) first, then find 'only A' and 'only B' by subtracting. Formula |A∪B|=|A|+|B|−|A∩B| is in the Tables booklet.", 7: 'Ratio and tax questions: always calculate each income tax band separately; subtract credits AFTER calculating gross tax. The multiplier method (×1.12 for VAT) is fastest.', 8: 'Algebra substitution: put negative values in BRACKETS every time. The examiner awards a method mark for your substitution step, even before any arithmetic is done.', 9: 'Expanding double brackets is tested in almost every Q2. The DoTS pattern (a+b)(a−b)=a²−b² saves time and is heavily used in later algebraic fractions questions.', 10: 'Factorising: SEC examiners award marks for each correct factor. Always CHECK by expanding — takes 10 seconds and can confirm or save 4 marks.', 11: 'Linear equations: the SEC always awards method marks for expanding brackets, collecting terms, and the final answer separately. Never skip showing the CHECK substitution.', 12: 'Simultaneous equations appear every year, often in word-problem context. The elimination method is most reliable. ALWAYS verify both values in BOTH original equations.', 13: 'Quadratic equations appear in at least 2 questions yearly. The quadratic formula is in the Tables & Formulae booklet — you must know when to use it. Check solutions by substituting back.', 14: "Sequence questions: common SEC pattern is (a) find Tₙ; (b) find a specific term; (c) 'is x a term?' Set Tₙ=value, solve for n. If n is a whole number, yes — it is in the sequence.", 15: 'Functions: always make a TABLE of at least 5 values before drawing — never sketch freehand. Roots and turning point are common part (c) questions worth significant marks.', 16: 'Algebraic fractions appear in Higher Level. Key: factorise BOTH numerator and denominator before cancelling. Only cancel FACTORS (things that multiply), never TERMS (things that add).', 17: "Mixed algebra mirrors the SEC format. Read all parts (a)(b)(c) before writing anything. 'Hence' means use your previous answer — the link is always deliberate and saves calculation.", 18: "Angle theorems: always NAME the theorem before applying it. 'By the Exterior Angle Theorem…' — naming earns marks in proofs even if a calculation step has errors.", 19: 'Circle Theorem 6 (angle at centre = 2×angle at circumference) is the most tested. Corollary (angle in semicircle = 90°) appears in nearly every SEC paper — know it cold.', 20: 'Constructions: never erase your compass arcs — they show the examiner you used the correct geometric method and earn construction marks even if the final shape is imprecise.', 21: 'Area and sectors: sector perimeter = arc + TWO radii (students often forget the two straight sides). All formulae are in the Tables booklet — use it for every calculation.', 22: 'Volume: composite solid questions are common. Calculate each part separately and ADD. Cone slant height l=√(r²+h²) must be calculated using Pythagoras — it is not given directly.', 23: 'Coordinate geometry: perpendicular slope (−1/m) is frequently needed. Remember: perpendicular means FLIP the fraction AND CHANGE the sign. m=3/4 → m⊥=−4/3.', 24: "Circle equations: practice 'state centre and radius', 'find where circle meets axes', and 'is point inside/outside?' These three are the most common part-types in SEC questions.", 25: 'SOH CAH TOA appears in every paper. Draw a labelled diagram FIRST. Calculator must be in DEGREE mode. Angle of elevation/depression is always measured from the HORIZONTAL.', 26: 'Sine/Cosine Rule decision: angle BETWEEN two sides and you know them → Cosine Rule. Know one angle and opposite side + another side → Sine Rule. Area=½ab sinC is in the booklet.', 27: 'Multi-step geometry: always show sub-answers clearly labelled. If an early step is wrong, consequential marks reward correct use of your wrong value in all subsequent steps.', 28: 'Coordinate geometry questions follow a consistent SEC pattern: (a) slope/distance/midpoint; (b) equation of line or circle; (c) intersection or inside/outside. Practice this 3-part structure.', 29: 'Statistics questions: drawing a neat, labelled frequency table — even if not explicitly asked — demonstrates organised thinking and earns presentation marks.', 30: 'Mean, median and IQR: the most common error is finding median WITHOUT ordering data first. Write the ordered list as your very first step — every time.', 31: 'Histograms: if class widths are EQUAL, y-axis can show frequency. If widths DIFFER, y-axis MUST show frequency density=freq÷class width. Check widths before drawing.', 32: 'Scatter diagrams: the line of best fit MUST pass through the mean point (x̄,ȳ). Mark the mean point as a cross on the diagram BEFORE drawing the line. Examiners look for this explicitly.', 33: 'Basic probability: P(A or B)=P(A)+P(B) ONLY for mutually exclusive events. If events can overlap (e.g. even AND prime on a die), always subtract P(A∩B) to avoid double-counting.', 34: 'Tree diagrams: without replacement — BOTH the total and the selected colour count must decrease after each draw. Always verify all terminal branches sum to exactly 1.', 35: "Counting principles: ask 'does order matter?' Roles (president, secretary) → order matters → Permutation nPr. Committees/groups → order doesn't matter → Combination nCr.", 36: 'Standard deviation and normal distribution: the 68-95-99.7 rule is the most tested. 68% within ±1σ; 95% within ±2σ. Show the full σ calculation step by step — each step earns marks.', 37: "Statistics exam part (c) is usually interpretation. Write at least 2 sentences, name BOTH variables, and cite the specific numbers you calculated. 'Positive correlation' alone is not enough.", 38: "CBA 2 at The 3 Amigos Tuition Centre is your statistical investigation. The most common weakness: vague conclusions. Always write: 'My data shows X because mean hours sport (Y) > mean hours music (Z).'", 39: 'Rapid-fire revision: in timed conditions, tackle questions you are MOST confident about first. Every mark counts — a simple BEMDAS question is worth the same as a hard algebra question.', 40: "Geometry revision: know what's in the Formulae & Tables booklet: trig ratios, Sine Rule, Cosine Rule, area, volume formulae. Never memorise what is given to you in the exam.", 41: 'Statistics revision: the most common lost marks are: median without ordering; IQR confused with range; line of best fit not through mean point; conditional probability wrong denominator.', 42: 'Mock Paper 1: time management — 8–10 minutes per question. If stuck after 3 minutes, write the formula and move on. Return at the end. A formula alone earns the method mark.', 43: 'Mock Paper 2: geometry rewards neat diagrams. Draw large, clear figures with all measurements labelled. Statistics: always show your frequency table BEFORE calculating the mean.', 44: 'Full mock: the real SEC paper has 10 questions with 3 parts each. Parts (a) and (b) are usually accessible — secure those first. Attempt part (c) for method marks even if unsure.', 45: 'Exam day: open the Formulae & Tables booklet at the start and flag the pages you use most: area/volume formulae, trig, sequences, statistics. Everything you need is there.'}
 for _d in DAYS:
     _d['tip'] = _TIPS.get(_d['day'], 'Show all working clearly. Method marks are awarded even when arithmetic errors occur.')
 
@@ -1135,7 +1166,7 @@ def nav_bar(active="home"):
   <div class="nav-brand">
     <span class="nav-logo">🍀</span>
     <div>
-      <div class="nav-title">Peppin's Maths</div>
+      <div class="nav-title">3 Amigos Maths</div>
       <div class="nav-sub">Junior Cycle · First Year</div>
     </div>
   </div>
@@ -1166,7 +1197,7 @@ def generate_login():
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Login · Peppin's Tuition Centre</title>
+<title>Login · The 3 Amigos Tuition Centre</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Merriweather:wght@700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
@@ -1195,7 +1226,7 @@ select:focus,input:focus{{border-color:#1B3A6B;}}
 <div class="login-card">
   <div class="login-logo">
     <div class="emoji">🍀</div>
-    <h1>Peppin's Tuition Centre</h1>
+    <h1>The 3 Amigos Tuition Centre</h1>
     <p>Junior Cycle Mathematics · Cork</p>
   </div>
 
@@ -1322,7 +1353,7 @@ def generate_parent():
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Parent Dashboard · Peppin's Tuition Centre</title>
+<title>Parent Dashboard · The 3 Amigos Tuition Centre</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Merriweather:wght@700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -1332,7 +1363,7 @@ def generate_parent():
   <div class="nav-brand">
     <span class="nav-logo">🍀</span>
     <div>
-      <div class="nav-title">Peppin's Maths</div>
+      <div class="nav-title">3 Amigos Maths</div>
       <div class="nav-sub">Parent Dashboard</div>
     </div>
   </div>
@@ -1378,7 +1409,7 @@ def generate_parent():
 </div>
 
 <footer style="background:var(--navy);color:rgba(255,255,255,.7);text-align:center;padding:1.5rem;font-size:.82rem;margin-top:3rem;">
-  <strong style="color:#fff">Peppin's Tuition Centre, Cork</strong> · Parent Dashboard · Junior Cycle Mathematics
+  <strong style="color:#fff">The 3 Amigos Tuition Centre, Cork · Kildare · Limerick</strong> · Parent Dashboard · Junior Cycle Mathematics
 </footer>
 
 <script>
@@ -1404,9 +1435,17 @@ function loadParentDashboard(){{
     var complete = !!localStorage.getItem('day_complete_' + childKey + '_' + i);
     if(complete) done++;
     var topic = DAY_TOPICS[i] || '';
-    html += '<div title="Day '+i+': '+topic+'" style="display:flex;flex-direction:column;align-items:center;justify-content:center;background:'+(complete?'var(--green)':'#fff')+';color:'+(complete?'#fff':'var(--text)')+';border:2px solid '+(complete?'var(--green)':'var(--border)')+';border-radius:10px;padding:.5rem .25rem;font-weight:800;font-size:.82rem;text-align:center;">'
-      + '<span style="font-size:1.1rem">'+(complete?'✅':'📖')+'</span>'
+    var scoreData = localStorage.getItem('score_' + childKey + '_' + i);
+    var scoreLine = '';
+    if(scoreData) {{
+      var sc = JSON.parse(scoreData);
+      scoreLine = '<span style="font-size:.65rem;margin-top:.1rem;font-weight:700;color:'+(complete?'rgba(255,255,255,.85)':'var(--purple)')+'">'+sc.earned+'/'+sc.total+'</span>';
+    }}
+    var bg = complete ? 'linear-gradient(135deg,var(--green),#10B981)' : '#fff';
+    html += '<div title="Day '+i+': '+topic+'" style="display:flex;flex-direction:column;align-items:center;justify-content:center;background:'+bg+';color:'+(complete?'#fff':'var(--text)')+';border:2px solid '+(complete?'transparent':'var(--border)')+';border-radius:12px;padding:.5rem .25rem;font-weight:800;font-size:.82rem;text-align:center;box-shadow:'+(complete?'0 2px 8px rgba(5,150,105,.3)':'none')+';">'
+      + '<span style="font-size:1rem">'+(complete?'✅':'📖')+'</span>'
       + '<span>Day '+i+'</span>'
+      + scoreLine
       + '</div>';
   }}
 
@@ -1431,7 +1470,7 @@ def generate_progress():
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Progress · Peppin's Maths</title>
+<title>My Progress · 3 Amigos Maths</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Merriweather:wght@700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
@@ -1462,7 +1501,7 @@ def generate_progress():
   </div>
 </div>
 <footer style="background:var(--navy);color:rgba(255,255,255,.7);text-align:center;padding:1.5rem;font-size:.82rem;margin-top:3rem;">
-  <strong style="color:#fff">Peppin's Tuition Centre, Cork</strong> · Junior Cycle Mathematics Progress Tracker
+  <strong style="color:#fff">The 3 Amigos Tuition Centre, Cork · Kildare · Limerick</strong> · Junior Cycle Mathematics Progress Tracker
 </footer>
 <script>
 const DAY_TOPICS = {day_topics_json};
@@ -1523,7 +1562,7 @@ def generate_index():
 <div class="page-hero">
   <div style="font-size:2.5rem;margin-bottom:.5rem">📐 🔢 📊</div>
   <h1>Junior Cycle Mathematics</h1>
-  <p id="hero-sub">Peppin's Tuition Centre, Cork · First Year · 45-Day Study Programme</p>
+  <p id="hero-sub">The 3 Amigos Tuition Centre, Cork · Kildare · Limerick · First Year · 45-Day Study Programme</p>
   <div style="display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin-top:1.25rem;">
     <a href="plan.html" class="btn btn-gold btn-lg">📅 View 45-Day Plan</a>
     <a href="quiz.html" class="btn btn-primary btn-lg" style="background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.4);">⚡ Quick Quiz</a>
@@ -1578,7 +1617,7 @@ def generate_index():
 
     footer = """
   <footer style="background:var(--navy);color:rgba(255,255,255,.7);text-align:center;padding:1.5rem;font-size:.82rem;margin-top:3rem;">
-    <strong style="color:#fff">Peppin's Tuition Centre, Cork</strong> · Junior Cycle Mathematics · 45-Day Tuition Programme
+    <strong style="color:#fff">The 3 Amigos Tuition Centre, Cork · Kildare · Limerick</strong> · Junior Cycle Mathematics · 45-Day Tuition Programme
   </footer>
 """
     script = """
@@ -1589,7 +1628,7 @@ def generate_index():
   if(!sess){location.replace('login.html');return;}
   if(sess.role==='parent'){location.replace('parent.html');return;}
   // personalise
-  document.getElementById('hero-sub').textContent=sess.name+"'s Junior Cycle Maths · Peppin's Tuition Centre, Cork";
+  document.getElementById('hero-sub').textContent=sess.name+"'s Junior Cycle Maths · The 3 Amigos Tuition Centre, Cork · Kildare · Limerick";
   var el=document.getElementById('nav-student-name');if(el)el.textContent=sess.name;
   // load completion marks scoped to this student
   document.querySelectorAll('[id^="mark-"]').forEach(function(el){
@@ -1599,14 +1638,16 @@ def generate_index():
 })();
 </script>
 """
-    return html_head("Peppin's Maths · Home") + "<body>" + AUTH_GUARD + hero + stats + content + "</div>" + footer + script + "</body></html>"
+    return html_head("3 Amigos Maths · Home") + "<body>" + AUTH_GUARD + hero + stats + content + "</div>" + footer + script + "</body></html>"
 
 
 # ─── UPDATED GENERATE_DAY_PAGE (student-scoped markComplete) ─────────────────
+
 def generate_day_page(d):
-    day_num = d["day"]
-    lc = level_color(d["level"])
-    c = d["concept"]
+    day_num     = d["day"]
+    c           = d["concept"]
+    total_marks = sum(q["marks"] for q in d["questions"])
+    block_icon  = {"Number":"🔢","Algebra":"✖️","Geometry":"📐","Statistics":"📊"}.get(d["block"],"📝")
 
     explains = "".join(f"<p>{p}</p>" for p in c["explain"])
     mistakes = "".join(f"<li>{m}</li>" for m in c["mistakes"])
@@ -1616,11 +1657,11 @@ def generate_day_page(d):
     concept_html = f"""
 <div class="tab-content active" id="tab-concept">
   <div class="concept-section mt2">
-    <div class="section-label" style="color:#1565C0">📘 What is this topic?</div>
+    <div class="section-label" style="color:var(--navy)">📘 What is this topic?</div>
     <div class="explain-box">{explains}</div>
   </div>
   <div class="concept-section">
-    <div class="section-label" style="color:var(--gold)">💡 Analogy — How to picture it</div>
+    <div class="section-label" style="color:var(--gold)">💡 Analogy</div>
     <div class="analogy-box"><p>{c['analogy']}</p></div>
   </div>
   <div class="concept-section">
@@ -1631,11 +1672,11 @@ def generate_day_page(d):
     </div>
   </div>
   <div class="concept-section">
-    <div class="section-label" style="color:#BF360C">⚠️ Common Mistakes</div>
+    <div class="section-label" style="color:var(--red)">⚠️ Common Mistakes</div>
     <div class="mistake-box"><ul style="padding-left:1.2rem">{mistakes}</ul></div>
   </div>
   <div class="concept-section">
-    <div class="section-label" style="color:var(--navy)">📌 Key Formulae</div>
+    <div class="section-label" style="color:var(--purple)">📌 Key Formulae</div>
     <div class="formula-box">{formulae}</div>
   </div>
   <div class="tip-box mt2">
@@ -1644,47 +1685,80 @@ def generate_day_page(d):
 </div>
 """
 
-    q_html = '<div class="tab-content" id="tab-questions">\n'
+    q_cards = ""
+    q_marks_map = {}
     for q in d["questions"]:
-        q_html += f"""
-<div class="question-card">
+        q_marks_map[q["q"]] = q["marks"]
+        q_cards += f"""
+<div class="question-card" id="qcard-{day_num}-{q['q']}">
   <div class="q-header">
     <span class="q-num">Q{q['q']}</span>
-    <span style="flex:1;font-size:.9rem">{q['text']}</span>
+    <span style="flex:1;font-size:.9rem;line-height:1.5;padding:0 .5rem">{q['text']}</span>
     <span class="q-marks">{q['marks']} mark{'s' if q['marks']>1 else ''}</span>
   </div>
+  <div class="q-input-area">
+    <div class="q-input-label">Your Answer</div>
+    <textarea class="q-input" id="input-{day_num}-{q['q']}" rows="2" placeholder="Write your working and answer here…"></textarea>
+  </div>
   <div class="q-hint" id="hint-{day_num}-{q['q']}">💡 <em>{q['hint']}</em></div>
-  <div class="q-answer" id="ans-{day_num}-{q['q']}"><strong>✅ Answer:</strong> {q['answer']}</div>
   <div class="q-actions">
-    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-{day_num}-{q['q']}')">💡 Hint</button>
-    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-{day_num}-{q['q']}')">✅ Show Answer</button>
+    <button class="btn btn-hint btn-sm" onclick="toggleHint({day_num},{q['q']})">💡 Hint</button>
+  </div>
+  <div class="q-result" id="result-{day_num}-{q['q']}"></div>
+  <div class="q-answer-reveal" id="ans-{day_num}-{q['q']}">
+    <strong>✅ Model Answer:</strong> {q['answer']}
   </div>
 </div>
 """
-    q_html += "</div>\n"
 
-    prev_link = f'<a href="day{day_num-1}.html" class="btn btn-primary">← Day {day_num-1}</a>' if day_num > 1 else ""
-    next_link = f'<a href="day{day_num+1}.html" class="btn btn-green">Day {day_num+1} →</a>' if day_num < 45 else ""
+    import json as _json
+    q_marks_json = _json.dumps(q_marks_map)
+
+    q_html = f"""
+<div class="tab-content" id="tab-questions">
+  <div style="background:#EEF2FF;border:1px solid #C7D2FE;border-radius:12px;padding:1rem 1.25rem;margin:1rem 0;font-size:.88rem;color:#312E81;">
+    <strong>📝 How this works:</strong> Write your answer in each box, then click
+    <strong>Submit All Answers</strong>. Model answers will be revealed — mark yourself and
+    record your score for the day.
+  </div>
+  {q_cards}
+  <div class="submit-bar" id="submit-bar-{day_num}">
+    <h3>Ready to check your answers?</h3>
+    <p>Click submit to reveal model answers and mark yourself.</p>
+    <button class="btn btn-primary btn-lg" onclick="submitAnswers({day_num},{total_marks})">✅ Submit All Answers</button>
+  </div>
+  <div id="marking-section-{day_num}" style="display:none">
+    <div class="score-card" id="score-display-{day_num}">
+      <div class="score-big" id="score-num-{day_num}">0/{total_marks}</div>
+      <div class="score-label">marks — tap ✅ Got it or ❌ Wrong on each question below</div>
+    </div>
+    <div style="background:#F0FDF4;border:2px solid #6EE7B7;border-radius:12px;padding:.9rem 1.1rem;margin-bottom:1rem;font-size:.85rem;color:#065F46;">
+      <strong>How to mark:</strong> Read the model answer shown under each question and tap whether you got it right or wrong. Your score is saved automatically.
+    </div>
+  </div>
+</div>
+"""
+
+    prev_link = f'<a href="day{day_num-1}.html" class="btn btn-primary">← Day {day_num-1}</a>' if day_num > 1 else "<span></span>"
+    next_link = f'<a href="day{day_num+1}.html" class="btn btn-green">Day {day_num+1} →</a>' if day_num < 45 else "<span></span>"
 
     body = f"""
 {AUTH_GUARD}
 {nav_bar()}
-<div style="background:{d['color']};color:#fff;padding:1.5rem 1.5rem 1rem;">
+<div style="background:linear-gradient(135deg,{d['color']}ee,{d['color']}99);color:#fff;padding:1.5rem 1.5rem 1.25rem;">
   <div style="max-width:900px;margin:0 auto;">
-    <a href="index.html" style="color:rgba(255,255,255,.7);font-size:.82rem;font-weight:700;">← Back to Home</a>
-    <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-top:.6rem;">
+    <a href="index.html" style="color:rgba(255,255,255,.75);font-size:.8rem;font-weight:700;display:inline-flex;align-items:center;gap:.3rem;margin-bottom:.75rem;">← Back to Home</a>
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
       <div>
-        <div style="font-size:.75rem;opacity:.7;font-weight:800;letter-spacing:.1em;text-transform:uppercase;">Day {day_num} of 45 · {d['block']}</div>
-        <h1 style="font-family:'Merriweather',serif;font-size:clamp(1.3rem,3vw,2rem);margin:.3rem 0;">{d['topic']}</h1>
-        <div style="font-size:1rem;opacity:.85;">{d['subtopic']}</div>
-        <div style="margin-top:.6rem;display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;">
-          <span class="level-badge" style="background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4)">{d['level']}</span>
-          <span style="font-size:.78rem;opacity:.7">{len(d['questions'])} questions · {sum(q['marks'] for q in d['questions'])} marks total</span>
+        <div style="font-size:.68rem;opacity:.75;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.2rem;">Day {day_num} of 45 · {d['block']}</div>
+        <h1 style="font-family:'Merriweather',serif;font-size:clamp(1.3rem,3vw,2rem);margin:.2rem 0;">{d['topic']}</h1>
+        <div style="font-size:.95rem;opacity:.85;margin-bottom:.6rem;">{d['subtopic']}</div>
+        <div style="display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;">
+          <span style="background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.35);padding:.18rem .6rem;border-radius:20px;font-size:.72rem;font-weight:700;">{d['level']}</span>
+          <span style="font-size:.75rem;opacity:.75">{len(d['questions'])} questions · {total_marks} marks total</span>
         </div>
       </div>
-      <div style="text-align:center;">
-        <div style="font-size:2.5rem;line-height:1">{'🔢' if d['block']=='Number' else '✖️' if d['block']=='Algebra' else '📐' if d['block']=='Geometry' else '📊' if d['block']=='Statistics' else '📝'}</div>
-      </div>
+      <div style="font-size:3rem;line-height:1;opacity:.9">{block_icon}</div>
     </div>
   </div>
 </div>
@@ -1692,56 +1766,108 @@ def generate_day_page(d):
 <div class="container" style="max-width:900px;">
   <div class="tab-bar">
     <button class="tab active" onclick="switchTab('concept',this)">📖 Concept</button>
-    <button class="tab" onclick="switchTab('questions',this)">✏️ Practice Questions</button>
+    <button class="tab" onclick="switchTab('questions',this)">✏️ Practice ({len(d['questions'])}Q · {total_marks}M)</button>
   </div>
   {concept_html}
   {q_html}
-  <div style="display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wrap;margin-top:2rem;padding-top:1rem;border-top:2px solid var(--border);">
+  <div style="display:flex;gap:.75rem;justify-content:space-between;align-items:center;flex-wrap:wrap;margin-top:2rem;padding-top:1rem;border-top:2px solid var(--border);">
     {prev_link}
-    <button class="btn btn-gold" id="complete-btn" onclick="markComplete({day_num})">✅ Mark Day {day_num} Complete</button>
+    <button class="btn btn-gold btn-lg" id="complete-btn-{day_num}" onclick="markComplete({day_num})">✅ Mark Day {day_num} Complete</button>
     {next_link}
   </div>
 </div>
 
-<footer style="background:var(--navy);color:rgba(255,255,255,.7);text-align:center;padding:1.5rem;font-size:.82rem;margin-top:3rem;">
-  <strong style="color:#fff">Peppin's Tuition Centre, Cork</strong> · Day {day_num} · {d['topic']}
+<footer>
+  <strong>The 3 Amigos Tuition Centre, Cork · Kildare · Limerick</strong> · Day {day_num} · {d['topic']}
 </footer>
 
 <script>
+var DAY={day_num}, TOTAL={total_marks};
+var Q_MARKS={q_marks_json};
+var submitted=false, markedQs={{}}, earnedMarks=0;
+
 function switchTab(name,btn){{
-  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
-  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(function(t){{t.classList.remove('active');}});
+  document.querySelectorAll('.tab').forEach(function(t){{t.classList.remove('active');}});
   document.getElementById('tab-'+name).classList.add('active');
   btn.classList.add('active');
 }}
-function toggleEl(id){{
-  var el=document.getElementById(id);
+function toggleHint(day,q){{
+  var el=document.getElementById('hint-'+day+'-'+q);
   el.style.display=el.style.display==='block'?'none':'block';
 }}
-function getStudentKey(){{
-  var sess=JSON.parse(sessionStorage.getItem('ptc_session')||'null');
-  return sess?sess.key:null;
+function getKey(){{
+  var s=JSON.parse(sessionStorage.getItem('ptc_session')||'null');
+  return s?s.key:null;
+}}
+function submitAnswers(day,total){{
+  if(submitted) return;
+  var k=getKey(); if(!k) return;
+  // Save first-attempt answers
+  var answers={{}};
+  Object.keys(Q_MARKS).forEach(function(qn){{
+    var inp=document.getElementById('input-'+day+'-'+qn);
+    if(inp){{ answers[qn]=inp.value||''; inp.disabled=true; }}
+  }});
+  localStorage.setItem('answers_'+k+'_'+day, JSON.stringify({{ts:Date.now(),answers:answers}}));
+  // Reveal model answers + marking buttons
+  Object.keys(Q_MARKS).forEach(function(qn){{
+    document.getElementById('ans-'+day+'-'+qn).style.display='block';
+    var res=document.getElementById('result-'+day+'-'+qn);
+    res.style.display='flex';
+    res.className='q-result';
+    res.innerHTML='<span style="flex:1;font-size:.82rem;font-weight:600">Mark this question:</span>'
+      +'<button class="btn btn-green btn-sm" onclick="markQ('+day+','+qn+',true)">✅ Got it</button>'
+      +'<button class="btn btn-red btn-sm" style="margin-left:.35rem" onclick="markQ('+day+','+qn+',false)">❌ Wrong</button>';
+  }});
+  document.getElementById('submit-bar-'+day).style.display='none';
+  document.getElementById('marking-section-'+day).style.display='block';
+  submitted=true;
+}}
+function markQ(day,qn,correct){{
+  markedQs[qn]=correct;
+  var res=document.getElementById('result-'+day+'-'+qn);
+  var m=Q_MARKS[qn];
+  if(correct){{ res.className='q-result correct'; res.innerHTML='✅ Correct! +'+m+' mark'+(m>1?'s':''); }}
+  else {{ res.className='q-result incorrect'; res.innerHTML='❌ Incorrect — review the model answer above'; }}
+  earnedMarks=0;
+  Object.keys(markedQs).forEach(function(q){{ if(markedQs[q]) earnedMarks+=Q_MARKS[q]; }});
+  var pct=TOTAL>0?Math.round(earnedMarks/TOTAL*100):0;
+  var el=document.getElementById('score-num-'+day);
+  if(el) el.textContent=earnedMarks+'/'+TOTAL+' ('+pct+'%)';
+  // Save score once all marked
+  var k=getKey();
+  if(k && Object.keys(markedQs).length===Object.keys(Q_MARKS).length){{
+    localStorage.setItem('score_'+k+'_'+day, JSON.stringify({{earned:earnedMarks,total:TOTAL,pct:pct,ts:Date.now()}}));
+  }}
 }}
 function markComplete(day){{
-  var k=getStudentKey();
-  if(!k) return;
+  var k=getKey(); if(!k) return;
   localStorage.setItem('day_complete_'+k+'_'+day,'1');
-  var btn=document.getElementById('complete-btn');
-  btn.textContent='🎉 Day '+day+' Complete!';
-  btn.style.background='var(--green)';
-  btn.disabled=true;
+  var btn=document.getElementById('complete-btn-'+day);
+  if(btn){{btn.textContent='🎉 Day '+day+' Complete!';btn.style.background='var(--green)';btn.disabled=true;}}
 }}
-// Check if already complete
+// On load — restore state
 (function(){{
-  var k=getStudentKey();
-  if(k && localStorage.getItem('day_complete_'+k+'_{day_num}')){{
-    var btn=document.getElementById('complete-btn');
+  var k=getKey(); if(!k) return;
+  if(localStorage.getItem('day_complete_'+k+'_{day_num}')){{
+    var btn=document.getElementById('complete-btn-{day_num}');
     if(btn){{btn.textContent='🎉 Day {day_num} Complete!';btn.style.background='var(--green)';btn.disabled=true;}}
+  }}
+  var saved=localStorage.getItem('answers_'+k+'_{day_num}');
+  if(saved){{
+    var data=JSON.parse(saved);
+    var ans=data.answers||data;
+    Object.keys(ans).forEach(function(qn){{
+      var inp=document.getElementById('input-{day_num}-'+qn);
+      if(inp) inp.value=ans[qn];
+    }});
   }}
 }})();
 </script>
 """
-    return html_head(f"Day {day_num} · {d['topic']} · Peppin's Maths") + "<body>" + body + "</body></html>"
+    return html_head(f"Day {day_num} · {d['topic']} · 3 Amigos Maths") + "<body>" + body + "</body></html>"
+
 
 
 # ─── BUILD ────────────────────────────────────────────────────────────────────
@@ -1750,7 +1876,7 @@ def build():
         shutil.rmtree(OUT)
     OUT.mkdir(parents=True)
 
-    print("🔨 Building Peppin's Tuition Centre Maths App (with multi-user auth)...")
+    print("🔨 Building The 3 Amigos Tuition Centre Maths App (with multi-user auth)...")
 
     (OUT / "style.css").write_text(generate_css(), encoding="utf-8")
     print("  ✅ style.css")

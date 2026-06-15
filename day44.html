@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Day 44 · Mock Exam · Peppin's Maths</title>
+<title>Day 44 · Mock Exam · 3 Amigos Maths</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Merriweather:wght@700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
@@ -24,7 +24,7 @@
   <div class="nav-brand">
     <span class="nav-logo">🍀</span>
     <div>
-      <div class="nav-title">Peppin's Maths</div>
+      <div class="nav-title">3 Amigos Maths</div>
       <div class="nav-sub">Junior Cycle · First Year</div>
     </div>
   </div>
@@ -47,22 +47,20 @@ function doLogout(){
 var _s=JSON.parse(sessionStorage.getItem('ptc_session')||'null');
 if(_s){var el=document.getElementById('nav-student-name');if(el)el.textContent=_s.name;}
 </script>
-<div style="background:#C0392B;color:#fff;padding:1.5rem 1.5rem 1rem;">
+<div style="background:linear-gradient(135deg,#C0392Bee,#C0392B99);color:#fff;padding:1.5rem 1.5rem 1.25rem;">
   <div style="max-width:900px;margin:0 auto;">
-    <a href="index.html" style="color:rgba(255,255,255,.7);font-size:.82rem;font-weight:700;">← Back to Home</a>
-    <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-top:.6rem;">
+    <a href="index.html" style="color:rgba(255,255,255,.75);font-size:.8rem;font-weight:700;display:inline-flex;align-items:center;gap:.3rem;margin-bottom:.75rem;">← Back to Home</a>
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;">
       <div>
-        <div style="font-size:.75rem;opacity:.7;font-weight:800;letter-spacing:.1em;text-transform:uppercase;">Day 44 of 45 · Mock</div>
-        <h1 style="font-family:'Merriweather',serif;font-size:clamp(1.3rem,3vw,2rem);margin:.3rem 0;">Mock Exam</h1>
-        <div style="font-size:1rem;opacity:.85;">Full Paper — All Topics</div>
-        <div style="margin-top:.6rem;display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;">
-          <span class="level-badge" style="background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4)">All Topics</span>
-          <span style="font-size:.78rem;opacity:.7">10 questions · 80 marks total</span>
+        <div style="font-size:.68rem;opacity:.75;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.2rem;">Day 44 of 45 · Mock</div>
+        <h1 style="font-family:'Merriweather',serif;font-size:clamp(1.3rem,3vw,2rem);margin:.2rem 0;">Mock Exam</h1>
+        <div style="font-size:.95rem;opacity:.85;margin-bottom:.6rem;">Full Paper — All Topics</div>
+        <div style="display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;">
+          <span style="background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.35);padding:.18rem .6rem;border-radius:20px;font-size:.72rem;font-weight:700;">All Topics</span>
+          <span style="font-size:.75rem;opacity:.75">10 questions · 80 marks total</span>
         </div>
       </div>
-      <div style="text-align:center;">
-        <div style="font-size:2.5rem;line-height:1">📝</div>
-      </div>
+      <div style="font-size:3rem;line-height:1;opacity:.9">📝</div>
     </div>
   </div>
 </div>
@@ -70,16 +68,16 @@ if(_s){var el=document.getElementById('nav-student-name');if(el)el.textContent=_
 <div class="container" style="max-width:900px;">
   <div class="tab-bar">
     <button class="tab active" onclick="switchTab('concept',this)">📖 Concept</button>
-    <button class="tab" onclick="switchTab('questions',this)">✏️ Practice Questions</button>
+    <button class="tab" onclick="switchTab('questions',this)">✏️ Practice (10Q · 80M)</button>
   </div>
   
 <div class="tab-content active" id="tab-concept">
   <div class="concept-section mt2">
-    <div class="section-label" style="color:#1565C0">📘 What is this topic?</div>
+    <div class="section-label" style="color:var(--navy)">📘 What is this topic?</div>
     <div class="explain-box"><p>FINAL FULL MOCK — all strands, 90 minutes, no notes, calculator allowed. Mirrors the complete SEC Junior Cycle Mathematics paper.</p><p>FINAL MINDSET: You have covered every topic over 44 days. Read carefully. Show working. Trust your preparation.</p><p>After completing: mark honestly. Topics where marks were dropped → review that day's concept page tonight.</p></div>
   </div>
   <div class="concept-section">
-    <div class="section-label" style="color:var(--gold)">💡 Analogy — How to picture it</div>
+    <div class="section-label" style="color:var(--gold)">💡 Analogy</div>
     <div class="analogy-box"><p>This is your full concerto rehearsal. A concert pianist plays the complete piece the night before the performance — not to learn it (they already know it), but to build confidence and feel the flow. You have prepared. Trust it.</p></div>
   </div>
   <div class="concept-section">
@@ -90,11 +88,11 @@ if(_s){var el=document.getElementById('nav-student-name');if(el)el.textContent=_
     </div>
   </div>
   <div class="concept-section">
-    <div class="section-label" style="color:#BF360C">⚠️ Common Mistakes</div>
+    <div class="section-label" style="color:var(--red)">⚠️ Common Mistakes</div>
     <div class="mistake-box"><ul style="padding-left:1.2rem"><li>Leaving any part blank — a formula alone earns a method mark</li><li>Answer doesn't make sense in context → error (negative area, probability>1)</li><li>Spending >3 minutes on one part → move on and return at end</li></ul></div>
   </div>
   <div class="concept-section">
-    <div class="section-label" style="color:var(--navy)">📌 Key Formulae</div>
+    <div class="section-label" style="color:var(--purple)">📌 Key Formulae</div>
     <div class="formula-box"><code>ALL formulae from all 44 days apply</code><code>Tables & Formulae booklet provided in actual SEC exam</code></div>
   </div>
   <div class="tip-box mt2">
@@ -102,190 +100,322 @@ if(_s){var el=document.getElementById('nav-student-name');if(el)el.textContent=_
   </div>
 </div>
 
-  <div class="tab-content" id="tab-questions">
-
-<div class="question-card">
+  
+<div class="tab-content" id="tab-questions">
+  <div style="background:#EEF2FF;border:1px solid #C7D2FE;border-radius:12px;padding:1rem 1.25rem;margin:1rem 0;font-size:.88rem;color:#312E81;">
+    <strong>📝 How this works:</strong> Write your answer in each box, then click
+    <strong>Submit All Answers</strong>. Model answers will be revealed — mark yourself and
+    record your score for the day.
+  </div>
+  
+<div class="question-card" id="qcard-44-1">
   <div class="q-header">
     <span class="q-num">Q1</span>
-    <span style="flex:1;font-size:.9rem">(a)4+(6−2)²×3÷8. (b)HCF and LCM of 45 and 60. (c)3/4 of 120 students passed. % failed?</span>
+    <span style="flex:1;font-size:.9rem;line-height:1.5;padding:0 .5rem">(a)4+(6−2)²×3÷8. (b)HCF and LCM of 45 and 60. (c)3/4 of 120 students passed. % failed?</span>
     <span class="q-marks">8 marks</span>
+  </div>
+  <div class="q-input-area">
+    <div class="q-input-label">Your Answer</div>
+    <textarea class="q-input" id="input-44-1" rows="2" placeholder="Write your working and answer here…"></textarea>
   </div>
   <div class="q-hint" id="hint-44-1">💡 <em>(a)BEMDAS: brackets first. (b)Prime factorise both. (c)1/4 failed.</em></div>
-  <div class="q-answer" id="ans-44-1"><strong>✅ Answer:</strong> (a)10. (b)HCF=15,LCM=180. (c)25% failed</div>
   <div class="q-actions">
-    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-44-1')">💡 Hint</button>
-    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-44-1')">✅ Show Answer</button>
+    <button class="btn btn-hint btn-sm" onclick="toggleHint(44,1)">💡 Hint</button>
+  </div>
+  <div class="q-result" id="result-44-1"></div>
+  <div class="q-answer-reveal" id="ans-44-1">
+    <strong>✅ Model Answer:</strong> (a)10. (b)HCF=15,LCM=180. (c)25% failed
   </div>
 </div>
 
-<div class="question-card">
+<div class="question-card" id="qcard-44-2">
   <div class="q-header">
     <span class="q-num">Q2</span>
-    <span style="flex:1;font-size:.9rem">Solve: (a)2x+5=11. (b)3(x−2)=2x+4. (c)x²−x−6=0.</span>
+    <span style="flex:1;font-size:.9rem;line-height:1.5;padding:0 .5rem">Solve: (a)2x+5=11. (b)3(x−2)=2x+4. (c)x²−x−6=0.</span>
     <span class="q-marks">8 marks</span>
+  </div>
+  <div class="q-input-area">
+    <div class="q-input-label">Your Answer</div>
+    <textarea class="q-input" id="input-44-2" rows="2" placeholder="Write your working and answer here…"></textarea>
   </div>
   <div class="q-hint" id="hint-44-2">💡 <em>(c)Factorise: find two numbers with product=−6 and sum=−1.</em></div>
-  <div class="q-answer" id="ans-44-2"><strong>✅ Answer:</strong> (a)x=3. (b)x=10. (c)x=3 or x=−2</div>
   <div class="q-actions">
-    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-44-2')">💡 Hint</button>
-    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-44-2')">✅ Show Answer</button>
+    <button class="btn btn-hint btn-sm" onclick="toggleHint(44,2)">💡 Hint</button>
+  </div>
+  <div class="q-result" id="result-44-2"></div>
+  <div class="q-answer-reveal" id="ans-44-2">
+    <strong>✅ Model Answer:</strong> (a)x=3. (b)x=10. (c)x=3 or x=−2
   </div>
 </div>
 
-<div class="question-card">
+<div class="question-card" id="qcard-44-3">
   <div class="q-header">
     <span class="q-num">Q3</span>
-    <span style="flex:1;font-size:.9rem">Sequence 5,12,19,26,… (a)Tₙ and T₁₅. (b)Which term=180? (c)S₁₀.</span>
+    <span style="flex:1;font-size:.9rem;line-height:1.5;padding:0 .5rem">Sequence 5,12,19,26,… (a)Tₙ and T₁₅. (b)Which term=180? (c)S₁₀.</span>
     <span class="q-marks">8 marks</span>
+  </div>
+  <div class="q-input-area">
+    <div class="q-input-label">Your Answer</div>
+    <textarea class="q-input" id="input-44-3" rows="2" placeholder="Write your working and answer here…"></textarea>
   </div>
   <div class="q-hint" id="hint-44-3">💡 <em>(b)Set 7n−2=180 and solve for n.</em></div>
-  <div class="q-answer" id="ans-44-3"><strong>✅ Answer:</strong> (a)Tₙ=7n−2; T₁₅=103. (b)26th term. (c)365</div>
   <div class="q-actions">
-    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-44-3')">💡 Hint</button>
-    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-44-3')">✅ Show Answer</button>
+    <button class="btn btn-hint btn-sm" onclick="toggleHint(44,3)">💡 Hint</button>
+  </div>
+  <div class="q-result" id="result-44-3"></div>
+  <div class="q-answer-reveal" id="ans-44-3">
+    <strong>✅ Model Answer:</strong> (a)Tₙ=7n−2; T₁₅=103. (b)26th term. (c)365
   </div>
 </div>
 
-<div class="question-card">
+<div class="question-card" id="qcard-44-4">
   <div class="q-header">
     <span class="q-num">Q4</span>
-    <span style="flex:1;font-size:.9rem">Triangle: two angles 58° and y°, exterior angle 130°. (a)Find y. (b)Verify with exterior angle theorem. (c)Triangle type.</span>
+    <span style="flex:1;font-size:.9rem;line-height:1.5;padding:0 .5rem">Triangle: two angles 58° and y°, exterior angle 130°. (a)Find y. (b)Verify with exterior angle theorem. (c)Triangle type.</span>
     <span class="q-marks">8 marks</span>
+  </div>
+  <div class="q-input-area">
+    <div class="q-input-label">Your Answer</div>
+    <textarea class="q-input" id="input-44-4" rows="2" placeholder="Write your working and answer here…"></textarea>
   </div>
   <div class="q-hint" id="hint-44-4">💡 <em>(a)Third interior angle=180−130=50°. So y=180−58−50=72°.</em></div>
-  <div class="q-answer" id="ans-44-4"><strong>✅ Answer:</strong> (a)y=72°. (b)58+72=130° ✓. (c)Scalene</div>
   <div class="q-actions">
-    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-44-4')">💡 Hint</button>
-    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-44-4')">✅ Show Answer</button>
+    <button class="btn btn-hint btn-sm" onclick="toggleHint(44,4)">💡 Hint</button>
+  </div>
+  <div class="q-result" id="result-44-4"></div>
+  <div class="q-answer-reveal" id="ans-44-4">
+    <strong>✅ Model Answer:</strong> (a)y=72°. (b)58+72=130° ✓. (c)Scalene
   </div>
 </div>
 
-<div class="question-card">
+<div class="question-card" id="qcard-44-5">
   <div class="q-header">
     <span class="q-num">Q5</span>
-    <span style="flex:1;font-size:.9rem">A(1,2), B(7,10). (a)Slope. (b)|AB|. (c)Equation of perp bisector of AB.</span>
+    <span style="flex:1;font-size:.9rem;line-height:1.5;padding:0 .5rem">A(1,2), B(7,10). (a)Slope. (b)|AB|. (c)Equation of perp bisector of AB.</span>
     <span class="q-marks">8 marks</span>
+  </div>
+  <div class="q-input-area">
+    <div class="q-input-label">Your Answer</div>
+    <textarea class="q-input" id="input-44-5" rows="2" placeholder="Write your working and answer here…"></textarea>
   </div>
   <div class="q-hint" id="hint-44-5">💡 <em>Perp bisector: through midpoint (4,6) with perpendicular slope −3/4.</em></div>
-  <div class="q-answer" id="ans-44-5"><strong>✅ Answer:</strong> (a)4/3. (b)10. (c)3x+4y=36</div>
   <div class="q-actions">
-    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-44-5')">💡 Hint</button>
-    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-44-5')">✅ Show Answer</button>
+    <button class="btn btn-hint btn-sm" onclick="toggleHint(44,5)">💡 Hint</button>
+  </div>
+  <div class="q-result" id="result-44-5"></div>
+  <div class="q-answer-reveal" id="ans-44-5">
+    <strong>✅ Model Answer:</strong> (a)4/3. (b)10. (c)3x+4y=36
   </div>
 </div>
 
-<div class="question-card">
+<div class="question-card" id="qcard-44-6">
   <div class="q-header">
     <span class="q-num">Q6</span>
-    <span style="flex:1;font-size:.9rem">Cliff: 200m from boat, angle of elevation 35°. (a)Height. (b)Lighthouse 350m from base — angle of elevation?</span>
+    <span style="flex:1;font-size:.9rem;line-height:1.5;padding:0 .5rem">Cliff: 200m from boat, angle of elevation 35°. (a)Height. (b)Lighthouse 350m from base — angle of elevation?</span>
     <span class="q-marks">8 marks</span>
+  </div>
+  <div class="q-input-area">
+    <div class="q-input-label">Your Answer</div>
+    <textarea class="q-input" id="input-44-6" rows="2" placeholder="Write your working and answer here…"></textarea>
   </div>
   <div class="q-hint" id="hint-44-6">💡 <em>(a)tanθ=opposite/adjacent=h/200. (b)Now h is opposite, 350 is adjacent.</em></div>
-  <div class="q-answer" id="ans-44-6"><strong>✅ Answer:</strong> (a)200tan35°≈140m. (b)tanα=140/350≈0.4 → α≈21.8°</div>
   <div class="q-actions">
-    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-44-6')">💡 Hint</button>
-    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-44-6')">✅ Show Answer</button>
+    <button class="btn btn-hint btn-sm" onclick="toggleHint(44,6)">💡 Hint</button>
+  </div>
+  <div class="q-result" id="result-44-6"></div>
+  <div class="q-answer-reveal" id="ans-44-6">
+    <strong>✅ Model Answer:</strong> (a)200tan35°≈140m. (b)tanα=140/350≈0.4 → α≈21.8°
   </div>
 </div>
 
-<div class="question-card">
+<div class="question-card" id="qcard-44-7">
   <div class="q-header">
     <span class="q-num">Q7</span>
-    <span style="flex:1;font-size:.9rem">(a)Sector area: r=8cm, θ=75°. (b)V of cylinder r=8cm, h=15cm. (c)Total SA of cylinder.</span>
+    <span style="flex:1;font-size:.9rem;line-height:1.5;padding:0 .5rem">(a)Sector area: r=8cm, θ=75°. (b)V of cylinder r=8cm, h=15cm. (c)Total SA of cylinder.</span>
     <span class="q-marks">8 marks</span>
+  </div>
+  <div class="q-input-area">
+    <div class="q-input-label">Your Answer</div>
+    <textarea class="q-input" id="input-44-7" rows="2" placeholder="Write your working and answer here…"></textarea>
   </div>
   <div class="q-hint" id="hint-44-7">💡 <em>(c)Total SA=2πr²+2πrh.</em></div>
-  <div class="q-answer" id="ans-44-7"><strong>✅ Answer:</strong> (a)≈41.9 cm². (b)≈3016 cm³. (c)≈1156 cm²</div>
   <div class="q-actions">
-    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-44-7')">💡 Hint</button>
-    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-44-7')">✅ Show Answer</button>
+    <button class="btn btn-hint btn-sm" onclick="toggleHint(44,7)">💡 Hint</button>
+  </div>
+  <div class="q-result" id="result-44-7"></div>
+  <div class="q-answer-reveal" id="ans-44-7">
+    <strong>✅ Model Answer:</strong> (a)≈41.9 cm². (b)≈3016 cm³. (c)≈1156 cm²
   </div>
 </div>
 
-<div class="question-card">
+<div class="question-card" id="qcard-44-8">
   <div class="q-header">
     <span class="q-num">Q8</span>
-    <span style="flex:1;font-size:.9rem">Bag: 5R,8B. Two without replacement. (a)P(1st red). (b)P(both red). (c)P(at least one blue).</span>
+    <span style="flex:1;font-size:.9rem;line-height:1.5;padding:0 .5rem">Bag: 5R,8B. Two without replacement. (a)P(1st red). (b)P(both red). (c)P(at least one blue).</span>
     <span class="q-marks">8 marks</span>
+  </div>
+  <div class="q-input-area">
+    <div class="q-input-label">Your Answer</div>
+    <textarea class="q-input" id="input-44-8" rows="2" placeholder="Write your working and answer here…"></textarea>
   </div>
   <div class="q-hint" id="hint-44-8">💡 <em>(c)P(at least one blue)=1−P(both red)=1−5/39.</em></div>
-  <div class="q-answer" id="ans-44-8"><strong>✅ Answer:</strong> (a)5/13. (b)5/39. (c)34/39</div>
   <div class="q-actions">
-    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-44-8')">💡 Hint</button>
-    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-44-8')">✅ Show Answer</button>
+    <button class="btn btn-hint btn-sm" onclick="toggleHint(44,8)">💡 Hint</button>
+  </div>
+  <div class="q-result" id="result-44-8"></div>
+  <div class="q-answer-reveal" id="ans-44-8">
+    <strong>✅ Model Answer:</strong> (a)5/13. (b)5/39. (c)34/39
   </div>
 </div>
 
-<div class="question-card">
+<div class="question-card" id="qcard-44-9">
   <div class="q-header">
     <span class="q-num">Q9</span>
-    <span style="flex:1;font-size:.9rem">Ages: 22,30,18,25,21,15,22,27,24,20. Find mean, median, mode, range, Q1, Q3, IQR.</span>
+    <span style="flex:1;font-size:.9rem;line-height:1.5;padding:0 .5rem">Ages: 22,30,18,25,21,15,22,27,24,20. Find mean, median, mode, range, Q1, Q3, IQR.</span>
     <span class="q-marks">8 marks</span>
+  </div>
+  <div class="q-input-area">
+    <div class="q-input-label">Your Answer</div>
+    <textarea class="q-input" id="input-44-9" rows="2" placeholder="Write your working and answer here…"></textarea>
   </div>
   <div class="q-hint" id="hint-44-9">💡 <em>Order the data first: 15,18,20,21,22,22,24,25,27,30.</em></div>
-  <div class="q-answer" id="ans-44-9"><strong>✅ Answer:</strong> Mean=22.4; Median=22; Mode=22; Range=15; Q1=20; Q3=25; IQR=5</div>
   <div class="q-actions">
-    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-44-9')">💡 Hint</button>
-    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-44-9')">✅ Show Answer</button>
+    <button class="btn btn-hint btn-sm" onclick="toggleHint(44,9)">💡 Hint</button>
+  </div>
+  <div class="q-result" id="result-44-9"></div>
+  <div class="q-answer-reveal" id="ans-44-9">
+    <strong>✅ Model Answer:</strong> Mean=22.4; Median=22; Mode=22; Range=15; Q1=20; Q3=25; IQR=5
   </div>
 </div>
 
-<div class="question-card">
+<div class="question-card" id="qcard-44-10">
   <div class="q-header">
     <span class="q-num">Q10</span>
-    <span style="flex:1;font-size:.9rem">Triangle: AC=7, BC=5, ∠ACB=60°. (i)Find AB. (ii)Area. (iii)Find ∠BAC (Sine Rule).</span>
+    <span style="flex:1;font-size:.9rem;line-height:1.5;padding:0 .5rem">Triangle: AC=7, BC=5, ∠ACB=60°. (i)Find AB. (ii)Area. (iii)Find ∠BAC (Sine Rule).</span>
     <span class="q-marks">8 marks</span>
   </div>
+  <div class="q-input-area">
+    <div class="q-input-label">Your Answer</div>
+    <textarea class="q-input" id="input-44-10" rows="2" placeholder="Write your working and answer here…"></textarea>
+  </div>
   <div class="q-hint" id="hint-44-10">💡 <em>(i)Cosine Rule. (ii)½ab sinC. (iii)sin(BAC)/5=sin60/6.24.</em></div>
-  <div class="q-answer" id="ans-44-10"><strong>✅ Answer:</strong> (i)AB=√39≈6.24cm. (ii)≈15.16 cm². (iii)≈43.8°</div>
   <div class="q-actions">
-    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-44-10')">💡 Hint</button>
-    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-44-10')">✅ Show Answer</button>
+    <button class="btn btn-hint btn-sm" onclick="toggleHint(44,10)">💡 Hint</button>
+  </div>
+  <div class="q-result" id="result-44-10"></div>
+  <div class="q-answer-reveal" id="ans-44-10">
+    <strong>✅ Model Answer:</strong> (i)AB=√39≈6.24cm. (ii)≈15.16 cm². (iii)≈43.8°
   </div>
 </div>
+
+  <div class="submit-bar" id="submit-bar-44">
+    <h3>Ready to check your answers?</h3>
+    <p>Click submit to reveal model answers and mark yourself.</p>
+    <button class="btn btn-primary btn-lg" onclick="submitAnswers(44,80)">✅ Submit All Answers</button>
+  </div>
+  <div id="marking-section-44" style="display:none">
+    <div class="score-card" id="score-display-44">
+      <div class="score-big" id="score-num-44">0/80</div>
+      <div class="score-label">marks — tap ✅ Got it or ❌ Wrong on each question below</div>
+    </div>
+    <div style="background:#F0FDF4;border:2px solid #6EE7B7;border-radius:12px;padding:.9rem 1.1rem;margin-bottom:1rem;font-size:.85rem;color:#065F46;">
+      <strong>How to mark:</strong> Read the model answer shown under each question and tap whether you got it right or wrong. Your score is saved automatically.
+    </div>
+  </div>
 </div>
 
-  <div style="display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wrap;margin-top:2rem;padding-top:1rem;border-top:2px solid var(--border);">
+  <div style="display:flex;gap:.75rem;justify-content:space-between;align-items:center;flex-wrap:wrap;margin-top:2rem;padding-top:1rem;border-top:2px solid var(--border);">
     <a href="day43.html" class="btn btn-primary">← Day 43</a>
-    <button class="btn btn-gold" id="complete-btn" onclick="markComplete(44)">✅ Mark Day 44 Complete</button>
+    <button class="btn btn-gold btn-lg" id="complete-btn-44" onclick="markComplete(44)">✅ Mark Day 44 Complete</button>
     <a href="day45.html" class="btn btn-green">Day 45 →</a>
   </div>
 </div>
 
-<footer style="background:var(--navy);color:rgba(255,255,255,.7);text-align:center;padding:1.5rem;font-size:.82rem;margin-top:3rem;">
-  <strong style="color:#fff">Peppin's Tuition Centre, Cork</strong> · Day 44 · Mock Exam
+<footer>
+  <strong>The 3 Amigos Tuition Centre, Cork · Kildare · Limerick</strong> · Day 44 · Mock Exam
 </footer>
 
 <script>
+var DAY=44, TOTAL=80;
+var Q_MARKS={"1": 8, "2": 8, "3": 8, "4": 8, "5": 8, "6": 8, "7": 8, "8": 8, "9": 8, "10": 8};
+var submitted=false, markedQs={}, earnedMarks=0;
+
 function switchTab(name,btn){
-  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
-  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(function(t){t.classList.remove('active');});
+  document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active');});
   document.getElementById('tab-'+name).classList.add('active');
   btn.classList.add('active');
 }
-function toggleEl(id){
-  var el=document.getElementById(id);
+function toggleHint(day,q){
+  var el=document.getElementById('hint-'+day+'-'+q);
   el.style.display=el.style.display==='block'?'none':'block';
 }
-function getStudentKey(){
-  var sess=JSON.parse(sessionStorage.getItem('ptc_session')||'null');
-  return sess?sess.key:null;
+function getKey(){
+  var s=JSON.parse(sessionStorage.getItem('ptc_session')||'null');
+  return s?s.key:null;
+}
+function submitAnswers(day,total){
+  if(submitted) return;
+  var k=getKey(); if(!k) return;
+  // Save first-attempt answers
+  var answers={};
+  Object.keys(Q_MARKS).forEach(function(qn){
+    var inp=document.getElementById('input-'+day+'-'+qn);
+    if(inp){ answers[qn]=inp.value||''; inp.disabled=true; }
+  });
+  localStorage.setItem('answers_'+k+'_'+day, JSON.stringify({ts:Date.now(),answers:answers}));
+  // Reveal model answers + marking buttons
+  Object.keys(Q_MARKS).forEach(function(qn){
+    document.getElementById('ans-'+day+'-'+qn).style.display='block';
+    var res=document.getElementById('result-'+day+'-'+qn);
+    res.style.display='flex';
+    res.className='q-result';
+    res.innerHTML='<span style="flex:1;font-size:.82rem;font-weight:600">Mark this question:</span>'
+      +'<button class="btn btn-green btn-sm" onclick="markQ('+day+','+qn+',true)">✅ Got it</button>'
+      +'<button class="btn btn-red btn-sm" style="margin-left:.35rem" onclick="markQ('+day+','+qn+',false)">❌ Wrong</button>';
+  });
+  document.getElementById('submit-bar-'+day).style.display='none';
+  document.getElementById('marking-section-'+day).style.display='block';
+  submitted=true;
+}
+function markQ(day,qn,correct){
+  markedQs[qn]=correct;
+  var res=document.getElementById('result-'+day+'-'+qn);
+  var m=Q_MARKS[qn];
+  if(correct){ res.className='q-result correct'; res.innerHTML='✅ Correct! +'+m+' mark'+(m>1?'s':''); }
+  else { res.className='q-result incorrect'; res.innerHTML='❌ Incorrect — review the model answer above'; }
+  earnedMarks=0;
+  Object.keys(markedQs).forEach(function(q){ if(markedQs[q]) earnedMarks+=Q_MARKS[q]; });
+  var pct=TOTAL>0?Math.round(earnedMarks/TOTAL*100):0;
+  var el=document.getElementById('score-num-'+day);
+  if(el) el.textContent=earnedMarks+'/'+TOTAL+' ('+pct+'%)';
+  // Save score once all marked
+  var k=getKey();
+  if(k && Object.keys(markedQs).length===Object.keys(Q_MARKS).length){
+    localStorage.setItem('score_'+k+'_'+day, JSON.stringify({earned:earnedMarks,total:TOTAL,pct:pct,ts:Date.now()}));
+  }
 }
 function markComplete(day){
-  var k=getStudentKey();
-  if(!k) return;
+  var k=getKey(); if(!k) return;
   localStorage.setItem('day_complete_'+k+'_'+day,'1');
-  var btn=document.getElementById('complete-btn');
-  btn.textContent='🎉 Day '+day+' Complete!';
-  btn.style.background='var(--green)';
-  btn.disabled=true;
+  var btn=document.getElementById('complete-btn-'+day);
+  if(btn){btn.textContent='🎉 Day '+day+' Complete!';btn.style.background='var(--green)';btn.disabled=true;}
 }
-// Check if already complete
+// On load — restore state
 (function(){
-  var k=getStudentKey();
-  if(k && localStorage.getItem('day_complete_'+k+'_44')){
-    var btn=document.getElementById('complete-btn');
+  var k=getKey(); if(!k) return;
+  if(localStorage.getItem('day_complete_'+k+'_44')){
+    var btn=document.getElementById('complete-btn-44');
     if(btn){btn.textContent='🎉 Day 44 Complete!';btn.style.background='var(--green)';btn.disabled=true;}
+  }
+  var saved=localStorage.getItem('answers_'+k+'_44');
+  if(saved){
+    var data=JSON.parse(saved);
+    var ans=data.answers||data;
+    Object.keys(ans).forEach(function(qn){
+      var inp=document.getElementById('input-44-'+qn);
+      if(inp) inp.value=ans[qn];
+    });
   }
 })();
 </script>
