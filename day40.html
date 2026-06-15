@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 40 · Revision · Peppin's Maths</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head><body>
+<nav class="navbar">
+  <div class="nav-brand">
+    <span class="nav-logo">🍀</span>
+    <div>
+      <div class="nav-title">Peppin's Maths</div>
+      <div class="nav-sub">Junior Cycle · First Year</div>
+    </div>
+  </div>
+  <div class="nav-links"><a href="index.html" class="nav-link active">🏠 Home</a>
+<a href="plan.html" class="nav-link ">📅 45-Day Plan</a>
+<a href="quiz.html" class="nav-link ">⚡ Quick Quiz</a>
+<a href="progress.html" class="nav-link ">📈 My Progress</a>
+</div>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+</nav>
+<div style="background:#C0392B;color:#fff;padding:1.5rem 1.5rem 1rem;">
+  <div style="max-width:900px;margin:0 auto;">
+    <a href="index.html" style="color:rgba(255,255,255,.7);font-size:.82rem;font-weight:700;">← Back to Home</a>
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-top:.6rem;">
+      <div>
+        <div style="font-size:.75rem;opacity:.7;font-weight:800;letter-spacing:.1em;text-transform:uppercase;">Day 40 of 45 · Revision</div>
+        <h1 style="font-family:'Merriweather',serif;font-size:clamp(1.3rem,3vw,2rem);margin:.3rem 0;">Revision</h1>
+        <div style="font-size:1rem;opacity:.85;">Geometry & Trig Rapid-Fire</div>
+        <div style="margin-top:.6rem;display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;">
+          <span class="level-badge" style="background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4)">Mixed</span>
+          <span style="font-size:.78rem;opacity:.7">10 questions · 33 marks total</span>
+        </div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:2.5rem;line-height:1">📝</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="max-width:900px;">
+  <div class="tab-bar">
+    <button class="tab active" onclick="switchTab('concept',this)">📖 Concept</button>
+    <button class="tab" onclick="switchTab('questions',this)">✏️ Practice Questions</button>
+  </div>
+
+  
+<div class="tab-content active" id="tab-concept">
+  <div class="concept-section mt2">
+    <div class="section-label" style="color:#1565C0">📘 What is this topic?</div>
+    <div class="explain-box"><p>Rapid-fire revision of Geometry and Trigonometry (Days 18−28). These topics account for ~30% of SEC marks — high value!</p><p>For proofs: NAME the theorem. For trig: DRAW A DIAGRAM. For coordinate geometry: SHOW the formula before substituting.</p></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--gold)">💡 Analogy — How to picture it</div>
+    <div class="analogy-box"><p>Checking all tools in your toolbox before a big job. Each question tests a different tool — confirm every one is ready.</p></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--green)">🔍 Worked Example</div>
+    <div class="worked-box">
+      <strong style="display:block;margin-bottom:.6rem">Quick formula check</strong>
+      <ol class="step-list"><li>Distance: |AB|=√[(x₂−x₁)²+(y₂−y₁)²]</li><li>Line: y−y₁=m(x−x₁)</li><li>Circle: (x−h)²+(y−k)²=r²</li><li>SOH CAH TOA | Sine Rule | Cosine Rule — all in Tables booklet</li><li>Area: ½bh; ½ab sinC; (θ/360)πr²</li></ol>
+    </div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:#BF360C">⚠️ Common Mistakes</div>
+    <div class="mistake-box"><ul style="padding-left:1.2rem"><li>Sine vs Cosine Rule: angle BETWEEN two sides → Cosine Rule</li><li>Sector perimeter=arc+2 radii (not just arc!)</li><li>Perp slope: flip AND change sign. 3/4 → −4/3</li></ul></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--navy)">📌 Key Formulae</div>
+    <div class="formula-box"><code>All Geometry & Trig formulae from Days 18−28 apply</code></div>
+  </div>
+  <div class="tip-box mt2">
+    <strong>🎯 SEC Exam Insight:</strong> Geometry revision: know what's in the Formulae & Tables booklet: trig ratios, Sine Rule, Cosine Rule, area, volume formulae. Never memorise what is given to you in the exam.
+  </div>
+</div>
+
+  <div class="tab-content" id="tab-questions">
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q1</span>
+    <span style="flex:1;font-size:.9rem">Triangle angles: 62°, 74°, x°. Find x.</span>
+    <span class="q-marks">2 marks</span>
+  </div>
+  <div class="q-hint" id="hint-40-1">💡 <em>Angles in a triangle sum to 180°.</em></div>
+  <div class="q-answer" id="ans-40-1"><strong>✅ Answer:</strong> x=180−62−74=44°</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-40-1')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-40-1')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q2</span>
+    <span style="flex:1;font-size:.9rem">Cylinder half full: r=4cm, h=9cm. Volume of liquid.</span>
+    <span class="q-marks">2 marks</span>
+  </div>
+  <div class="q-hint" id="hint-40-2">💡 <em>Half the volume of a full cylinder.</em></div>
+  <div class="q-answer" id="ans-40-2"><strong>✅ Answer:</strong> ½×π×16×9=72π≈226.2 cm³</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-40-2')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-40-2')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q3</span>
+    <span style="flex:1;font-size:.9rem">Distance between P(2,5) and Q(5,9).</span>
+    <span class="q-marks">3 marks</span>
+  </div>
+  <div class="q-hint" id="hint-40-3">💡 <em>Apply distance formula.</em></div>
+  <div class="q-answer" id="ans-40-3"><strong>✅ Answer:</strong> |PQ|=√[9+16]=5 units</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-40-3')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-40-3')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q4</span>
+    <span style="flex:1;font-size:.9rem">Slope and midpoint of PQ from Q3.</span>
+    <span class="q-marks">3 marks</span>
+  </div>
+  <div class="q-hint" id="hint-40-4">💡 <em>m=(y₂−y₁)/(x₂−x₁); midpoint=average of coordinates.</em></div>
+  <div class="q-answer" id="ans-40-4"><strong>✅ Answer:</strong> m=4/3; midpoint=(3.5,7)</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-40-4')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-40-4')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q5</span>
+    <span style="flex:1;font-size:.9rem">Right triangle: legs 8m and 15m. Angle opposite the 15m leg.</span>
+    <span class="q-marks">3 marks</span>
+  </div>
+  <div class="q-hint" id="hint-40-5">💡 <em>Which trig ratio uses opposite (15m) and adjacent (8m)?</em></div>
+  <div class="q-answer" id="ans-40-5"><strong>✅ Answer:</strong> tanθ=15/8 → θ=tan⁻¹(1.875)≈61.9°</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-40-5')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-40-5')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q6</span>
+    <span style="flex:1;font-size:.9rem">Sector: r=6cm, θ=72°. Find area.</span>
+    <span class="q-marks">4 marks</span>
+  </div>
+  <div class="q-hint" id="hint-40-6">💡 <em>Area=(θ/360)×πr².</em></div>
+  <div class="q-answer" id="ans-40-6"><strong>✅ Answer:</strong> (72/360)×π×36=7.2π≈22.6 cm²</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-40-6')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-40-6')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q7</span>
+    <span style="flex:1;font-size:.9rem">Triangle: two sides 8cm and 6cm, included angle 50°. Find third side.</span>
+    <span class="q-marks">4 marks</span>
+  </div>
+  <div class="q-hint" id="hint-40-7">💡 <em>SAS → Cosine Rule.</em></div>
+  <div class="q-answer" id="ans-40-7"><strong>✅ Answer:</strong> c²=64+36−96cos50≈38.3; c≈6.19cm</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-40-7')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-40-7')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q8</span>
+    <span style="flex:1;font-size:.9rem">Line through P(2,5) with slope 4/3. Equation as ax+by+c=0.</span>
+    <span class="q-marks">4 marks</span>
+  </div>
+  <div class="q-hint" id="hint-40-8">💡 <em>Use y−y₁=m(x−x₁), then rearrange.</em></div>
+  <div class="q-answer" id="ans-40-8"><strong>✅ Answer:</strong> y−5=4/3(x−2) → 4x−3y+7=0</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-40-8')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-40-8')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q9</span>
+    <span style="flex:1;font-size:.9rem">Circle (x−3)²+(y+2)²=16. State centre and radius.</span>
+    <span class="q-marks">4 marks</span>
+  </div>
+  <div class="q-hint" id="hint-40-9">💡 <em>Circle (x−h)²+(y−k)²=r². Identify h, k and r.</em></div>
+  <div class="q-answer" id="ans-40-9"><strong>✅ Answer:</strong> Centre (3,−2), r=4</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-40-9')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-40-9')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q10</span>
+    <span style="flex:1;font-size:.9rem">Area of triangle with vertices (2,2),(5,4),(3,1).</span>
+    <span class="q-marks">4 marks</span>
+  </div>
+  <div class="q-hint" id="hint-40-10">💡 <em>Use the coordinate area formula.</em></div>
+  <div class="q-answer" id="ans-40-10"><strong>✅ Answer:</strong> Area=½|2(4−1)+5(1−2)+3(2−4)|=½×5=2.5 sq units</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-40-10')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-40-10')">✅ Show Answer</button>
+  </div>
+</div>
+</div>
+
+
+  <div style="display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wrap;margin-top:2rem;padding-top:1rem;border-top:2px solid var(--border);">
+    <a href="day39.html" class="btn btn-primary">← Day 39</a>
+    <button class="btn btn-gold" onclick="markComplete(40)">✅ Mark Day 40 Complete</button>
+    <a href="day41.html" class="btn btn-green">Day 41 →</a>
+  </div>
+</div>
+
+<footer>
+  <strong>Peppin's Tuition Centre, Cork</strong> · Day 40 · Revision — Geometry & Trig Rapid-Fire
+</footer>
+
+<script>
+function switchTab(name, btn) {
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+  btn.classList.add('active');
+}
+function toggleEl(id) {
+  const el = document.getElementById(id);
+  el.style.display = el.style.display === 'block' ? 'none' : 'block';
+}
+function markComplete(day) {
+  localStorage.setItem('day_complete_'+day, '1');
+  alert('Day ' + day + ' marked as complete! 🎉');
+}
+</script>
+</body></html>

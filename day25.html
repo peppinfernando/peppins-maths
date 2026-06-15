@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 25 · Trigonometry · Peppin's Maths</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head><body>
+<nav class="navbar">
+  <div class="nav-brand">
+    <span class="nav-logo">🍀</span>
+    <div>
+      <div class="nav-title">Peppin's Maths</div>
+      <div class="nav-sub">Junior Cycle · First Year</div>
+    </div>
+  </div>
+  <div class="nav-links"><a href="index.html" class="nav-link active">🏠 Home</a>
+<a href="plan.html" class="nav-link ">📅 45-Day Plan</a>
+<a href="quiz.html" class="nav-link ">⚡ Quick Quiz</a>
+<a href="progress.html" class="nav-link ">📈 My Progress</a>
+</div>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+</nav>
+<div style="background:#B8860B;color:#fff;padding:1.5rem 1.5rem 1rem;">
+  <div style="max-width:900px;margin:0 auto;">
+    <a href="index.html" style="color:rgba(255,255,255,.7);font-size:.82rem;font-weight:700;">← Back to Home</a>
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-top:.6rem;">
+      <div>
+        <div style="font-size:.75rem;opacity:.7;font-weight:800;letter-spacing:.1em;text-transform:uppercase;">Day 25 of 45 · Geometry</div>
+        <h1 style="font-family:'Merriweather',serif;font-size:clamp(1.3rem,3vw,2rem);margin:.3rem 0;">Trigonometry</h1>
+        <div style="font-size:1rem;opacity:.85;">SOH CAH TOA — Right-Angled Triangles</div>
+        <div style="margin-top:.6rem;display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;">
+          <span class="level-badge" style="background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4)">Ordinary</span>
+          <span style="font-size:.78rem;opacity:.7">6 questions · 21 marks total</span>
+        </div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:2.5rem;line-height:1">📐</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="max-width:900px;">
+  <div class="tab-bar">
+    <button class="tab active" onclick="switchTab('concept',this)">📖 Concept</button>
+    <button class="tab" onclick="switchTab('questions',this)">✏️ Practice Questions</button>
+  </div>
+
+  
+<div class="tab-content active" id="tab-concept">
+  <div class="concept-section mt2">
+    <div class="section-label" style="color:#1565C0">📘 What is this topic?</div>
+    <div class="explain-box"><p>sinθ=O/H; cosθ=A/H; tanθ=O/A. Hypotenuse=always opposite right angle. Opposite and adjacent are defined relative to the angle you are working with.</p><p>To find a side: set up the ratio, solve. To find an angle: use sin⁻¹, cos⁻¹, or tan⁻¹.</p><p>Pythagoras: a²+b²=c² (right triangles only, c=hypotenuse).</p></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--gold)">💡 Analogy — How to picture it</div>
+    <div class="analogy-box"><p>SOH CAH TOA is a tour guide at your working angle. Looking from there: the side opposite is OPPOSITE; the side next to the guide (not hypotenuse) is ADJACENT; the longest side across from the right angle is HYPOTENUSE.</p></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--green)">🔍 Worked Example</div>
+    <div class="worked-box">
+      <strong style="display:block;margin-bottom:.6rem">8m ladder, base 3m from wall. Find angle with ground.</strong>
+      <ol class="step-list"><li>cosθ=adjacent/hypotenuse=3/8</li><li>θ=cos⁻¹(3/8)≈68.0°</li><li>Check: sin68°≈0.927; opp=8×0.927≈7.42m; 3²+7.42²≈64=8² ✓</li></ol>
+    </div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:#BF360C">⚠️ Common Mistakes</div>
+    <div class="mistake-box"><ul style="padding-left:1.2rem"><li>ALWAYS draw a diagram first. Label O, A, H relative to the GIVEN angle</li><li>Hypotenuse is opposite the RIGHT ANGLE, not your working angle</li><li>Calculator must be in DEGREE mode, not radians</li></ul></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--navy)">📌 Key Formulae</div>
+    <div class="formula-box"><code>sinθ=O/H  cosθ=A/H  tanθ=O/A</code><code>Pythagoras: a²+b²=c²</code><code>θ=sin⁻¹(x), cos⁻¹(x), tan⁻¹(x)</code></div>
+  </div>
+  <div class="tip-box mt2">
+    <strong>🎯 SEC Exam Insight:</strong> SOH CAH TOA appears in every paper. Draw a labelled diagram FIRST. Calculator must be in DEGREE mode. Angle of elevation/depression is always measured from the HORIZONTAL.
+  </div>
+</div>
+
+  <div class="tab-content" id="tab-questions">
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q1</span>
+    <span style="flex:1;font-size:.9rem">Right triangle: hypotenuse 13cm, one leg 5cm. Find the other leg.</span>
+    <span class="q-marks">2 marks</span>
+  </div>
+  <div class="q-hint" id="hint-25-1">💡 <em>Pythagoras: a²+b²=c². Rearrange to find a.</em></div>
+  <div class="q-answer" id="ans-25-1"><strong>✅ Answer:</strong> a²=13²−5²=144 → a=12 cm</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-25-1')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-25-1')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q2</span>
+    <span style="flex:1;font-size:.9rem">Right triangle: hypotenuse 7cm, angle 40°. Find side opposite to 40°.</span>
+    <span class="q-marks">3 marks</span>
+  </div>
+  <div class="q-hint" id="hint-25-2">💡 <em>Which ratio uses Opposite and Hypotenuse? SOH: sinθ=O/H.</em></div>
+  <div class="q-answer" id="ans-25-2"><strong>✅ Answer:</strong> sin40°=opp/7 → opp=7×0.6428≈4.50 cm</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-25-2')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-25-2')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q3</span>
+    <span style="flex:1;font-size:.9rem">Right triangle: legs 6cm and 8cm. Find angle opposite the 8cm leg.</span>
+    <span class="q-marks">3 marks</span>
+  </div>
+  <div class="q-hint" id="hint-25-3">💡 <em>Which ratio uses Opposite and Adjacent? TOA: tanθ=O/A.</em></div>
+  <div class="q-answer" id="ans-25-3"><strong>✅ Answer:</strong> tanθ=8/6 → θ=tan⁻¹(1.333)≈53.1°</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-25-3')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-25-3')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q4</span>
+    <span style="flex:1;font-size:.9rem">12m ladder makes 25° with the wall. How far is the base from the wall?</span>
+    <span class="q-marks">4 marks</span>
+  </div>
+  <div class="q-hint" id="hint-25-4">💡 <em>Draw a diagram. The angle is with the WALL — label sides accordingly.</em></div>
+  <div class="q-answer" id="ans-25-4"><strong>✅ Answer:</strong> cos25°=adj/12 → adj=12×cos25°≈10.88m</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-25-4')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-25-4')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q5</span>
+    <span style="flex:1;font-size:.9rem">Person 40m from a 30m building. Find angle of elevation to the top.</span>
+    <span class="q-marks">4 marks</span>
+  </div>
+  <div class="q-hint" id="hint-25-5">💡 <em>Draw a right triangle. The 40m is adjacent and 30m is opposite.</em></div>
+  <div class="q-answer" id="ans-25-5"><strong>✅ Answer:</strong> tanθ=30/40 → θ=tan⁻¹(0.75)≈36.9°</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-25-5')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-25-5')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q6</span>
+    <span style="flex:1;font-size:.9rem">From A, angle of elevation=35°. From B (50m further), angle=20°. Find tower height.</span>
+    <span class="q-marks">5 marks</span>
+  </div>
+  <div class="q-hint" id="hint-25-6">💡 <em>Set up two equations using tan from each point, then solve simultaneously.</em></div>
+  <div class="q-answer" id="ans-25-6"><strong>✅ Answer:</strong> h=x·tan35°=(x+50)tan20°. x(tan35−tan20)=50tan20 → h≈37.9m</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-25-6')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-25-6')">✅ Show Answer</button>
+  </div>
+</div>
+</div>
+
+
+  <div style="display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wrap;margin-top:2rem;padding-top:1rem;border-top:2px solid var(--border);">
+    <a href="day24.html" class="btn btn-primary">← Day 24</a>
+    <button class="btn btn-gold" onclick="markComplete(25)">✅ Mark Day 25 Complete</button>
+    <a href="day26.html" class="btn btn-green">Day 26 →</a>
+  </div>
+</div>
+
+<footer>
+  <strong>Peppin's Tuition Centre, Cork</strong> · Day 25 · Trigonometry — SOH CAH TOA — Right-Angled Triangles
+</footer>
+
+<script>
+function switchTab(name, btn) {
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+  btn.classList.add('active');
+}
+function toggleEl(id) {
+  const el = document.getElementById(id);
+  el.style.display = el.style.display === 'block' ? 'none' : 'block';
+}
+function markComplete(day) {
+  localStorage.setItem('day_complete_'+day, '1');
+  alert('Day ' + day + ' marked as complete! 🎉');
+}
+</script>
+</body></html>

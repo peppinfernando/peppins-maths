@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 7 · Applied Arithmetic · Peppin's Maths</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head><body>
+<nav class="navbar">
+  <div class="nav-brand">
+    <span class="nav-logo">🍀</span>
+    <div>
+      <div class="nav-title">Peppin's Maths</div>
+      <div class="nav-sub">Junior Cycle · First Year</div>
+    </div>
+  </div>
+  <div class="nav-links"><a href="index.html" class="nav-link active">🏠 Home</a>
+<a href="plan.html" class="nav-link ">📅 45-Day Plan</a>
+<a href="quiz.html" class="nav-link ">⚡ Quick Quiz</a>
+<a href="progress.html" class="nav-link ">📈 My Progress</a>
+</div>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+</nav>
+<div style="background:#1B3A6B;color:#fff;padding:1.5rem 1.5rem 1rem;">
+  <div style="max-width:900px;margin:0 auto;">
+    <a href="index.html" style="color:rgba(255,255,255,.7);font-size:.82rem;font-weight:700;">← Back to Home</a>
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-top:.6rem;">
+      <div>
+        <div style="font-size:.75rem;opacity:.7;font-weight:800;letter-spacing:.1em;text-transform:uppercase;">Day 7 of 45 · Number</div>
+        <h1 style="font-family:'Merriweather',serif;font-size:clamp(1.3rem,3vw,2rem);margin:.3rem 0;">Applied Arithmetic</h1>
+        <div style="font-size:1rem;opacity:.85;">Ratio, Proportion, Currency & Tax</div>
+        <div style="margin-top:.6rem;display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;">
+          <span class="level-badge" style="background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4)">Ordinary</span>
+          <span style="font-size:.78rem;opacity:.7">6 questions · 19 marks total</span>
+        </div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:2.5rem;line-height:1">🔢</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="max-width:900px;">
+  <div class="tab-bar">
+    <button class="tab active" onclick="switchTab('concept',this)">📖 Concept</button>
+    <button class="tab" onclick="switchTab('questions',this)">✏️ Practice Questions</button>
+  </div>
+
+  
+<div class="tab-content active" id="tab-concept">
+  <div class="concept-section mt2">
+    <div class="section-label" style="color:#1565C0">📘 What is this topic?</div>
+    <div class="explain-box"><p>RATIO: to divide in a ratio, find total parts, calculate one part, multiply. DIRECT proportion: both quantities scale together. INVERSE proportion: one increases as the other decreases.</p><p>CURRENCY: multiply by exchange rate (€→foreign). IRISH TAX: 20% on first €36,800; 40% on rest. Subtract tax credits AFTER calculating gross tax.</p></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--gold)">💡 Analogy — How to picture it</div>
+    <div class="analogy-box"><p>Ratio is like a recipe. Flour:oats=3:5 for 4 people. For 24 people (6× bigger), you need 18 cups flour and 30 cups oats. The ratio stays fixed; the amounts scale.</p></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--green)">🔍 Worked Example</div>
+    <div class="worked-box">
+      <strong style="display:block;margin-bottom:.6rem">Divide €560 in the ratio 3:4:7</strong>
+      <ol class="step-list"><li>Total parts: 3+4+7 = 14</li><li>One part: €560÷14 = €40</li><li>First: 3×€40 = €120</li><li>Second: 4×€40 = €160</li><li>Third: 7×€40 = €280</li><li>Check: 120+160+280=560 ✓</li></ol>
+    </div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:#BF360C">⚠️ Common Mistakes</div>
+    <div class="mistake-box"><ul style="padding-left:1.2rem"><li>Always ADD parts before dividing the total</li><li>Inverse proportion: MORE workers=FEWER days. Use 1 worker first.</li><li>Tax credits reduce the TAX calculated, not the gross income</li></ul></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--navy)">📌 Key Formulae</div>
+    <div class="formula-box"><code>Ratio: 1 part=total÷sum of parts</code><code>Direct: a₁/b₁=a₂/b₂</code><code>Tax payable=gross tax−tax credits</code></div>
+  </div>
+  <div class="tip-box mt2">
+    <strong>🎯 SEC Exam Insight:</strong> Ratio and tax questions: always calculate each income tax band separately; subtract credits AFTER calculating gross tax. The multiplier method (×1.12 for VAT) is fastest.
+  </div>
+</div>
+
+  <div class="tab-content" id="tab-questions">
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q1</span>
+    <span style="flex:1;font-size:.9rem">Divide €400 in the ratio 3:5.</span>
+    <span class="q-marks">2 marks</span>
+  </div>
+  <div class="q-hint" id="hint-7-1">💡 <em>Add the ratio parts first: 3+5=8. Then find one part: €400÷8.</em></div>
+  <div class="q-answer" id="ans-7-1"><strong>✅ Answer:</strong> 8 parts total; 1 part=€50; A=€150, B=€250</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-7-1')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-7-1')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q2</span>
+    <span style="flex:1;font-size:.9rem">4 workers complete a job in 6 days. How long would 8 workers take? (Inverse proportion)</span>
+    <span class="q-marks">3 marks</span>
+  </div>
+  <div class="q-hint" id="hint-7-2">💡 <em>More workers = fewer days. Find how long for 1 worker first.</em></div>
+  <div class="q-answer" id="ans-7-2"><strong>✅ Answer:</strong> 1 worker: 4×6=24 days. 8 workers: 24÷8=3 days</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-7-2')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-7-2')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q3</span>
+    <span style="flex:1;font-size:.9rem">Convert €500 to dollars at €1=$1.12.</span>
+    <span class="q-marks">3 marks</span>
+  </div>
+  <div class="q-hint" id="hint-7-3">💡 <em>Multiply by the exchange rate to convert FROM euro.</em></div>
+  <div class="q-answer" id="ans-7-3"><strong>✅ Answer:</strong> €500 × 1.12 = $560</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-7-3')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-7-3')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q4</span>
+    <span style="flex:1;font-size:.9rem">Gross salary €42,000. Tax: 20% on first €36,800; 40% on balance. Tax credits €3,550. Find tax payable.</span>
+    <span class="q-marks">3 marks</span>
+  </div>
+  <div class="q-hint" id="hint-7-4">💡 <em>Calculate each tax band separately, add them, then subtract credits.</em></div>
+  <div class="q-answer" id="ans-7-4"><strong>✅ Answer:</strong> Tax@20%=€7,360. Tax@40% on €5,200=€2,080. Gross tax=€9,440. Less credits: €5,890</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-7-4')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-7-4')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q5</span>
+    <span style="flex:1;font-size:.9rem">Laptop costs €120 before VAT at 23%. Find the total price.</span>
+    <span class="q-marks">4 marks</span>
+  </div>
+  <div class="q-hint" id="hint-7-5">💡 <em>Multiply by the VAT rate to find the VAT amount, then add to original price.</em></div>
+  <div class="q-answer" id="ans-7-5"><strong>✅ Answer:</strong> VAT=€120×0.23=€27.60. Total=€147.60</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-7-5')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-7-5')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q6</span>
+    <span style="flex:1;font-size:.9rem">Cement:sand:gravel = 1:2:4. 840 kg needed. How much of each?</span>
+    <span class="q-marks">4 marks</span>
+  </div>
+  <div class="q-hint" id="hint-7-6">💡 <em>7 total parts. Find 1 part first, then multiply for each ingredient.</em></div>
+  <div class="q-answer" id="ans-7-6"><strong>✅ Answer:</strong> 7 parts; 1 part=120 kg; Cement=120, Sand=240, Gravel=480 kg</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-7-6')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-7-6')">✅ Show Answer</button>
+  </div>
+</div>
+</div>
+
+
+  <div style="display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wrap;margin-top:2rem;padding-top:1rem;border-top:2px solid var(--border);">
+    <a href="day6.html" class="btn btn-primary">← Day 6</a>
+    <button class="btn btn-gold" onclick="markComplete(7)">✅ Mark Day 7 Complete</button>
+    <a href="day8.html" class="btn btn-green">Day 8 →</a>
+  </div>
+</div>
+
+<footer>
+  <strong>Peppin's Tuition Centre, Cork</strong> · Day 7 · Applied Arithmetic — Ratio, Proportion, Currency & Tax
+</footer>
+
+<script>
+function switchTab(name, btn) {
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+  btn.classList.add('active');
+}
+function toggleEl(id) {
+  const el = document.getElementById(id);
+  el.style.display = el.style.display === 'block' ? 'none' : 'block';
+}
+function markComplete(day) {
+  localStorage.setItem('day_complete_'+day, '1');
+  alert('Day ' + day + ' marked as complete! 🎉');
+}
+</script>
+</body></html>

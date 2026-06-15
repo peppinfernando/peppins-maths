@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 8 · Algebra · Peppin's Maths</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head><body>
+<nav class="navbar">
+  <div class="nav-brand">
+    <span class="nav-logo">🍀</span>
+    <div>
+      <div class="nav-title">Peppin's Maths</div>
+      <div class="nav-sub">Junior Cycle · First Year</div>
+    </div>
+  </div>
+  <div class="nav-links"><a href="index.html" class="nav-link active">🏠 Home</a>
+<a href="plan.html" class="nav-link ">📅 45-Day Plan</a>
+<a href="quiz.html" class="nav-link ">⚡ Quick Quiz</a>
+<a href="progress.html" class="nav-link ">📈 My Progress</a>
+</div>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+</nav>
+<div style="background:#2E7D32;color:#fff;padding:1.5rem 1.5rem 1rem;">
+  <div style="max-width:900px;margin:0 auto;">
+    <a href="index.html" style="color:rgba(255,255,255,.7);font-size:.82rem;font-weight:700;">← Back to Home</a>
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-top:.6rem;">
+      <div>
+        <div style="font-size:.75rem;opacity:.7;font-weight:800;letter-spacing:.1em;text-transform:uppercase;">Day 8 of 45 · Algebra</div>
+        <h1 style="font-family:'Merriweather',serif;font-size:clamp(1.3rem,3vw,2rem);margin:.3rem 0;">Algebra</h1>
+        <div style="font-size:1rem;opacity:.85;">Simplifying Expressions & Substitution</div>
+        <div style="margin-top:.6rem;display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;">
+          <span class="level-badge" style="background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4)">Foundation</span>
+          <span style="font-size:.78rem;opacity:.7">6 questions · 18 marks total</span>
+        </div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:2.5rem;line-height:1">✖️</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="max-width:900px;">
+  <div class="tab-bar">
+    <button class="tab active" onclick="switchTab('concept',this)">📖 Concept</button>
+    <button class="tab" onclick="switchTab('questions',this)">✏️ Practice Questions</button>
+  </div>
+
+  
+<div class="tab-content active" id="tab-concept">
+  <div class="concept-section mt2">
+    <div class="section-label" style="color:#1565C0">📘 What is this topic?</div>
+    <div class="explain-box"><p>LIKE TERMS have exactly the same variable and power. You can ONLY add/subtract like terms. 3x+5x=8x but 3x+5y cannot be combined.</p><p>SUBSTITUTE: replace every variable with the given number value. Always use BRACKETS around negative numbers to avoid sign errors.</p></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--gold)">💡 Analogy — How to picture it</div>
+    <div class="analogy-box"><p>Think of 'x' as a mystery box. 3x+2x = '3 boxes + 2 boxes = 5 boxes'. But 3x+2y is '3 boxes + 2 bags' — different objects, cannot be combined.</p></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--green)">🔍 Worked Example</div>
+    <div class="worked-box">
+      <strong style="display:block;margin-bottom:.6rem">Evaluate 3a² − 2ab + b when a=2, b=−3</strong>
+      <ol class="step-list"><li>Substitute: 3(2)²−2(2)(−3)+(−3)</li><li>Exponents: 3(4)−2(2)(−3)+(−3)</li><li>Multiply: 12−(−12)+(−3)</li><li>Signs: 12+12−3</li><li>Answer: 21</li></ol>
+    </div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:#BF360C">⚠️ Common Mistakes</div>
+    <div class="mistake-box"><ul style="padding-left:1.2rem"><li>3a+5b−2a = a+5b: collect a-terms, leave 5b alone</li><li>Substituting negative: x=−3 means (−3)²=9, NOT −3²=−9</li><li>2x² means 2×(x²), NOT (2x)²=4x²</li></ul></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--navy)">📌 Key Formulae</div>
+    <div class="formula-box"><code>Like terms: same variable and power</code><code>Simplify: collect like terms</code><code>Substitute: replace each variable, then BEMDAS</code></div>
+  </div>
+  <div class="tip-box mt2">
+    <strong>🎯 SEC Exam Insight:</strong> Algebra substitution: put negative values in BRACKETS every time. The examiner awards a method mark for your substitution step, even before any arithmetic is done.
+  </div>
+</div>
+
+  <div class="tab-content" id="tab-questions">
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q1</span>
+    <span style="flex:1;font-size:.9rem">Simplify: 3a + 5b − 2a + b</span>
+    <span class="q-marks">2 marks</span>
+  </div>
+  <div class="q-hint" id="hint-8-1">💡 <em>Group the a-terms and the b-terms separately.</em></div>
+  <div class="q-answer" id="ans-8-1"><strong>✅ Answer:</strong> a + 6b</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-8-1')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-8-1')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q2</span>
+    <span style="flex:1;font-size:.9rem">Simplify: 5x² − 3x + x² + 4x</span>
+    <span class="q-marks">2 marks</span>
+  </div>
+  <div class="q-hint" id="hint-8-2">💡 <em>Collect x² terms together and x terms together.</em></div>
+  <div class="q-answer" id="ans-8-2"><strong>✅ Answer:</strong> 6x² + x</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-8-2')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-8-2')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q3</span>
+    <span style="flex:1;font-size:.9rem">Evaluate 2x² − 3x + 4 when x = 3.</span>
+    <span class="q-marks">3 marks</span>
+  </div>
+  <div class="q-hint" id="hint-8-3">💡 <em>Replace every x with 3. Use brackets and BEMDAS.</em></div>
+  <div class="q-answer" id="ans-8-3"><strong>✅ Answer:</strong> 2(9)−3(3)+4 = 18−9+4 = 13</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-8-3')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-8-3')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q4</span>
+    <span style="flex:1;font-size:.9rem">Find 3a² + 2ab − b² when a=2, b=−3.</span>
+    <span class="q-marks">3 marks</span>
+  </div>
+  <div class="q-hint" id="hint-8-4">💡 <em>Put negative values in brackets when substituting.</em></div>
+  <div class="q-answer" id="ans-8-4"><strong>✅ Answer:</strong> 3(4)+2(2)(−3)−(9) = 12−12−9 = −9</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-8-4')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-8-4')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q5</span>
+    <span style="flex:1;font-size:.9rem">Simplify: 3(2x − 1) − 2(x + 4)</span>
+    <span class="q-marks">4 marks</span>
+  </div>
+  <div class="q-hint" id="hint-8-5">💡 <em>Expand each bracket first, being careful with the minus sign before the second bracket.</em></div>
+  <div class="q-answer" id="ans-8-5"><strong>✅ Answer:</strong> 6x−3−2x−8 = 4x − 11</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-8-5')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-8-5')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q6</span>
+    <span style="flex:1;font-size:.9rem">P = 2(l+w). If l=3x+1 and w=x−2, express P simplified in terms of x.</span>
+    <span class="q-marks">4 marks</span>
+  </div>
+  <div class="q-hint" id="hint-8-6">💡 <em>Substitute expressions for l and w, simplify inside brackets, then multiply by 2.</em></div>
+  <div class="q-answer" id="ans-8-6"><strong>✅ Answer:</strong> P=2(3x+1+x−2)=2(4x−1)=8x−2</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-8-6')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-8-6')">✅ Show Answer</button>
+  </div>
+</div>
+</div>
+
+
+  <div style="display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wrap;margin-top:2rem;padding-top:1rem;border-top:2px solid var(--border);">
+    <a href="day7.html" class="btn btn-primary">← Day 7</a>
+    <button class="btn btn-gold" onclick="markComplete(8)">✅ Mark Day 8 Complete</button>
+    <a href="day9.html" class="btn btn-green">Day 9 →</a>
+  </div>
+</div>
+
+<footer>
+  <strong>Peppin's Tuition Centre, Cork</strong> · Day 8 · Algebra — Simplifying Expressions & Substitution
+</footer>
+
+<script>
+function switchTab(name, btn) {
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+  btn.classList.add('active');
+}
+function toggleEl(id) {
+  const el = document.getElementById(id);
+  el.style.display = el.style.display === 'block' ? 'none' : 'block';
+}
+function markComplete(day) {
+  localStorage.setItem('day_complete_'+day, '1');
+  alert('Day ' + day + ' marked as complete! 🎉');
+}
+</script>
+</body></html>

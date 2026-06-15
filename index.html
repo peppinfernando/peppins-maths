@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Peppin's Maths · Home</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head><body>
+<nav class="navbar">
+  <div class="nav-brand">
+    <span class="nav-logo">🍀</span>
+    <div>
+      <div class="nav-title">Peppin's Maths</div>
+      <div class="nav-sub">Junior Cycle · First Year</div>
+    </div>
+  </div>
+  <div class="nav-links"><a href="index.html" class="nav-link active">🏠 Home</a>
+<a href="plan.html" class="nav-link ">📅 45-Day Plan</a>
+<a href="quiz.html" class="nav-link ">⚡ Quick Quiz</a>
+<a href="progress.html" class="nav-link ">📈 My Progress</a>
+</div>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+</nav>
+<div class="page-hero">
+  <div style="font-size:2.5rem;margin-bottom:.5rem">📐 🔢 📊</div>
+  <h1>Junior Cycle Mathematics</h1>
+  <p>Peppin's Tuition Centre, Cork · First Year · 45-Day Study Programme<br>
+     <span style="opacity:.7;font-size:.9rem">Aligned to NCCA Specification · Based on SEC Exam Papers 2021–2025</span></p>
+  <div style="display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin-top:1.25rem;">
+    <a href="plan.html" class="btn btn-gold btn-lg">📅 View 45-Day Plan</a>
+    <a href="quiz.html" class="btn btn-primary btn-lg" style="background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.4);">⚡ Quick Quiz</a>
+  </div>
+</div>
+
+<div class="container">
+  <div class="stats-strip">
+    <div class="stat-box"><div class="stat-num" style="color:var(--navy)">45</div><div class="stat-label">Study Days</div></div>
+    <div class="stat-box"><div class="stat-num" style="color:var(--green)">5</div><div class="stat-label">Topic Blocks</div></div>
+    <div class="stat-box"><div class="stat-num" style="color:var(--gold)">286</div><div class="stat-label">Practice Questions</div></div>
+    <div class="stat-box"><div class="stat-num" style="color:var(--red)">45</div><div class="stat-label">Lessons</div></div>
+  </div>
+
+  <div class="mt4">
+    <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1rem;padding-bottom:.6rem;border-bottom:3px solid #1B3A6B;">
+      <span style="font-size:1.5rem">🔢</span>
+      <div>
+        <h2 style="font-family:'Merriweather',serif;color:#1B3A6B;font-size:1.25rem;">Number</h2>
+        <div style="font-size:.8rem;color:var(--muted);">Days 1–7</div>
+      </div>
+    </div>
+    <div class="grid-3">
+
+      <a href="day1.html" class="card day-card" style="border-left-color:#1B3A6B">
+        <div class="card-header" style="padding:.75rem 1rem;">
+          <div>
+            <div class="day-num" style="color:#1B3A6B">Day 1</div>
+            <div class="day-topic">Natural Numbers</div>
+            <div class="day-sub">Place Value, Ordering & BEMDAS</div>
+            <div class="day-meta">
+              <span class="level-badge" style="background:#B8860B">Foundation</span>
+              <span style="font-size:.72rem;color:var(--muted)">6 questions</span>
+              <span class="completed-mark" id="mark-1"></span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="day2.html" class="card day-card" style="border-left-color:#1B3A6B">
+        <div class="card-header" style="padding:.75rem 1rem;">
+          <div>
+            <div class="day-num" style="color:#1B3A6B">Day 2</div>
+            <div class="day-topic">Natural Numbers</div>
+            <div class="day-sub">Factors, Multiples, HCF & LCM</div>
+            <div class="day-meta">
+              <span class="level-badge" style="background:#B8860B">Foundation</span>
+              <span style="font-size:.72rem;color:var(--muted)">6 questions</span>
+              <span class="completed-mark" id="mark-2"></span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="day3.html" class="card day-card" style="border-left-color:#1B3A6B">
+        <div class="card-header" style="padding:.75rem 1rem;">
+          <div>
+            <div class="day-num" style="color:#1B3A6B">Day 3</div>
+            <div class="day-topic">Integers</div>
+            <div class="day-sub">Directed Numbers & Operations</div>
+            <div class="day-meta">
+              <span class="level-badge" style="background:#B8860B">Foundation</span>
+              <span style="font-size:.72rem;color:var(--muted)">6 questions</span>
+              <span class="completed-mark" id="mark-3"></span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="day4.html" class="card day-card" style="border-left-color:#1B3A6B">
+        <div class="card-header" style="padding:.75rem 1rem;">
+          <div>
+            <div class="day-num" style="color:#1B3A6B">Day 4</div>
+            <div class="day-topic">Fractions</div>
+            <div class="day-sub">All Four Operations with Fractions</div>
+            <div class="day-meta">
+              <span class="level-badge" style="background:#1B3A6B">Foundation→Ordinary</span>
+              <span style="font-size:.72rem;color:var(--muted)">6 questions</span>
+              <span class="completed-mark" id="mark-4"></span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="day5.html" class="card day-card" style="border-left-color:#1B3A6B">
+        <div class="card-header" style="padding:.75rem 1rem;">
+          <div>
+            <div class="day-num" style="color:#1B3A6B">Day 5</div>
+            <div class="day-topic">Decimals & Percentages</div>
+            <div class="day-sub">Conversions, Rounding & % Change</div>
+            <div class="day-meta">
+              <span class="level-badge" style="background:#1B3A6B">Foundation→Ordinary</span>
+              <span style="font-size:.72rem;color:var(--muted)">6 questions</span>
+              <span class="completed-mark" id="mark-5"></span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="day6.html" class="card day-card" style="border-left-color:#1B3A6B">
+        <div class="card-header" style="padding:.75rem 1rem;">
+          <div>
+            <div class="day-num" style="color:#1B3A6B">Day 6</div>
+            <div class="day-topic">Number Systems & Sets</div>
+            <div class="day-sub">N, Z, Q, R and Venn Diagrams</div>
+            <div class="day-meta">
+              <span class="level-badge" style="background:#1B3A6B">Ordinary</span>
+              <span style="font-size:.72rem;color:var(--muted)">6 questions</span>
+              <span class="completed-mark" id="mark-6"></span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="day7.html" class="card day-card" style="border-left-color:#1B3A6B">
+        <div class="card-header" style="padding:.75rem 1rem;">
+          <div>
+            <div class="day-num" style="color:#1B3A6B">Day 7</div>
+            <div class="day-topic">Applied Arithmetic</div>
+            <div class="day-sub">Ratio, Proportion, Currency & Tax</div>
+            <div class="day-meta">
+              <span class="level-badge" style="background:#1B3A6B">Ordinary</span>
+              <span style="font-size:.72rem;color:var(--muted)">6 questions</span>
+              <span class="completed-mark" id="mark-7"></span>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="mt4">
+    <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1rem;padding-bottom:.6rem;border-bottom:3px solid #2E7D32;">
+      <span style="font-size:1.5rem">✖️</span>
+      <div>
+        <h2 style="font-family:'Merriweather',serif;color:#2E7D32;font-size:1.25rem;">Algebra</h2>
+        <div style="font-size:.8rem;color:var(--muted);">Days 8–17</div>
+      </div>
+    </div>
+    <div class="grid-3">
+
+      <a href="day8.html" class="card day-card" style="border-left-color:#2E7D32">
+        <div class="card-header" style="padding:.75rem 1rem;">
+          <div>
+            <div class="day-num" style="color:#2E7D32">Day 8</div>
+            <div class="day-topic">Algebra</div>
+            <div class="day-sub">Simplifying Expressions & Substitution</div>
+            <div class="day-meta">
+              <span class="level-badge" style="background:#B8860B">Foundation</span>
+              <span style="font-size:.72rem;color:var(--muted)">6 questions</span>
+              <span class="completed-mark" id="mark-8"></span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="day9.html" class="card day-card" style="border-left-color:#2E7D32">
+        <div class="card-header" style="padding:.75rem 1rem;">
+          <div>
+            <div class="day-num" style="color:#2E7D32">Day 9</div>
+            <div class="day-topic">Algebra</div>
+            <div class="day-sub">Expanding Brackets</div>
+            <div class="day-meta">
+              <span class="level-badge" style="background:#1B3A6B">Ordinary</span>
+              <span style="font-size:.72rem;color:var(--muted)">6 questions</span>
+              <span class="completed-mark" id="mark-9"></span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="day10.html" class="card day-card" style="border-left-color:#2E7D32">
+        <div class="card-header" style="padding:.75rem 1rem;">
+          <div>
+            <div class="day-num" style="color:#2E7D32">Day 10</div>
+            <div class="day-topic">Algebra</div>
+            <div class="day-sub">Factorising Expressions</div>
+            <div class="day-meta">
+              <span class="level-badge" style="background:#1B3A6B">Ordinary</span>
+              <span style="font-size:.72rem;color:var(--muted)">6 questions</span>
+              <span class="completed-mark" id="mark-10"></span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="day11.html" class="card day-card" style="border-left-color:#2E7D32">
+        <div class="card-header" style="padding:.75rem 1rem;">
+          <div>
+            <div class="day-num" style="color:#2E7D32">Day 11</div>
+            <div class="day-topic">Algebra</div>
+            <div class="day-sub">Solving Linear Equations & Inequalities</div>
+            <div class="day-meta">
+              <span class="level-badge" style="background:#1B3A6B">Ordinary</span>
+              <span style="font-size:.72rem;color:var(--muted)">6 questions</span>
+              <span class="completed-mark" id="mark-11"></span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="day12.html" class="card day-card" style="border-left-color:#2E7D32">
+        <div class="card-header" style="padding:.75rem 1rem;">
+          <div>
+            <div class="day-num" style="color:#2E7D32">Day 12</div>
+            <div class="day-topic">Algebra</div>
+            <div class="day-sub">Simultaneous Equations</div>
+            <div class="day-meta">
+              <span class="level-badge" style="background:#1B3A6B">Ordinary</span>
+              <span style="font-size:.72rem;color:var(--muted)">6 questions</span>
+              <span class="completed-mark" id="mark-12"></span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="day13.html" class="card day-card" style="border-left-color:#2E7D32">
+        <div class="card-header" style="padding:.75rem 1rem;">
+          <div>
+            <div class="day-num" style="color:#2E7D32">Day 13</div>
+            <div class="day-topic">Algebra</div>
+            <div class="day-sub">Quadratic Equations</div>
+            <div class="day-meta">
+              <span class="level-badge" style="background:#C0392B">Higher</span>
+              <span style="font-size:.72rem;color:var(--muted)">6 questions</span>
+              <span class="completed-mark" id="mark-13"></span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="day14.html" class="card day-card" style="border-left-color:#2E7D32">
+        <div class="card-header" style="padding:.75rem 1rem;">
+          <div>
+            <div class="day-num" style="color:#2E7D32">Day 14</div>
+            <div class="day-topic">Patterns & Sequences</div>
+            <div class="day-sub">Arithmetic Sequences</div>
+            <div class="day-meta">
+              <span class="level-badge" style="background:#1B3A6B">Ordinary</span>
+              <span style="font-size:.72rem;color:var(--muted)">6 questions</span>
+              <span class="completed-mark" id="mark-14"></span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="day15.html" class="card day-card" style="border-left-color:#2E7D32">
+        <div class="card-header" style="padding:.75rem 1rem;">
+          <div>
+            <div class="day-num" style="color:#2E7D32">Day 15</div>
+            <div class="day-topic">Functions</div>
+            <div class="day-sub">Notation, Evaluation & Graphs</div>
+            <div class="day-meta">
+              <span class="level-badge" style="background:#C0392B">Ordinary→Higher</span>
+              <span style="font-size:.72rem;color:var(--muted)">6 questions</span>
+              <span class="completed-mark" id="mark-15"></span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="day16.html" class="card day-card" style="border-left-color:#2E7D32">
+        <div class="card-header" style="padding:.75rem 1rem;">
+          <div>
+            <div class="day-num" style="color:#2E7D32">Day 16</div>
+            <div class="day-topic">Algebra</div>
+            <div class="day-sub">Algebraic Fractions</div>
+            <div class="day-meta">
+              <span class="level-badge" style="background:#C0392B">Higher</span>
+              <span style="font-size:.72rem;color:var(--muted)">6 questions</span>
+              <span class="completed-mark" id="mark-16"></span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="day17.html" class="card day-card" style="border-left-color:#2E7D32">
+        <div class="card-header" style="padding:.75rem 1rem;">
+          <div>
+            <div class="day-num" style="color:#2E7D32">Day 17</div>
+            <div class="day-topic">Algebra Review</div>
+            <div class="day-sub">Exam-Style Mixed Algebra</div>
+            <div class="day-meta">
+              <span class="level-badge" style="background:#6A0572">Mixed</span>
+              <span style="font-size:.72rem;color:var(--muted)">6 questions</span>
+              <span class="completed-mark" id="mark-17"></span>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="mt4">
+    <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1rem;padding-bottom:.6rem;border-bottom:3px solid #B8860B;">
+      <span style="font-size:1.5rem">📐</span>
+      <div>
+        <h2 style="font-family:'Merriweather',serif;color:#B8860B;font-size:1.25rem;">Geometry</h2>
+        <div style="font-size:.8rem;color:var(--muted);">Days 18–28</div>
+      </div>
+    </div>
+    <div class="grid-3">
+
+      <a href="day18.html" class="card day-card" style="border-left-color:#B8860B">
+        <div class="card-header" style="padding:.75rem 1rem;">
+          <div>
+            <div class="day-num" style="color:#B8860B">Day 18</div>
+            <div class="day-topic">Geometry</div>
+            <div class="day-sub">Lines, Angles & Triangles</div>
+            <div class="day-meta">
+              <span class="level-badge" style="background:#B8860B">Foundation</span>
+              <span style="font-size:.72rem;color:var(--muted)">6 questions</span>
+              <span class="completed-mark" id="mark-18"></span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="day19.html" class="card day-card" style="border-left-color:#B8860B">
+        <div class="card-header" style="padding:.75rem 1rem;">
+          <div>
+            <div class="day-num" style="color:#B8860B">Day 19</div>
+            <div class="day-topic">Geometry</div>
+            <div class="day-sub">Theorems & Proofs</div>
+            <div class="day-meta">
+              <span class="level-badge" style="background:#1B3A6B">Ordinary</span>
+              <span style="font-size:.72rem;color:var(--muted)">6 questions</span>
+              <span class="completed-mark" id="mark-19"></span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="day20.html" class="card day-card" style="border-left-color:#B8860B">
+        <div class="card-header" style="padding:.75rem 1rem;">
+          <div>
+            <div class="day-num" style="color:#B8860B">Day 20</div>
+            <div class="day-topic">Geometry</div>
+            <div class="day-sub">Constructions</div>
+            <div class="day-meta">
+              <span class="level-badge" style="background:#1B3A6B">Ordinary</span>
+              <span style="font-size:.72rem;color:var(--muted)">6 questions</span>
+              <span class="completed-mark" id="mark-20"></span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="day21.html" class="card day-card" style="border-left-color:#B8860B">
+        <div class="card-header" style="padding:.75rem 1rem;">
+          <div>
+            <div class="day-num" style="color:#B8860B">Day 21</div>
+            <div class="day-topic">Geometry</div>
+            <div class="day-sub">Area & Perimeter of 2D Shapes</div>
+            <div class="day-meta">
+              <span class="level-badge" style="background:#1B3A6B">Foundation→Ordinary</span>
+              <span style="font-size:.72rem;color:var(--muted)">6 questions</span>
+              <span class="completed-mark" id="mark-21"></span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="day22.html" class="card day-card" style="border-left-color:#B8860B">
+        <div class="card-header" style="padding:.75rem 1rem;">
+          <div>
+            <div class="day-num" style="color:#B8860B">Day 22</div>
+            <div class="day-topic">Geometry</div>
+            <div class="day-sub">Volume & Surface Area of 3D Solids</div>
+            <div class="day-meta">
+              <span class="level-badge" style="background:#1B3A6B">Ordinary</span>
+              <span style="font-size:.72rem;color:var(--muted)">6 questions</span>
+              <span class="completed-mark" id="mark-22"></span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="day23.html" class="card day-card" style="border-left-color:#B8860B">
+        <div class="card-header" style="padding:.75rem 1rem;">
+          <div>
+            <div class="day-num" style="color:#B8860B">Day 23</div>
+            <div class="day-topic">Coordinate Geometry</div>
+            <div class="day-sub">Distance, Midpoint & Slope</div>
+            <div class="day-meta">
+              <span class="level-badge" style="background:#1B3A6B">Ordinary</span>
+              <span style="font-size:.72rem;color:var(--muted)">6 questions</span>
+              <span class="completed-mark" id="mark-23"></span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="day24.html" class="card day-card" style="border-left-color:#B8860B">
+        <div class="card-header" style="padding:.75rem 1rem;">
+          <div>
+            <div class="day-num" style="color:#B8860B">Day 24</div>
+            <div class="day-topic">Coordinate Geometry</div>
+            <div class="day-sub">Equation of Line & Circle</div>
+            <div class="day-meta">
+              <span class="level-badge" style="background:#C0392B">Ordinary→Higher</span>
+              <span style="font-size:.72rem;color:var(--muted)">6 questions</span>
+              <span class="completed-mark" id="mark-24"></span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="day25.html" class="card day-card" style="border-left-color:#B8860B">
+        <div class="card-header" style="padding:.75rem 1rem;">
+          <div>
+            <div class="day-num" style="color:#B8860B">Day 25</div>
+            <div class="day-topic">Trigonometry</div>
+            <div class="day-sub">SOH CAH TOA — Right-Angled Triangles</div>
+            <div class="day-meta">
+              <span class="level-badge" style="background:#1B3A6B">Ordinary</span>
+              <span style="font-size:.72rem;color:var(--muted)">6 questions</span>
+              <span class="completed-mark" id="mark-25"></span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="day26.html" class="card day-card" style="border-left-color:#B8860B">
+        <div class="card-header" style="padding:.75rem 1rem;">
+          <div>
+            <div class="day-num" style="color:#B8860B">Day 26</div>
+            <div class="day-topic">Trigonometry</div>
+            <div class="day-sub">Sine Rule, Cosine Rule & Area</div>
+            <div class="day-meta">
+              <span class="level-badge" style="background:#C0392B">Higher</span>
+              <span style="font-size:.72rem;color:var(--muted)">6 questions</span>
+              <span class="completed-mark" id="mark-26"></span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="day27.html" class="card day-card" style="border-left-color:#B8860B">
+        <div class="card-header" style="padding:.75rem 1rem;">
+          <div>
+            <div class="day-num" style="color:#B8860B">Day 27</div>
+            <div class="day-topic">Geometry</div>
+            <div class="day-sub">Mixed Problem Solving</div>
+            <div class="day-meta">
+              <span class="level-badge" style="background:#6A0572">Mixed</span>
+              <span style="font-size:.72rem;color:var(--muted)">6 questions</span>
+              <span class="completed-mark" id="mark-27"></span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="day28.html" class="card day-card" style="border-left-color:#B8860B">
+        <div class="card-header" style="padding:.75rem 1rem;">
+          <div>
+            <div class="day-num" style="color:#B8860B">Day 28</div>
+            <div class="day-topic">Coordinate Geometry</div>
+            <div class="day-sub">Exam-Style Mixed Practice</div>
+            <div class="day-meta">
+              <span class="level-badge" style="background:#C0392B">Higher</span>
+              <span style="font-size:.72rem;color:var(--muted)">6 questions</span>
+              <span class="completed-mark" id="mark-28"></span>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="mt4">
+    <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1rem;padding-bottom:.6rem;border-bottom:3px solid #6A0572;">
+      <span style="font-size:1.5rem">📊</span>
+      <div>
+        <h2 style="font-family:'Merriweather',serif;color:#6A0572;font-size:1.25rem;">Statistics</h2>
+        <div style="font-size:.8rem;color:var(--muted);">Days 29–38</div>
+      </div>
+    </div>
+    <div class="grid-3">
+
+      <a href="day29.html" class="card day-card" style="border-left-color:#6A0572">
+        <div class="card-header" style="padding:.75rem 1rem;">
+          <div>
+            <div class="day-num" style="color:#6A0572">Day 29</div>
+            <div class="day-topic">Statistics</div>
+            <div class="day-sub">Data Collection & Frequency Tables</div>
+            <div class="day-meta">
+              <span class="level-badge" style="background:#B8860B">Foundation</span>
+              <span style="font-size:.72rem;color:var(--muted)">6 questions</span>
+              <span class="completed-mark" id="mark-29"></span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="day30.html" class="card day-card" style="border-left-color:#6A0572">
+        <div class="card-header" style="padding:.75rem 1rem;">
+          <div>
+            <div class="day-num" style="color:#6A0572">Day 30</div>
+            <div class="day-topic">Statistics</div>
+            <div class="day-sub">Mean, Median, Mode, Range & IQR</div>
+            <div class="day-meta">
+              <span class="level-badge" style="background:#1B3A6B">Ordinary</span>
+              <span style="font-size:.72rem;color:var(--muted)">6 questions</span>
+              <span class="completed-mark" id="mark-30"></span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="day31.html" class="card day-card" style="border-left-color:#6A0572">
+        <div class="card-header" style="padding:.75rem 1rem;">
+          <div>
+            <div class="day-num" style="color:#6A0572">Day 31</div>
+            <div class="day-topic">Statistics</div>
+            <div class="day-sub">Charts & Diagrams</div>
+            <div class="day-meta">
+              <span class="level-badge" style="background:#1B3A6B">Foundation→Ordinary</span>
+              <span style="font-size:.72rem;color:var(--muted)">6 questions</span>
+              <span class="completed-mark" id="mark-31"></span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="day32.html" class="card day-card" style="border-left-color:#6A0572">
+        <div class="card-header" style="padding:.75rem 1rem;">
+          <div>
+            <div class="day-num" style="color:#6A0572">Day 32</div>
+            <div class="day-topic">Statistics</div>
+            <div class="day-sub">Scatter Diagrams & Correlation</div>
+            <div class="day-meta">
+              <span class="level-badge" style="background:#1B3A6B">Ordinary</span>
+              <span style="font-size:.72rem;color:var(--muted)">6 questions</span>
+              <span class="completed-mark" id="mark-32"></span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="day33.html" class="card day-card" style="border-left-color:#6A0572">
+        <div class="card-header" style="padding:.75rem 1rem;">
+          <div>
+            <div class="day-num" style="color:#6A0572">Day 33</div>
+            <div class="day-topic">Probability</div>
+            <div class="day-sub">Basic Probability & Sample Space</div>
+            <div class="day-meta">
+              <span class="level-badge" style="background:#B8860B">Foundation</span>
+              <span style="font-size:.72rem;color:var(--muted)">6 questions</span>
+              <span class="completed-mark" id="mark-33"></span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="day34.html" class="card day-card" style="border-left-color:#6A0572">
+        <div class="card-header" style="padding:.75rem 1rem;">
+          <div>
+            <div class="day-num" style="color:#6A0572">Day 34</div>
+            <div class="day-topic">Probability</div>
+            <div class="day-sub">Combined Events & Tree Diagrams</div>
+            <div class="day-meta">
+              <span class="level-badge" style="background:#1B3A6B">Ordinary</span>
+              <span style="font-size:.72rem;color:var(--muted)">6 questions</span>
+              <span class="completed-mark" id="mark-34"></span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="day35.html" class="card day-card" style="border-left-color:#6A0572">
+        <div class="card-header" style="padding:.75rem 1rem;">
+          <div>
+            <div class="day-num" style="color:#6A0572">Day 35</div>
+            <div class="day-topic">Probability</div>
+            <div class="day-sub">Counting Principles & Expected Value</div>
+            <div class="day-meta">
+              <span class="level-badge" style="background:#C0392B">Higher</span>
+              <span style="font-size:.72rem;color:var(--muted)">6 questions</span>
+              <span class="completed-mark" id="mark-35"></span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="day36.html" class="card day-card" style="border-left-color:#6A0572">
+        <div class="card-header" style="padding:.75rem 1rem;">
+          <div>
+            <div class="day-num" style="color:#6A0572">Day 36</div>
+            <div class="day-topic">Statistics</div>
+            <div class="day-sub">Standard Deviation & Normal Distribution</div>
+            <div class="day-meta">
+              <span class="level-badge" style="background:#C0392B">Higher</span>
+              <span style="font-size:.72rem;color:var(--muted)">6 questions</span>
+              <span class="completed-mark" id="mark-36"></span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="day37.html" class="card day-card" style="border-left-color:#6A0572">
+        <div class="card-header" style="padding:.75rem 1rem;">
+          <div>
+            <div class="day-num" style="color:#6A0572">Day 37</div>
+            <div class="day-topic">Statistics & Probability</div>
+            <div class="day-sub">Mixed Exam-Style Statistics</div>
+            <div class="day-meta">
+              <span class="level-badge" style="background:#6A0572">Mixed</span>
+              <span style="font-size:.72rem;color:var(--muted)">4 questions</span>
+              <span class="completed-mark" id="mark-37"></span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="day38.html" class="card day-card" style="border-left-color:#6A0572">
+        <div class="card-header" style="padding:.75rem 1rem;">
+          <div>
+            <div class="day-num" style="color:#6A0572">Day 38</div>
+            <div class="day-topic">Statistics</div>
+            <div class="day-sub">CBA Investigation Practice</div>
+            <div class="day-meta">
+              <span class="level-badge" style="background:#1B3A6B">Ordinary</span>
+              <span style="font-size:.72rem;color:var(--muted)">6 questions</span>
+              <span class="completed-mark" id="mark-38"></span>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="mt4">
+    <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1rem;padding-bottom:.6rem;border-bottom:3px solid #C0392B;">
+      <span style="font-size:1.5rem">📝</span>
+      <div>
+        <h2 style="font-family:'Merriweather',serif;color:#C0392B;font-size:1.25rem;">Revision</h2>
+        <div style="font-size:.8rem;color:var(--muted);">Days 39–45</div>
+      </div>
+    </div>
+    <div class="grid-3">
+
+      <a href="day39.html" class="card day-card" style="border-left-color:#C0392B">
+        <div class="card-header" style="padding:.75rem 1rem;">
+          <div>
+            <div class="day-num" style="color:#C0392B">Day 39</div>
+            <div class="day-topic">Revision</div>
+            <div class="day-sub">Number & Algebra Rapid-Fire</div>
+            <div class="day-meta">
+              <span class="level-badge" style="background:#6A0572">Mixed</span>
+              <span style="font-size:.72rem;color:var(--muted)">10 questions</span>
+              <span class="completed-mark" id="mark-39"></span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="day40.html" class="card day-card" style="border-left-color:#C0392B">
+        <div class="card-header" style="padding:.75rem 1rem;">
+          <div>
+            <div class="day-num" style="color:#C0392B">Day 40</div>
+            <div class="day-topic">Revision</div>
+            <div class="day-sub">Geometry & Trig Rapid-Fire</div>
+            <div class="day-meta">
+              <span class="level-badge" style="background:#6A0572">Mixed</span>
+              <span style="font-size:.72rem;color:var(--muted)">10 questions</span>
+              <span class="completed-mark" id="mark-40"></span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="day41.html" class="card day-card" style="border-left-color:#C0392B">
+        <div class="card-header" style="padding:.75rem 1rem;">
+          <div>
+            <div class="day-num" style="color:#C0392B">Day 41</div>
+            <div class="day-topic">Revision</div>
+            <div class="day-sub">Statistics & Probability Rapid-Fire</div>
+            <div class="day-meta">
+              <span class="level-badge" style="background:#6A0572">Mixed</span>
+              <span style="font-size:.72rem;color:var(--muted)">10 questions</span>
+              <span class="completed-mark" id="mark-41"></span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="day45.html" class="card day-card" style="border-left-color:#C0392B">
+        <div class="card-header" style="padding:.75rem 1rem;">
+          <div>
+            <div class="day-num" style="color:#C0392B">Day 45</div>
+            <div class="day-topic">Final Day</div>
+            <div class="day-sub">Formulae Review & Confidence Builder</div>
+            <div class="day-meta">
+              <span class="level-badge" style="background:#6A0572">All</span>
+              <span style="font-size:.72rem;color:var(--muted)">10 questions</span>
+              <span class="completed-mark" id="mark-45"></span>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="mt4">
+    <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1rem;padding-bottom:.6rem;border-bottom:3px solid #C0392B;">
+      <span style="font-size:1.5rem">📋</span>
+      <div>
+        <h2 style="font-family:'Merriweather',serif;color:#C0392B;font-size:1.25rem;">Mock</h2>
+        <div style="font-size:.8rem;color:var(--muted);">Days 42–44</div>
+      </div>
+    </div>
+    <div class="grid-3">
+
+      <a href="day42.html" class="card day-card" style="border-left-color:#C0392B">
+        <div class="card-header" style="padding:.75rem 1rem;">
+          <div>
+            <div class="day-num" style="color:#C0392B">Day 42</div>
+            <div class="day-topic">Mock Exam</div>
+            <div class="day-sub">Paper 1: Number, Algebra & Functions</div>
+            <div class="day-meta">
+              <span class="level-badge" style="background:#C0392B">Higher/Ordinary</span>
+              <span style="font-size:.72rem;color:var(--muted)">5 questions</span>
+              <span class="completed-mark" id="mark-42"></span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="day43.html" class="card day-card" style="border-left-color:#C0392B">
+        <div class="card-header" style="padding:.75rem 1rem;">
+          <div>
+            <div class="day-num" style="color:#C0392B">Day 43</div>
+            <div class="day-topic">Mock Exam</div>
+            <div class="day-sub">Paper 2: Geometry, Trig & Statistics</div>
+            <div class="day-meta">
+              <span class="level-badge" style="background:#C0392B">Higher/Ordinary</span>
+              <span style="font-size:.72rem;color:var(--muted)">5 questions</span>
+              <span class="completed-mark" id="mark-43"></span>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="day44.html" class="card day-card" style="border-left-color:#C0392B">
+        <div class="card-header" style="padding:.75rem 1rem;">
+          <div>
+            <div class="day-num" style="color:#C0392B">Day 44</div>
+            <div class="day-topic">Mock Exam</div>
+            <div class="day-sub">Full Paper — All Topics</div>
+            <div class="day-meta">
+              <span class="level-badge" style="background:#6A0572">All Topics</span>
+              <span style="font-size:.72rem;color:var(--muted)">10 questions</span>
+              <span class="completed-mark" id="mark-44"></span>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+  <footer>
+    <strong>Peppin's Tuition Centre, Cork</strong> · Junior Cycle Mathematics · 45-Day Tuition Programme<br>
+    Aligned to NCCA Junior Cycle Specification · SEC Exam Papers 2021–2025
+  </footer>
+
+<script>
+// Load completion marks from localStorage
+document.querySelectorAll('[id^="mark-"]').forEach(el => {
+  const day = el.id.replace('mark-','');
+  if(localStorage.getItem('day_complete_'+day)) el.textContent = '✅';
+});
+</script>
+</body></html>

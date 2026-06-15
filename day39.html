@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 39 · Revision · Peppin's Maths</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head><body>
+<nav class="navbar">
+  <div class="nav-brand">
+    <span class="nav-logo">🍀</span>
+    <div>
+      <div class="nav-title">Peppin's Maths</div>
+      <div class="nav-sub">Junior Cycle · First Year</div>
+    </div>
+  </div>
+  <div class="nav-links"><a href="index.html" class="nav-link active">🏠 Home</a>
+<a href="plan.html" class="nav-link ">📅 45-Day Plan</a>
+<a href="quiz.html" class="nav-link ">⚡ Quick Quiz</a>
+<a href="progress.html" class="nav-link ">📈 My Progress</a>
+</div>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+</nav>
+<div style="background:#C0392B;color:#fff;padding:1.5rem 1.5rem 1rem;">
+  <div style="max-width:900px;margin:0 auto;">
+    <a href="index.html" style="color:rgba(255,255,255,.7);font-size:.82rem;font-weight:700;">← Back to Home</a>
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-top:.6rem;">
+      <div>
+        <div style="font-size:.75rem;opacity:.7;font-weight:800;letter-spacing:.1em;text-transform:uppercase;">Day 39 of 45 · Revision</div>
+        <h1 style="font-family:'Merriweather',serif;font-size:clamp(1.3rem,3vw,2rem);margin:.3rem 0;">Revision</h1>
+        <div style="font-size:1rem;opacity:.85;">Number & Algebra Rapid-Fire</div>
+        <div style="margin-top:.6rem;display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;">
+          <span class="level-badge" style="background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4)">Mixed</span>
+          <span style="font-size:.78rem;opacity:.7">10 questions · 28 marks total</span>
+        </div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:2.5rem;line-height:1">📝</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="max-width:900px;">
+  <div class="tab-bar">
+    <button class="tab active" onclick="switchTab('concept',this)">📖 Concept</button>
+    <button class="tab" onclick="switchTab('questions',this)">✏️ Practice Questions</button>
+  </div>
+
+  
+<div class="tab-content active" id="tab-concept">
+  <div class="concept-section mt2">
+    <div class="section-label" style="color:#1565C0">📘 What is this topic?</div>
+    <div class="explain-box"><p>Rapid-fire revision of Number and Algebra (Days 1−17). Each question tests a different skill — mirroring the opening of the SEC exam.</p><p>STRATEGY: the first 4−5 SEC questions are accessible. Use them to build momentum. Show formula first, then substitute — every step earns marks.</p></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--gold)">💡 Analogy — How to picture it</div>
+    <div class="analogy-box"><p>Today is a warm-up lap before the race. Revisit every technique at speed — confirm all is working. Like a musician running scales before a concert.</p></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--green)">🔍 Worked Example</div>
+    <div class="worked-box">
+      <strong style="display:block;margin-bottom:.6rem">Rapid-fire technique</strong>
+      <ol class="step-list"><li>Write the FORMULA first — earns method marks even if arithmetic slips</li><li>Substitute and calculate</li><li>Check UNITS and SIGN</li><li>Move on — never >4 min on a short question</li><li>Return to skipped questions at end</li></ol>
+    </div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:#BF360C">⚠️ Common Mistakes</div>
+    <div class="mistake-box"><ul style="padding-left:1.2rem"><li>Rushing causes sign errors — always check: positive or negative?</li><li>Forgetting to simplify fractions in final answer</li><li>Correct formula + wrong values → re-read the question!</li></ul></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--navy)">📌 Key Formulae</div>
+    <div class="formula-box"><code>BEMDAS | HCF/LCM | % change | fractions</code><code>Solve | Factorise | Quadratic formula | Sequences</code></div>
+  </div>
+  <div class="tip-box mt2">
+    <strong>🎯 SEC Exam Insight:</strong> Rapid-fire revision: in timed conditions, tackle questions you are MOST confident about first. Every mark counts — a simple BEMDAS question is worth the same as a hard algebra question.
+  </div>
+</div>
+
+  <div class="tab-content" id="tab-questions">
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q1</span>
+    <span style="flex:1;font-size:.9rem">Calculate: 3 + 4² × 2 − 1</span>
+    <span class="q-marks">2 marks</span>
+  </div>
+  <div class="q-hint" id="hint-39-1">💡 <em>BEMDAS: Exponent first, then multiply, then add/subtract.</em></div>
+  <div class="q-answer" id="ans-39-1"><strong>✅ Answer:</strong> 4²=16; 16×2=32; 3+32−1=34</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-39-1')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-39-1')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q2</span>
+    <span style="flex:1;font-size:.9rem">Find HCF and LCM of 24 and 36.</span>
+    <span class="q-marks">2 marks</span>
+  </div>
+  <div class="q-hint" id="hint-39-2">💡 <em>24=2³×3; 36=2²×3²</em></div>
+  <div class="q-answer" id="ans-39-2"><strong>✅ Answer:</strong> HCF=12; LCM=72</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-39-2')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-39-2')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q3</span>
+    <span style="flex:1;font-size:.9rem">Calculate: 3/8 + 5/6</span>
+    <span class="q-marks">2 marks</span>
+  </div>
+  <div class="q-hint" id="hint-39-3">💡 <em>Find the LCD (24), convert both fractions, then add.</em></div>
+  <div class="q-answer" id="ans-39-3"><strong>✅ Answer:</strong> LCD=24; 9/24+20/24=29/24=1⁵⁄₂₄</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-39-3')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-39-3')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q4</span>
+    <span style="flex:1;font-size:.9rem">€240 reduced by 15%. Find new price.</span>
+    <span class="q-marks">2 marks</span>
+  </div>
+  <div class="q-hint" id="hint-39-4">💡 <em>Multiplier for 15% decrease is (1−0.15)=0.85.</em></div>
+  <div class="q-answer" id="ans-39-4"><strong>✅ Answer:</strong> 240×0.85=€204</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-39-4')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-39-4')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q5</span>
+    <span style="flex:1;font-size:.9rem">Solve: 5x − 3 = 2x + 12</span>
+    <span class="q-marks">3 marks</span>
+  </div>
+  <div class="q-hint" id="hint-39-5">💡 <em>Collect x-terms on one side, numbers on the other.</em></div>
+  <div class="q-answer" id="ans-39-5"><strong>✅ Answer:</strong> 3x=15; x=5</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-39-5')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-39-5')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q6</span>
+    <span style="flex:1;font-size:.9rem">Expand: (x + 4)(x − 3)</span>
+    <span class="q-marks">3 marks</span>
+  </div>
+  <div class="q-hint" id="hint-39-6">💡 <em>Use FOIL: First, Outer, Inner, Last.</em></div>
+  <div class="q-answer" id="ans-39-6"><strong>✅ Answer:</strong> x²+x−12</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-39-6')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-39-6')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q7</span>
+    <span style="flex:1;font-size:.9rem">Solve: x² − x − 12 = 0</span>
+    <span class="q-marks">3 marks</span>
+  </div>
+  <div class="q-hint" id="hint-39-7">💡 <em>Find two numbers: product=−12, sum=−1.</em></div>
+  <div class="q-answer" id="ans-39-7"><strong>✅ Answer:</strong> (x−4)(x+3)=0; x=4 or x=−3</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-39-7')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-39-7')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q8</span>
+    <span style="flex:1;font-size:.9rem">Sequence 3,7,11,15,… Find T₁₀ and Tₙ.</span>
+    <span class="q-marks">3 marks</span>
+  </div>
+  <div class="q-hint" id="hint-39-8">💡 <em>a=3, d=4. Use Tₙ=a+(n−1)d.</em></div>
+  <div class="q-answer" id="ans-39-8"><strong>✅ Answer:</strong> d=4; Tₙ=4n−1; T₁₀=39</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-39-8')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-39-8')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q9</span>
+    <span style="flex:1;font-size:.9rem">Solve simultaneously: 3x+y=10 and x−2y=−1</span>
+    <span class="q-marks">4 marks</span>
+  </div>
+  <div class="q-hint" id="hint-39-9">💡 <em>Substitution: rearrange equation 2 to get x=… then substitute.</em></div>
+  <div class="q-answer" id="ans-39-9"><strong>✅ Answer:</strong> x=2y−1; 6y−3+y=10; y=13/7; x=19/7</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-39-9')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-39-9')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q10</span>
+    <span style="flex:1;font-size:.9rem">Write as single fraction: 2/x + 3/(x+1)</span>
+    <span class="q-marks">4 marks</span>
+  </div>
+  <div class="q-hint" id="hint-39-10">💡 <em>LCD=x(x+1). Convert each fraction, then add numerators.</em></div>
+  <div class="q-answer" id="ans-39-10"><strong>✅ Answer:</strong> [2(x+1)+3x]/[x(x+1)]=(5x+2)/(x²+x)</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-39-10')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-39-10')">✅ Show Answer</button>
+  </div>
+</div>
+</div>
+
+
+  <div style="display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wrap;margin-top:2rem;padding-top:1rem;border-top:2px solid var(--border);">
+    <a href="day38.html" class="btn btn-primary">← Day 38</a>
+    <button class="btn btn-gold" onclick="markComplete(39)">✅ Mark Day 39 Complete</button>
+    <a href="day40.html" class="btn btn-green">Day 40 →</a>
+  </div>
+</div>
+
+<footer>
+  <strong>Peppin's Tuition Centre, Cork</strong> · Day 39 · Revision — Number & Algebra Rapid-Fire
+</footer>
+
+<script>
+function switchTab(name, btn) {
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+  btn.classList.add('active');
+}
+function toggleEl(id) {
+  const el = document.getElementById(id);
+  el.style.display = el.style.display === 'block' ? 'none' : 'block';
+}
+function markComplete(day) {
+  localStorage.setItem('day_complete_'+day, '1');
+  alert('Day ' + day + ' marked as complete! 🎉');
+}
+</script>
+</body></html>

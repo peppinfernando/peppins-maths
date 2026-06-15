@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 36 · Statistics · Peppin's Maths</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head><body>
+<nav class="navbar">
+  <div class="nav-brand">
+    <span class="nav-logo">🍀</span>
+    <div>
+      <div class="nav-title">Peppin's Maths</div>
+      <div class="nav-sub">Junior Cycle · First Year</div>
+    </div>
+  </div>
+  <div class="nav-links"><a href="index.html" class="nav-link active">🏠 Home</a>
+<a href="plan.html" class="nav-link ">📅 45-Day Plan</a>
+<a href="quiz.html" class="nav-link ">⚡ Quick Quiz</a>
+<a href="progress.html" class="nav-link ">📈 My Progress</a>
+</div>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+</nav>
+<div style="background:#6A0572;color:#fff;padding:1.5rem 1.5rem 1rem;">
+  <div style="max-width:900px;margin:0 auto;">
+    <a href="index.html" style="color:rgba(255,255,255,.7);font-size:.82rem;font-weight:700;">← Back to Home</a>
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-top:.6rem;">
+      <div>
+        <div style="font-size:.75rem;opacity:.7;font-weight:800;letter-spacing:.1em;text-transform:uppercase;">Day 36 of 45 · Statistics</div>
+        <h1 style="font-family:'Merriweather',serif;font-size:clamp(1.3rem,3vw,2rem);margin:.3rem 0;">Statistics</h1>
+        <div style="font-size:1rem;opacity:.85;">Standard Deviation & Normal Distribution</div>
+        <div style="margin-top:.6rem;display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;">
+          <span class="level-badge" style="background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4)">Higher</span>
+          <span style="font-size:.78rem;opacity:.7">6 questions · 24 marks total</span>
+        </div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:2.5rem;line-height:1">📊</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="max-width:900px;">
+  <div class="tab-bar">
+    <button class="tab active" onclick="switchTab('concept',this)">📖 Concept</button>
+    <button class="tab" onclick="switchTab('questions',this)">✏️ Practice Questions</button>
+  </div>
+
+  
+<div class="tab-content active" id="tab-concept">
+  <div class="concept-section mt2">
+    <div class="section-label" style="color:#1565C0">📘 What is this topic?</div>
+    <div class="explain-box"><p>STANDARD DEVIATION (σ): measures spread around the mean. Steps: (1)Find mean. (2)Subtract mean from each value. (3)Square. (4)Average. (5)Square root.</p><p>NORMAL DISTRIBUTION: bell-shaped, symmetric. 68% within ±1σ; 95% within ±2σ; 99.7% within ±3σ.</p></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--gold)">💡 Analogy — How to picture it</div>
+    <div class="analogy-box"><p>Standard deviation is measuring consistency. All scores=70% → σ=0 (perfectly consistent). Scores from 10%−100% → large σ (very inconsistent). Tight archery group=small σ.</p></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--green)">🔍 Worked Example</div>
+    <div class="worked-box">
+      <strong style="display:block;margin-bottom:.6rem">Find σ for 3,5,7,9,11.</strong>
+      <ol class="step-list"><li>Mean=7</li><li>Deviations: −4,−2,0,+2,+4</li><li>Squared: 16,4,0,4,16</li><li>Variance=40/5=8</li><li>σ=√8=2√2≈2.83</li></ol>
+    </div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:#BF360C">⚠️ Common Mistakes</div>
+    <div class="mistake-box"><ul style="padding-left:1.2rem"><li>Square each deviation SEPARATELY — deviations always sum to 0 by definition</li><li>Variance=σ². SD=√(Variance).</li><li>Normal: 68% within 1σ means BETWEEN (mean−σ) and (mean+σ)</li></ul></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--navy)">📌 Key Formulae</div>
+    <div class="formula-box"><code>σ=√[Σ(x−x̄)²/n]</code><code>Normal: 68%:±1σ; 95%:±2σ; 99.7%:±3σ</code></div>
+  </div>
+  <div class="tip-box mt2">
+    <strong>🎯 SEC Exam Insight:</strong> Standard deviation and normal distribution: the 68-95-99.7 rule is the most tested. 68% within ±1σ; 95% within ±2σ. Show the full σ calculation step by step — each step earns marks.
+  </div>
+</div>
+
+  <div class="tab-content" id="tab-questions">
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q1</span>
+    <span style="flex:1;font-size:.9rem">Find standard deviation of: 3, 4, 5, 6, 7.</span>
+    <span class="q-marks">3 marks</span>
+  </div>
+  <div class="q-hint" id="hint-36-1">💡 <em>σ=√[Σ(x−x̄)²/n]. Show each step: deviations, squares, average, square root.</em></div>
+  <div class="q-answer" id="ans-36-1"><strong>✅ Answer:</strong> Mean=5. Dev²: 4,1,0,1,4. Variance=2. σ=√2≈1.41</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-36-1')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-36-1')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q2</span>
+    <span style="flex:1;font-size:.9rem">Test marks: mean=70, σ=10, n=200. How many scored between 60 and 80?</span>
+    <span class="q-marks">3 marks</span>
+  </div>
+  <div class="q-hint" id="hint-36-2">💡 <em>60=70−10=mean−1σ; 80=70+10=mean+1σ. The 68% rule applies.</em></div>
+  <div class="q-answer" id="ans-36-2"><strong>✅ Answer:</strong> 60 to 80 = within 1σ of mean = 68%. 68%×200=136 students</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-36-2')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-36-2')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q3</span>
+    <span style="flex:1;font-size:.9rem">Using Q2, how many students scored above 90?</span>
+    <span class="q-marks">4 marks</span>
+  </div>
+  <div class="q-hint" id="hint-36-3">💡 <em>95% within 2σ means 5% outside → 2.5% above and 2.5% below.</em></div>
+  <div class="q-answer" id="ans-36-3"><strong>✅ Answer:</strong> 90=mean+2σ. 5% outside 2σ → 2.5% above 90. 2.5%×200=5 students</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-36-3')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-36-3')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q4</span>
+    <span style="flex:1;font-size:.9rem">Class A: 68,70,71,69,72. Class B: 45,60,70,85,90. Same mean (70). Which has higher σ?</span>
+    <span class="q-marks">4 marks</span>
+  </div>
+  <div class="q-hint" id="hint-36-4">💡 <em>You don't need to calculate — which class has more spread?</em></div>
+  <div class="q-answer" id="ans-36-4"><strong>✅ Answer:</strong> Class B: spread 45−90 (much wider). Class A: tight cluster 68−72. Class B has higher σ.</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-36-4')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-36-4')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q5</span>
+    <span style="flex:1;font-size:.9rem">Find standard deviation for: 2, 4, 4, 4, 5, 5, 7, 9. Show all steps.</span>
+    <span class="q-marks">5 marks</span>
+  </div>
+  <div class="q-hint" id="hint-36-5">💡 <em>Show the table: value, deviation, deviation squared. Average the squared deviations.</em></div>
+  <div class="q-answer" id="ans-36-5"><strong>✅ Answer:</strong> Mean=5. Dev²:9,1,1,1,0,0,4,16. Sum=32. Variance=4. σ=2</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-36-5')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-36-5')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q6</span>
+    <span style="flex:1;font-size:.9rem">Irish men's heights: mean=170cm, σ=8cm, normal distribution. Approx % taller than 185cm?</span>
+    <span class="q-marks">5 marks</span>
+  </div>
+  <div class="q-hint" id="hint-36-6">💡 <em>How many standard deviations is 185 from the mean? Use the 68-95-99.7 rule.</em></div>
+  <div class="q-answer" id="ans-36-6"><strong>✅ Answer:</strong> 185=170+15=mean+1.875σ. Approximately 3% taller than 185cm.</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-36-6')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-36-6')">✅ Show Answer</button>
+  </div>
+</div>
+</div>
+
+
+  <div style="display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wrap;margin-top:2rem;padding-top:1rem;border-top:2px solid var(--border);">
+    <a href="day35.html" class="btn btn-primary">← Day 35</a>
+    <button class="btn btn-gold" onclick="markComplete(36)">✅ Mark Day 36 Complete</button>
+    <a href="day37.html" class="btn btn-green">Day 37 →</a>
+  </div>
+</div>
+
+<footer>
+  <strong>Peppin's Tuition Centre, Cork</strong> · Day 36 · Statistics — Standard Deviation & Normal Distribution
+</footer>
+
+<script>
+function switchTab(name, btn) {
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+  btn.classList.add('active');
+}
+function toggleEl(id) {
+  const el = document.getElementById(id);
+  el.style.display = el.style.display === 'block' ? 'none' : 'block';
+}
+function markComplete(day) {
+  localStorage.setItem('day_complete_'+day, '1');
+  alert('Day ' + day + ' marked as complete! 🎉');
+}
+</script>
+</body></html>

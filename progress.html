@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Progress · Peppin's Maths</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head><body>
+<nav class="navbar">
+  <div class="nav-brand">
+    <span class="nav-logo">🍀</span>
+    <div>
+      <div class="nav-title">Peppin's Maths</div>
+      <div class="nav-sub">Junior Cycle · First Year</div>
+    </div>
+  </div>
+  <div class="nav-links"><a href="index.html" class="nav-link ">🏠 Home</a>
+<a href="plan.html" class="nav-link ">📅 45-Day Plan</a>
+<a href="quiz.html" class="nav-link ">⚡ Quick Quiz</a>
+<a href="progress.html" class="nav-link active">📈 My Progress</a>
+</div>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+</nav>
+<div class="page-hero">
+  <h1>📈 My Progress</h1>
+  <p>Track your journey through the 45-day Junior Cycle Maths programme</p>
+</div>
+<div class="container" style="max-width:900px;">
+  <div class="stats-strip mt3">
+    <div class="stat-box"><div class="stat-num" id="days-done" style="color:var(--navy)">0</div><div class="stat-label">Days Complete</div></div>
+    <div class="stat-box"><div class="stat-num" id="pct-done" style="color:var(--green)">0%</div><div class="stat-label">Progress</div></div>
+    <div class="stat-box"><div class="stat-num" id="days-left" style="color:var(--gold)">45</div><div class="stat-label">Days Remaining</div></div>
+  </div>
+  <div class="card mt3" style="padding:1.25rem;">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.75rem;">
+      <strong>Overall Progress</strong>
+      <span id="overall-label" style="color:var(--muted);font-size:.85rem">0 / 45 days</span>
+    </div>
+    <div class="progress-bar" style="height:14px"><div class="progress-fill" id="overall-fill" style="background:linear-gradient(90deg,var(--navy),var(--green))"></div></div>
+  </div>
+
+  <h3 style="margin:1.5rem 0 .75rem;font-family:'Merriweather',serif;">Day-by-Day Tracker</h3>
+  <div id="day-tracker" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:.5rem;"></div>
+
+  <div style="text-align:center;margin-top:2rem;">
+    <button class="btn btn-red" onclick="if(confirm('Reset all progress?')){localStorage.clear();location.reload();}">🗑️ Reset Progress</button>
+  </div>
+</div>
+<footer><strong>Peppin's Tuition Centre, Cork</strong> · Junior Cycle Mathematics Progress Tracker</footer>
+<script>
+const DAY_MARKS={"1": 18, "2": 18, "3": 18, "4": 18, "5": 18, "6": 18, "7": 19, "8": 18, "9": 19, "10": 18, "11": 18, "12": 27, "13": 24, "14": 21, "15": 20, "16": 24, "17": 30, "18": 18, "19": 24, "20": 23, "21": 21, "22": 21, "23": 20, "24": 21, "25": 21, "26": 24, "27": 30, "28": 30, "29": 18, "30": 21, "31": 21, "32": 20, "33": 18, "34": 24, "35": 21, "36": 24, "37": 24, "38": 28, "39": 28, "40": 33, "41": 33, "42": 50, "43": 50, "44": 80, "45": 39};
+const DAY_TOPICS={"1": "Natural Numbers", "2": "Natural Numbers", "3": "Integers", "4": "Fractions", "5": "Decimals & Percentages", "6": "Number Systems & Sets", "7": "Applied Arithmetic", "8": "Algebra", "9": "Algebra", "10": "Algebra", "11": "Algebra", "12": "Algebra", "13": "Algebra", "14": "Patterns & Sequences", "15": "Functions", "16": "Algebra", "17": "Algebra Review", "18": "Geometry", "19": "Geometry", "20": "Geometry", "21": "Geometry", "22": "Geometry", "23": "Coordinate Geometry", "24": "Coordinate Geometry", "25": "Trigonometry", "26": "Trigonometry", "27": "Geometry", "28": "Coordinate Geometry", "29": "Statistics", "30": "Statistics", "31": "Statistics", "32": "Statistics", "33": "Probability", "34": "Probability", "35": "Probability", "36": "Statistics", "37": "Statistics & Probability", "38": "Statistics", "39": "Revision", "40": "Revision", "41": "Revision", "42": "Mock Exam", "43": "Mock Exam", "44": "Mock Exam", "45": "Final Day"};
+function loadProgress(){
+  let done=0;
+  const total=45;
+  let html='';
+  for(let i=1;i<=total;i++){
+    const complete=!!localStorage.getItem('day_complete_'+i);
+    if(complete) done++;
+    const topic=DAY_TOPICS[i]||'';
+    html+=`<a href="day${i}.html" title="Day ${i}: ${topic}" style="
+      display:flex;flex-direction:column;align-items:center;justify-content:center;
+      background:${complete?'var(--green)':'#fff'};
+      color:${complete?'#fff':'var(--text)'};
+      border:2px solid ${complete?'var(--green)':'var(--border)'};
+      border-radius:10px;padding:.5rem .25rem;font-weight:800;font-size:.82rem;
+      text-decoration:none;transition:all .2s;cursor:pointer;
+    ">
+      <span style="font-size:1.1rem">${complete?'✅':'📖'}</span>
+      <span>Day ${i}</span>
+    </a>`;
+  }
+  document.getElementById('day-tracker').innerHTML=html;
+  document.getElementById('days-done').textContent=done;
+  document.getElementById('pct-done').textContent=Math.round(done/total*100)+'%';
+  document.getElementById('days-left').textContent=total-done;
+  document.getElementById('overall-label').textContent=done+' / '+total+' days';
+  document.getElementById('overall-fill').style.width=Math.round(done/total*100)+'%';
+}
+loadProgress();
+</script>
+</body></html>

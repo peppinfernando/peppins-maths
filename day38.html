@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 38 · Statistics · Peppin's Maths</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head><body>
+<nav class="navbar">
+  <div class="nav-brand">
+    <span class="nav-logo">🍀</span>
+    <div>
+      <div class="nav-title">Peppin's Maths</div>
+      <div class="nav-sub">Junior Cycle · First Year</div>
+    </div>
+  </div>
+  <div class="nav-links"><a href="index.html" class="nav-link active">🏠 Home</a>
+<a href="plan.html" class="nav-link ">📅 45-Day Plan</a>
+<a href="quiz.html" class="nav-link ">⚡ Quick Quiz</a>
+<a href="progress.html" class="nav-link ">📈 My Progress</a>
+</div>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+</nav>
+<div style="background:#6A0572;color:#fff;padding:1.5rem 1.5rem 1rem;">
+  <div style="max-width:900px;margin:0 auto;">
+    <a href="index.html" style="color:rgba(255,255,255,.7);font-size:.82rem;font-weight:700;">← Back to Home</a>
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-top:.6rem;">
+      <div>
+        <div style="font-size:.75rem;opacity:.7;font-weight:800;letter-spacing:.1em;text-transform:uppercase;">Day 38 of 45 · Statistics</div>
+        <h1 style="font-family:'Merriweather',serif;font-size:clamp(1.3rem,3vw,2rem);margin:.3rem 0;">Statistics</h1>
+        <div style="font-size:1rem;opacity:.85;">CBA Investigation Practice</div>
+        <div style="margin-top:.6rem;display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;">
+          <span class="level-badge" style="background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4)">Ordinary</span>
+          <span style="font-size:.78rem;opacity:.7">6 questions · 28 marks total</span>
+        </div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:2.5rem;line-height:1">📊</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="max-width:900px;">
+  <div class="tab-bar">
+    <button class="tab active" onclick="switchTab('concept',this)">📖 Concept</button>
+    <button class="tab" onclick="switchTab('questions',this)">✏️ Practice Questions</button>
+  </div>
+
+  
+<div class="tab-content active" id="tab-concept">
+  <div class="concept-section mt2">
+    <div class="section-label" style="color:#1565C0">📘 What is this topic?</div>
+    <div class="explain-box"><p>CBA 2 at Peppin's Tuition Centre: POSE question→COLLECT data→REPRESENT→ANALYSE→COMMUNICATE. Good question: specific, measurable, has a COMPARISON.</p></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--gold)">💡 Analogy — How to picture it</div>
+    <div class="analogy-box"><p>A statistical investigation is science with numbers instead of test tubes. Start with a HYPOTHESIS. Collect data. Analyse. Conclude: does data SUPPORT or REFUTE your hypothesis? Let the DATA speak!</p></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--green)">🔍 Worked Example</div>
+    <div class="worked-box">
+      <strong style="display:block;margin-bottom:.6rem">Well-posed vs poorly-posed CBA question</strong>
+      <ol class="step-list"><li>POOR: 'Do students like sport?' (yes/no, not measurable)</li><li>BETTER: 'Do 1st year students at Peppin's Tuition Centre spend >2h/week on sport compared to music?'</li><li>Why better: specific GROUP, specific VARIABLES, COMPARISON</li><li>Analysis: compare mean, median and IQR for both variables</li><li>Always state LIMITATIONS: sample size, response bias</li></ol>
+    </div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:#BF360C">⚠️ Common Mistakes</div>
+    <div class="mistake-box"><ul style="padding-left:1.2rem"><li>Never draw conclusion WITHOUT citing your data values</li><li>Small samples (n<30) limit generalisation — mention this!</li><li>Response bias: students may answer based on what they THINK they should say</li></ul></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--navy)">📌 Key Formulae</div>
+    <div class="formula-box"><code>CBA cycle: Pose→Collect→Represent→Analyse→Communicate</code><code>Limitations: sample size, response bias, self-report accuracy</code></div>
+  </div>
+  <div class="tip-box mt2">
+    <strong>🎯 SEC Exam Insight:</strong> CBA 2 at Peppin's Tuition Centre is your statistical investigation. The most common weakness: vague conclusions. Always write: 'My data shows X because mean hours sport (Y) > mean hours music (Z).'
+  </div>
+</div>
+
+  <div class="tab-content" id="tab-questions">
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q1</span>
+    <span style="flex:1;font-size:.9rem">Pose a suitable statistical investigation question for a first-year student. Identify data type and whether to use primary or secondary data.</span>
+    <span class="q-marks">4 marks</span>
+  </div>
+  <div class="q-hint" id="hint-38-1">💡 <em>Make sure the question is specific, measurable, and has a comparison.</em></div>
+  <div class="q-answer" id="ans-38-1"><strong>✅ Answer:</strong> E.g. 'Do 1st year students spend more time on social media on weekdays vs weekends?' Primary data: survey. Continuous numerical data.</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-38-1')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-38-1')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q2</span>
+    <span style="flex:1;font-size:.9rem">Describe three different sampling methods. Which would you recommend for fairness?</span>
+    <span class="q-marks">4 marks</span>
+  </div>
+  <div class="q-hint" id="hint-38-2">💡 <em>Think about how to ensure every group in the year is fairly represented.</em></div>
+  <div class="q-answer" id="ans-38-2"><strong>✅ Answer:</strong> Random (each person equally likely), Systematic (every kth person), Stratified (proportional from each class). Recommend: stratified — fairest representation.</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-38-2')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-38-2')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q3</span>
+    <span style="flex:1;font-size:.9rem">Music hours/day: 1,2,3,3,4,4,5,3,4,2. Sport hours: 1,2,2,2,3,3,2,1,3,2. Calculate mean and median for each and compare.</span>
+    <span class="q-marks">5 marks</span>
+  </div>
+  <div class="q-hint" id="hint-38-3">💡 <em>Calculate mean=sum÷count and median=middle value (after ordering) for each.</em></div>
+  <div class="q-answer" id="ans-38-3"><strong>✅ Answer:</strong> Music: mean=3.1, median=3. Sport: mean=2.1, median=2. Students spend more time on music (higher mean and median).</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-38-3')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-38-3')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q4</span>
+    <span style="flex:1;font-size:.9rem">Using Q3 data, describe how to display the two distributions for comparison.</span>
+    <span class="q-marks">5 marks</span>
+  </div>
+  <div class="q-hint" id="hint-38-4">💡 <em>Choose a display that lets you compare both datasets simultaneously.</em></div>
+  <div class="q-answer" id="ans-38-4"><strong>✅ Answer:</strong> Back-to-back stem-and-leaf or side-by-side bar chart. Music values cluster higher (3−4h); Sport lower (2h). Music shows more spread.</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-38-4')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-38-4')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q5</span>
+    <span style="flex:1;font-size:.9rem">From Q3, P(>3hrs music) and P(>2hrs sport). Assuming independence, find P(both).</span>
+    <span class="q-marks">5 marks</span>
+  </div>
+  <div class="q-hint" id="hint-38-5">💡 <em>Count values >3 in the music data and >2 in the sport data.</em></div>
+  <div class="q-answer" id="ans-38-5"><strong>✅ Answer:</strong> P(music>3)=4/10=0.4. P(sport>2)=3/10=0.3. P(both)=0.12</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-38-5')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-38-5')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q6</span>
+    <span style="flex:1;font-size:.9rem">List THREE limitations of the Q3 investigation and suggest improvements.</span>
+    <span class="q-marks">5 marks</span>
+  </div>
+  <div class="q-hint" id="hint-38-6">💡 <em>Think about sample size, data accuracy, and time period.</em></div>
+  <div class="q-answer" id="ans-38-6"><strong>✅ Answer:</strong> 1. Small sample (n=10) → increase to 60+. 2. Self-reported data may be inaccurate → use time-tracking app. 3. One-day snapshot → sample over multiple weeks.</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-38-6')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-38-6')">✅ Show Answer</button>
+  </div>
+</div>
+</div>
+
+
+  <div style="display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wrap;margin-top:2rem;padding-top:1rem;border-top:2px solid var(--border);">
+    <a href="day37.html" class="btn btn-primary">← Day 37</a>
+    <button class="btn btn-gold" onclick="markComplete(38)">✅ Mark Day 38 Complete</button>
+    <a href="day39.html" class="btn btn-green">Day 39 →</a>
+  </div>
+</div>
+
+<footer>
+  <strong>Peppin's Tuition Centre, Cork</strong> · Day 38 · Statistics — CBA Investigation Practice
+</footer>
+
+<script>
+function switchTab(name, btn) {
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+  btn.classList.add('active');
+}
+function toggleEl(id) {
+  const el = document.getElementById(id);
+  el.style.display = el.style.display === 'block' ? 'none' : 'block';
+}
+function markComplete(day) {
+  localStorage.setItem('day_complete_'+day, '1');
+  alert('Day ' + day + ' marked as complete! 🎉');
+}
+</script>
+</body></html>

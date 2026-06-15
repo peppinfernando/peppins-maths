@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 21 · Geometry · Peppin's Maths</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head><body>
+<nav class="navbar">
+  <div class="nav-brand">
+    <span class="nav-logo">🍀</span>
+    <div>
+      <div class="nav-title">Peppin's Maths</div>
+      <div class="nav-sub">Junior Cycle · First Year</div>
+    </div>
+  </div>
+  <div class="nav-links"><a href="index.html" class="nav-link active">🏠 Home</a>
+<a href="plan.html" class="nav-link ">📅 45-Day Plan</a>
+<a href="quiz.html" class="nav-link ">⚡ Quick Quiz</a>
+<a href="progress.html" class="nav-link ">📈 My Progress</a>
+</div>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+</nav>
+<div style="background:#B8860B;color:#fff;padding:1.5rem 1.5rem 1rem;">
+  <div style="max-width:900px;margin:0 auto;">
+    <a href="index.html" style="color:rgba(255,255,255,.7);font-size:.82rem;font-weight:700;">← Back to Home</a>
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-top:.6rem;">
+      <div>
+        <div style="font-size:.75rem;opacity:.7;font-weight:800;letter-spacing:.1em;text-transform:uppercase;">Day 21 of 45 · Geometry</div>
+        <h1 style="font-family:'Merriweather',serif;font-size:clamp(1.3rem,3vw,2rem);margin:.3rem 0;">Geometry</h1>
+        <div style="font-size:1rem;opacity:.85;">Area & Perimeter of 2D Shapes</div>
+        <div style="margin-top:.6rem;display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;">
+          <span class="level-badge" style="background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4)">Foundation→Ordinary</span>
+          <span style="font-size:.78rem;opacity:.7">6 questions · 21 marks total</span>
+        </div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:2.5rem;line-height:1">📐</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="max-width:900px;">
+  <div class="tab-bar">
+    <button class="tab active" onclick="switchTab('concept',this)">📖 Concept</button>
+    <button class="tab" onclick="switchTab('questions',this)">✏️ Practice Questions</button>
+  </div>
+
+  
+<div class="tab-content active" id="tab-concept">
+  <div class="concept-section mt2">
+    <div class="section-label" style="color:#1565C0">📘 What is this topic?</div>
+    <div class="explain-box"><p>PERIMETER=distance around outside (linear units: cm, m). AREA=space covered (square units: cm², m²).</p><p>Sector: fraction of full circle. Sector area=(θ/360)×πr². Arc length=(θ/360)×2πr. Perimeter of sector=arc+2 radii.</p><p>All formulae are in the Tables booklet — know WHICH to choose and HOW to use it.</p></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--gold)">💡 Analogy — How to picture it</div>
+    <div class="analogy-box"><p>Area is how much paint you need to cover a surface. Perimeter is how much frame goes around the edge. 'How much carpet?'=area. 'How much fencing?'=perimeter.</p></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--green)">🔍 Worked Example</div>
+    <div class="worked-box">
+      <strong style="display:block;margin-bottom:.6rem">Sector: r=9cm, angle=80°. Find area, arc and perimeter.</strong>
+      <ol class="step-list"><li>Fraction: 80/360=2/9</li><li>Area: (2/9)×81π=18π≈56.55 cm²</li><li>Arc: (2/9)×18π=4π≈12.57 cm</li><li>Perimeter: arc+2r=4π+18≈30.57 cm</li></ol>
+    </div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:#BF360C">⚠️ Common Mistakes</div>
+    <div class="mistake-box"><ul style="padding-left:1.2rem"><li>Triangle area=½×base×HEIGHT (perpendicular height, not slant!)</li><li>Always include units: cm² for area, cm for perimeter</li><li>Sector perimeter=arc+TWO radii</li></ul></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--navy)">📌 Key Formulae</div>
+    <div class="formula-box"><code>Triangle: A=½bh</code><code>Circle: A=πr²; C=2πr</code><code>Trapezium: A=½(a+b)h</code><code>Sector: A=(θ/360)πr²; Arc=(θ/360)2πr</code></div>
+  </div>
+  <div class="tip-box mt2">
+    <strong>🎯 SEC Exam Insight:</strong> Area and sectors: sector perimeter = arc + TWO radii (students often forget the two straight sides). All formulae are in the Tables booklet — use it for every calculation.
+  </div>
+</div>
+
+  <div class="tab-content" id="tab-questions">
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q1</span>
+    <span style="flex:1;font-size:.9rem">Find the area of a triangle with base 10cm and height 6cm.</span>
+    <span class="q-marks">2 marks</span>
+  </div>
+  <div class="q-hint" id="hint-21-1">💡 <em>A=½×base×height (perpendicular height).</em></div>
+  <div class="q-answer" id="ans-21-1"><strong>✅ Answer:</strong> A=½×10×6=30 cm²</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-21-1')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-21-1')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q2</span>
+    <span style="flex:1;font-size:.9rem">Find area and circumference of a circle radius 7cm.</span>
+    <span class="q-marks">3 marks</span>
+  </div>
+  <div class="q-hint" id="hint-21-2">💡 <em>A=πr² and C=2πr with r=7.</em></div>
+  <div class="q-answer" id="ans-21-2"><strong>✅ Answer:</strong> A=49π≈153.94 cm²; C=14π≈43.98 cm</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-21-2')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-21-2')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q3</span>
+    <span style="flex:1;font-size:.9rem">Trapezium: parallel sides 5cm and 9cm, height 4cm. Find area.</span>
+    <span class="q-marks">3 marks</span>
+  </div>
+  <div class="q-hint" id="hint-21-3">💡 <em>A=½(a+b)×h where a and b are the parallel sides.</em></div>
+  <div class="q-answer" id="ans-21-3"><strong>✅ Answer:</strong> A=½(5+9)×4=28 cm²</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-21-3')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-21-3')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q4</span>
+    <span style="flex:1;font-size:.9rem">Sector: radius 8cm, angle 120°. Find area and arc length.</span>
+    <span class="q-marks">4 marks</span>
+  </div>
+  <div class="q-hint" id="hint-21-4">💡 <em>Calculate the fraction of the full circle first (120/360=1/3).</em></div>
+  <div class="q-answer" id="ans-21-4"><strong>✅ Answer:</strong> Area=(120/360)×64π=64π/3≈67.02 cm²; Arc=(120/360)×16π≈16.76 cm</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-21-4')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-21-4')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q5</span>
+    <span style="flex:1;font-size:.9rem">Rectangle 12cm×10cm with circle radius 4cm removed. Find shaded area.</span>
+    <span class="q-marks">4 marks</span>
+  </div>
+  <div class="q-hint" id="hint-21-5">💡 <em>Shaded area = total area − area of removed circle.</em></div>
+  <div class="q-answer" id="ans-21-5"><strong>✅ Answer:</strong> Rectangle=120; Circle=16π≈50.27; Shaded≈69.73 cm²</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-21-5')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-21-5')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q6</span>
+    <span style="flex:1;font-size:.9rem">Sector: radius 10cm, angle 80°. Find the perimeter of the sector.</span>
+    <span class="q-marks">5 marks</span>
+  </div>
+  <div class="q-hint" id="hint-21-6">💡 <em>Perimeter of sector = arc length + 2 radii.</em></div>
+  <div class="q-answer" id="ans-21-6"><strong>✅ Answer:</strong> Arc=(80/360)×20π=40π/9≈13.96; Perimeter=13.96+20≈33.96 cm</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-21-6')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-21-6')">✅ Show Answer</button>
+  </div>
+</div>
+</div>
+
+
+  <div style="display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wrap;margin-top:2rem;padding-top:1rem;border-top:2px solid var(--border);">
+    <a href="day20.html" class="btn btn-primary">← Day 20</a>
+    <button class="btn btn-gold" onclick="markComplete(21)">✅ Mark Day 21 Complete</button>
+    <a href="day22.html" class="btn btn-green">Day 22 →</a>
+  </div>
+</div>
+
+<footer>
+  <strong>Peppin's Tuition Centre, Cork</strong> · Day 21 · Geometry — Area & Perimeter of 2D Shapes
+</footer>
+
+<script>
+function switchTab(name, btn) {
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+  btn.classList.add('active');
+}
+function toggleEl(id) {
+  const el = document.getElementById(id);
+  el.style.display = el.style.display === 'block' ? 'none' : 'block';
+}
+function markComplete(day) {
+  localStorage.setItem('day_complete_'+day, '1');
+  alert('Day ' + day + ' marked as complete! 🎉');
+}
+</script>
+</body></html>

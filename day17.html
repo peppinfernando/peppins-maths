@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 17 · Algebra Review · Peppin's Maths</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head><body>
+<nav class="navbar">
+  <div class="nav-brand">
+    <span class="nav-logo">🍀</span>
+    <div>
+      <div class="nav-title">Peppin's Maths</div>
+      <div class="nav-sub">Junior Cycle · First Year</div>
+    </div>
+  </div>
+  <div class="nav-links"><a href="index.html" class="nav-link active">🏠 Home</a>
+<a href="plan.html" class="nav-link ">📅 45-Day Plan</a>
+<a href="quiz.html" class="nav-link ">⚡ Quick Quiz</a>
+<a href="progress.html" class="nav-link ">📈 My Progress</a>
+</div>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+</nav>
+<div style="background:#2E7D32;color:#fff;padding:1.5rem 1.5rem 1rem;">
+  <div style="max-width:900px;margin:0 auto;">
+    <a href="index.html" style="color:rgba(255,255,255,.7);font-size:.82rem;font-weight:700;">← Back to Home</a>
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-top:.6rem;">
+      <div>
+        <div style="font-size:.75rem;opacity:.7;font-weight:800;letter-spacing:.1em;text-transform:uppercase;">Day 17 of 45 · Algebra</div>
+        <h1 style="font-family:'Merriweather',serif;font-size:clamp(1.3rem,3vw,2rem);margin:.3rem 0;">Algebra Review</h1>
+        <div style="font-size:1rem;opacity:.85;">Exam-Style Mixed Algebra</div>
+        <div style="margin-top:.6rem;display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;">
+          <span class="level-badge" style="background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4)">Mixed</span>
+          <span style="font-size:.78rem;opacity:.7">6 questions · 30 marks total</span>
+        </div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:2.5rem;line-height:1">✖️</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="max-width:900px;">
+  <div class="tab-bar">
+    <button class="tab active" onclick="switchTab('concept',this)">📖 Concept</button>
+    <button class="tab" onclick="switchTab('questions',this)">✏️ Practice Questions</button>
+  </div>
+
+  
+<div class="tab-content active" id="tab-concept">
+  <div class="concept-section mt2">
+    <div class="section-label" style="color:#1565C0">📘 What is this topic?</div>
+    <div class="explain-box"><p>SEC exam presents algebra as multi-part questions (a)(b)(c) building progressively. 'Hence' means USE your previous answer — faster and shows mathematical connections.</p><p>Read ALL parts before starting (a). Later parts reveal what method part (a) should use.</p></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--gold)">💡 Analogy — How to picture it</div>
+    <div class="analogy-box"><p>Multi-part questions are like building a bridge: (a) lays the foundation; (b) builds the span; (c) crosses the bridge. Each part makes the next one possible.</p></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--green)">🔍 Worked Example</div>
+    <div class="worked-box">
+      <strong style="display:block;margin-bottom:.6rem">Strategy: (a) Expand (x−3)(x+5). (b) Hence solve x²+2x−15=0.</strong>
+      <ol class="step-list"><li>(a) Expand: x²+5x−3x−15=x²+2x−15</li><li>(b) HENCE: x²+2x−15=0 → (x−3)(x+5)=0</li><li>x=3 or x=−5</li></ol>
+    </div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:#BF360C">⚠️ Common Mistakes</div>
+    <div class="mistake-box"><ul style="padding-left:1.2rem"><li>Never skip part (a) — later parts say 'hence' and need it</li><li>'Hence or otherwise': use 'hence' route, it's faster</li><li>Always show formula/method name at each part start</li></ul></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--navy)">📌 Key Formulae</div>
+    <div class="formula-box"><code>Read ALL parts before starting</code><code>'Hence' = use exact result from previous part</code><code>Check: substitute solutions back in</code></div>
+  </div>
+  <div class="tip-box mt2">
+    <strong>🎯 SEC Exam Insight:</strong> Mixed algebra mirrors the SEC format. Read all parts (a)(b)(c) before writing anything. 'Hence' means use your previous answer — the link is always deliberate and saves calculation.
+  </div>
+</div>
+
+  <div class="tab-content" id="tab-questions">
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q1</span>
+    <span style="flex:1;font-size:.9rem">(a) Solve 4x−3=2x+9. (b) Expand (x+2)(x−5). (c) Hence solve x²−3x−10=0.</span>
+    <span class="q-marks">5 marks</span>
+  </div>
+  <div class="q-hint" id="hint-17-1">💡 <em>Part (c) says 'hence' — use your expansion from (b)!</em></div>
+  <div class="q-answer" id="ans-17-1"><strong>✅ Answer:</strong> (a)x=6. (b)x²−3x−10. (c)(x−5)(x+2)=0→x=5 or x=−2</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-17-1')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-17-1')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q2</span>
+    <span style="flex:1;font-size:.9rem">f(x)=3x²−2x+1. (a) Find f(2). (b) Solve f(x)=10 (to 1 d.p.). (c) Find the minimum value of f(x).</span>
+    <span class="q-marks">5 marks</span>
+  </div>
+  <div class="q-hint" id="hint-17-2">💡 <em>For (b) set 3x²−2x+1=10, rearrange to =0, use quadratic formula.</em></div>
+  <div class="q-answer" id="ans-17-2"><strong>✅ Answer:</strong> (a)9. (b)x≈2.0 or −1.3. (c)min at x=1/3; f(1/3)=2/3</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-17-2')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-17-2')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q3</span>
+    <span style="flex:1;font-size:.9rem">Sequence 5,8,11,14,… (a) Find Tₙ. (b) Find T₂₀. (c) Is 200 in the sequence?</span>
+    <span class="q-marks">5 marks</span>
+  </div>
+  <div class="q-hint" id="hint-17-3">💡 <em>For (c) set Tₙ=200 and solve for n. Check if n is a whole number.</em></div>
+  <div class="q-answer" id="ans-17-3"><strong>✅ Answer:</strong> (a)Tₙ=3n+2. (b)T₂₀=62. (c)3n+2=200→n=66. Yes, 200 is 66th term.</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-17-3')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-17-3')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q4</span>
+    <span style="flex:1;font-size:.9rem">3 adults + 2 children = €40. 2 adults + 4 children = €38. Find adult and child prices.</span>
+    <span class="q-marks">5 marks</span>
+  </div>
+  <div class="q-hint" id="hint-17-4">💡 <em>Write two equations, then use elimination.</em></div>
+  <div class="q-answer" id="ans-17-4"><strong>✅ Answer:</strong> 3a+2c=40; 2a+4c=38. (i)×2: 6a+4c=80. Subtract: 4a=42→a=€10.50; c=€4.25</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-17-4')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-17-4')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q5</span>
+    <span style="flex:1;font-size:.9rem">S=ut+½at². Object falls from rest (u=0), a=10 m/s². How long to fall 150m?</span>
+    <span class="q-marks">5 marks</span>
+  </div>
+  <div class="q-hint" id="hint-17-5">💡 <em>Substitute u=0, a=10, S=150 and solve for t.</em></div>
+  <div class="q-answer" id="ans-17-5"><strong>✅ Answer:</strong> 150=5t²→t²=30→t=√30≈5.48 seconds</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-17-5')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-17-5')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q6</span>
+    <span style="flex:1;font-size:.9rem">(a) Write 2/(x+3)+1/(x−1) as single fraction. (b) Hence solve it=1 (to 2 d.p.).</span>
+    <span class="q-marks">5 marks</span>
+  </div>
+  <div class="q-hint" id="hint-17-6">💡 <em>For (b) set your single fraction equal to 1 and cross-multiply.</em></div>
+  <div class="q-answer" id="ans-17-6"><strong>✅ Answer:</strong> (a)(3x+1)/(x²+2x−3). (b)x²−x−4=0→x≈2.56 or −1.56</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-17-6')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-17-6')">✅ Show Answer</button>
+  </div>
+</div>
+</div>
+
+
+  <div style="display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wrap;margin-top:2rem;padding-top:1rem;border-top:2px solid var(--border);">
+    <a href="day16.html" class="btn btn-primary">← Day 16</a>
+    <button class="btn btn-gold" onclick="markComplete(17)">✅ Mark Day 17 Complete</button>
+    <a href="day18.html" class="btn btn-green">Day 18 →</a>
+  </div>
+</div>
+
+<footer>
+  <strong>Peppin's Tuition Centre, Cork</strong> · Day 17 · Algebra Review — Exam-Style Mixed Algebra
+</footer>
+
+<script>
+function switchTab(name, btn) {
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+  btn.classList.add('active');
+}
+function toggleEl(id) {
+  const el = document.getElementById(id);
+  el.style.display = el.style.display === 'block' ? 'none' : 'block';
+}
+function markComplete(day) {
+  localStorage.setItem('day_complete_'+day, '1');
+  alert('Day ' + day + ' marked as complete! 🎉');
+}
+</script>
+</body></html>

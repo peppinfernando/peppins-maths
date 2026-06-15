@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 28 · Coordinate Geometry · Peppin's Maths</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head><body>
+<nav class="navbar">
+  <div class="nav-brand">
+    <span class="nav-logo">🍀</span>
+    <div>
+      <div class="nav-title">Peppin's Maths</div>
+      <div class="nav-sub">Junior Cycle · First Year</div>
+    </div>
+  </div>
+  <div class="nav-links"><a href="index.html" class="nav-link active">🏠 Home</a>
+<a href="plan.html" class="nav-link ">📅 45-Day Plan</a>
+<a href="quiz.html" class="nav-link ">⚡ Quick Quiz</a>
+<a href="progress.html" class="nav-link ">📈 My Progress</a>
+</div>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+</nav>
+<div style="background:#B8860B;color:#fff;padding:1.5rem 1.5rem 1rem;">
+  <div style="max-width:900px;margin:0 auto;">
+    <a href="index.html" style="color:rgba(255,255,255,.7);font-size:.82rem;font-weight:700;">← Back to Home</a>
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-top:.6rem;">
+      <div>
+        <div style="font-size:.75rem;opacity:.7;font-weight:800;letter-spacing:.1em;text-transform:uppercase;">Day 28 of 45 · Geometry</div>
+        <h1 style="font-family:'Merriweather',serif;font-size:clamp(1.3rem,3vw,2rem);margin:.3rem 0;">Coordinate Geometry</h1>
+        <div style="font-size:1rem;opacity:.85;">Exam-Style Mixed Practice</div>
+        <div style="margin-top:.6rem;display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;">
+          <span class="level-badge" style="background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4)">Higher</span>
+          <span style="font-size:.78rem;opacity:.7">6 questions · 30 marks total</span>
+        </div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:2.5rem;line-height:1">📐</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="max-width:900px;">
+  <div class="tab-bar">
+    <button class="tab active" onclick="switchTab('concept',this)">📖 Concept</button>
+    <button class="tab" onclick="switchTab('questions',this)">✏️ Practice Questions</button>
+  </div>
+
+  
+<div class="tab-content active" id="tab-concept">
+  <div class="concept-section mt2">
+    <div class="section-label" style="color:#1565C0">📘 What is this topic?</div>
+    <div class="explain-box"><p>Full exam-style coordinate geometry. Difficulty: (a)slope/distance; (b)equation of line or circle; (c)intersection or point vs circle.</p><p>Key: perp bisector of a chord passes through the CENTRE. Circle from diameter → centre=midpoint of diameter.</p></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--gold)">💡 Analogy — How to picture it</div>
+    <div class="analogy-box"><p>Coordinate geometry questions are a treasure map: (a) gives direction (slope); (b) gives the path (equation); (c) finds where the path leads (intersection, inside/outside circle).</p></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--green)">🔍 Worked Example</div>
+    <div class="worked-box">
+      <strong style="display:block;margin-bottom:.6rem">A(−1,3) B(5,7). Find perp bisector. Verify it passes through midpoint.</strong>
+      <ol class="step-list"><li>Mid M=(2,5); slope AB=2/3</li><li>Perp slope=−3/2</li><li>Equation: y−5=−3/2(x−2) → 3x+2y=16</li><li>Verify M(2,5): 3(2)+2(5)=16 ✓</li></ol>
+    </div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:#BF360C">⚠️ Common Mistakes</div>
+    <div class="mistake-box"><ul style="padding-left:1.2rem"><li>Perp bisector: MUST pass through midpoint AND have perpendicular slope</li><li>Distance from centre to point: use distance formula, not circle equation</li><li>x-intercept: set y=0; y-intercept: set x=0</li></ul></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--navy)">📌 Key Formulae</div>
+    <div class="formula-box"><code>Perp bisector: through midpoint, slope=−1/m_AB</code><code>Outside/on/inside: compare d(centre,point) with r</code></div>
+  </div>
+  <div class="tip-box mt2">
+    <strong>🎯 SEC Exam Insight:</strong> Coordinate geometry questions follow a consistent SEC pattern: (a) slope/distance/midpoint; (b) equation of line or circle; (c) intersection or inside/outside. Practice this 3-part structure.
+  </div>
+</div>
+
+  <div class="tab-content" id="tab-questions">
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q1</span>
+    <span style="flex:1;font-size:.9rem">A(1,1), B(3,5), C(0,4). Eq. of AB. Line through C perpendicular to AB.</span>
+    <span class="q-marks">5 marks</span>
+  </div>
+  <div class="q-hint" id="hint-28-1">💡 <em>Find slope of AB, then perpendicular slope=−1/slope of AB.</em></div>
+  <div class="q-answer" id="ans-28-1"><strong>✅ Answer:</strong> AB: m=2; 2x−y−1=0. Perp through C: m=−1/2; x+2y−8=0</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-28-1')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-28-1')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q2</span>
+    <span style="flex:1;font-size:.9rem">Find intersection D of line AB and line CD from Q1.</span>
+    <span class="q-marks">5 marks</span>
+  </div>
+  <div class="q-hint" id="hint-28-2">💡 <em>Solve the two line equations simultaneously.</em></div>
+  <div class="q-answer" id="ans-28-2"><strong>✅ Answer:</strong> 2x−y=1 and x+2y=8. → x=2, y=3. D=(2,3)</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-28-2')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-28-2')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q3</span>
+    <span style="flex:1;font-size:.9rem">Find |CD| and midpoint of CD where C=(0,4) and D=(2,3).</span>
+    <span class="q-marks">5 marks</span>
+  </div>
+  <div class="q-hint" id="hint-28-3">💡 <em>Apply distance formula and midpoint formula.</em></div>
+  <div class="q-answer" id="ans-28-3"><strong>✅ Answer:</strong> |CD|=√5; midpoint=(1,3.5)</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-28-3')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-28-3')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q4</span>
+    <span style="flex:1;font-size:.9rem">Circle: diameter endpoints (−1,1) and (3,5). Find centre, radius and equation.</span>
+    <span class="q-marks">5 marks</span>
+  </div>
+  <div class="q-hint" id="hint-28-4">💡 <em>Centre=midpoint of diameter. r=half the diameter length.</em></div>
+  <div class="q-answer" id="ans-28-4"><strong>✅ Answer:</strong> Centre=(1,3); r=2√2; Equation:(x−1)²+(y−3)²=8</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-28-4')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-28-4')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q5</span>
+    <span style="flex:1;font-size:.9rem">Using the circle from Q4, find any x-axis and y-axis intercepts.</span>
+    <span class="q-marks">5 marks</span>
+  </div>
+  <div class="q-hint" id="hint-28-5">💡 <em>Set x=0 for y-intercepts; set y=0 for x-intercepts. Check if solutions are real.</em></div>
+  <div class="q-answer" id="ans-28-5"><strong>✅ Answer:</strong> No x-intercepts (discriminant<0). y-intercepts: y=3±√7≈5.65 or 0.35</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-28-5')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-28-5')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q6</span>
+    <span style="flex:1;font-size:.9rem">Is P(4,3) inside, on, or outside the circle from Q4? Show reasoning.</span>
+    <span class="q-marks">5 marks</span>
+  </div>
+  <div class="q-hint" id="hint-28-6">💡 <em>Calculate distance from centre to P and compare with the radius.</em></div>
+  <div class="q-answer" id="ans-28-6"><strong>✅ Answer:</strong> Distance from (1,3) to (4,3)=3. r=2√2≈2.83. Since 3>2.83, P is OUTSIDE.</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-28-6')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-28-6')">✅ Show Answer</button>
+  </div>
+</div>
+</div>
+
+
+  <div style="display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wrap;margin-top:2rem;padding-top:1rem;border-top:2px solid var(--border);">
+    <a href="day27.html" class="btn btn-primary">← Day 27</a>
+    <button class="btn btn-gold" onclick="markComplete(28)">✅ Mark Day 28 Complete</button>
+    <a href="day29.html" class="btn btn-green">Day 29 →</a>
+  </div>
+</div>
+
+<footer>
+  <strong>Peppin's Tuition Centre, Cork</strong> · Day 28 · Coordinate Geometry — Exam-Style Mixed Practice
+</footer>
+
+<script>
+function switchTab(name, btn) {
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+  btn.classList.add('active');
+}
+function toggleEl(id) {
+  const el = document.getElementById(id);
+  el.style.display = el.style.display === 'block' ? 'none' : 'block';
+}
+function markComplete(day) {
+  localStorage.setItem('day_complete_'+day, '1');
+  alert('Day ' + day + ' marked as complete! 🎉');
+}
+</script>
+</body></html>

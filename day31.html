@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 31 · Statistics · Peppin's Maths</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head><body>
+<nav class="navbar">
+  <div class="nav-brand">
+    <span class="nav-logo">🍀</span>
+    <div>
+      <div class="nav-title">Peppin's Maths</div>
+      <div class="nav-sub">Junior Cycle · First Year</div>
+    </div>
+  </div>
+  <div class="nav-links"><a href="index.html" class="nav-link active">🏠 Home</a>
+<a href="plan.html" class="nav-link ">📅 45-Day Plan</a>
+<a href="quiz.html" class="nav-link ">⚡ Quick Quiz</a>
+<a href="progress.html" class="nav-link ">📈 My Progress</a>
+</div>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+</nav>
+<div style="background:#6A0572;color:#fff;padding:1.5rem 1.5rem 1rem;">
+  <div style="max-width:900px;margin:0 auto;">
+    <a href="index.html" style="color:rgba(255,255,255,.7);font-size:.82rem;font-weight:700;">← Back to Home</a>
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-top:.6rem;">
+      <div>
+        <div style="font-size:.75rem;opacity:.7;font-weight:800;letter-spacing:.1em;text-transform:uppercase;">Day 31 of 45 · Statistics</div>
+        <h1 style="font-family:'Merriweather',serif;font-size:clamp(1.3rem,3vw,2rem);margin:.3rem 0;">Statistics</h1>
+        <div style="font-size:1rem;opacity:.85;">Charts & Diagrams</div>
+        <div style="margin-top:.6rem;display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;">
+          <span class="level-badge" style="background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4)">Foundation→Ordinary</span>
+          <span style="font-size:.78rem;opacity:.7">6 questions · 21 marks total</span>
+        </div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:2.5rem;line-height:1">📊</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="max-width:900px;">
+  <div class="tab-bar">
+    <button class="tab active" onclick="switchTab('concept',this)">📖 Concept</button>
+    <button class="tab" onclick="switchTab('questions',this)">✏️ Practice Questions</button>
+  </div>
+
+  
+<div class="tab-content active" id="tab-concept">
+  <div class="concept-section mt2">
+    <div class="section-label" style="color:#1565C0">📘 What is this topic?</div>
+    <div class="explain-box"><p>BAR CHART: gaps between bars, discrete/categorical. HISTOGRAM: no gaps, continuous, y-axis=frequency density=freq÷class width.</p><p>PIE CHART: sector angle=(freq÷total)×360°. STEM-AND-LEAF: shows actual data in order; stem=tens digit, leaf=units.</p></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--gold)">💡 Analogy — How to picture it</div>
+    <div class="analogy-box"><p>A histogram is like a city skyline — each building (bar) covers a range. A pie chart divides 360° like sharing a round pizza proportionally.</p></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--green)">🔍 Worked Example</div>
+    <div class="worked-box">
+      <strong style="display:block;margin-bottom:.6rem">Data 14,22,19,31,27,15,23,18,28,11. Stem-and-leaf + median.</strong>
+      <ol class="step-list"><li>1|1 4 5 8 9</li><li>2|2 3 7 8</li><li>3|1</li><li>Ordered: 11,14,15,18,19,22,23,27,28,31</li><li>Median=(19+22)/2=20.5</li></ol>
+    </div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:#BF360C">⚠️ Common Mistakes</div>
+    <div class="mistake-box"><ul style="padding-left:1.2rem"><li>Histogram y-axis: equal widths→frequency ok; different widths→MUST use frequency density</li><li>Pie chart: all angles must SUM to 360°</li><li>Bar chart=gaps (discrete); histogram=no gaps (continuous)</li></ul></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--navy)">📌 Key Formulae</div>
+    <div class="formula-box"><code>Pie sector=(f/total)×360°</code><code>Freq density=freq÷class width</code></div>
+  </div>
+  <div class="tip-box mt2">
+    <strong>🎯 SEC Exam Insight:</strong> Histograms: if class widths are EQUAL, y-axis can show frequency. If widths DIFFER, y-axis MUST show frequency density=freq÷class width. Check widths before drawing.
+  </div>
+</div>
+
+  <div class="tab-content" id="tab-questions">
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q1</span>
+    <span style="flex:1;font-size:.9rem">Class votes: A(40),B(30),C(20),D(30). Total=120. Find sector angle for each.</span>
+    <span class="q-marks">2 marks</span>
+  </div>
+  <div class="q-hint" id="hint-31-1">💡 <em>Angle=(frequency÷total)×360°.</em></div>
+  <div class="q-answer" id="ans-31-1"><strong>✅ Answer:</strong> A:120°, B:90°, C:60°, D:90°. Sum=360° ✓</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-31-1')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-31-1')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q2</span>
+    <span style="flex:1;font-size:.9rem">Draw a stem-and-leaf for: 23,18,35,29,20,15,24,31,27,12.</span>
+    <span class="q-marks">3 marks</span>
+  </div>
+  <div class="q-hint" id="hint-31-2">💡 <em>Stem=tens digit, leaf=units digit. Order the leaves on each stem.</em></div>
+  <div class="q-answer" id="ans-31-2"><strong>✅ Answer:</strong> 1|2 5 8; 2|0 3 4 7 9; 3|1 5</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-31-2')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-31-2')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q3</span>
+    <span style="flex:1;font-size:.9rem">Using your stem-and-leaf from Q2, find the median.</span>
+    <span class="q-marks">3 marks</span>
+  </div>
+  <div class="q-hint" id="hint-31-3">💡 <em>The stem-and-leaf already puts data in order — find the middle value.</em></div>
+  <div class="q-answer" id="ans-31-3"><strong>✅ Answer:</strong> Ordered: 12,15,18,20,23,24,27,29,31,35 (n=10). Median=(23+24)/2=23.5</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-31-3')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-31-3')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q4</span>
+    <span style="flex:1;font-size:.9rem">Ages: 0−10(6),10−20(14),20−30(20),30−40(8),40−50(2). Find frequency density for each.</span>
+    <span class="q-marks">4 marks</span>
+  </div>
+  <div class="q-hint" id="hint-31-4">💡 <em>Frequency density=frequency÷class width. All widths are 10 here.</em></div>
+  <div class="q-answer" id="ans-31-4"><strong>✅ Answer:</strong> All class widths=10. FD: 0.6, 1.4, 2.0, 0.8, 0.2</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-31-4')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-31-4')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q5</span>
+    <span style="flex:1;font-size:.9rem">From a histogram, how do you find the number of people in a specific age range?</span>
+    <span class="q-marks">4 marks</span>
+  </div>
+  <div class="q-hint" id="hint-31-5">💡 <em>In a histogram, AREA of bar=frequency.</em></div>
+  <div class="q-answer" id="ans-31-5"><strong>✅ Answer:</strong> Frequency=frequency density×class width. Multiply bar height by class width.</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-31-5')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-31-5')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q6</span>
+    <span style="flex:1;font-size:.9rem">Using Q4 data (n=50): find modal class and estimate median age.</span>
+    <span class="q-marks">5 marks</span>
+  </div>
+  <div class="q-hint" id="hint-31-6">💡 <em>Modal class has highest frequency. Find where the 25th value falls in cumulative frequency.</em></div>
+  <div class="q-answer" id="ans-31-6"><strong>✅ Answer:</strong> Modal class: 20−30 (freq=20). Median=25th value. CumFreq: 6,20,40. Median in 20−30 class. Est≈22.5</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-31-6')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-31-6')">✅ Show Answer</button>
+  </div>
+</div>
+</div>
+
+
+  <div style="display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wrap;margin-top:2rem;padding-top:1rem;border-top:2px solid var(--border);">
+    <a href="day30.html" class="btn btn-primary">← Day 30</a>
+    <button class="btn btn-gold" onclick="markComplete(31)">✅ Mark Day 31 Complete</button>
+    <a href="day32.html" class="btn btn-green">Day 32 →</a>
+  </div>
+</div>
+
+<footer>
+  <strong>Peppin's Tuition Centre, Cork</strong> · Day 31 · Statistics — Charts & Diagrams
+</footer>
+
+<script>
+function switchTab(name, btn) {
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+  btn.classList.add('active');
+}
+function toggleEl(id) {
+  const el = document.getElementById(id);
+  el.style.display = el.style.display === 'block' ? 'none' : 'block';
+}
+function markComplete(day) {
+  localStorage.setItem('day_complete_'+day, '1');
+  alert('Day ' + day + ' marked as complete! 🎉');
+}
+</script>
+</body></html>

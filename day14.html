@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 14 · Patterns & Sequences · Peppin's Maths</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head><body>
+<nav class="navbar">
+  <div class="nav-brand">
+    <span class="nav-logo">🍀</span>
+    <div>
+      <div class="nav-title">Peppin's Maths</div>
+      <div class="nav-sub">Junior Cycle · First Year</div>
+    </div>
+  </div>
+  <div class="nav-links"><a href="index.html" class="nav-link active">🏠 Home</a>
+<a href="plan.html" class="nav-link ">📅 45-Day Plan</a>
+<a href="quiz.html" class="nav-link ">⚡ Quick Quiz</a>
+<a href="progress.html" class="nav-link ">📈 My Progress</a>
+</div>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+</nav>
+<div style="background:#2E7D32;color:#fff;padding:1.5rem 1.5rem 1rem;">
+  <div style="max-width:900px;margin:0 auto;">
+    <a href="index.html" style="color:rgba(255,255,255,.7);font-size:.82rem;font-weight:700;">← Back to Home</a>
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-top:.6rem;">
+      <div>
+        <div style="font-size:.75rem;opacity:.7;font-weight:800;letter-spacing:.1em;text-transform:uppercase;">Day 14 of 45 · Algebra</div>
+        <h1 style="font-family:'Merriweather',serif;font-size:clamp(1.3rem,3vw,2rem);margin:.3rem 0;">Patterns & Sequences</h1>
+        <div style="font-size:1rem;opacity:.85;">Arithmetic Sequences</div>
+        <div style="margin-top:.6rem;display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;">
+          <span class="level-badge" style="background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4)">Ordinary</span>
+          <span style="font-size:.78rem;opacity:.7">6 questions · 21 marks total</span>
+        </div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:2.5rem;line-height:1">✖️</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="max-width:900px;">
+  <div class="tab-bar">
+    <button class="tab active" onclick="switchTab('concept',this)">📖 Concept</button>
+    <button class="tab" onclick="switchTab('questions',this)">✏️ Practice Questions</button>
+  </div>
+
+  
+<div class="tab-content active" id="tab-concept">
+  <div class="concept-section mt2">
+    <div class="section-label" style="color:#1565C0">📘 What is this topic?</div>
+    <div class="explain-box"><p>ARITHMETIC SEQUENCE: constant difference d between terms. nth TERM: Tₙ=a+(n−1)d. SUM of n terms: Sₙ=n/2×[2a+(n−1)d].</p></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--gold)">💡 Analogy — How to picture it</div>
+    <div class="analogy-box"><p>A staircase with equal step heights. First step at height a, each step rises by d. The 10th step is at height a+9d. The formula is 'start + steps taken × step height'.</p></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--green)">🔍 Worked Example</div>
+    <div class="worked-box">
+      <strong style="display:block;margin-bottom:.6rem">For 4,7,10,13,… find T₁₀ and S₁₀</strong>
+      <ol class="step-list"><li>a=4, d=3</li><li>Tₙ=4+(n−1)×3=3n+1</li><li>T₁₀=31</li><li>S₁₀=10/2×[8+27]=5×35=175</li></ol>
+    </div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:#BF360C">⚠️ Common Mistakes</div>
+    <div class="mistake-box"><ul style="padding-left:1.2rem"><li>Formula has (n−1)×d, NOT n×d</li><li>To check if a value is IN the sequence: set Tₙ=value, solve for n. Whole number=yes.</li><li>Sum formula uses a and d, not the last term</li></ul></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--navy)">📌 Key Formulae</div>
+    <div class="formula-box"><code>Tₙ=a+(n−1)d</code><code>Sₙ=n/2×[2a+(n−1)d]</code><code>d=T₂−T₁</code></div>
+  </div>
+  <div class="tip-box mt2">
+    <strong>🎯 SEC Exam Insight:</strong> Sequence questions: common SEC pattern is (a) find Tₙ; (b) find a specific term; (c) 'is x a term?' Set Tₙ=value, solve for n. If n is a whole number, yes — it is in the sequence.
+  </div>
+</div>
+
+  <div class="tab-content" id="tab-questions">
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q1</span>
+    <span style="flex:1;font-size:.9rem">Find the next three terms: 6, 11, 16, 21, …</span>
+    <span class="q-marks">2 marks</span>
+  </div>
+  <div class="q-hint" id="hint-14-1">💡 <em>Find the common difference (d=11−6=5) and add it each time.</em></div>
+  <div class="q-answer" id="ans-14-1"><strong>✅ Answer:</strong> d=5; next: 26, 31, 36</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-14-1')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-14-1')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q2</span>
+    <span style="flex:1;font-size:.9rem">For 4,7,10,13,… find Tₙ and T₁₀.</span>
+    <span class="q-marks">3 marks</span>
+  </div>
+  <div class="q-hint" id="hint-14-2">💡 <em>a=4, d=3. Use Tₙ=a+(n−1)d.</em></div>
+  <div class="q-answer" id="ans-14-2"><strong>✅ Answer:</strong> Tₙ=3n+1; T₁₀=31</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-14-2')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-14-2')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q3</span>
+    <span style="flex:1;font-size:.9rem">Is 2 a term in the sequence 100, 93, 86, 79, …?</span>
+    <span class="q-marks">3 marks</span>
+  </div>
+  <div class="q-hint" id="hint-14-3">💡 <em>Find Tₙ, set it equal to 2, solve for n. If n is a whole number, yes!</em></div>
+  <div class="q-answer" id="ans-14-3"><strong>✅ Answer:</strong> Tₙ=107−7n. Set 107−7n=2 → n=15. Yes, 2 is the 15th term.</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-14-3')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-14-3')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q4</span>
+    <span style="flex:1;font-size:.9rem">Find the sum of the first 15 terms of: 3, 8, 13, 18, …</span>
+    <span class="q-marks">4 marks</span>
+  </div>
+  <div class="q-hint" id="hint-14-4">💡 <em>Use the sum formula Sₙ=n/2×[2a+(n−1)d].</em></div>
+  <div class="q-answer" id="ans-14-4"><strong>✅ Answer:</strong> a=3, d=5. S₁₅=15/2×[6+70]=7.5×76=570</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-14-4')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-14-4')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q5</span>
+    <span style="flex:1;font-size:.9rem">Matchstick pattern: Diagram 1=4, D2=7, D3=10 sticks. How many for Diagram 20?</span>
+    <span class="q-marks">4 marks</span>
+  </div>
+  <div class="q-hint" id="hint-14-5">💡 <em>Find a and d from the pattern, then find T₂₀.</em></div>
+  <div class="q-answer" id="ans-14-5"><strong>✅ Answer:</strong> a=4, d=3; Tₙ=3n+1; T₂₀=61 sticks</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-14-5')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-14-5')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q6</span>
+    <span style="flex:1;font-size:.9rem">3rd term=11 and 7th term=27. Find first term, d, and Tₙ.</span>
+    <span class="q-marks">5 marks</span>
+  </div>
+  <div class="q-hint" id="hint-14-6">💡 <em>Write two equations for T₃ and T₇, then solve simultaneously.</em></div>
+  <div class="q-answer" id="ans-14-6"><strong>✅ Answer:</strong> T₃:a+2d=11; T₇:a+6d=27. Subtract:4d=16→d=4;a=3. Tₙ=4n−1</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-14-6')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-14-6')">✅ Show Answer</button>
+  </div>
+</div>
+</div>
+
+
+  <div style="display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wrap;margin-top:2rem;padding-top:1rem;border-top:2px solid var(--border);">
+    <a href="day13.html" class="btn btn-primary">← Day 13</a>
+    <button class="btn btn-gold" onclick="markComplete(14)">✅ Mark Day 14 Complete</button>
+    <a href="day15.html" class="btn btn-green">Day 15 →</a>
+  </div>
+</div>
+
+<footer>
+  <strong>Peppin's Tuition Centre, Cork</strong> · Day 14 · Patterns & Sequences — Arithmetic Sequences
+</footer>
+
+<script>
+function switchTab(name, btn) {
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+  btn.classList.add('active');
+}
+function toggleEl(id) {
+  const el = document.getElementById(id);
+  el.style.display = el.style.display === 'block' ? 'none' : 'block';
+}
+function markComplete(day) {
+  localStorage.setItem('day_complete_'+day, '1');
+  alert('Day ' + day + ' marked as complete! 🎉');
+}
+</script>
+</body></html>

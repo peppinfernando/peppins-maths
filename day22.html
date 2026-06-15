@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 22 · Geometry · Peppin's Maths</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head><body>
+<nav class="navbar">
+  <div class="nav-brand">
+    <span class="nav-logo">🍀</span>
+    <div>
+      <div class="nav-title">Peppin's Maths</div>
+      <div class="nav-sub">Junior Cycle · First Year</div>
+    </div>
+  </div>
+  <div class="nav-links"><a href="index.html" class="nav-link active">🏠 Home</a>
+<a href="plan.html" class="nav-link ">📅 45-Day Plan</a>
+<a href="quiz.html" class="nav-link ">⚡ Quick Quiz</a>
+<a href="progress.html" class="nav-link ">📈 My Progress</a>
+</div>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+</nav>
+<div style="background:#B8860B;color:#fff;padding:1.5rem 1.5rem 1rem;">
+  <div style="max-width:900px;margin:0 auto;">
+    <a href="index.html" style="color:rgba(255,255,255,.7);font-size:.82rem;font-weight:700;">← Back to Home</a>
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-top:.6rem;">
+      <div>
+        <div style="font-size:.75rem;opacity:.7;font-weight:800;letter-spacing:.1em;text-transform:uppercase;">Day 22 of 45 · Geometry</div>
+        <h1 style="font-family:'Merriweather',serif;font-size:clamp(1.3rem,3vw,2rem);margin:.3rem 0;">Geometry</h1>
+        <div style="font-size:1rem;opacity:.85;">Volume & Surface Area of 3D Solids</div>
+        <div style="margin-top:.6rem;display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;">
+          <span class="level-badge" style="background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4)">Ordinary</span>
+          <span style="font-size:.78rem;opacity:.7">6 questions · 21 marks total</span>
+        </div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:2.5rem;line-height:1">📐</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="max-width:900px;">
+  <div class="tab-bar">
+    <button class="tab active" onclick="switchTab('concept',this)">📖 Concept</button>
+    <button class="tab" onclick="switchTab('questions',this)">✏️ Practice Questions</button>
+  </div>
+
+  
+<div class="tab-content active" id="tab-concept">
+  <div class="concept-section mt2">
+    <div class="section-label" style="color:#1565C0">📘 What is this topic?</div>
+    <div class="explain-box"><p>VOLUME=space inside (cm³). SURFACE AREA=total area of all faces (cm²). All formulae in Tables booklet.</p><p>COMPOSITE SOLID: calculate each part separately, then ADD volumes.</p></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--gold)">💡 Analogy — How to picture it</div>
+    <div class="analogy-box"><p>Volume is filling a container with water. Surface area is wrapping a gift — how much paper to cover every face? Completely different measurements needing different formulae.</p></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--green)">🔍 Worked Example</div>
+    <div class="worked-box">
+      <strong style="display:block;margin-bottom:.6rem">Cone (r=5cm, h=12cm) on hemisphere (r=5cm). Total volume.</strong>
+      <ol class="step-list"><li>Cone: V=⅓π(25)(12)=100π cm³</li><li>Hemisphere: V=(2/3)π(125)=(250π/3) cm³</li><li>Total: 100π+(250/3)π=(550/3)π≈576 cm³</li></ol>
+    </div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:#BF360C">⚠️ Common Mistakes</div>
+    <div class="mistake-box"><ul style="padding-left:1.2rem"><li>Cylinder curved SA=2πrh. Total SA=2πrh+2πr²</li><li>Cone slant height: l=√(r²+h²), NOT vertical height</li><li>Sphere: V=(4/3)πr³ — students forget the 4/3</li></ul></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--navy)">📌 Key Formulae</div>
+    <div class="formula-box"><code>Cuboid: V=lwh; SA=2(lw+lh+wh)</code><code>Cylinder: V=πr²h; SA=2πr²+2πrh</code><code>Cone: V=⅓πr²h; l=√(r²+h²); SA=πrl+πr²</code><code>Sphere: V=(4/3)πr³; SA=4πr²</code></div>
+  </div>
+  <div class="tip-box mt2">
+    <strong>🎯 SEC Exam Insight:</strong> Volume: composite solid questions are common. Calculate each part separately and ADD. Cone slant height l=√(r²+h²) must be calculated using Pythagoras — it is not given directly.
+  </div>
+</div>
+
+  <div class="tab-content" id="tab-questions">
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q1</span>
+    <span style="flex:1;font-size:.9rem">Find V and SA of a cuboid: 8cm×5cm×3cm.</span>
+    <span class="q-marks">2 marks</span>
+  </div>
+  <div class="q-hint" id="hint-22-1">💡 <em>V=l×w×h. SA=2(lw+lh+wh).</em></div>
+  <div class="q-answer" id="ans-22-1"><strong>✅ Answer:</strong> V=120 cm³; SA=2(40+24+15)=158 cm²</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-22-1')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-22-1')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q2</span>
+    <span style="flex:1;font-size:.9rem">Cylinder: radius 4cm, height 10cm. Find V and curved SA.</span>
+    <span class="q-marks">3 marks</span>
+  </div>
+  <div class="q-hint" id="hint-22-2">💡 <em>V=πr²h; Curved SA=2πrh (no ends).</em></div>
+  <div class="q-answer" id="ans-22-2"><strong>✅ Answer:</strong> V=160π≈502.65 cm³; Curved SA=80π≈251.33 cm²</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-22-2')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-22-2')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q3</span>
+    <span style="flex:1;font-size:.9rem">Cone: base radius 6cm, height 8cm. Find slant height and total SA.</span>
+    <span class="q-marks">3 marks</span>
+  </div>
+  <div class="q-hint" id="hint-22-3">💡 <em>l=√(r²+h²). Total SA=πrl+πr².</em></div>
+  <div class="q-answer" id="ans-22-3"><strong>✅ Answer:</strong> l=√(36+64)=10cm; Total SA=96π≈301.6 cm²</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-22-3')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-22-3')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q4</span>
+    <span style="flex:1;font-size:.9rem">Sphere radius 5cm. Find V and SA.</span>
+    <span class="q-marks">4 marks</span>
+  </div>
+  <div class="q-hint" id="hint-22-4">💡 <em>V=(4/3)πr³; SA=4πr².</em></div>
+  <div class="q-answer" id="ans-22-4"><strong>✅ Answer:</strong> V=500π/3≈523.6 cm³; SA=100π≈314.2 cm²</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-22-4')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-22-4')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q5</span>
+    <span style="flex:1;font-size:.9rem">Cone (r=3cm, h=4cm) on hemisphere (r=3cm). Total volume.</span>
+    <span class="q-marks">4 marks</span>
+  </div>
+  <div class="q-hint" id="hint-22-5">💡 <em>Calculate each part separately using their respective formulae.</em></div>
+  <div class="q-answer" id="ans-22-5"><strong>✅ Answer:</strong> Cone=12π; Hemisphere=18π; Total=30π≈94.25 cm³</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-22-5')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-22-5')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q6</span>
+    <span style="flex:1;font-size:.9rem">Cylinder V=4000cm³, height=twice the radius. Find r and h (to 2 d.p.).</span>
+    <span class="q-marks">5 marks</span>
+  </div>
+  <div class="q-hint" id="hint-22-6">💡 <em>Write h=2r, substitute into V=πr²h and solve for r.</em></div>
+  <div class="q-answer" id="ans-22-6"><strong>✅ Answer:</strong> πr²(2r)=4000→r³=2000/π→r≈8.60cm; h≈17.20cm</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-22-6')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-22-6')">✅ Show Answer</button>
+  </div>
+</div>
+</div>
+
+
+  <div style="display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wrap;margin-top:2rem;padding-top:1rem;border-top:2px solid var(--border);">
+    <a href="day21.html" class="btn btn-primary">← Day 21</a>
+    <button class="btn btn-gold" onclick="markComplete(22)">✅ Mark Day 22 Complete</button>
+    <a href="day23.html" class="btn btn-green">Day 23 →</a>
+  </div>
+</div>
+
+<footer>
+  <strong>Peppin's Tuition Centre, Cork</strong> · Day 22 · Geometry — Volume & Surface Area of 3D Solids
+</footer>
+
+<script>
+function switchTab(name, btn) {
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+  btn.classList.add('active');
+}
+function toggleEl(id) {
+  const el = document.getElementById(id);
+  el.style.display = el.style.display === 'block' ? 'none' : 'block';
+}
+function markComplete(day) {
+  localStorage.setItem('day_complete_'+day, '1');
+  alert('Day ' + day + ' marked as complete! 🎉');
+}
+</script>
+</body></html>

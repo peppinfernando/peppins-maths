@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 41 · Revision · Peppin's Maths</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head><body>
+<nav class="navbar">
+  <div class="nav-brand">
+    <span class="nav-logo">🍀</span>
+    <div>
+      <div class="nav-title">Peppin's Maths</div>
+      <div class="nav-sub">Junior Cycle · First Year</div>
+    </div>
+  </div>
+  <div class="nav-links"><a href="index.html" class="nav-link active">🏠 Home</a>
+<a href="plan.html" class="nav-link ">📅 45-Day Plan</a>
+<a href="quiz.html" class="nav-link ">⚡ Quick Quiz</a>
+<a href="progress.html" class="nav-link ">📈 My Progress</a>
+</div>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+</nav>
+<div style="background:#C0392B;color:#fff;padding:1.5rem 1.5rem 1rem;">
+  <div style="max-width:900px;margin:0 auto;">
+    <a href="index.html" style="color:rgba(255,255,255,.7);font-size:.82rem;font-weight:700;">← Back to Home</a>
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-top:.6rem;">
+      <div>
+        <div style="font-size:.75rem;opacity:.7;font-weight:800;letter-spacing:.1em;text-transform:uppercase;">Day 41 of 45 · Revision</div>
+        <h1 style="font-family:'Merriweather',serif;font-size:clamp(1.3rem,3vw,2rem);margin:.3rem 0;">Revision</h1>
+        <div style="font-size:1rem;opacity:.85;">Statistics & Probability Rapid-Fire</div>
+        <div style="margin-top:.6rem;display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;">
+          <span class="level-badge" style="background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4)">Mixed</span>
+          <span style="font-size:.78rem;opacity:.7">10 questions · 33 marks total</span>
+        </div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:2.5rem;line-height:1">📝</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="max-width:900px;">
+  <div class="tab-bar">
+    <button class="tab active" onclick="switchTab('concept',this)">📖 Concept</button>
+    <button class="tab" onclick="switchTab('questions',this)">✏️ Practice Questions</button>
+  </div>
+
+  
+<div class="tab-content active" id="tab-concept">
+  <div class="concept-section mt2">
+    <div class="section-label" style="color:#1565C0">📘 What is this topic?</div>
+    <div class="explain-box"><p>Rapid-fire revision of Statistics and Probability (Days 29−38). These topics are consistently examined and well-rewarded.</p><p>STATS CHECKLIST: Mean (show steps), Median (ORDER data first!), IQR (Q3−Q1), Scatter (show mean point). PROBABILITY CHECKLIST: P(A)=f/total; complement 1−P(A); tree (×along, +across).</p></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--gold)">💡 Analogy — How to picture it</div>
+    <div class="analogy-box"><p>Pre-flight checklist. You are confirming every instrument works before the flight. If any 'fails' (you can't do it), that's what to revise tonight.</p></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--green)">🔍 Worked Example</div>
+    <div class="worked-box">
+      <strong style="display:block;margin-bottom:.6rem">Quick check — with/without replacement</strong>
+      <ol class="step-list"><li>Bag: 4R, 6B. Draw 2 WITHOUT replacement.</li><li>P(both R)=4/10×3/9=2/15</li><li>WITH replacement: P(both R)=4/10×4/10=4/25</li><li>Key: WITHOUT replacement — BOTH total (10→9) AND colour count (4→3) decrease</li></ol>
+    </div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:#BF360C">⚠️ Common Mistakes</div>
+    <div class="mistake-box"><ul style="padding-left:1.2rem"><li>Always ORDER data before finding median or quartiles</li><li>Without replacement: update BOTH total AND colour count after each draw</li><li>IQR=Q3−Q1 (not range, not Q2−Q1)</li></ul></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--navy)">📌 Key Formulae</div>
+    <div class="formula-box"><code>All Stats & Probability formulae from Days 29−38</code></div>
+  </div>
+  <div class="tip-box mt2">
+    <strong>🎯 SEC Exam Insight:</strong> Statistics revision: the most common lost marks are: median without ordering; IQR confused with range; line of best fit not through mean point; conditional probability wrong denominator.
+  </div>
+</div>
+
+  <div class="tab-content" id="tab-questions">
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q1</span>
+    <span style="flex:1;font-size:.9rem">Mean and median of: 4, 7, 2, 9, 3, 6, 8.</span>
+    <span class="q-marks">2 marks</span>
+  </div>
+  <div class="q-hint" id="hint-41-1">💡 <em>Order data before finding median.</em></div>
+  <div class="q-answer" id="ans-41-1"><strong>✅ Answer:</strong> Mean≈5.57; Ordered: 2,3,4,6,7,8,9. Median=6</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-41-1')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-41-1')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q2</span>
+    <span style="flex:1;font-size:.9rem">Bag: 3R, 4G, 5Y. P(red)?</span>
+    <span class="q-marks">2 marks</span>
+  </div>
+  <div class="q-hint" id="hint-41-2">💡 <em>Favourable (3 red) ÷ total (12).</em></div>
+  <div class="q-answer" id="ans-41-2"><strong>✅ Answer:</strong> 3/12=1/4</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-41-2')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-41-2')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q3</span>
+    <span style="flex:1;font-size:.9rem">Fair die: P(score ≥ 4).</span>
+    <span class="q-marks">3 marks</span>
+  </div>
+  <div class="q-hint" id="hint-41-3">💡 <em>Count how many outcomes satisfy ≥4.</em></div>
+  <div class="q-answer" id="ans-41-3"><strong>✅ Answer:</strong> P(4)+P(5)+P(6)=3/6=1/2</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-41-3')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-41-3')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q4</span>
+    <span style="flex:1;font-size:.9rem">Two from Q2 bag (no replacement). P(both red).</span>
+    <span class="q-marks">3 marks</span>
+  </div>
+  <div class="q-hint" id="hint-41-4">💡 <em>After taking one red: 11 left, 2 red.</em></div>
+  <div class="q-answer" id="ans-41-4"><strong>✅ Answer:</strong> 3/12×2/11=1/22</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-41-4')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-41-4')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q5</span>
+    <span style="flex:1;font-size:.9rem">P(one red, one green) from Q2 bag (no replacement).</span>
+    <span class="q-marks">3 marks</span>
+  </div>
+  <div class="q-hint" id="hint-41-5">💡 <em>Two orders: RG and GR. Add both probabilities.</em></div>
+  <div class="q-answer" id="ans-41-5"><strong>✅ Answer:</strong> P(RG)+P(GR)=(3/12)(4/11)+(4/12)(3/11)=2/11</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-41-5')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-41-5')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q6</span>
+    <span style="flex:1;font-size:.9rem">Data: 3,1,4,2,3,5,2,1,3,4. Find mode, median and mean.</span>
+    <span class="q-marks">4 marks</span>
+  </div>
+  <div class="q-hint" id="hint-41-6">💡 <em>Order data first for median!</em></div>
+  <div class="q-answer" id="ans-41-6"><strong>✅ Answer:</strong> Mode=3. Ordered: 1,1,2,2,3,3,3,4,4,5. Median=3. Mean=2.8</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-41-6')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-41-6')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q7</span>
+    <span style="flex:1;font-size:.9rem">x=(1,2,3,4,5), y=(2,4,5,7,9). Describe correlation and find mean point.</span>
+    <span class="q-marks">4 marks</span>
+  </div>
+  <div class="q-hint" id="hint-41-7">💡 <em>The line of best fit must pass through the mean point.</em></div>
+  <div class="q-answer" id="ans-41-7"><strong>✅ Answer:</strong> Strong positive. x̄=3, ȳ=5.4. Mean point (3,5.4)</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-41-7')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-41-7')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q8</span>
+    <span style="flex:1;font-size:.9rem">Team wins with P=0.6. Next 2 games: P(win both), P(lose both), P(one each).</span>
+    <span class="q-marks">4 marks</span>
+  </div>
+  <div class="q-hint" id="hint-41-8">💡 <em>Independent events: multiply probabilities. One each=P(WL)+P(LW).</em></div>
+  <div class="q-answer" id="ans-41-8"><strong>✅ Answer:</strong> P(WW)=0.36; P(LL)=0.16; P(one each)=0.48</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-41-8')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-41-8')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q9</span>
+    <span style="flex:1;font-size:.9rem">Game: win €2(p=0.3), break even(p=0.5), lose €1(p=0.2). Expected gain.</span>
+    <span class="q-marks">4 marks</span>
+  </div>
+  <div class="q-hint" id="hint-41-9">💡 <em>E(X)=Σ[x×P(x)]=2(0.3)+0(0.5)+(−1)(0.2)</em></div>
+  <div class="q-answer" id="ans-41-9"><strong>✅ Answer:</strong> E(X)=0.6+0−0.2=€0.40 per game</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-41-9')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-41-9')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q10</span>
+    <span style="flex:1;font-size:.9rem">Find IQR for: 23,15,29,18,35,20,27,12,31,24. Any outliers? (Use 1.5×IQR rule)</span>
+    <span class="q-marks">4 marks</span>
+  </div>
+  <div class="q-hint" id="hint-41-10">💡 <em>Q1=median of lower half; Q3=median of upper half. Outlier if outside Q1−1.5×IQR or Q3+1.5×IQR.</em></div>
+  <div class="q-answer" id="ans-41-10"><strong>✅ Answer:</strong> Q1=18, Q3=27. IQR=9. Fences: 4.5 and 40.5. No outliers.</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-41-10')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-41-10')">✅ Show Answer</button>
+  </div>
+</div>
+</div>
+
+
+  <div style="display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wrap;margin-top:2rem;padding-top:1rem;border-top:2px solid var(--border);">
+    <a href="day40.html" class="btn btn-primary">← Day 40</a>
+    <button class="btn btn-gold" onclick="markComplete(41)">✅ Mark Day 41 Complete</button>
+    <a href="day42.html" class="btn btn-green">Day 42 →</a>
+  </div>
+</div>
+
+<footer>
+  <strong>Peppin's Tuition Centre, Cork</strong> · Day 41 · Revision — Statistics & Probability Rapid-Fire
+</footer>
+
+<script>
+function switchTab(name, btn) {
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+  btn.classList.add('active');
+}
+function toggleEl(id) {
+  const el = document.getElementById(id);
+  el.style.display = el.style.display === 'block' ? 'none' : 'block';
+}
+function markComplete(day) {
+  localStorage.setItem('day_complete_'+day, '1');
+  alert('Day ' + day + ' marked as complete! 🎉');
+}
+</script>
+</body></html>

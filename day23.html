@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 23 · Coordinate Geometry · Peppin's Maths</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head><body>
+<nav class="navbar">
+  <div class="nav-brand">
+    <span class="nav-logo">🍀</span>
+    <div>
+      <div class="nav-title">Peppin's Maths</div>
+      <div class="nav-sub">Junior Cycle · First Year</div>
+    </div>
+  </div>
+  <div class="nav-links"><a href="index.html" class="nav-link active">🏠 Home</a>
+<a href="plan.html" class="nav-link ">📅 45-Day Plan</a>
+<a href="quiz.html" class="nav-link ">⚡ Quick Quiz</a>
+<a href="progress.html" class="nav-link ">📈 My Progress</a>
+</div>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+</nav>
+<div style="background:#B8860B;color:#fff;padding:1.5rem 1.5rem 1rem;">
+  <div style="max-width:900px;margin:0 auto;">
+    <a href="index.html" style="color:rgba(255,255,255,.7);font-size:.82rem;font-weight:700;">← Back to Home</a>
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-top:.6rem;">
+      <div>
+        <div style="font-size:.75rem;opacity:.7;font-weight:800;letter-spacing:.1em;text-transform:uppercase;">Day 23 of 45 · Geometry</div>
+        <h1 style="font-family:'Merriweather',serif;font-size:clamp(1.3rem,3vw,2rem);margin:.3rem 0;">Coordinate Geometry</h1>
+        <div style="font-size:1rem;opacity:.85;">Distance, Midpoint & Slope</div>
+        <div style="margin-top:.6rem;display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;">
+          <span class="level-badge" style="background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4)">Ordinary</span>
+          <span style="font-size:.78rem;opacity:.7">6 questions · 20 marks total</span>
+        </div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:2.5rem;line-height:1">📐</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="max-width:900px;">
+  <div class="tab-bar">
+    <button class="tab active" onclick="switchTab('concept',this)">📖 Concept</button>
+    <button class="tab" onclick="switchTab('questions',this)">✏️ Practice Questions</button>
+  </div>
+
+  
+<div class="tab-content active" id="tab-concept">
+  <div class="concept-section mt2">
+    <div class="section-label" style="color:#1565C0">📘 What is this topic?</div>
+    <div class="explain-box"><p>Distance: |AB|=√[(x₂−x₁)²+(y₂−y₁)²]. Midpoint: M=((x₁+x₂)/2,(y₁+y₂)/2). Slope: m=(y₂−y₁)/(x₂−x₁).</p><p>PARALLEL: equal slopes. PERPENDICULAR: m₁×m₂=−1 (negative reciprocal, m⊥=−1/m).</p></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--gold)">💡 Analogy — How to picture it</div>
+    <div class="analogy-box"><p>Slope is like a hill's steepness: slope=3 means 3 steps up for every 1 right. Negative slope=downhill. Two parallel roads have equal steepness; perpendicular roads make perfect right angles.</p></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--green)">🔍 Worked Example</div>
+    <div class="worked-box">
+      <strong style="display:block;margin-bottom:.6rem">A(1,2) B(7,6). Find slope, length, midpoint, perpendicular slope.</strong>
+      <ol class="step-list"><li>Slope: (6−2)/(7−1)=4/6=2/3</li><li>Length: √[36+16]=√52=2√13</li><li>Midpoint: (4,4)</li><li>Perp slope: −3/2</li></ol>
+    </div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:#BF360C">⚠️ Common Mistakes</div>
+    <div class="mistake-box"><ul style="padding-left:1.2rem"><li>Distance: SQUARE the differences — don't just add |Δx|+|Δy|</li><li>Slope must be (y₂−y₁)/(x₂−x₁) — mixing up x and y gives wrong answer</li><li>Perp slope: flip fraction AND change sign. 2/3 → −3/2</li></ul></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--navy)">📌 Key Formulae</div>
+    <div class="formula-box"><code>|AB|=√[(x₂−x₁)²+(y₂−y₁)²]</code><code>M=((x₁+x₂)/2,(y₁+y₂)/2)</code><code>m=(y₂−y₁)/(x₂−x₁); m⊥=−1/m</code></div>
+  </div>
+  <div class="tip-box mt2">
+    <strong>🎯 SEC Exam Insight:</strong> Coordinate geometry: perpendicular slope (−1/m) is frequently needed. Remember: perpendicular means FLIP the fraction AND CHANGE the sign. m=3/4 → m⊥=−4/3.
+  </div>
+</div>
+
+  <div class="tab-content" id="tab-questions">
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q1</span>
+    <span style="flex:1;font-size:.9rem">Find the distance between A(1,3) and B(5,7).</span>
+    <span class="q-marks">3 marks</span>
+  </div>
+  <div class="q-hint" id="hint-23-1">💡 <em>Apply the distance formula: √[(x₂−x₁)²+(y₂−y₁)²].</em></div>
+  <div class="q-answer" id="ans-23-1"><strong>✅ Answer:</strong> |AB|=√[16+16]=√32=4√2≈5.66 units</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-23-1')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-23-1')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q2</span>
+    <span style="flex:1;font-size:.9rem">Find the midpoint of A(1,3) and B(5,7).</span>
+    <span class="q-marks">2 marks</span>
+  </div>
+  <div class="q-hint" id="hint-23-2">💡 <em>Average the x-coordinates and average the y-coordinates.</em></div>
+  <div class="q-answer" id="ans-23-2"><strong>✅ Answer:</strong> M=((1+5)/2,(3+7)/2)=(3,5)</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-23-2')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-23-2')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q3</span>
+    <span style="flex:1;font-size:.9rem">Find the slope of the line through A(1,3) and B(5,7).</span>
+    <span class="q-marks">3 marks</span>
+  </div>
+  <div class="q-hint" id="hint-23-3">💡 <em>Slope = rise ÷ run = (y₂−y₁)/(x₂−x₁).</em></div>
+  <div class="q-answer" id="ans-23-3"><strong>✅ Answer:</strong> m=(7−3)/(5−1)=4/4=1</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-23-3')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-23-3')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q4</span>
+    <span style="flex:1;font-size:.9rem">Find the equation of the line through midpoint M from Q2, perpendicular to AB.</span>
+    <span class="q-marks">3 marks</span>
+  </div>
+  <div class="q-hint" id="hint-23-4">💡 <em>The perpendicular slope is −1/m. Use y−y₁=m(x−x₁).</em></div>
+  <div class="q-answer" id="ans-23-4"><strong>✅ Answer:</strong> Perp slope=−1. Through (3,5): y−5=−1(x−3) → x+y−8=0</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-23-4')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-23-4')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q5</span>
+    <span style="flex:1;font-size:.9rem">Find the equation of the line through (−1,2) with slope 3. Write as ax+by+c=0.</span>
+    <span class="q-marks">4 marks</span>
+  </div>
+  <div class="q-hint" id="hint-23-5">💡 <em>Use y−y₁=m(x−x₁) with (x₁,y₁)=(−1,2) and m=3.</em></div>
+  <div class="q-answer" id="ans-23-5"><strong>✅ Answer:</strong> y−2=3(x+1) → 3x−y+5=0</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-23-5')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-23-5')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q6</span>
+    <span style="flex:1;font-size:.9rem">Line l: through (1,2) and (4,5). Line k: perpendicular to l through (3,−1). Find k's equation and x-intercept.</span>
+    <span class="q-marks">5 marks</span>
+  </div>
+  <div class="q-hint" id="hint-23-6">💡 <em>Find slope of l, then find perpendicular slope. Use point-slope form for k.</em></div>
+  <div class="q-answer" id="ans-23-6"><strong>✅ Answer:</strong> m_l=1; m_k=−1. k: y=−x+2. x-intercept at (2,0)</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-23-6')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-23-6')">✅ Show Answer</button>
+  </div>
+</div>
+</div>
+
+
+  <div style="display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wrap;margin-top:2rem;padding-top:1rem;border-top:2px solid var(--border);">
+    <a href="day22.html" class="btn btn-primary">← Day 22</a>
+    <button class="btn btn-gold" onclick="markComplete(23)">✅ Mark Day 23 Complete</button>
+    <a href="day24.html" class="btn btn-green">Day 24 →</a>
+  </div>
+</div>
+
+<footer>
+  <strong>Peppin's Tuition Centre, Cork</strong> · Day 23 · Coordinate Geometry — Distance, Midpoint & Slope
+</footer>
+
+<script>
+function switchTab(name, btn) {
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+  btn.classList.add('active');
+}
+function toggleEl(id) {
+  const el = document.getElementById(id);
+  el.style.display = el.style.display === 'block' ? 'none' : 'block';
+}
+function markComplete(day) {
+  localStorage.setItem('day_complete_'+day, '1');
+  alert('Day ' + day + ' marked as complete! 🎉');
+}
+</script>
+</body></html>

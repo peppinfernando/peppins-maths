@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 26 · Trigonometry · Peppin's Maths</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head><body>
+<nav class="navbar">
+  <div class="nav-brand">
+    <span class="nav-logo">🍀</span>
+    <div>
+      <div class="nav-title">Peppin's Maths</div>
+      <div class="nav-sub">Junior Cycle · First Year</div>
+    </div>
+  </div>
+  <div class="nav-links"><a href="index.html" class="nav-link active">🏠 Home</a>
+<a href="plan.html" class="nav-link ">📅 45-Day Plan</a>
+<a href="quiz.html" class="nav-link ">⚡ Quick Quiz</a>
+<a href="progress.html" class="nav-link ">📈 My Progress</a>
+</div>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+</nav>
+<div style="background:#B8860B;color:#fff;padding:1.5rem 1.5rem 1rem;">
+  <div style="max-width:900px;margin:0 auto;">
+    <a href="index.html" style="color:rgba(255,255,255,.7);font-size:.82rem;font-weight:700;">← Back to Home</a>
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-top:.6rem;">
+      <div>
+        <div style="font-size:.75rem;opacity:.7;font-weight:800;letter-spacing:.1em;text-transform:uppercase;">Day 26 of 45 · Geometry</div>
+        <h1 style="font-family:'Merriweather',serif;font-size:clamp(1.3rem,3vw,2rem);margin:.3rem 0;">Trigonometry</h1>
+        <div style="font-size:1rem;opacity:.85;">Sine Rule, Cosine Rule & Area</div>
+        <div style="margin-top:.6rem;display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;">
+          <span class="level-badge" style="background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4)">Higher</span>
+          <span style="font-size:.78rem;opacity:.7">6 questions · 24 marks total</span>
+        </div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:2.5rem;line-height:1">📐</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="max-width:900px;">
+  <div class="tab-bar">
+    <button class="tab active" onclick="switchTab('concept',this)">📖 Concept</button>
+    <button class="tab" onclick="switchTab('questions',this)">✏️ Practice Questions</button>
+  </div>
+
+  
+<div class="tab-content active" id="tab-concept">
+  <div class="concept-section mt2">
+    <div class="section-label" style="color:#1565C0">📘 What is this topic?</div>
+    <div class="explain-box"><p>SINE RULE: a/sinA=b/sinB=c/sinC. Use for AAS, ASA.</p><p>COSINE RULE: a²=b²+c²−2bc cosA. Use for SAS (find side) or SSS (find angle). Rearranged: cosA=(b²+c²−a²)/2bc.</p><p>AREA of any triangle: ½ab sinC (C is angle BETWEEN sides a and b). All in Tables booklet.</p></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--gold)">💡 Analogy — How to picture it</div>
+    <div class="analogy-box"><p>Sine Rule: works when you have an angle opposite a known side. Cosine Rule: works when you're 'stuck' with two sides around an angle (SAS) or all three sides (SSS).</p></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--green)">🔍 Worked Example</div>
+    <div class="worked-box">
+      <strong style="display:block;margin-bottom:.6rem">PQ=7, PR=5, ∠QPR=60°. Find QR and area.</strong>
+      <ol class="step-list"><li>SAS → Cosine Rule</li><li>QR²=49+25−70(0.5)=39</li><li>QR=√39≈6.24cm</li><li>Area=½×7×5×sin60°≈15.16 cm²</li></ol>
+    </div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:#BF360C">⚠️ Common Mistakes</div>
+    <div class="mistake-box"><ul style="padding-left:1.2rem"><li>Cosine Rule: angle A must be OPPOSITE the side a you're finding</li><li>Finding angle from Cosine Rule: cosA=(b²+c²−a²)/2bc → use cos⁻¹</li><li>Area: angle must be BETWEEN the two sides used</li></ul></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--navy)">📌 Key Formulae</div>
+    <div class="formula-box"><code>Sine Rule: a/sinA=b/sinB=c/sinC</code><code>Cosine Rule: a²=b²+c²−2bc cosA</code><code>Area: ½ab sinC</code></div>
+  </div>
+  <div class="tip-box mt2">
+    <strong>🎯 SEC Exam Insight:</strong> Sine/Cosine Rule decision: angle BETWEEN two sides and you know them → Cosine Rule. Know one angle and opposite side + another side → Sine Rule. Area=½ab sinC is in the booklet.
+  </div>
+</div>
+
+  <div class="tab-content" id="tab-questions">
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q1</span>
+    <span style="flex:1;font-size:.9rem">Triangle: ∠A=40°, ∠B=70°, b=8cm. Find a using Sine Rule.</span>
+    <span class="q-marks">3 marks</span>
+  </div>
+  <div class="q-hint" id="hint-26-1">💡 <em>Find the missing angle C first, then apply the Sine Rule.</em></div>
+  <div class="q-answer" id="ans-26-1"><strong>✅ Answer:</strong> a/sin40=8/sin70 → a=8sin40/sin70≈5.47 cm</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-26-1')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-26-1')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q2</span>
+    <span style="flex:1;font-size:.9rem">Triangle from Q1: find side c.</span>
+    <span class="q-marks">3 marks</span>
+  </div>
+  <div class="q-hint" id="hint-26-2">💡 <em>∠C=180−40−70=70°. Apply Sine Rule.</em></div>
+  <div class="q-answer" id="ans-26-2"><strong>✅ Answer:</strong> ∠C=70°; c/sin70=8/sin70 → c=8 cm (isosceles)</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-26-2')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-26-2')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q3</span>
+    <span style="flex:1;font-size:.9rem">Triangle: PQ=7cm, PR=5cm, ∠QPR=60°. Find QR using Cosine Rule.</span>
+    <span class="q-marks">4 marks</span>
+  </div>
+  <div class="q-hint" id="hint-26-3">💡 <em>SAS: use Cosine Rule a²=b²+c²−2bc cosA where A=60°.</em></div>
+  <div class="q-answer" id="ans-26-3"><strong>✅ Answer:</strong> QR²=49+25−70cos60=39 → QR=√39≈6.24cm</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-26-3')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-26-3')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q4</span>
+    <span style="flex:1;font-size:.9rem">Find the area of triangle from Q3.</span>
+    <span class="q-marks">4 marks</span>
+  </div>
+  <div class="q-hint" id="hint-26-4">💡 <em>Area=½ab sinC where C is the INCLUDED angle.</em></div>
+  <div class="q-answer" id="ans-26-4"><strong>✅ Answer:</strong> Area=½×7×5×sin60°=35√3/4≈15.16 cm²</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-26-4')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-26-4')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q5</span>
+    <span style="flex:1;font-size:.9rem">Triangle sides: a=7, b=6, c=5. Find angle A using Cosine Rule.</span>
+    <span class="q-marks">5 marks</span>
+  </div>
+  <div class="q-hint" id="hint-26-5">💡 <em>Rearrange Cosine Rule: cosA=(b²+c²−a²)/(2bc).</em></div>
+  <div class="q-answer" id="ans-26-5"><strong>✅ Answer:</strong> cosA=(36+25−49)/60=0.2 → A=cos⁻¹(0.2)≈78.5°</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-26-5')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-26-5')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q6</span>
+    <span style="flex:1;font-size:.9rem">Ship sails 12km on bearing 040°, then 15km on bearing 150°. Distance from start? (Angle between paths=110°)</span>
+    <span class="q-marks">5 marks</span>
+  </div>
+  <div class="q-hint" id="hint-26-6">💡 <em>The angle between the two paths is 110°. Apply the Cosine Rule.</em></div>
+  <div class="q-answer" id="ans-26-6"><strong>✅ Answer:</strong> d²=144+225−360cos110≈492.1 → d≈22.2km</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-26-6')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-26-6')">✅ Show Answer</button>
+  </div>
+</div>
+</div>
+
+
+  <div style="display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wrap;margin-top:2rem;padding-top:1rem;border-top:2px solid var(--border);">
+    <a href="day25.html" class="btn btn-primary">← Day 25</a>
+    <button class="btn btn-gold" onclick="markComplete(26)">✅ Mark Day 26 Complete</button>
+    <a href="day27.html" class="btn btn-green">Day 27 →</a>
+  </div>
+</div>
+
+<footer>
+  <strong>Peppin's Tuition Centre, Cork</strong> · Day 26 · Trigonometry — Sine Rule, Cosine Rule & Area
+</footer>
+
+<script>
+function switchTab(name, btn) {
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+  btn.classList.add('active');
+}
+function toggleEl(id) {
+  const el = document.getElementById(id);
+  el.style.display = el.style.display === 'block' ? 'none' : 'block';
+}
+function markComplete(day) {
+  localStorage.setItem('day_complete_'+day, '1');
+  alert('Day ' + day + ' marked as complete! 🎉');
+}
+</script>
+</body></html>

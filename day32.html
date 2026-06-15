@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 32 · Statistics · Peppin's Maths</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head><body>
+<nav class="navbar">
+  <div class="nav-brand">
+    <span class="nav-logo">🍀</span>
+    <div>
+      <div class="nav-title">Peppin's Maths</div>
+      <div class="nav-sub">Junior Cycle · First Year</div>
+    </div>
+  </div>
+  <div class="nav-links"><a href="index.html" class="nav-link active">🏠 Home</a>
+<a href="plan.html" class="nav-link ">📅 45-Day Plan</a>
+<a href="quiz.html" class="nav-link ">⚡ Quick Quiz</a>
+<a href="progress.html" class="nav-link ">📈 My Progress</a>
+</div>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+</nav>
+<div style="background:#6A0572;color:#fff;padding:1.5rem 1.5rem 1rem;">
+  <div style="max-width:900px;margin:0 auto;">
+    <a href="index.html" style="color:rgba(255,255,255,.7);font-size:.82rem;font-weight:700;">← Back to Home</a>
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-top:.6rem;">
+      <div>
+        <div style="font-size:.75rem;opacity:.7;font-weight:800;letter-spacing:.1em;text-transform:uppercase;">Day 32 of 45 · Statistics</div>
+        <h1 style="font-family:'Merriweather',serif;font-size:clamp(1.3rem,3vw,2rem);margin:.3rem 0;">Statistics</h1>
+        <div style="font-size:1rem;opacity:.85;">Scatter Diagrams & Correlation</div>
+        <div style="margin-top:.6rem;display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;">
+          <span class="level-badge" style="background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4)">Ordinary</span>
+          <span style="font-size:.78rem;opacity:.7">6 questions · 20 marks total</span>
+        </div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:2.5rem;line-height:1">📊</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="max-width:900px;">
+  <div class="tab-bar">
+    <button class="tab active" onclick="switchTab('concept',this)">📖 Concept</button>
+    <button class="tab" onclick="switchTab('questions',this)">✏️ Practice Questions</button>
+  </div>
+
+  
+<div class="tab-content active" id="tab-concept">
+  <div class="concept-section mt2">
+    <div class="section-label" style="color:#1565C0">📘 What is this topic?</div>
+    <div class="explain-box"><p>SCATTER DIAGRAM: plots (x,y) pairs. CORRELATION: positive (both up), negative (one up, other down), none.</p><p>LINE OF BEST FIT: must pass through MEAN POINT (x̄,ȳ). INTERPOLATION (within range): reliable. EXTRAPOLATION (outside range): unreliable.</p><p>CORRELATION ≠ CAUSATION: a link doesn't mean one causes the other.</p></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--gold)">💡 Analogy — How to picture it</div>
+    <div class="analogy-box"><p>Ice cream sales and drownings both increase in summer — strong positive correlation — but ice cream does NOT cause drowning. Both are caused by a third factor: hot weather. Always look for lurking variables!</p></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--green)">🔍 Worked Example</div>
+    <div class="worked-box">
+      <strong style="display:block;margin-bottom:.6rem">Hours x=(1,2,3,4,5,6). Scores y=(45,55,60,70,75,85). Mean point and correlation.</strong>
+      <ol class="step-list"><li>x̄=(1+2+3+4+5+6)/6=3.5</li><li>ȳ=(45+55+60+70+75+85)/6=65</li><li>Mean point: (3.5,65) — line must pass through this</li><li>Correlation: strong positive</li></ol>
+    </div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:#BF360C">⚠️ Common Mistakes</div>
+    <div class="mistake-box"><ul style="padding-left:1.2rem"><li>Line of best fit: NOT always through origin. MUST pass through mean point.</li><li>Extrapolation: predicting well beyond data range is very unreliable</li><li>Draw line across the WHOLE plot, not just between two specific points</li></ul></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--navy)">📌 Key Formulae</div>
+    <div class="formula-box"><code>Mean point: (x̄,ȳ) — line must pass through this</code><code>Interpolation: reliable; Extrapolation: unreliable</code><code>Correlation ≠ Causation</code></div>
+  </div>
+  <div class="tip-box mt2">
+    <strong>🎯 SEC Exam Insight:</strong> Scatter diagrams: the line of best fit MUST pass through the mean point (x̄,ȳ). Mark the mean point as a cross on the diagram BEFORE drawing the line. Examiners look for this explicitly.
+  </div>
+</div>
+
+  <div class="tab-content" id="tab-questions">
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q1</span>
+    <span style="flex:1;font-size:.9rem">Scatter plot: study hours on x-axis, marks on y-axis. Points trend upward. Describe correlation.</span>
+    <span class="q-marks">2 marks</span>
+  </div>
+  <div class="q-hint" id="hint-32-1">💡 <em>Does one variable increase as the other increases? That's positive correlation.</em></div>
+  <div class="q-answer" id="ans-32-1"><strong>✅ Answer:</strong> Strong positive correlation: as study hours increase, marks tend to increase.</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-32-1')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-32-1')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q2</span>
+    <span style="flex:1;font-size:.9rem">Points cluster tightly in a downward-sloping pattern. Describe the correlation.</span>
+    <span class="q-marks">2 marks</span>
+  </div>
+  <div class="q-hint" id="hint-32-2">💡 <em>Downward slope = negative; tight cluster = strong.</em></div>
+  <div class="q-answer" id="ans-32-2"><strong>✅ Answer:</strong> Strong negative correlation: as one variable increases, the other decreases closely.</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-32-2')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-32-2')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q3</span>
+    <span style="flex:1;font-size:.9rem">Hours: 2,3,4,5,6,7,8. Scores: 55,60,65,70,75,80,85. Calculate mean point (x̄,ȳ).</span>
+    <span class="q-marks">3 marks</span>
+  </div>
+  <div class="q-hint" id="hint-32-3">💡 <em>The line of best fit MUST pass through the mean point.</em></div>
+  <div class="q-answer" id="ans-32-3"><strong>✅ Answer:</strong> x̄=35/7=5; ȳ=490/7=70. Mean point: (5,70)</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-32-3')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-32-3')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q4</span>
+    <span style="flex:1;font-size:.9rem">Using data from Q3, predict score for 9 hours study (if appropriate).</span>
+    <span class="q-marks">4 marks</span>
+  </div>
+  <div class="q-hint" id="hint-32-4">💡 <em>Draw the line of best fit through (5,70) and extend it to x=9.</em></div>
+  <div class="q-answer" id="ans-32-4"><strong>✅ Answer:</strong> Pattern is linear (slope=5 per hour). At x=9, predict y≈90. (Slight extrapolation — caution needed.)</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-32-4')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-32-4')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q5</span>
+    <span style="flex:1;font-size:.9rem">A study finds positive correlation between TV hours and exam marks. Does TV cause better results?</span>
+    <span class="q-marks">4 marks</span>
+  </div>
+  <div class="q-hint" id="hint-32-5">💡 <em>Think of what else might explain BOTH variables.</em></div>
+  <div class="q-answer" id="ans-32-5"><strong>✅ Answer:</strong> No — correlation ≠ causation. A third variable (motivated student) may cause both.</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-32-5')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-32-5')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q6</span>
+    <span style="flex:1;font-size:.9rem">Why would predicting a score for 20 study hours using the Q3 line be unreliable?</span>
+    <span class="q-marks">5 marks</span>
+  </div>
+  <div class="q-hint" id="hint-32-6">💡 <em>What happens when you predict far beyond your data range?</em></div>
+  <div class="q-answer" id="ans-32-6"><strong>✅ Answer:</strong> Extrapolation: 20 hours is far outside the data range (2−8). Linear trend may break down; other factors (fatigue, sleep) would dominate.</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-32-6')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-32-6')">✅ Show Answer</button>
+  </div>
+</div>
+</div>
+
+
+  <div style="display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wrap;margin-top:2rem;padding-top:1rem;border-top:2px solid var(--border);">
+    <a href="day31.html" class="btn btn-primary">← Day 31</a>
+    <button class="btn btn-gold" onclick="markComplete(32)">✅ Mark Day 32 Complete</button>
+    <a href="day33.html" class="btn btn-green">Day 33 →</a>
+  </div>
+</div>
+
+<footer>
+  <strong>Peppin's Tuition Centre, Cork</strong> · Day 32 · Statistics — Scatter Diagrams & Correlation
+</footer>
+
+<script>
+function switchTab(name, btn) {
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+  btn.classList.add('active');
+}
+function toggleEl(id) {
+  const el = document.getElementById(id);
+  el.style.display = el.style.display === 'block' ? 'none' : 'block';
+}
+function markComplete(day) {
+  localStorage.setItem('day_complete_'+day, '1');
+  alert('Day ' + day + ' marked as complete! 🎉');
+}
+</script>
+</body></html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 44 · Mock Exam · Peppin's Maths</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head><body>
+<nav class="navbar">
+  <div class="nav-brand">
+    <span class="nav-logo">🍀</span>
+    <div>
+      <div class="nav-title">Peppin's Maths</div>
+      <div class="nav-sub">Junior Cycle · First Year</div>
+    </div>
+  </div>
+  <div class="nav-links"><a href="index.html" class="nav-link active">🏠 Home</a>
+<a href="plan.html" class="nav-link ">📅 45-Day Plan</a>
+<a href="quiz.html" class="nav-link ">⚡ Quick Quiz</a>
+<a href="progress.html" class="nav-link ">📈 My Progress</a>
+</div>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+</nav>
+<div style="background:#C0392B;color:#fff;padding:1.5rem 1.5rem 1rem;">
+  <div style="max-width:900px;margin:0 auto;">
+    <a href="index.html" style="color:rgba(255,255,255,.7);font-size:.82rem;font-weight:700;">← Back to Home</a>
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-top:.6rem;">
+      <div>
+        <div style="font-size:.75rem;opacity:.7;font-weight:800;letter-spacing:.1em;text-transform:uppercase;">Day 44 of 45 · Mock</div>
+        <h1 style="font-family:'Merriweather',serif;font-size:clamp(1.3rem,3vw,2rem);margin:.3rem 0;">Mock Exam</h1>
+        <div style="font-size:1rem;opacity:.85;">Full Paper — All Topics</div>
+        <div style="margin-top:.6rem;display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;">
+          <span class="level-badge" style="background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4)">All Topics</span>
+          <span style="font-size:.78rem;opacity:.7">10 questions · 80 marks total</span>
+        </div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:2.5rem;line-height:1">📝</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="max-width:900px;">
+  <div class="tab-bar">
+    <button class="tab active" onclick="switchTab('concept',this)">📖 Concept</button>
+    <button class="tab" onclick="switchTab('questions',this)">✏️ Practice Questions</button>
+  </div>
+
+  
+<div class="tab-content active" id="tab-concept">
+  <div class="concept-section mt2">
+    <div class="section-label" style="color:#1565C0">📘 What is this topic?</div>
+    <div class="explain-box"><p>FINAL FULL MOCK — all strands, 90 minutes, no notes, calculator allowed. Mirrors the complete SEC Junior Cycle Mathematics paper.</p><p>FINAL MINDSET: You have covered every topic over 44 days. Read carefully. Show working. Trust your preparation.</p><p>After completing: mark honestly. Topics where marks were dropped → review that day's concept page tonight.</p></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--gold)">💡 Analogy — How to picture it</div>
+    <div class="analogy-box"><p>This is your full concerto rehearsal. A concert pianist plays the complete piece the night before the performance — not to learn it (they already know it), but to build confidence and feel the flow. You have prepared. Trust it.</p></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--green)">🔍 Worked Example</div>
+    <div class="worked-box">
+      <strong style="display:block;margin-bottom:.6rem">Final exam checklist — before handing in</strong>
+      <ol class="step-list"><li>Attempted EVERY question and sub-part?</li><li>UNITS on every final answer? (cm, cm², cm³, €, °)</li><li>FORMULA shown before every calculation?</li><li>CHECKED any question I felt unsure about?</li><li>All diagrams CLEARLY LABELLED with axes, title and units?</li></ol>
+    </div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:#BF360C">⚠️ Common Mistakes</div>
+    <div class="mistake-box"><ul style="padding-left:1.2rem"><li>Leaving any part blank — a formula alone earns a method mark</li><li>Answer doesn't make sense in context → error (negative area, probability>1)</li><li>Spending >3 minutes on one part → move on and return at end</li></ul></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--navy)">📌 Key Formulae</div>
+    <div class="formula-box"><code>ALL formulae from all 44 days apply</code><code>Tables & Formulae booklet provided in actual SEC exam</code></div>
+  </div>
+  <div class="tip-box mt2">
+    <strong>🎯 SEC Exam Insight:</strong> Full mock: the real SEC paper has 10 questions with 3 parts each. Parts (a) and (b) are usually accessible — secure those first. Attempt part (c) for method marks even if unsure.
+  </div>
+</div>
+
+  <div class="tab-content" id="tab-questions">
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q1</span>
+    <span style="flex:1;font-size:.9rem">(a)4+(6−2)²×3÷8. (b)HCF and LCM of 45 and 60. (c)3/4 of 120 students passed. % failed?</span>
+    <span class="q-marks">8 marks</span>
+  </div>
+  <div class="q-hint" id="hint-44-1">💡 <em>(a)BEMDAS: brackets first. (b)Prime factorise both. (c)1/4 failed.</em></div>
+  <div class="q-answer" id="ans-44-1"><strong>✅ Answer:</strong> (a)10. (b)HCF=15,LCM=180. (c)25% failed</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-44-1')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-44-1')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q2</span>
+    <span style="flex:1;font-size:.9rem">Solve: (a)2x+5=11. (b)3(x−2)=2x+4. (c)x²−x−6=0.</span>
+    <span class="q-marks">8 marks</span>
+  </div>
+  <div class="q-hint" id="hint-44-2">💡 <em>(c)Factorise: find two numbers with product=−6 and sum=−1.</em></div>
+  <div class="q-answer" id="ans-44-2"><strong>✅ Answer:</strong> (a)x=3. (b)x=10. (c)x=3 or x=−2</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-44-2')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-44-2')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q3</span>
+    <span style="flex:1;font-size:.9rem">Sequence 5,12,19,26,… (a)Tₙ and T₁₅. (b)Which term=180? (c)S₁₀.</span>
+    <span class="q-marks">8 marks</span>
+  </div>
+  <div class="q-hint" id="hint-44-3">💡 <em>(b)Set 7n−2=180 and solve for n.</em></div>
+  <div class="q-answer" id="ans-44-3"><strong>✅ Answer:</strong> (a)Tₙ=7n−2; T₁₅=103. (b)26th term. (c)365</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-44-3')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-44-3')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q4</span>
+    <span style="flex:1;font-size:.9rem">Triangle: two angles 58° and y°, exterior angle 130°. (a)Find y. (b)Verify with exterior angle theorem. (c)Triangle type.</span>
+    <span class="q-marks">8 marks</span>
+  </div>
+  <div class="q-hint" id="hint-44-4">💡 <em>(a)Third interior angle=180−130=50°. So y=180−58−50=72°.</em></div>
+  <div class="q-answer" id="ans-44-4"><strong>✅ Answer:</strong> (a)y=72°. (b)58+72=130° ✓. (c)Scalene</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-44-4')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-44-4')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q5</span>
+    <span style="flex:1;font-size:.9rem">A(1,2), B(7,10). (a)Slope. (b)|AB|. (c)Equation of perp bisector of AB.</span>
+    <span class="q-marks">8 marks</span>
+  </div>
+  <div class="q-hint" id="hint-44-5">💡 <em>Perp bisector: through midpoint (4,6) with perpendicular slope −3/4.</em></div>
+  <div class="q-answer" id="ans-44-5"><strong>✅ Answer:</strong> (a)4/3. (b)10. (c)3x+4y=36</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-44-5')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-44-5')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q6</span>
+    <span style="flex:1;font-size:.9rem">Cliff: 200m from boat, angle of elevation 35°. (a)Height. (b)Lighthouse 350m from base — angle of elevation?</span>
+    <span class="q-marks">8 marks</span>
+  </div>
+  <div class="q-hint" id="hint-44-6">💡 <em>(a)tanθ=opposite/adjacent=h/200. (b)Now h is opposite, 350 is adjacent.</em></div>
+  <div class="q-answer" id="ans-44-6"><strong>✅ Answer:</strong> (a)200tan35°≈140m. (b)tanα=140/350≈0.4 → α≈21.8°</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-44-6')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-44-6')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q7</span>
+    <span style="flex:1;font-size:.9rem">(a)Sector area: r=8cm, θ=75°. (b)V of cylinder r=8cm, h=15cm. (c)Total SA of cylinder.</span>
+    <span class="q-marks">8 marks</span>
+  </div>
+  <div class="q-hint" id="hint-44-7">💡 <em>(c)Total SA=2πr²+2πrh.</em></div>
+  <div class="q-answer" id="ans-44-7"><strong>✅ Answer:</strong> (a)≈41.9 cm². (b)≈3016 cm³. (c)≈1156 cm²</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-44-7')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-44-7')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q8</span>
+    <span style="flex:1;font-size:.9rem">Bag: 5R,8B. Two without replacement. (a)P(1st red). (b)P(both red). (c)P(at least one blue).</span>
+    <span class="q-marks">8 marks</span>
+  </div>
+  <div class="q-hint" id="hint-44-8">💡 <em>(c)P(at least one blue)=1−P(both red)=1−5/39.</em></div>
+  <div class="q-answer" id="ans-44-8"><strong>✅ Answer:</strong> (a)5/13. (b)5/39. (c)34/39</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-44-8')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-44-8')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q9</span>
+    <span style="flex:1;font-size:.9rem">Ages: 22,30,18,25,21,15,22,27,24,20. Find mean, median, mode, range, Q1, Q3, IQR.</span>
+    <span class="q-marks">8 marks</span>
+  </div>
+  <div class="q-hint" id="hint-44-9">💡 <em>Order the data first: 15,18,20,21,22,22,24,25,27,30.</em></div>
+  <div class="q-answer" id="ans-44-9"><strong>✅ Answer:</strong> Mean=22.4; Median=22; Mode=22; Range=15; Q1=20; Q3=25; IQR=5</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-44-9')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-44-9')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q10</span>
+    <span style="flex:1;font-size:.9rem">Triangle: AC=7, BC=5, ∠ACB=60°. (i)Find AB. (ii)Area. (iii)Find ∠BAC (Sine Rule).</span>
+    <span class="q-marks">8 marks</span>
+  </div>
+  <div class="q-hint" id="hint-44-10">💡 <em>(i)Cosine Rule. (ii)½ab sinC. (iii)sin(BAC)/5=sin60/6.24.</em></div>
+  <div class="q-answer" id="ans-44-10"><strong>✅ Answer:</strong> (i)AB=√39≈6.24cm. (ii)≈15.16 cm². (iii)≈43.8°</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-44-10')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-44-10')">✅ Show Answer</button>
+  </div>
+</div>
+</div>
+
+
+  <div style="display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wrap;margin-top:2rem;padding-top:1rem;border-top:2px solid var(--border);">
+    <a href="day43.html" class="btn btn-primary">← Day 43</a>
+    <button class="btn btn-gold" onclick="markComplete(44)">✅ Mark Day 44 Complete</button>
+    <a href="day45.html" class="btn btn-green">Day 45 →</a>
+  </div>
+</div>
+
+<footer>
+  <strong>Peppin's Tuition Centre, Cork</strong> · Day 44 · Mock Exam — Full Paper — All Topics
+</footer>
+
+<script>
+function switchTab(name, btn) {
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+  btn.classList.add('active');
+}
+function toggleEl(id) {
+  const el = document.getElementById(id);
+  el.style.display = el.style.display === 'block' ? 'none' : 'block';
+}
+function markComplete(day) {
+  localStorage.setItem('day_complete_'+day, '1');
+  alert('Day ' + day + ' marked as complete! 🎉');
+}
+</script>
+</body></html>

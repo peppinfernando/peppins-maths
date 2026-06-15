@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 20 · Geometry · Peppin's Maths</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head><body>
+<nav class="navbar">
+  <div class="nav-brand">
+    <span class="nav-logo">🍀</span>
+    <div>
+      <div class="nav-title">Peppin's Maths</div>
+      <div class="nav-sub">Junior Cycle · First Year</div>
+    </div>
+  </div>
+  <div class="nav-links"><a href="index.html" class="nav-link active">🏠 Home</a>
+<a href="plan.html" class="nav-link ">📅 45-Day Plan</a>
+<a href="quiz.html" class="nav-link ">⚡ Quick Quiz</a>
+<a href="progress.html" class="nav-link ">📈 My Progress</a>
+</div>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+</nav>
+<div style="background:#B8860B;color:#fff;padding:1.5rem 1.5rem 1rem;">
+  <div style="max-width:900px;margin:0 auto;">
+    <a href="index.html" style="color:rgba(255,255,255,.7);font-size:.82rem;font-weight:700;">← Back to Home</a>
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-top:.6rem;">
+      <div>
+        <div style="font-size:.75rem;opacity:.7;font-weight:800;letter-spacing:.1em;text-transform:uppercase;">Day 20 of 45 · Geometry</div>
+        <h1 style="font-family:'Merriweather',serif;font-size:clamp(1.3rem,3vw,2rem);margin:.3rem 0;">Geometry</h1>
+        <div style="font-size:1rem;opacity:.85;">Constructions</div>
+        <div style="margin-top:.6rem;display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;">
+          <span class="level-badge" style="background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4)">Ordinary</span>
+          <span style="font-size:.78rem;opacity:.7">6 questions · 23 marks total</span>
+        </div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:2.5rem;line-height:1">📐</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="max-width:900px;">
+  <div class="tab-bar">
+    <button class="tab active" onclick="switchTab('concept',this)">📖 Concept</button>
+    <button class="tab" onclick="switchTab('questions',this)">✏️ Practice Questions</button>
+  </div>
+
+  
+<div class="tab-content active" id="tab-concept">
+  <div class="concept-section mt2">
+    <div class="section-label" style="color:#1565C0">📘 What is this topic?</div>
+    <div class="explain-box"><p>Key constructions: (1) Perpendicular bisector of a segment. (2) Angle bisector. (3) SSS triangle. (4) SAS triangle. (5) Circumcircle (intersection of perp. bisectors). (6) Incircle (intersection of angle bisectors).</p><p>NEVER erase construction arcs in the exam — they prove your method.</p></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--gold)">💡 Analogy — How to picture it</div>
+    <div class="analogy-box"><p>The perpendicular bisector finds all points EQUIDISTANT from both endpoints. Compass arcs measure equal distances from each end — their crossings are the equidistant points.</p></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--green)">🔍 Worked Example</div>
+    <div class="worked-box">
+      <strong style="display:block;margin-bottom:.6rem">Construct perpendicular bisector of AB=8cm</strong>
+      <ol class="step-list"><li>Draw AB=8cm</li><li>Set compass to more than 4cm</li><li>Arcs from A above and below AB</li><li>SAME compass setting: arcs from B crossing the first arcs</li><li>Connect the two intersection points</li><li>This line is the perpendicular bisector</li></ol>
+    </div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:#BF360C">⚠️ Common Mistakes</div>
+    <div class="mistake-box"><ul style="padding-left:1.2rem"><li>Always use compass — not a ruler to mark the midpoint alone</li><li>Keep compass width THE SAME for both arcs</li><li>NEVER erase arcs — they show your method</li></ul></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--navy)">📌 Key Formulae</div>
+    <div class="formula-box"><code>Circumcentre: intersection of perp. bisectors of sides</code><code>Incentre: intersection of angle bisectors</code><code>SSS: compass arcs from both ends</code><code>SAS: protractor for angle, compass for side lengths</code></div>
+  </div>
+  <div class="tip-box mt2">
+    <strong>🎯 SEC Exam Insight:</strong> Constructions: never erase your compass arcs — they show the examiner you used the correct geometric method and earn construction marks even if the final shape is imprecise.
+  </div>
+</div>
+
+  <div class="tab-content" id="tab-questions">
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q1</span>
+    <span style="flex:1;font-size:.9rem">Describe step-by-step how to construct the perpendicular bisector of AB=8cm.</span>
+    <span class="q-marks">3 marks</span>
+  </div>
+  <div class="q-hint" id="hint-20-1">💡 <em>You need your compass to draw arcs of equal radius from both endpoints.</em></div>
+  <div class="q-answer" id="ans-20-1"><strong>✅ Answer:</strong> 1.Draw AB=8cm. 2.Compass>4cm, arcs from A. 3.Same setting, arcs from B. 4.Connect intersections.</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-20-1')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-20-1')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q2</span>
+    <span style="flex:1;font-size:.9rem">Describe how to bisect a 60° angle using compass and ruler only.</span>
+    <span class="q-marks">3 marks</span>
+  </div>
+  <div class="q-hint" id="hint-20-2">💡 <em>The bisector of an angle is found by creating two equal-radius arcs.</em></div>
+  <div class="q-answer" id="ans-20-2"><strong>✅ Answer:</strong> 1.Arc from vertex. 2.Equal arcs from each crossing. 3.Line from vertex through intersection.</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-20-2')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-20-2')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q3</span>
+    <span style="flex:1;font-size:.9rem">Describe steps to construct triangle ABC: AB=5cm, BC=7cm, AC=6cm. (SSS)</span>
+    <span class="q-marks">4 marks</span>
+  </div>
+  <div class="q-hint" id="hint-20-3">💡 <em>Draw the base, then swing arcs of the correct length from each endpoint.</em></div>
+  <div class="q-answer" id="ans-20-3"><strong>✅ Answer:</strong> 1.Draw BC=7cm. 2.Compass 5cm, arc from B. 3.Compass 6cm, arc from C. 4.Intersection=A.</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-20-3')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-20-3')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q4</span>
+    <span style="flex:1;font-size:.9rem">Describe constructing triangle: AB=8cm, AC=6cm, ∠BAC=50°. (SAS)</span>
+    <span class="q-marks">4 marks</span>
+  </div>
+  <div class="q-hint" id="hint-20-4">💡 <em>Draw one side, use a protractor for the angle, mark the second side along that ray.</em></div>
+  <div class="q-answer" id="ans-20-4"><strong>✅ Answer:</strong> 1.Draw AB=8cm. 2.Measure 50° at A. 3.Mark AC=6cm. 4.Connect BC.</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-20-4')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-20-4')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q5</span>
+    <span style="flex:1;font-size:.9rem">Explain how to construct the circumscribed circle of a triangle.</span>
+    <span class="q-marks">4 marks</span>
+  </div>
+  <div class="q-hint" id="hint-20-5">💡 <em>The circumcentre is equidistant from all three vertices.</em></div>
+  <div class="q-answer" id="ans-20-5"><strong>✅ Answer:</strong> 1.Perp bisector of two sides. 2.Intersection=circumcentre. 3.Radius=distance to vertex. 4.Draw circle.</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-20-5')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-20-5')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q6</span>
+    <span style="flex:1;font-size:.9rem">Explain how to construct the inscribed circle of a triangle.</span>
+    <span class="q-marks">5 marks</span>
+  </div>
+  <div class="q-hint" id="hint-20-6">💡 <em>The incentre is equidistant from all three sides.</em></div>
+  <div class="q-answer" id="ans-20-6"><strong>✅ Answer:</strong> 1.Bisect all three angles. 2.Intersection=incentre. 3.Perp from incentre to any side=radius. 4.Draw circle.</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-20-6')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-20-6')">✅ Show Answer</button>
+  </div>
+</div>
+</div>
+
+
+  <div style="display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wrap;margin-top:2rem;padding-top:1rem;border-top:2px solid var(--border);">
+    <a href="day19.html" class="btn btn-primary">← Day 19</a>
+    <button class="btn btn-gold" onclick="markComplete(20)">✅ Mark Day 20 Complete</button>
+    <a href="day21.html" class="btn btn-green">Day 21 →</a>
+  </div>
+</div>
+
+<footer>
+  <strong>Peppin's Tuition Centre, Cork</strong> · Day 20 · Geometry — Constructions
+</footer>
+
+<script>
+function switchTab(name, btn) {
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+  btn.classList.add('active');
+}
+function toggleEl(id) {
+  const el = document.getElementById(id);
+  el.style.display = el.style.display === 'block' ? 'none' : 'block';
+}
+function markComplete(day) {
+  localStorage.setItem('day_complete_'+day, '1');
+  alert('Day ' + day + ' marked as complete! 🎉');
+}
+</script>
+</body></html>

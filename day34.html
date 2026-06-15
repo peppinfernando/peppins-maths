@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 34 · Probability · Peppin's Maths</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head><body>
+<nav class="navbar">
+  <div class="nav-brand">
+    <span class="nav-logo">🍀</span>
+    <div>
+      <div class="nav-title">Peppin's Maths</div>
+      <div class="nav-sub">Junior Cycle · First Year</div>
+    </div>
+  </div>
+  <div class="nav-links"><a href="index.html" class="nav-link active">🏠 Home</a>
+<a href="plan.html" class="nav-link ">📅 45-Day Plan</a>
+<a href="quiz.html" class="nav-link ">⚡ Quick Quiz</a>
+<a href="progress.html" class="nav-link ">📈 My Progress</a>
+</div>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+</nav>
+<div style="background:#6A0572;color:#fff;padding:1.5rem 1.5rem 1rem;">
+  <div style="max-width:900px;margin:0 auto;">
+    <a href="index.html" style="color:rgba(255,255,255,.7);font-size:.82rem;font-weight:700;">← Back to Home</a>
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-top:.6rem;">
+      <div>
+        <div style="font-size:.75rem;opacity:.7;font-weight:800;letter-spacing:.1em;text-transform:uppercase;">Day 34 of 45 · Statistics</div>
+        <h1 style="font-family:'Merriweather',serif;font-size:clamp(1.3rem,3vw,2rem);margin:.3rem 0;">Probability</h1>
+        <div style="font-size:1rem;opacity:.85;">Combined Events & Tree Diagrams</div>
+        <div style="margin-top:.6rem;display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;">
+          <span class="level-badge" style="background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4)">Ordinary</span>
+          <span style="font-size:.78rem;opacity:.7">6 questions · 24 marks total</span>
+        </div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:2.5rem;line-height:1">📊</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="max-width:900px;">
+  <div class="tab-bar">
+    <button class="tab active" onclick="switchTab('concept',this)">📖 Concept</button>
+    <button class="tab" onclick="switchTab('questions',this)">✏️ Practice Questions</button>
+  </div>
+
+  
+<div class="tab-content active" id="tab-concept">
+  <div class="concept-section mt2">
+    <div class="section-label" style="color:#1565C0">📘 What is this topic?</div>
+    <div class="explain-box"><p>INDEPENDENT: P(A and B)=P(A)×P(B). DEPENDENT (without replacement): P(A then B)=P(A)×P(B|A).</p><p>TREE DIAGRAMS: MULTIPLY along branches (AND). ADD across branches for same outcome (OR). All final branches must SUM to 1.</p></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--gold)">💡 Analogy — How to picture it</div>
+    <div class="analogy-box"><p>A tree diagram is like a decision tree. You multiply along a PATH (each branch follows the previous). You ADD across PATHS to find total probability of reaching the same destination.</p></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--green)">🔍 Worked Example</div>
+    <div class="worked-box">
+      <strong style="display:block;margin-bottom:.6rem">Bag 5R, 7B. Without replacement. P(one red, one blue).</strong>
+      <ol class="step-list"><li>P(R then B)=(5/12)×(7/11)=35/132</li><li>P(B then R)=(7/12)×(5/11)=35/132</li><li>P(one of each)=70/132=35/66</li><li>Check: all branches sum to 1 ✓</li></ol>
+    </div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:#BF360C">⚠️ Common Mistakes</div>
+    <div class="mistake-box"><ul style="padding-left:1.2rem"><li>Without replacement: BOTH total AND the selected colour decrease by 1</li><li>Tree: multiply ALONG; ADD across for same outcome</li><li>Conditional P(A|B): use B row/column total, NOT grand total</li></ul></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--navy)">📌 Key Formulae</div>
+    <div class="formula-box"><code>Independent: P(A and B)=P(A)×P(B)</code><code>Dependent: P(A then B)=P(A)×P(B|A)</code><code>Tree: ×along; +across for same outcome</code></div>
+  </div>
+  <div class="tip-box mt2">
+    <strong>🎯 SEC Exam Insight:</strong> Tree diagrams: without replacement — BOTH the total and the selected colour count must decrease after each draw. Always verify all terminal branches sum to exactly 1.
+  </div>
+</div>
+
+  <div class="tab-content" id="tab-questions">
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q1</span>
+    <span style="flex:1;font-size:.9rem">Bag: 4 red, 8 blue. Two drawn without replacement. P(both red).</span>
+    <span class="q-marks">3 marks</span>
+  </div>
+  <div class="q-hint" id="hint-34-1">💡 <em>Without replacement: second draw has 11 counters, only 3 red.</em></div>
+  <div class="q-answer" id="ans-34-1"><strong>✅ Answer:</strong> P(RR)=4/12×3/11=12/132=1/11</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-34-1')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-34-1')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q2</span>
+    <span style="flex:1;font-size:.9rem">Using Q1, find P(one red and one blue) in either order.</span>
+    <span class="q-marks">3 marks</span>
+  </div>
+  <div class="q-hint" id="hint-34-2">💡 <em>Two orders possible: RB and BR. Add both probabilities.</em></div>
+  <div class="q-answer" id="ans-34-2"><strong>✅ Answer:</strong> P(RB)+P(BR)=(4/12)(8/11)+(8/12)(4/11)=64/132=16/33</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-34-2')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-34-2')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q3</span>
+    <span style="flex:1;font-size:.9rem">Draw tree diagram for tossing fair coin twice. Find P(at least one head).</span>
+    <span class="q-marks">4 marks</span>
+  </div>
+  <div class="q-hint" id="hint-34-3">💡 <em>Easiest: P(at least one H)=1−P(no heads)=1−P(TT).</em></div>
+  <div class="q-answer" id="ans-34-3"><strong>✅ Answer:</strong> P(TT)=0.25. P(at least one H)=1−0.25=0.75</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-34-3')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-34-3')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q4</span>
+    <span style="flex:1;font-size:.9rem">Class of 40: 25 play sport (8 also do music), 15 do music. Find P(sport and music) and P(sport|music).</span>
+    <span class="q-marks">4 marks</span>
+  </div>
+  <div class="q-hint" id="hint-34-4">💡 <em>For conditional P: use the GIVEN condition as your new total (15 students do music).</em></div>
+  <div class="q-answer" id="ans-34-4"><strong>✅ Answer:</strong> P(S∩M)=8/40=0.2. P(S|M)=8/15</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-34-4')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-34-4')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q5</span>
+    <span style="flex:1;font-size:.9rem">Tennis: 60% first serves in, win 70% of those. First fault (40%): 2nd serve in 80%, win 60%. Find P(win point).</span>
+    <span class="q-marks">5 marks</span>
+  </div>
+  <div class="q-hint" id="hint-34-5">💡 <em>Draw a tree. Multiply along each path, then add the paths where the player wins.</em></div>
+  <div class="q-answer" id="ans-34-5"><strong>✅ Answer:</strong> P(win)=0.6×0.7+0.4×0.8×0.6=0.42+0.192=0.612</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-34-5')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-34-5')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q6</span>
+    <span style="flex:1;font-size:.9rem">Box1: 3R,2B. Box2: 4R,3B. One ball from each. P(same colour).</span>
+    <span class="q-marks">5 marks</span>
+  </div>
+  <div class="q-hint" id="hint-34-6">💡 <em>Two ways to get 'same colour': both red OR both blue. Find each and add.</em></div>
+  <div class="q-answer" id="ans-34-6"><strong>✅ Answer:</strong> P(RR)=(3/5)(4/7)=12/35. P(BB)=(2/5)(3/7)=6/35. P(same)=18/35</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-34-6')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-34-6')">✅ Show Answer</button>
+  </div>
+</div>
+</div>
+
+
+  <div style="display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wrap;margin-top:2rem;padding-top:1rem;border-top:2px solid var(--border);">
+    <a href="day33.html" class="btn btn-primary">← Day 33</a>
+    <button class="btn btn-gold" onclick="markComplete(34)">✅ Mark Day 34 Complete</button>
+    <a href="day35.html" class="btn btn-green">Day 35 →</a>
+  </div>
+</div>
+
+<footer>
+  <strong>Peppin's Tuition Centre, Cork</strong> · Day 34 · Probability — Combined Events & Tree Diagrams
+</footer>
+
+<script>
+function switchTab(name, btn) {
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+  btn.classList.add('active');
+}
+function toggleEl(id) {
+  const el = document.getElementById(id);
+  el.style.display = el.style.display === 'block' ? 'none' : 'block';
+}
+function markComplete(day) {
+  localStorage.setItem('day_complete_'+day, '1');
+  alert('Day ' + day + ' marked as complete! 🎉');
+}
+</script>
+</body></html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 27 · Geometry · Peppin's Maths</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head><body>
+<nav class="navbar">
+  <div class="nav-brand">
+    <span class="nav-logo">🍀</span>
+    <div>
+      <div class="nav-title">Peppin's Maths</div>
+      <div class="nav-sub">Junior Cycle · First Year</div>
+    </div>
+  </div>
+  <div class="nav-links"><a href="index.html" class="nav-link active">🏠 Home</a>
+<a href="plan.html" class="nav-link ">📅 45-Day Plan</a>
+<a href="quiz.html" class="nav-link ">⚡ Quick Quiz</a>
+<a href="progress.html" class="nav-link ">📈 My Progress</a>
+</div>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+</nav>
+<div style="background:#B8860B;color:#fff;padding:1.5rem 1.5rem 1rem;">
+  <div style="max-width:900px;margin:0 auto;">
+    <a href="index.html" style="color:rgba(255,255,255,.7);font-size:.82rem;font-weight:700;">← Back to Home</a>
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-top:.6rem;">
+      <div>
+        <div style="font-size:.75rem;opacity:.7;font-weight:800;letter-spacing:.1em;text-transform:uppercase;">Day 27 of 45 · Geometry</div>
+        <h1 style="font-family:'Merriweather',serif;font-size:clamp(1.3rem,3vw,2rem);margin:.3rem 0;">Geometry</h1>
+        <div style="font-size:1rem;opacity:.85;">Mixed Problem Solving</div>
+        <div style="margin-top:.6rem;display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;">
+          <span class="level-badge" style="background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4)">Mixed</span>
+          <span style="font-size:.78rem;opacity:.7">6 questions · 30 marks total</span>
+        </div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:2.5rem;line-height:1">📐</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="max-width:900px;">
+  <div class="tab-bar">
+    <button class="tab active" onclick="switchTab('concept',this)">📖 Concept</button>
+    <button class="tab" onclick="switchTab('questions',this)">✏️ Practice Questions</button>
+  </div>
+
+  
+<div class="tab-content active" id="tab-concept">
+  <div class="concept-section mt2">
+    <div class="section-label" style="color:#1565C0">📘 What is this topic?</div>
+    <div class="explain-box"><p>Multi-step geometry: SEQUENCE different skills. Write each formula and sub-result clearly on its own line. Wrong early value? Examiners still give method marks for correct process in later steps.</p></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--gold)">💡 Analogy — How to picture it</div>
+    <div class="analogy-box"><p>A relay race: each runner (step) carries the baton (answer) to the next. Even if one runner makes an error, the next can still complete their section — examiners follow YOUR numbers through subsequent steps.</p></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--green)">🔍 Worked Example</div>
+    <div class="worked-box">
+      <strong style="display:block;margin-bottom:.6rem">Isosceles triangle: base 16cm, equal sides 10cm. Area and perimeter.</strong>
+      <ol class="step-list"><li>Drop perpendicular from apex — bisects base: 8cm + 8cm</li><li>Pythagoras: h²=10²−8²=36 → h=6cm</li><li>Area=½×16×6=48 cm²</li><li>Perimeter=16+10+10=36 cm</li></ol>
+    </div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:#BF360C">⚠️ Common Mistakes</div>
+    <div class="mistake-box"><ul style="padding-left:1.2rem"><li>Composite solids: calculate each part separately, then ADD</li><li>Angle of elevation: measured from the HORIZONTAL</li><li>When asked 'hence', use your PREVIOUS answer</li></ul></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--navy)">📌 Key Formulae</div>
+    <div class="formula-box"><code>Multi-step: identify→formula→substitute→evaluate</code><code>Composite: V_total=V₁+V₂</code><code>Consequential marks apply if you carry forward wrong values</code></div>
+  </div>
+  <div class="tip-box mt2">
+    <strong>🎯 SEC Exam Insight:</strong> Multi-step geometry: always show sub-answers clearly labelled. If an early step is wrong, consequential marks reward correct use of your wrong value in all subsequent steps.
+  </div>
+</div>
+
+  <div class="tab-content" id="tab-questions">
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q1</span>
+    <span style="flex:1;font-size:.9rem">Isosceles triangle: base 12cm, equal sides 10cm. Find area and perimeter.</span>
+    <span class="q-marks">5 marks</span>
+  </div>
+  <div class="q-hint" id="hint-27-1">💡 <em>Drop a perpendicular from the apex to find the height first.</em></div>
+  <div class="q-answer" id="ans-27-1"><strong>✅ Answer:</strong> h=√(100−36)=8cm. Area=48 cm². Perimeter=32 cm</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-27-1')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-27-1')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q2</span>
+    <span style="flex:1;font-size:.9rem">Swimming pool: trapezoidal cross-section (widths 6m and 10m, depth 4m), length 20m. Find volume.</span>
+    <span class="q-marks">5 marks</span>
+  </div>
+  <div class="q-hint" id="hint-27-2">💡 <em>V = area of cross-section × length.</em></div>
+  <div class="q-answer" id="ans-27-2"><strong>✅ Answer:</strong> Cross-section=½(6+10)×4=32 m². V=32×20=640 m³</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-27-2')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-27-2')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q3</span>
+    <span style="flex:1;font-size:.9rem">A(1,2), B(5,8). Find: (i)slope, (ii)|AB|, (iii)midpoint, (iv)equation of perpendicular bisector.</span>
+    <span class="q-marks">5 marks</span>
+  </div>
+  <div class="q-hint" id="hint-27-3">💡 <em>Find each in order — the perpendicular bisector goes through the midpoint with perpendicular slope.</em></div>
+  <div class="q-answer" id="ans-27-3"><strong>✅ Answer:</strong> (i)3/2. (ii)2√13. (iii)(3,5). (iv)2x+3y=21</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-27-3')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-27-3')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q4</span>
+    <span style="flex:1;font-size:.9rem">Wire 50m makes 32° with ground. Find mast height. From 60m from base, find angle of elevation.</span>
+    <span class="q-marks">5 marks</span>
+  </div>
+  <div class="q-hint" id="hint-27-4">💡 <em>Use sinθ=O/H for the first part, then tanθ=O/A for the second.</em></div>
+  <div class="q-answer" id="ans-27-4"><strong>✅ Answer:</strong> h=50sin32°≈26.5m. tanα=26.5/60→α≈23.8°</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-27-4')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-27-4')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q5</span>
+    <span style="flex:1;font-size:.9rem">Equilateral triangle, area 36√3 cm². Find side length, perimeter and inscribed circle radius.</span>
+    <span class="q-marks">5 marks</span>
+  </div>
+  <div class="q-hint" id="hint-27-5">💡 <em>Area of equilateral triangle=√3/4×s². Then find r=s/(2√3).</em></div>
+  <div class="q-answer" id="ans-27-5"><strong>✅ Answer:</strong> √3/4×s²=36√3→s=12cm. P=36cm. r=2√3≈3.46cm</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-27-5')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-27-5')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q6</span>
+    <span style="flex:1;font-size:.9rem">Cone: height=3×radius, volume=1000π cm³. Find r, h, slant height, lateral SA.</span>
+    <span class="q-marks">5 marks</span>
+  </div>
+  <div class="q-hint" id="hint-27-6">💡 <em>Substitute h=3r into V=⅓πr²h and solve for r.</em></div>
+  <div class="q-answer" id="ans-27-6"><strong>✅ Answer:</strong> πr³=1000π→r=10cm; h=30cm; l=10√10≈31.6cm; LSA≈994 cm²</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-27-6')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-27-6')">✅ Show Answer</button>
+  </div>
+</div>
+</div>
+
+
+  <div style="display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wrap;margin-top:2rem;padding-top:1rem;border-top:2px solid var(--border);">
+    <a href="day26.html" class="btn btn-primary">← Day 26</a>
+    <button class="btn btn-gold" onclick="markComplete(27)">✅ Mark Day 27 Complete</button>
+    <a href="day28.html" class="btn btn-green">Day 28 →</a>
+  </div>
+</div>
+
+<footer>
+  <strong>Peppin's Tuition Centre, Cork</strong> · Day 27 · Geometry — Mixed Problem Solving
+</footer>
+
+<script>
+function switchTab(name, btn) {
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+  btn.classList.add('active');
+}
+function toggleEl(id) {
+  const el = document.getElementById(id);
+  el.style.display = el.style.display === 'block' ? 'none' : 'block';
+}
+function markComplete(day) {
+  localStorage.setItem('day_complete_'+day, '1');
+  alert('Day ' + day + ' marked as complete! 🎉');
+}
+</script>
+</body></html>

@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 6 · Number Systems & Sets · Peppin's Maths</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head><body>
+<nav class="navbar">
+  <div class="nav-brand">
+    <span class="nav-logo">🍀</span>
+    <div>
+      <div class="nav-title">Peppin's Maths</div>
+      <div class="nav-sub">Junior Cycle · First Year</div>
+    </div>
+  </div>
+  <div class="nav-links"><a href="index.html" class="nav-link active">🏠 Home</a>
+<a href="plan.html" class="nav-link ">📅 45-Day Plan</a>
+<a href="quiz.html" class="nav-link ">⚡ Quick Quiz</a>
+<a href="progress.html" class="nav-link ">📈 My Progress</a>
+</div>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+</nav>
+<div style="background:#1B3A6B;color:#fff;padding:1.5rem 1.5rem 1rem;">
+  <div style="max-width:900px;margin:0 auto;">
+    <a href="index.html" style="color:rgba(255,255,255,.7);font-size:.82rem;font-weight:700;">← Back to Home</a>
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-top:.6rem;">
+      <div>
+        <div style="font-size:.75rem;opacity:.7;font-weight:800;letter-spacing:.1em;text-transform:uppercase;">Day 6 of 45 · Number</div>
+        <h1 style="font-family:'Merriweather',serif;font-size:clamp(1.3rem,3vw,2rem);margin:.3rem 0;">Number Systems & Sets</h1>
+        <div style="font-size:1rem;opacity:.85;">N, Z, Q, R and Venn Diagrams</div>
+        <div style="margin-top:.6rem;display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;">
+          <span class="level-badge" style="background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4)">Ordinary</span>
+          <span style="font-size:.78rem;opacity:.7">6 questions · 18 marks total</span>
+        </div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:2.5rem;line-height:1">🔢</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="max-width:900px;">
+  <div class="tab-bar">
+    <button class="tab active" onclick="switchTab('concept',this)">📖 Concept</button>
+    <button class="tab" onclick="switchTab('questions',this)">✏️ Practice Questions</button>
+  </div>
+
+  
+<div class="tab-content active" id="tab-concept">
+  <div class="concept-section mt2">
+    <div class="section-label" style="color:#1565C0">📘 What is this topic?</div>
+    <div class="explain-box"><p>N={1,2,3,…} ⊂ Z={…,−2,−1,0,1,2,…} ⊂ Q={all fractions p/q, q≠0} ⊂ R={all real numbers, including irrationals like √2 and π}.</p><p>Venn diagrams show set relationships. A∪B = 'A OR B'. A∩B = 'A AND B'. Formula: |A∪B|=|A|+|B|−|A∩B|.</p></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--gold)">💡 Analogy — How to picture it</div>
+    <div class="analogy-box"><p>The number sets are Russian nesting dolls: N fits inside Z, which fits inside Q, which fits inside R. Every natural number is also an integer, a rational number and a real number.</p></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--green)">🔍 Worked Example</div>
+    <div class="worked-box">
+      <strong style="display:block;margin-bottom:.6rem">30 students: 18 study French, 20 Spanish, 12 both. How many study neither?</strong>
+      <ol class="step-list"><li>Place 12 in the overlap (both)</li><li>French only: 18−12=6</li><li>Spanish only: 20−12=8</li><li>Total in circles: 6+12+8=26</li><li>Neither: 30−26 = 4 students</li></ol>
+    </div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:#BF360C">⚠️ Common Mistakes</div>
+    <div class="mistake-box"><ul style="padding-left:1.2rem"><li>Fill Venn diagrams: place INTERSECTION (both) FIRST, then find 'only A' and 'only B'</li><li>√4=2 ∈ N,Z,Q,R (rational). √5 is irrational — ∈ R only</li><li>Formula: |A∪B|=|A|+|B|−|A∩B| — subtract the overlap!</li></ul></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--navy)">📌 Key Formulae</div>
+    <div class="formula-box"><code>N ⊂ Z ⊂ Q ⊂ R</code><code>|A∪B|=|A|+|B|−|A∩B|</code><code>Complement: P(A')=1−P(A)</code></div>
+  </div>
+  <div class="tip-box mt2">
+    <strong>🎯 SEC Exam Insight:</strong> Venn diagrams appear in Q6 most years. Always fill the INTERSECTION (both) first, then find 'only A' and 'only B' by subtracting. Formula |A∪B|=|A|+|B|−|A∩B| is in the Tables booklet.
+  </div>
+</div>
+
+  <div class="tab-content" id="tab-questions">
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q1</span>
+    <span style="flex:1;font-size:.9rem">State which number set(s) contain: (i) √4  (ii) √5</span>
+    <span class="q-marks">2 marks</span>
+  </div>
+  <div class="q-hint" id="hint-6-1">💡 <em>Is each number a whole number? A fraction? Or does it never end without repeating?</em></div>
+  <div class="q-answer" id="ans-6-1"><strong>✅ Answer:</strong> √4=2 ∈ N,Z,Q,R. √5 is irrational → ∈ R only</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-6-1')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-6-1')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q2</span>
+    <span style="flex:1;font-size:.9rem">A={1,2,3,5,7}, B={3,4,5,6}. Find A∩B.</span>
+    <span class="q-marks">2 marks</span>
+  </div>
+  <div class="q-hint" id="hint-6-2">💡 <em>List the elements that appear in BOTH sets.</em></div>
+  <div class="q-answer" id="ans-6-2"><strong>✅ Answer:</strong> A∩B = {3,5}</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-6-2')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-6-2')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q3</span>
+    <span style="flex:1;font-size:.9rem">Using the sets from Q2, find A∪B.</span>
+    <span class="q-marks">3 marks</span>
+  </div>
+  <div class="q-hint" id="hint-6-3">💡 <em>List ALL elements from both sets (no duplicates).</em></div>
+  <div class="q-answer" id="ans-6-3"><strong>✅ Answer:</strong> A∪B = {1,2,3,4,5,6,7}</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-6-3')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-6-3')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q4</span>
+    <span style="flex:1;font-size:.9rem">35 students: 20 play hockey, 23 play camogie, 8 play both. How many play at least one sport?</span>
+    <span class="q-marks">3 marks</span>
+  </div>
+  <div class="q-hint" id="hint-6-4">💡 <em>Use |A∪B|=|A|+|B|−|A∩B|.</em></div>
+  <div class="q-answer" id="ans-6-4"><strong>✅ Answer:</strong> |H∪C|=20+23−8=35. All 35 students play at least one sport.</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-6-4')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-6-4')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q5</span>
+    <span style="flex:1;font-size:.9rem">Draw a Venn diagram for Q4. How many play neither?</span>
+    <span class="q-marks">4 marks</span>
+  </div>
+  <div class="q-hint" id="hint-6-5">💡 <em>Fill in the overlap first (8), then find each circle's exclusive section.</em></div>
+  <div class="q-answer" id="ans-6-5"><strong>✅ Answer:</strong> Hockey only:12, Both:8, Camogie only:15. Total=35. Neither=0.</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-6-5')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-6-5')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q6</span>
+    <span style="flex:1;font-size:.9rem">Classify each: −3/4, 0, π, 2.5, −7</span>
+    <span class="q-marks">4 marks</span>
+  </div>
+  <div class="q-hint" id="hint-6-6">💡 <em>Work through each number set from innermost (N) outward.</em></div>
+  <div class="q-answer" id="ans-6-6"><strong>✅ Answer:</strong> −3/4:Q,R. 0:Z,Q,R. π:R only. 2.5:Q,R. −7:Z,Q,R</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-6-6')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-6-6')">✅ Show Answer</button>
+  </div>
+</div>
+</div>
+
+
+  <div style="display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wrap;margin-top:2rem;padding-top:1rem;border-top:2px solid var(--border);">
+    <a href="day5.html" class="btn btn-primary">← Day 5</a>
+    <button class="btn btn-gold" onclick="markComplete(6)">✅ Mark Day 6 Complete</button>
+    <a href="day7.html" class="btn btn-green">Day 7 →</a>
+  </div>
+</div>
+
+<footer>
+  <strong>Peppin's Tuition Centre, Cork</strong> · Day 6 · Number Systems & Sets — N, Z, Q, R and Venn Diagrams
+</footer>
+
+<script>
+function switchTab(name, btn) {
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+  btn.classList.add('active');
+}
+function toggleEl(id) {
+  const el = document.getElementById(id);
+  el.style.display = el.style.display === 'block' ? 'none' : 'block';
+}
+function markComplete(day) {
+  localStorage.setItem('day_complete_'+day, '1');
+  alert('Day ' + day + ' marked as complete! 🎉');
+}
+</script>
+</body></html>

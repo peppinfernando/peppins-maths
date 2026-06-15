@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 33 · Probability · Peppin's Maths</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head><body>
+<nav class="navbar">
+  <div class="nav-brand">
+    <span class="nav-logo">🍀</span>
+    <div>
+      <div class="nav-title">Peppin's Maths</div>
+      <div class="nav-sub">Junior Cycle · First Year</div>
+    </div>
+  </div>
+  <div class="nav-links"><a href="index.html" class="nav-link active">🏠 Home</a>
+<a href="plan.html" class="nav-link ">📅 45-Day Plan</a>
+<a href="quiz.html" class="nav-link ">⚡ Quick Quiz</a>
+<a href="progress.html" class="nav-link ">📈 My Progress</a>
+</div>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+</nav>
+<div style="background:#6A0572;color:#fff;padding:1.5rem 1.5rem 1rem;">
+  <div style="max-width:900px;margin:0 auto;">
+    <a href="index.html" style="color:rgba(255,255,255,.7);font-size:.82rem;font-weight:700;">← Back to Home</a>
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-top:.6rem;">
+      <div>
+        <div style="font-size:.75rem;opacity:.7;font-weight:800;letter-spacing:.1em;text-transform:uppercase;">Day 33 of 45 · Statistics</div>
+        <h1 style="font-family:'Merriweather',serif;font-size:clamp(1.3rem,3vw,2rem);margin:.3rem 0;">Probability</h1>
+        <div style="font-size:1rem;opacity:.85;">Basic Probability & Sample Space</div>
+        <div style="margin-top:.6rem;display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;">
+          <span class="level-badge" style="background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4)">Foundation</span>
+          <span style="font-size:.78rem;opacity:.7">6 questions · 18 marks total</span>
+        </div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:2.5rem;line-height:1">📊</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="max-width:900px;">
+  <div class="tab-bar">
+    <button class="tab active" onclick="switchTab('concept',this)">📖 Concept</button>
+    <button class="tab" onclick="switchTab('questions',this)">✏️ Practice Questions</button>
+  </div>
+
+  
+<div class="tab-content active" id="tab-concept">
+  <div class="concept-section mt2">
+    <div class="section-label" style="color:#1565C0">📘 What is this topic?</div>
+    <div class="explain-box"><p>P(A)=favourable outcomes÷total outcomes. Always 0≤P(A)≤1.</p><p>COMPLEMENT: P(not A)=1−P(A). SAMPLE SPACE: list of ALL possible outcomes.</p><p>MUTUALLY EXCLUSIVE: cannot both occur. P(A or B)=P(A)+P(B).</p></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--gold)">💡 Analogy — How to picture it</div>
+    <div class="analogy-box"><p>Probability is like a weather forecast. 70% chance of rain means: in 100 identical days, expect rain in about 70. P=0 means impossible. P=1 means certain. P=0.5 means equally likely.</p></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--green)">🔍 Worked Example</div>
+    <div class="worked-box">
+      <strong style="display:block;margin-bottom:.6rem">Die roll. P(prime), P(not prime), P(even or prime).</strong>
+      <ol class="step-list"><li>Sample space: {1,2,3,4,5,6}</li><li>Primes: {2,3,5} → P(prime)=3/6=1/2</li><li>P(not prime)=1−1/2=1/2</li><li>P(even or prime)=P(E)+P(P)−P(E∩P)=1/2+1/2−1/6=5/6</li></ol>
+    </div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:#BF360C">⚠️ Common Mistakes</div>
+    <div class="mistake-box"><ul style="padding-left:1.2rem"><li>P(A or B)=P(A)+P(B) ONLY for mutually exclusive events! Otherwise subtract the overlap.</li><li>Expected frequency ≠ guaranteed. P=0.3 and 100 days → EXPECT 30, could get more or fewer.</li><li>Sample space: list ALL outcomes including those not satisfying the event</li></ul></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--navy)">📌 Key Formulae</div>
+    <div class="formula-box"><code>P(A)=favourable÷total</code><code>P(not A)=1−P(A)</code><code>P(A or B)=P(A)+P(B)−P(A∩B)</code><code>Expected freq=P(A)×trials</code></div>
+  </div>
+  <div class="tip-box mt2">
+    <strong>🎯 SEC Exam Insight:</strong> Basic probability: P(A or B)=P(A)+P(B) ONLY for mutually exclusive events. If events can overlap (e.g. even AND prime on a die), always subtract P(A∩B) to avoid double-counting.
+  </div>
+</div>
+
+  <div class="tab-content" id="tab-questions">
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q1</span>
+    <span style="flex:1;font-size:.9rem">Bag: 4 red, 5 blue, 3 green. P(picking red)?</span>
+    <span class="q-marks">2 marks</span>
+  </div>
+  <div class="q-hint" id="hint-33-1">💡 <em>P(A)=favourable outcomes÷total outcomes.</em></div>
+  <div class="q-answer" id="ans-33-1"><strong>✅ Answer:</strong> P(red)=4/12=1/3</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-33-1')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-33-1')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q2</span>
+    <span style="flex:1;font-size:.9rem">Using Q1, find P(not red).</span>
+    <span class="q-marks">2 marks</span>
+  </div>
+  <div class="q-hint" id="hint-33-2">💡 <em>P(not A)=1−P(A).</em></div>
+  <div class="q-answer" id="ans-33-2"><strong>✅ Answer:</strong> P(not red)=1−1/3=2/3</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-33-2')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-33-2')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q3</span>
+    <span style="flex:1;font-size:.9rem">List sample space for tossing two coins. Find P(exactly one head).</span>
+    <span class="q-marks">3 marks</span>
+  </div>
+  <div class="q-hint" id="hint-33-3">💡 <em>List all 4 combinations systematically.</em></div>
+  <div class="q-answer" id="ans-33-3"><strong>✅ Answer:</strong> Sample space: {HH,HT,TH,TT}. P(one H)=2/4=1/2</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-33-3')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-33-3')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q4</span>
+    <span style="flex:1;font-size:.9rem">Fair die rolled. Find P(2 or 5).</span>
+    <span class="q-marks">3 marks</span>
+  </div>
+  <div class="q-hint" id="hint-33-4">💡 <em>Can you get both 2 and 5 in one roll? No → mutually exclusive, just add.</em></div>
+  <div class="q-answer" id="ans-33-4"><strong>✅ Answer:</strong> Mutually exclusive: P(2or5)=1/6+1/6=1/3</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-33-4')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-33-4')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q5</span>
+    <span style="flex:1;font-size:.9rem">Die rolled. Find P(even), P(prime), P(even or prime). Are even and prime mutually exclusive?</span>
+    <span class="q-marks">4 marks</span>
+  </div>
+  <div class="q-hint" id="hint-33-5">💡 <em>2 is both even and prime! So they're not mutually exclusive. Subtract the overlap.</em></div>
+  <div class="q-answer" id="ans-33-5"><strong>✅ Answer:</strong> P(even)=1/2; P(prime)=1/2; NOT mut. exclusive (2 is both); P(even or prime)=5/6</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-33-5')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-33-5')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q6</span>
+    <span style="flex:1;font-size:.9rem">Fair die rolled 150 times. How many times expect score > 4?</span>
+    <span class="q-marks">4 marks</span>
+  </div>
+  <div class="q-hint" id="hint-33-6">💡 <em>Find P(>4) first, then multiply by the number of trials.</em></div>
+  <div class="q-answer" id="ans-33-6"><strong>✅ Answer:</strong> P(>4)=P(5or6)=2/6=1/3. Expected=150×1/3=50 times</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-33-6')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-33-6')">✅ Show Answer</button>
+  </div>
+</div>
+</div>
+
+
+  <div style="display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wrap;margin-top:2rem;padding-top:1rem;border-top:2px solid var(--border);">
+    <a href="day32.html" class="btn btn-primary">← Day 32</a>
+    <button class="btn btn-gold" onclick="markComplete(33)">✅ Mark Day 33 Complete</button>
+    <a href="day34.html" class="btn btn-green">Day 34 →</a>
+  </div>
+</div>
+
+<footer>
+  <strong>Peppin's Tuition Centre, Cork</strong> · Day 33 · Probability — Basic Probability & Sample Space
+</footer>
+
+<script>
+function switchTab(name, btn) {
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+  btn.classList.add('active');
+}
+function toggleEl(id) {
+  const el = document.getElementById(id);
+  el.style.display = el.style.display === 'block' ? 'none' : 'block';
+}
+function markComplete(day) {
+  localStorage.setItem('day_complete_'+day, '1');
+  alert('Day ' + day + ' marked as complete! 🎉');
+}
+</script>
+</body></html>

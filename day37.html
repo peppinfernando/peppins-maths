@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 37 · Statistics & Probability · Peppin's Maths</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head><body>
+<nav class="navbar">
+  <div class="nav-brand">
+    <span class="nav-logo">🍀</span>
+    <div>
+      <div class="nav-title">Peppin's Maths</div>
+      <div class="nav-sub">Junior Cycle · First Year</div>
+    </div>
+  </div>
+  <div class="nav-links"><a href="index.html" class="nav-link active">🏠 Home</a>
+<a href="plan.html" class="nav-link ">📅 45-Day Plan</a>
+<a href="quiz.html" class="nav-link ">⚡ Quick Quiz</a>
+<a href="progress.html" class="nav-link ">📈 My Progress</a>
+</div>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+</nav>
+<div style="background:#6A0572;color:#fff;padding:1.5rem 1.5rem 1rem;">
+  <div style="max-width:900px;margin:0 auto;">
+    <a href="index.html" style="color:rgba(255,255,255,.7);font-size:.82rem;font-weight:700;">← Back to Home</a>
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-top:.6rem;">
+      <div>
+        <div style="font-size:.75rem;opacity:.7;font-weight:800;letter-spacing:.1em;text-transform:uppercase;">Day 37 of 45 · Statistics</div>
+        <h1 style="font-family:'Merriweather',serif;font-size:clamp(1.3rem,3vw,2rem);margin:.3rem 0;">Statistics & Probability</h1>
+        <div style="font-size:1rem;opacity:.85;">Mixed Exam-Style Statistics</div>
+        <div style="margin-top:.6rem;display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;">
+          <span class="level-badge" style="background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4)">Mixed</span>
+          <span style="font-size:.78rem;opacity:.7">4 questions · 24 marks total</span>
+        </div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:2.5rem;line-height:1">📊</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="max-width:900px;">
+  <div class="tab-bar">
+    <button class="tab active" onclick="switchTab('concept',this)">📖 Concept</button>
+    <button class="tab" onclick="switchTab('questions',this)">✏️ Practice Questions</button>
+  </div>
+
+  
+<div class="tab-content active" id="tab-concept">
+  <div class="concept-section mt2">
+    <div class="section-label" style="color:#1565C0">📘 What is this topic?</div>
+    <div class="explain-box"><p>SEC exam stats questions: (a) calculate/draw; (b) use your result; (c) interpret or harder calculation.</p><p>INTERPRETATION: write 2+ sentences. State WHAT you found AND WHAT IT MEANS in context. ALWAYS cite your numbers.</p></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--gold)">💡 Analogy — How to picture it</div>
+    <div class="analogy-box"><p>Stats exam questions are a story in three chapters: (a) set the scene; (b) develop the plot; (c) the conclusion or twist. Read all three before starting chapter one!</p></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--green)">🔍 Worked Example</div>
+    <div class="worked-box">
+      <strong style="display:block;margin-bottom:.6rem">SEC stats question strategy</strong>
+      <ol class="step-list"><li>Read the ENTIRE question — all parts (a)(b)(c) — before writing anything</li><li>(a): draw/calculate. Show ALL steps. Label diagrams fully.</li><li>(b): look for 'hence' or 'use your answer from (a)'</li><li>(c): interpretation — write in FULL SENTENCES citing your numbers</li><li>Never leave any part blank — a formula alone earns method marks</li></ol>
+    </div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:#BF360C">⚠️ Common Mistakes</div>
+    <div class="mistake-box"><ul style="padding-left:1.2rem"><li>'Positive correlation' alone is not enough — explain in context</li><li>Histogram: frequency=frequency density×class width</li><li>P(A|B): use only the B row/column total, not the grand total</li></ul></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--navy)">📌 Key Formulae</div>
+    <div class="formula-box"><code>P(A|B)=P(A∩B)/P(B)</code><code>Compare datasets: compare mean (location) AND σ or IQR (spread)</code><code>Interpolation: reliable; Extrapolation: unreliable</code></div>
+  </div>
+  <div class="tip-box mt2">
+    <strong>🎯 SEC Exam Insight:</strong> Statistics exam part (c) is usually interpretation. Write at least 2 sentences, name BOTH variables, and cite the specific numbers you calculated. 'Positive correlation' alone is not enough.
+  </div>
+</div>
+
+  <div class="tab-content" id="tab-questions">
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q1</span>
+    <span style="flex:1;font-size:.9rem">Heights: 68,72,75,80,63,71,74,76,82,65,70,78,73,90,69,77,75,84,72,88. (a)Mean & median. (b)Range. (c)Modal class (60−70,70−80,80−90). (d)Describe histogram.</span>
+    <span class="q-marks">6 marks</span>
+  </div>
+  <div class="q-hint" id="hint-37-1">💡 <em>Order data for median. For modal class, count values in each group.</em></div>
+  <div class="q-answer" id="ans-37-1"><strong>✅ Answer:</strong> (a)Mean=74.6; Median=75. (b)Range=27. (c)Modal class:70−80. (d)Slightly right-skewed (high value 90).</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-37-1')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-37-1')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q2</span>
+    <span style="flex:1;font-size:.9rem">Hours x=(2,3,4,5,6,7,8). Scores y=(55,63,70,78,81,88,94). (a)Scatter diagram. (b)Mean point. (c)Predict for 8hrs. (d)Why not predict for 15hrs?</span>
+    <span class="q-marks">6 marks</span>
+  </div>
+  <div class="q-hint" id="hint-37-2">💡 <em>For (b): find x̄ and ȳ. The line MUST pass through (x̄,ȳ).</em></div>
+  <div class="q-answer" id="ans-37-2"><strong>✅ Answer:</strong> (a)Positive correlation. (b)(5,75.6). (c)≈90. (d)Extrapolation beyond data range.</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-37-2')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-37-2')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q3</span>
+    <span style="flex:1;font-size:.9rem">Bag: 5R, 7B. Two without replacement. (a)P(1st red). (b)P(both red). (c)P(at least one blue).</span>
+    <span class="q-marks">6 marks</span>
+  </div>
+  <div class="q-hint" id="hint-37-3">💡 <em>For (c): use the complement — P(at least one blue)=1−P(both red).</em></div>
+  <div class="q-answer" id="ans-37-3"><strong>✅ Answer:</strong> (a)5/12. (b)5/12×4/11=20/132=5/33. (c)1−5/33=28/33</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-37-3')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-37-3')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q4</span>
+    <span style="flex:1;font-size:.9rem">60 students: 35 study History(H), 30 Science(S), 12 both. (a)Two-way table. (b)P(H∩S). (c)P(H∪S). (d)P(H|S).</span>
+    <span class="q-marks">6 marks</span>
+  </div>
+  <div class="q-hint" id="hint-37-4">💡 <em>For (d): P(H|S)=students in both÷total in S=12/30.</em></div>
+  <div class="q-answer" id="ans-37-4"><strong>✅ Answer:</strong> (a)H only=23, both=12, S only=18, neither=7. (b)1/5. (c)53/60. (d)2/5</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-37-4')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-37-4')">✅ Show Answer</button>
+  </div>
+</div>
+</div>
+
+
+  <div style="display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wrap;margin-top:2rem;padding-top:1rem;border-top:2px solid var(--border);">
+    <a href="day36.html" class="btn btn-primary">← Day 36</a>
+    <button class="btn btn-gold" onclick="markComplete(37)">✅ Mark Day 37 Complete</button>
+    <a href="day38.html" class="btn btn-green">Day 38 →</a>
+  </div>
+</div>
+
+<footer>
+  <strong>Peppin's Tuition Centre, Cork</strong> · Day 37 · Statistics & Probability — Mixed Exam-Style Statistics
+</footer>
+
+<script>
+function switchTab(name, btn) {
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+  btn.classList.add('active');
+}
+function toggleEl(id) {
+  const el = document.getElementById(id);
+  el.style.display = el.style.display === 'block' ? 'none' : 'block';
+}
+function markComplete(day) {
+  localStorage.setItem('day_complete_'+day, '1');
+  alert('Day ' + day + ' marked as complete! 🎉');
+}
+</script>
+</body></html>

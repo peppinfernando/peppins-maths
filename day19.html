@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Day 19 · Geometry · Peppin's Maths</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+</head><body>
+<nav class="navbar">
+  <div class="nav-brand">
+    <span class="nav-logo">🍀</span>
+    <div>
+      <div class="nav-title">Peppin's Maths</div>
+      <div class="nav-sub">Junior Cycle · First Year</div>
+    </div>
+  </div>
+  <div class="nav-links"><a href="index.html" class="nav-link active">🏠 Home</a>
+<a href="plan.html" class="nav-link ">📅 45-Day Plan</a>
+<a href="quiz.html" class="nav-link ">⚡ Quick Quiz</a>
+<a href="progress.html" class="nav-link ">📈 My Progress</a>
+</div>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+</nav>
+<div style="background:#B8860B;color:#fff;padding:1.5rem 1.5rem 1rem;">
+  <div style="max-width:900px;margin:0 auto;">
+    <a href="index.html" style="color:rgba(255,255,255,.7);font-size:.82rem;font-weight:700;">← Back to Home</a>
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-top:.6rem;">
+      <div>
+        <div style="font-size:.75rem;opacity:.7;font-weight:800;letter-spacing:.1em;text-transform:uppercase;">Day 19 of 45 · Geometry</div>
+        <h1 style="font-family:'Merriweather',serif;font-size:clamp(1.3rem,3vw,2rem);margin:.3rem 0;">Geometry</h1>
+        <div style="font-size:1rem;opacity:.85;">Theorems & Proofs</div>
+        <div style="margin-top:.6rem;display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;">
+          <span class="level-badge" style="background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4)">Ordinary</span>
+          <span style="font-size:.78rem;opacity:.7">6 questions · 24 marks total</span>
+        </div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:2.5rem;line-height:1">📐</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="max-width:900px;">
+  <div class="tab-bar">
+    <button class="tab active" onclick="switchTab('concept',this)">📖 Concept</button>
+    <button class="tab" onclick="switchTab('questions',this)">✏️ Practice Questions</button>
+  </div>
+
+  
+<div class="tab-content active" id="tab-concept">
+  <div class="concept-section mt2">
+    <div class="section-label" style="color:#1565C0">📘 What is this topic?</div>
+    <div class="explain-box"><p>Theorem 2: Triangle angles=180°. Theorem 3: Exterior angle=sum of 2 opposite interior angles. Theorem 6 (circle): Angle at centre=2×angle at circumference (same arc). Corollary: Angle in semicircle=90°.</p><p>A PROOF: every step justified by a named theorem, axiom or definition.</p></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--gold)">💡 Analogy — How to picture it</div>
+    <div class="analogy-box"><p>Theorems are mathematical laws — always true. A proof is a legal argument: you must CITE the law (theorem) that justifies each step, not just assert things are true.</p></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--green)">🔍 Worked Example</div>
+    <div class="worked-box">
+      <strong style="display:block;margin-bottom:.6rem">O is centre, ∠AOB=120°. Find ∠ACB (C on major arc).</strong>
+      <ol class="step-list"><li>State: 'By Theorem 6, angle at centre=2×angle at circumference'</li><li>120=2×∠ACB</li><li>∠ACB=60°</li></ol>
+    </div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:#BF360C">⚠️ Common Mistakes</div>
+    <div class="mistake-box"><ul style="padding-left:1.2rem"><li>EVERY step in a proof needs a justification — write the theorem name</li><li>Theorem 6: angle at centre and angle at circumference must subtend the SAME arc</li><li>Angle in semicircle=90° ONLY when chord is a DIAMETER</li></ul></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--navy)">📌 Key Formulae</div>
+    <div class="formula-box"><code>Thm 2: A+B+C=180°</code><code>Thm 3: Exterior=opposite interior angles</code><code>Thm 6: ∠centre=2×∠circumference</code><code>Corollary: angle in semicircle=90°</code></div>
+  </div>
+  <div class="tip-box mt2">
+    <strong>🎯 SEC Exam Insight:</strong> Circle Theorem 6 (angle at centre = 2×angle at circumference) is the most tested. Corollary (angle in semicircle = 90°) appears in nearly every SEC paper — know it cold.
+  </div>
+</div>
+
+  <div class="tab-content" id="tab-questions">
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q1</span>
+    <span style="flex:1;font-size:.9rem">State Theorem 2. Triangle has ∠A=70°, ∠B=∠C. Find ∠B.</span>
+    <span class="q-marks">3 marks</span>
+  </div>
+  <div class="q-hint" id="hint-19-1">💡 <em>State the theorem first, then use it to find the unknown angle.</em></div>
+  <div class="q-answer" id="ans-19-1"><strong>✅ Answer:</strong> Thm 2: angles sum 180°. 70+2∠B=180 → ∠B=55°</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-19-1')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-19-1')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q2</span>
+    <span style="flex:1;font-size:.9rem">Triangle PQR: ∠P=40°, ∠Q=65°. Find the exterior angle at R.</span>
+    <span class="q-marks">3 marks</span>
+  </div>
+  <div class="q-hint" id="hint-19-2">💡 <em>State Theorem 3, then add the two opposite interior angles.</em></div>
+  <div class="q-answer" id="ans-19-2"><strong>✅ Answer:</strong> By Thm 3: exterior=40+65=105°</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-19-2')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-19-2')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q3</span>
+    <span style="flex:1;font-size:.9rem">O is centre of circle. ∠ACB=35° (angle at circumference). Find ∠AOB.</span>
+    <span class="q-marks">4 marks</span>
+  </div>
+  <div class="q-hint" id="hint-19-3">💡 <em>Angle at centre = 2 × angle at circumference (same arc).</em></div>
+  <div class="q-answer" id="ans-19-3"><strong>✅ Answer:</strong> By Thm 6: ∠AOB=2×35°=70°</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-19-3')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-19-3')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q4</span>
+    <span style="flex:1;font-size:.9rem">PQ is a diameter of a circle. R is a point on the circumference. Find ∠PRQ. Justify.</span>
+    <span class="q-marks">4 marks</span>
+  </div>
+  <div class="q-hint" id="hint-19-4">💡 <em>What happens to the angle at the circumference when the chord is a diameter?</em></div>
+  <div class="q-answer" id="ans-19-4"><strong>✅ Answer:</strong> By Corollary (angle in semicircle): ∠PRQ=90°</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-19-4')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-19-4')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q5</span>
+    <span style="flex:1;font-size:.9rem">Circle: O is centre. Chord AB. Prove ∠AOB=2∠ACB where C is on the major arc.</span>
+    <span class="q-marks">5 marks</span>
+  </div>
+  <div class="q-hint" id="hint-19-5">💡 <em>Join CO and extend to a point D on the circle. Use isosceles triangle properties.</em></div>
+  <div class="q-answer" id="ans-19-5"><strong>✅ Answer:</strong> Join CO, extend to D. OA=OC=OB (radii). △OAC isosceles: ∠OAC=∠OCA=x. Ext ∠AOD=2x. Similarly ∠BOD=2y. ∠AOB=2(x+y)=2∠ACB ✓</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-19-5')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-19-5')">✅ Show Answer</button>
+  </div>
+</div>
+
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q6</span>
+    <span style="flex:1;font-size:.9rem">ABCD is a parallelogram. Prove ∠DAB=∠BCD using angle theorems.</span>
+    <span class="q-marks">5 marks</span>
+  </div>
+  <div class="q-hint" id="hint-19-6">💡 <em>Use the co-interior angles theorem for parallel lines.</em></div>
+  <div class="q-answer" id="ans-19-6"><strong>✅ Answer:</strong> AB∥DC → co-int angles: ∠DAB+∠ADC=180°. Also AB∥DC → ∠ABC+∠BCD=180°. So ∠DAB=∠BCD. ✓</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-19-6')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-19-6')">✅ Show Answer</button>
+  </div>
+</div>
+</div>
+
+
+  <div style="display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wrap;margin-top:2rem;padding-top:1rem;border-top:2px solid var(--border);">
+    <a href="day18.html" class="btn btn-primary">← Day 18</a>
+    <button class="btn btn-gold" onclick="markComplete(19)">✅ Mark Day 19 Complete</button>
+    <a href="day20.html" class="btn btn-green">Day 20 →</a>
+  </div>
+</div>
+
+<footer>
+  <strong>Peppin's Tuition Centre, Cork</strong> · Day 19 · Geometry — Theorems & Proofs
+</footer>
+
+<script>
+function switchTab(name, btn) {
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+  btn.classList.add('active');
+}
+function toggleEl(id) {
+  const el = document.getElementById(id);
+  el.style.display = el.style.display === 'block' ? 'none' : 'block';
+}
+function markComplete(day) {
+  localStorage.setItem('day_complete_'+day, '1');
+  alert('Day ' + day + ' marked as complete! 🎉');
+}
+</script>
+</body></html>
