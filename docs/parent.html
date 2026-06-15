@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parent Dashboard · Peppin's Tuition Centre</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<script>
+(function(){
+  var sess=JSON.parse(sessionStorage.getItem('ptc_session')||'null');
+  if(!sess){location.replace('login.html');return;}
+  if(sess.role==='student'){location.replace('index.html');return;}
+})();
+</script>
+
+<nav class="navbar">
+  <div class="nav-brand">
+    <span class="nav-logo">🍀</span>
+    <div>
+      <div class="nav-title">Peppin's Maths</div>
+      <div class="nav-sub">Parent Dashboard</div>
+    </div>
+  </div>
+  <div style="margin-left:auto;display:flex;align-items:center;gap:.75rem;">
+    <span id="parent-greeting" style="font-size:.85rem;font-weight:700;color:var(--navy);"></span>
+    <button onclick="sessionStorage.removeItem('ptc_session');location.replace('login.html');" class="btn btn-sm" style="background:#fee2e2;color:#991b1b;border:none;cursor:pointer;">🚪 Logout</button>
+  </div>
+</nav>
+
+<div style="background:linear-gradient(135deg,var(--navy),#2d5496);color:#fff;padding:2rem 1.5rem;">
+  <div style="max-width:900px;margin:0 auto;">
+    <div style="font-size:2rem;margin-bottom:.5rem">👨‍👧</div>
+    <h1 id="dashboard-title" style="font-family:'Merriweather',serif;font-size:1.6rem;margin-bottom:.3rem;"></h1>
+    <p id="dashboard-sub" style="opacity:.8;font-size:.9rem;"></p>
+  </div>
+</div>
+
+<div class="container" style="max-width:900px;">
+  <div class="stats-strip mt3">
+    <div class="stat-box"><div class="stat-num" id="p-days-done" style="color:var(--navy)">0</div><div class="stat-label">Days Complete</div></div>
+    <div class="stat-box"><div class="stat-num" id="p-pct" style="color:var(--green)">0%</div><div class="stat-label">Progress</div></div>
+    <div class="stat-box"><div class="stat-num" id="p-days-left" style="color:var(--gold)">45</div><div class="stat-label">Days Remaining</div></div>
+  </div>
+
+  <div class="card mt3" style="padding:1.25rem;">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.75rem;">
+      <strong id="progress-title">Progress</strong>
+      <span id="p-overall-label" style="color:var(--muted);font-size:.85rem;"></span>
+    </div>
+    <div class="progress-bar" style="height:14px;">
+      <div class="progress-fill" id="p-overall-fill" style="background:linear-gradient(90deg,var(--navy),var(--green));width:0%"></div>
+    </div>
+  </div>
+
+  <h3 style="margin:1.5rem 0 .75rem;font-family:'Merriweather',serif;">Day-by-Day Progress</h3>
+  <p class="muted mb2" style="font-size:.85rem;">✅ = completed · 📖 = not yet started</p>
+  <div id="p-day-tracker" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:.5rem;"></div>
+
+  <div class="card mt4" style="padding:1.25rem;background:#FFF8E1;border-left:4px solid var(--gold);">
+    <strong>📌 Note for Parents</strong>
+    <p style="font-size:.88rem;margin-top:.4rem;color:#555;">This view shows your child's progress as stored on <em>their device</em>. Progress is saved automatically each time they mark a day complete. If your child uses a different device, progress may differ.</p>
+  </div>
+</div>
+
+<footer style="background:var(--navy);color:rgba(255,255,255,.7);text-align:center;padding:1.5rem;font-size:.82rem;margin-top:3rem;">
+  <strong style="color:#fff">Peppin's Tuition Centre, Cork</strong> · Parent Dashboard · Junior Cycle Mathematics
+</footer>
+
+<script>
+const DAY_TOPICS = {"1": "Natural Numbers", "2": "Natural Numbers", "3": "Integers", "4": "Fractions", "5": "Decimals & Percentages", "6": "Number Systems & Sets", "7": "Applied Arithmetic", "8": "Algebra", "9": "Algebra", "10": "Algebra", "11": "Algebra", "12": "Algebra", "13": "Algebra", "14": "Patterns & Sequences", "15": "Functions", "16": "Algebra", "17": "Algebra Review", "18": "Geometry", "19": "Geometry", "20": "Geometry", "21": "Geometry", "22": "Geometry", "23": "Coordinate Geometry", "24": "Coordinate Geometry", "25": "Trigonometry", "26": "Trigonometry", "27": "Geometry", "28": "Coordinate Geometry", "29": "Statistics", "30": "Statistics", "31": "Statistics", "32": "Statistics", "33": "Probability", "34": "Probability", "35": "Probability", "36": "Statistics", "37": "Statistics & Probability", "38": "Statistics", "39": "Revision", "40": "Revision", "41": "Revision", "42": "Mock Exam", "43": "Mock Exam", "44": "Mock Exam", "45": "Final Day"};
+
+function loadParentDashboard(){
+  var sess = JSON.parse(sessionStorage.getItem('ptc_session')||'null');
+  if(!sess || sess.role!=='parent') return;
+
+  document.getElementById('parent-greeting').textContent = 'Hi, ' + sess.name + '!';
+  document.getElementById('dashboard-title').textContent = sess.child_name + "'s Progress Dashboard";
+  document.getElementById('dashboard-sub').textContent = "Viewing " + sess.child_name + "'s Junior Cycle Maths journey";
+  document.getElementById('progress-title').textContent = sess.child_name + "'s Overall Progress";
+
+  // Read child's localStorage — parent must be on same device OR child shares device
+  // Progress keys are prefixed with child's key
+  var childKey = sess.child_key;
+  var done = 0;
+  var total = 45;
+  var html = '';
+
+  for(var i=1; i<=total; i++){
+    var complete = !!localStorage.getItem('day_complete_' + childKey + '_' + i);
+    if(complete) done++;
+    var topic = DAY_TOPICS[i] || '';
+    html += '<div title="Day '+i+': '+topic+'" style="display:flex;flex-direction:column;align-items:center;justify-content:center;background:'+(complete?'var(--green)':'#fff')+';color:'+(complete?'#fff':'var(--text)')+';border:2px solid '+(complete?'var(--green)':'var(--border)')+';border-radius:10px;padding:.5rem .25rem;font-weight:800;font-size:.82rem;text-align:center;">'
+      + '<span style="font-size:1.1rem">'+(complete?'✅':'📖')+'</span>'
+      + '<span>Day '+i+'</span>'
+      + '</div>';
+  }
+
+  document.getElementById('p-day-tracker').innerHTML = html;
+  document.getElementById('p-days-done').textContent = done;
+  document.getElementById('p-pct').textContent = Math.round(done/total*100) + '%';
+  document.getElementById('p-days-left').textContent = total - done;
+  document.getElementById('p-overall-label').textContent = done + ' / ' + total + ' days';
+  document.getElementById('p-overall-fill').style.width = Math.round(done/total*100) + '%';
+}
+
+loadParentDashboard();
+</script>
+</body></html>

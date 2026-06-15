@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login · Peppin's Tuition Centre</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+body{display:flex;align-items:center;justify-content:center;min-height:100vh;background:linear-gradient(135deg,#1B3A6B 0%,#2d5496 60%,#2E7D32 100%);padding:1rem;}
+.login-card{background:#fff;border-radius:20px;padding:2.5rem 2rem;width:100%;max-width:420px;box-shadow:0 20px 60px rgba(0,0,0,.25);}
+.login-logo{text-align:center;margin-bottom:1.5rem;}
+.login-logo .emoji{font-size:3rem;}
+.login-logo h1{font-family:'Merriweather',serif;font-size:1.4rem;color:#1B3A6B;margin:.4rem 0 .2rem;}
+.login-logo p{font-size:.82rem;color:#6B7280;}
+.tab-row{display:flex;gap:.4rem;background:#F3F4F6;border-radius:10px;padding:.3rem;margin-bottom:1.5rem;}
+.tab-btn{flex:1;padding:.55rem;border:none;border-radius:8px;font-family:'Nunito',sans-serif;font-weight:700;font-size:.88rem;cursor:pointer;transition:all .2s;background:transparent;color:#6B7280;}
+.tab-btn.active{background:#fff;color:#1B3A6B;box-shadow:0 1px 4px rgba(0,0,0,.1);}
+.form-group{margin-bottom:1rem;}
+label{display:block;font-weight:700;font-size:.85rem;margin-bottom:.4rem;color:#374151;}
+select,input[type=password]{width:100%;padding:.75rem 1rem;border:2px solid #E5E7EB;border-radius:10px;font-family:'Nunito',sans-serif;font-size:.95rem;font-weight:600;outline:none;transition:border .2s;}
+select:focus,input:focus{border-color:#1B3A6B;}
+.pin-row{display:flex;gap:.5rem;justify-content:center;margin:.5rem 0;}
+.pin-digit{width:52px;height:60px;border:2px solid #E5E7EB;border-radius:12px;font-size:1.6rem;font-weight:900;text-align:center;font-family:'Nunito',sans-serif;outline:none;transition:border .2s;}
+.pin-digit:focus{border-color:#1B3A6B;}
+.btn-login{width:100%;padding:.85rem;background:#1B3A6B;color:#fff;border:none;border-radius:12px;font-family:'Nunito',sans-serif;font-size:1rem;font-weight:800;cursor:pointer;transition:background .2s;margin-top:.5rem;}
+.btn-login:hover{background:#2d5496;}
+.error-msg{background:#FEE2E2;color:#991B1B;border-radius:8px;padding:.65rem 1rem;font-size:.85rem;font-weight:700;margin-top:.75rem;display:none;text-align:center;}
+</style>
+</head>
+<body>
+<div class="login-card">
+  <div class="login-logo">
+    <div class="emoji">🍀</div>
+    <h1>Peppin's Tuition Centre</h1>
+    <p>Junior Cycle Mathematics · Cork</p>
+  </div>
+
+  <div class="tab-row">
+    <button class="tab-btn active" onclick="switchRole('student',this)">👩‍🎓 Student</button>
+    <button class="tab-btn" onclick="switchRole('parent',this)">👨‍👧 Parent</button>
+  </div>
+
+  <div id="student-form">
+    <div class="form-group">
+      <label>Who are you?</label>
+      <select id="student-select">
+        <option value="">— Select your name —</option>
+        <option value="reya">Reya</option>
+        <option value="arnav">Arnav</option>
+        <option value="sanjith">Sanjith</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Enter your PIN</label>
+      <div class="pin-row">
+        <input class="pin-digit" id="s0" maxlength="1" type="password" inputmode="numeric" oninput="moveFocus(this,'s1')">
+        <input class="pin-digit" id="s1" maxlength="1" type="password" inputmode="numeric" oninput="moveFocus(this,'s2')">
+        <input class="pin-digit" id="s2" maxlength="1" type="password" inputmode="numeric" oninput="moveFocus(this,'s3')">
+        <input class="pin-digit" id="s3" maxlength="1" type="password" inputmode="numeric" onkeyup="if(event.key==='Enter')doLogin()">
+      </div>
+    </div>
+    <button class="btn-login" onclick="doLogin()">Login →</button>
+  </div>
+
+  <div id="parent-form" style="display:none">
+    <div class="form-group">
+      <label>Who are you?</label>
+      <select id="parent-select">
+        <option value="">— Select your name —</option>
+        <option value="peppin">Peppin (Reya's Dad)</option>
+        <option value="viren">Viren (Arnav's Dad)</option>
+        <option value="muthu">Muthu (Sanjith's Dad)</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Enter your PIN</label>
+      <div class="pin-row">
+        <input class="pin-digit" id="p0" maxlength="1" type="password" inputmode="numeric" oninput="moveFocus(this,'p1')">
+        <input class="pin-digit" id="p1" maxlength="1" type="password" inputmode="numeric" oninput="moveFocus(this,'p2')">
+        <input class="pin-digit" id="p2" maxlength="1" type="password" inputmode="numeric" oninput="moveFocus(this,'p3')">
+        <input class="pin-digit" id="p3" maxlength="1" type="password" inputmode="numeric" onkeyup="if(event.key==='Enter')doLogin()">
+      </div>
+    </div>
+    <button class="btn-login" onclick="doLogin()">Login →</button>
+  </div>
+
+  <div class="error-msg" id="error-msg">❌ Incorrect name or PIN. Please try again.</div>
+</div>
+
+<script>
+const STUDENTS = [{"key": "reya", "name": "Reya", "pin": "1234"}, {"key": "arnav", "name": "Arnav", "pin": "2345"}, {"key": "sanjith", "name": "Sanjith", "pin": "3456"}];
+const PARENTS  = [{"key": "peppin", "name": "Peppin", "pin": "9001", "child_key": "reya", "child_name": "Reya"}, {"key": "viren", "name": "Viren", "pin": "9002", "child_key": "arnav", "child_name": "Arnav"}, {"key": "muthu", "name": "Muthu", "pin": "9003", "child_key": "sanjith", "child_name": "Sanjith"}];
+let currentRole = 'student';
+
+function switchRole(role, btn){
+  currentRole = role;
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('student-form').style.display = role==='student'?'block':'none';
+  document.getElementById('parent-form').style.display  = role==='parent' ?'block':'none';
+  document.getElementById('error-msg').style.display='none';
+}
+
+function moveFocus(el, nextId){
+  if(el.value.length===1){
+    var next=document.getElementById(nextId);
+    if(next) next.focus();
+  }
+}
+
+function getPin(prefix){
+  return ['0','1','2','3'].map(i=>document.getElementById(prefix+i).value).join('');
+}
+
+function doLogin(){
+  document.getElementById('error-msg').style.display='none';
+  if(currentRole==='student'){
+    var key=document.getElementById('student-select').value;
+    var pin=getPin('s');
+    var match=STUDENTS.find(s=>s.key===key && s.pin===pin);
+    if(match){
+      sessionStorage.setItem('ptc_session', JSON.stringify({role:'student',key:match.key,name:match.name}));
+      location.replace('index.html');
+    } else {
+      document.getElementById('error-msg').style.display='block';
+      ['s0','s1','s2','s3'].forEach(id=>document.getElementById(id).value='');
+      document.getElementById('s0').focus();
+    }
+  } else {
+    var key=document.getElementById('parent-select').value;
+    var pin=getPin('p');
+    var match=PARENTS.find(p=>p.key===key && p.pin===pin);
+    if(match){
+      sessionStorage.setItem('ptc_session', JSON.stringify({role:'parent',key:match.key,name:match.name,child_key:match.child_key,child_name:match.child_name}));
+      location.replace('parent.html');
+    } else {
+      document.getElementById('error-msg').style.display='block';
+      ['p0','p1','p2','p3'].forEach(id=>document.getElementById(id).value='');
+      document.getElementById('p0').focus();
+    }
+  }
+}
+
+// If already logged in, skip login page
+var existing = JSON.parse(sessionStorage.getItem('ptc_session')||'null');
+if(existing){
+  location.replace(existing.role==='parent'?'parent.html':'index.html');
+}
+</script>
+</body></html>

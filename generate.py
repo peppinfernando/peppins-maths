@@ -594,30 +594,6 @@ def html_head(title, extra_css=""):
 {extra_css}
 </head>"""
 
-def nav_bar(active="home"):
-    links = [
-        ("home", "index.html", "🏠 Home"),
-        ("plan", "plan.html", "📅 45-Day Plan"),
-        ("quiz", "quiz.html", "⚡ Quick Quiz"),
-        ("progress", "progress.html", "📈 My Progress"),
-    ]
-    items = ""
-    for key, href, label in links:
-        cls = "active" if key == active else ""
-        items += f'<a href="{href}" class="nav-link {cls}">{label}</a>\n'
-    return f"""<nav class="navbar">
-  <div class="nav-brand">
-    <span class="nav-logo">🍀</span>
-    <div>
-      <div class="nav-title">Peppin's Maths</div>
-      <div class="nav-sub">Junior Cycle · First Year</div>
-    </div>
-  </div>
-  <div class="nav-links">{items}</div>
-  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
-</nav>"""
-
-
 def generate_css():
     return """:root {
   --navy: #1B3A6B;
@@ -772,89 +748,6 @@ def level_color(level):
     return "#555"
 
 
-def generate_index():
-    block_sections = {}
-    for d in DAYS:
-        b = d["block"]
-        block_sections.setdefault(b, []).append(d)
-
-    hero = f"""
-{nav_bar("home")}
-<div class="page-hero">
-  <div style="font-size:2.5rem;margin-bottom:.5rem">📐 🔢 📊</div>
-  <h1>Junior Cycle Mathematics</h1>
-  <p>Peppin's Tuition Centre, Cork · First Year · 45-Day Study Programme<br>
-     <span style="opacity:.7;font-size:.9rem">Aligned to NCCA Specification · Based on SEC Exam Papers 2021–2025</span></p>
-  <div style="display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin-top:1.25rem;">
-    <a href="plan.html" class="btn btn-gold btn-lg">📅 View 45-Day Plan</a>
-    <a href="quiz.html" class="btn btn-primary btn-lg" style="background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.4);">⚡ Quick Quiz</a>
-  </div>
-</div>
-"""
-    stats = f"""
-<div class="container">
-  <div class="stats-strip">
-    <div class="stat-box"><div class="stat-num" style="color:var(--navy)">45</div><div class="stat-label">Study Days</div></div>
-    <div class="stat-box"><div class="stat-num" style="color:var(--green)">5</div><div class="stat-label">Topic Blocks</div></div>
-    <div class="stat-box"><div class="stat-num" style="color:var(--gold)">{sum(len(d['questions']) for d in DAYS)}</div><div class="stat-label">Practice Questions</div></div>
-    <div class="stat-box"><div class="stat-num" style="color:var(--red)">{len(DAYS)}</div><div class="stat-label">Lessons</div></div>
-  </div>
-"""
-
-    content = ""
-    for block_name, block_days in block_sections.items():
-        info = BLOCKS.get(block_name, {"color":"#555","icon":"📚"})
-        color = info["color"]
-        icon = info["icon"]
-        content += f"""
-  <div class="mt4">
-    <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1rem;padding-bottom:.6rem;border-bottom:3px solid {color};">
-      <span style="font-size:1.5rem">{icon}</span>
-      <div>
-        <h2 style="font-family:'Merriweather',serif;color:{color};font-size:1.25rem;">{block_name}</h2>
-        <div style="font-size:.8rem;color:var(--muted);">Days {block_days[0]['day']}–{block_days[-1]['day']}</div>
-      </div>
-    </div>
-    <div class="grid-3">
-"""
-        for d in block_days:
-            lc = level_color(d["level"])
-            content += f"""
-      <a href="day{d['day']}.html" class="card day-card" style="border-left-color:{d['color']}">
-        <div class="card-header" style="padding:.75rem 1rem;">
-          <div>
-            <div class="day-num" style="color:{d['color']}">Day {d['day']}</div>
-            <div class="day-topic">{d['topic']}</div>
-            <div class="day-sub">{d['subtopic']}</div>
-            <div class="day-meta">
-              <span class="level-badge" style="background:{lc}">{d['level']}</span>
-              <span style="font-size:.72rem;color:var(--muted)">{len(d['questions'])} questions</span>
-              <span class="completed-mark" id="mark-{d['day']}"></span>
-            </div>
-          </div>
-        </div>
-      </a>
-"""
-        content += "    </div>\n  </div>\n"
-
-    footer = """
-  <footer>
-    <strong>Peppin's Tuition Centre, Cork</strong> · Junior Cycle Mathematics · 45-Day Tuition Programme<br>
-    Aligned to NCCA Junior Cycle Specification · SEC Exam Papers 2021–2025
-  </footer>
-"""
-    script = """
-<script>
-// Load completion marks from localStorage
-document.querySelectorAll('[id^="mark-"]').forEach(el => {
-  const day = el.id.replace('mark-','');
-  if(localStorage.getItem('day_complete_'+day)) el.textContent = '✅';
-});
-</script>
-"""
-    return html_head("Peppin's Maths · Home") + "<body>" + hero + stats + content + "</div>" + footer + script + "</body></html>"
-
-
 def generate_plan():
     rows = ""
     prev_block = None
@@ -902,140 +795,6 @@ def generate_plan():
 </footer>
 """
     return html_head("45-Day Plan · Peppin's Maths") + "<body>" + body + "</body></html>"
-
-
-def generate_day_page(d):
-    day_num = d["day"]
-    prev_link = f'<a href="day{day_num-1}.html" class="back-link">← Day {day_num-1}</a>' if day_num > 1 else ""
-    next_link = f'<a href="day{day_num+1}.html" class="back-link" style="margin-left:auto">Day {day_num+1} →</a>' if day_num < 45 else ""
-    lc = level_color(d["level"])
-    c = d["concept"]
-
-    # Concept section
-    explains = "".join(f"<p>{p}</p>" for p in c["explain"])
-    mistakes = "".join(f"<li>{m}</li>" for m in c["mistakes"])
-    formulae = "".join(f"<code>{f}</code>" for f in c["formulae"])
-    steps = "".join(f"<li>{s}</li>" for s in c["worked"]["steps"])
-
-    concept_html = f"""
-<div class="tab-content active" id="tab-concept">
-  <div class="concept-section mt2">
-    <div class="section-label" style="color:#1565C0">📘 What is this topic?</div>
-    <div class="explain-box">{explains}</div>
-  </div>
-  <div class="concept-section">
-    <div class="section-label" style="color:var(--gold)">💡 Analogy — How to picture it</div>
-    <div class="analogy-box"><p>{c['analogy']}</p></div>
-  </div>
-  <div class="concept-section">
-    <div class="section-label" style="color:var(--green)">🔍 Worked Example</div>
-    <div class="worked-box">
-      <strong style="display:block;margin-bottom:.6rem">{c['worked']['title']}</strong>
-      <ol class="step-list">{steps}</ol>
-    </div>
-  </div>
-  <div class="concept-section">
-    <div class="section-label" style="color:#BF360C">⚠️ Common Mistakes</div>
-    <div class="mistake-box"><ul style="padding-left:1.2rem">{mistakes}</ul></div>
-  </div>
-  <div class="concept-section">
-    <div class="section-label" style="color:var(--navy)">📌 Key Formulae</div>
-    <div class="formula-box">{formulae}</div>
-  </div>
-  <div class="tip-box mt2">
-    <strong>🎯 SEC Exam Insight:</strong> {d['tip'] if 'tip' in d else ''}
-  </div>
-</div>
-"""
-
-    # Questions section
-    q_html = '<div class="tab-content" id="tab-questions">\n'
-    for q in d["questions"]:
-        q_html += f"""
-<div class="question-card">
-  <div class="q-header">
-    <span class="q-num">Q{q['q']}</span>
-    <span style="flex:1;font-size:.9rem">{q['text']}</span>
-    <span class="q-marks">{q['marks']} mark{'s' if q['marks']>1 else ''}</span>
-  </div>
-  <div class="q-hint" id="hint-{day_num}-{q['q']}">💡 <em>{q['hint']}</em></div>
-  <div class="q-answer" id="ans-{day_num}-{q['q']}"><strong>✅ Answer:</strong> {q['answer']}</div>
-  <div class="q-actions">
-    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-{day_num}-{q['q']}')">💡 Hint</button>
-    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-{day_num}-{q['q']}')">✅ Show Answer</button>
-  </div>
-</div>
-"""
-    q_html += "</div>\n"
-
-    # Nav between days
-    prev_day_link = ""
-    next_day_link = ""
-    if day_num > 1:
-        prev_day_link = f'<a href="day{day_num-1}.html" class="btn btn-primary">← Day {day_num-1}</a>'
-    if day_num < 45:
-        next_day_link = f'<a href="day{day_num+1}.html" class="btn btn-green">Day {day_num+1} →</a>'
-
-    body = f"""
-{nav_bar()}
-<div style="background:{d['color']};color:#fff;padding:1.5rem 1.5rem 1rem;">
-  <div style="max-width:900px;margin:0 auto;">
-    <a href="index.html" style="color:rgba(255,255,255,.7);font-size:.82rem;font-weight:700;">← Back to Home</a>
-    <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-top:.6rem;">
-      <div>
-        <div style="font-size:.75rem;opacity:.7;font-weight:800;letter-spacing:.1em;text-transform:uppercase;">Day {day_num} of 45 · {d['block']}</div>
-        <h1 style="font-family:'Merriweather',serif;font-size:clamp(1.3rem,3vw,2rem);margin:.3rem 0;">{d['topic']}</h1>
-        <div style="font-size:1rem;opacity:.85;">{d['subtopic']}</div>
-        <div style="margin-top:.6rem;display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;">
-          <span class="level-badge" style="background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4)">{d['level']}</span>
-          <span style="font-size:.78rem;opacity:.7">{len(d['questions'])} questions · {sum(q['marks'] for q in d['questions'])} marks total</span>
-        </div>
-      </div>
-      <div style="text-align:center;">
-        <div style="font-size:2.5rem;line-height:1">{'🔢' if d['block']=='Number' else '✖️' if d['block']=='Algebra' else '📐' if d['block']=='Geometry' else '📊' if d['block']=='Statistics' else '📝'}</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="container" style="max-width:900px;">
-  <div class="tab-bar">
-    <button class="tab active" onclick="switchTab('concept',this)">📖 Concept</button>
-    <button class="tab" onclick="switchTab('questions',this)">✏️ Practice Questions</button>
-  </div>
-
-  {concept_html}
-  {q_html}
-
-  <div style="display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wrap;margin-top:2rem;padding-top:1rem;border-top:2px solid var(--border);">
-    {prev_day_link}
-    <button class="btn btn-gold" onclick="markComplete({day_num})">✅ Mark Day {day_num} Complete</button>
-    {next_day_link}
-  </div>
-</div>
-
-<footer>
-  <strong>Peppin's Tuition Centre, Cork</strong> · Day {day_num} · {d['topic']} — {d['subtopic']}
-</footer>
-
-<script>
-function switchTab(name, btn) {{
-  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
-  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-  document.getElementById('tab-'+name).classList.add('active');
-  btn.classList.add('active');
-}}
-function toggleEl(id) {{
-  const el = document.getElementById(id);
-  el.style.display = el.style.display === 'block' ? 'none' : 'block';
-}}
-function markComplete(day) {{
-  localStorage.setItem('day_complete_'+day, '1');
-  alert('Day ' + day + ' marked as complete! 🎉');
-}}
-</script>
-"""
-    return html_head(f"Day {day_num} · {d['topic']} · Peppin's Maths") + "<body>" + body + "</body></html>"
 
 
 def generate_quiz():
@@ -1238,74 +997,6 @@ function resetQuiz(){{
     return html_head("Quick Quiz · Peppin's Maths") + "<body>" + body + "</body></html>"
 
 
-def generate_progress():
-    day_marks = json.dumps({d["day"]: sum(q["marks"] for q in d["questions"]) for d in DAYS})
-    day_topics = json.dumps({d["day"]: d["topic"] for d in DAYS})
-
-    body = f"""
-{nav_bar("progress")}
-<div class="page-hero">
-  <h1>📈 My Progress</h1>
-  <p>Track your journey through the 45-day Junior Cycle Maths programme</p>
-</div>
-<div class="container" style="max-width:900px;">
-  <div class="stats-strip mt3">
-    <div class="stat-box"><div class="stat-num" id="days-done" style="color:var(--navy)">0</div><div class="stat-label">Days Complete</div></div>
-    <div class="stat-box"><div class="stat-num" id="pct-done" style="color:var(--green)">0%</div><div class="stat-label">Progress</div></div>
-    <div class="stat-box"><div class="stat-num" id="days-left" style="color:var(--gold)">45</div><div class="stat-label">Days Remaining</div></div>
-  </div>
-  <div class="card mt3" style="padding:1.25rem;">
-    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.75rem;">
-      <strong>Overall Progress</strong>
-      <span id="overall-label" style="color:var(--muted);font-size:.85rem">0 / 45 days</span>
-    </div>
-    <div class="progress-bar" style="height:14px"><div class="progress-fill" id="overall-fill" style="background:linear-gradient(90deg,var(--navy),var(--green))"></div></div>
-  </div>
-
-  <h3 style="margin:1.5rem 0 .75rem;font-family:'Merriweather',serif;">Day-by-Day Tracker</h3>
-  <div id="day-tracker" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:.5rem;"></div>
-
-  <div style="text-align:center;margin-top:2rem;">
-    <button class="btn btn-red" onclick="if(confirm('Reset all progress?')){{localStorage.clear();location.reload();}}">🗑️ Reset Progress</button>
-  </div>
-</div>
-<footer><strong>Peppin's Tuition Centre, Cork</strong> · Junior Cycle Mathematics Progress Tracker</footer>
-<script>
-const DAY_MARKS={day_marks};
-const DAY_TOPICS={day_topics};
-function loadProgress(){{
-  let done=0;
-  const total=45;
-  let html='';
-  for(let i=1;i<=total;i++){{
-    const complete=!!localStorage.getItem('day_complete_'+i);
-    if(complete) done++;
-    const topic=DAY_TOPICS[i]||'';
-    html+=`<a href="day${{i}}.html" title="Day ${{i}}: ${{topic}}" style="
-      display:flex;flex-direction:column;align-items:center;justify-content:center;
-      background:${{complete?'var(--green)':'#fff'}};
-      color:${{complete?'#fff':'var(--text)'}};
-      border:2px solid ${{complete?'var(--green)':'var(--border)'}};
-      border-radius:10px;padding:.5rem .25rem;font-weight:800;font-size:.82rem;
-      text-decoration:none;transition:all .2s;cursor:pointer;
-    ">
-      <span style="font-size:1.1rem">${{complete?'✅':'📖'}}</span>
-      <span>Day ${{i}}</span>
-    </a>`;
-  }}
-  document.getElementById('day-tracker').innerHTML=html;
-  document.getElementById('days-done').textContent=done;
-  document.getElementById('pct-done').textContent=Math.round(done/total*100)+'%';
-  document.getElementById('days-left').textContent=total-done;
-  document.getElementById('overall-label').textContent=done+' / '+total+' days';
-  document.getElementById('overall-fill').style.width=Math.round(done/total*100)+'%';
-}}
-loadProgress();
-</script>
-"""
-    return html_head("My Progress · Peppin's Maths") + "<body>" + body + "</body></html>"
-
-
 def generate_readme():
     return """# Peppin's Tuition Centre, Cork — Junior Cycle Mathematics Study App
 
@@ -1395,63 +1086,717 @@ for _d in DAYS:
     _d['tip'] = _TIPS.get(_d['day'], 'Show all working clearly. Method marks are awarded even when arithmetic errors occur.')
 
 
-# ─── BUILD ────────────────────────────────────────────────────────────────────
+# ─── USERS CONFIG ─────────────────────────────────────────────────────────────
+STUDENTS = [
+    {"key": "reya",    "name": "Reya",    "pin": "1234"},
+    {"key": "arnav",   "name": "Arnav",   "pin": "2345"},
+    {"key": "sanjith", "name": "Sanjith", "pin": "3456"},
+]
+PARENTS = [
+    {"key": "peppin", "name": "Peppin", "pin": "9001", "child_key": "reya",    "child_name": "Reya"},
+    {"key": "viren",  "name": "Viren",  "pin": "9002", "child_key": "arnav",   "child_name": "Arnav"},
+    {"key": "muthu",  "name": "Muthu",  "pin": "9003", "child_key": "sanjith", "child_name": "Sanjith"},
+]
 
+AUTH_GUARD = """
+<script>
+(function(){
+  var sess=JSON.parse(sessionStorage.getItem('ptc_session')||'null');
+  if(!sess){location.replace('login.html');return;}
+  if(sess.role==='parent'){location.replace('parent.html');return;}
+  var el=document.getElementById('nav-student-name');
+  if(el)el.textContent=sess.name;
+})();
+</script>
+"""
+
+PARENT_GUARD = """
+<script>
+(function(){
+  var sess=JSON.parse(sessionStorage.getItem('ptc_session')||'null');
+  if(!sess){location.replace('login.html');return;}
+  if(sess.role==='student'){location.replace('index.html');return;}
+})();
+</script>
+"""
+
+def nav_bar(active="home"):
+    links = [
+        ("home",     "index.html",    "🏠 Home"),
+        ("plan",     "plan.html",     "📅 45-Day Plan"),
+        ("quiz",     "quiz.html",     "⚡ Quick Quiz"),
+        ("progress", "progress.html", "📈 My Progress"),
+    ]
+    items = ""
+    for key, href, label in links:
+        cls = "active" if key == active else ""
+        items += f'<a href="{href}" class="nav-link {cls}">{label}</a>\n'
+    return f"""<nav class="navbar">
+  <div class="nav-brand">
+    <span class="nav-logo">🍀</span>
+    <div>
+      <div class="nav-title">Peppin's Maths</div>
+      <div class="nav-sub">Junior Cycle · First Year</div>
+    </div>
+  </div>
+  <div class="nav-links">{items}</div>
+  <div style="display:flex;align-items:center;gap:.5rem;margin-left:auto;">
+    <span id="nav-student-name" style="font-size:.78rem;font-weight:700;color:var(--navy);padding:.3rem .6rem;background:#EEF2FF;border-radius:8px;white-space:nowrap;"></span>
+    <button onclick="doLogout()" class="btn btn-sm" style="background:#fee2e2;color:#991b1b;border:none;cursor:pointer;">🚪 Logout</button>
+  </div>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+</nav>
+<script>
+function doLogout(){{
+  sessionStorage.removeItem('ptc_session');
+  location.replace('login.html');
+}}
+var _s=JSON.parse(sessionStorage.getItem('ptc_session')||'null');
+if(_s){{var el=document.getElementById('nav-student-name');if(el)el.textContent=_s.name;}}
+</script>"""
+
+
+# ─── LOGIN PAGE ───────────────────────────────────────────────────────────────
+def generate_login():
+    students_json = json.dumps([{"key": s["key"], "name": s["name"], "pin": s["pin"]} for s in STUDENTS])
+    parents_json  = json.dumps([{"key": p["key"], "name": p["name"], "pin": p["pin"],
+                                  "child_key": p["child_key"], "child_name": p["child_name"]} for p in PARENTS])
+    return f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login · Peppin's Tuition Centre</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+body{{display:flex;align-items:center;justify-content:center;min-height:100vh;background:linear-gradient(135deg,#1B3A6B 0%,#2d5496 60%,#2E7D32 100%);padding:1rem;}}
+.login-card{{background:#fff;border-radius:20px;padding:2.5rem 2rem;width:100%;max-width:420px;box-shadow:0 20px 60px rgba(0,0,0,.25);}}
+.login-logo{{text-align:center;margin-bottom:1.5rem;}}
+.login-logo .emoji{{font-size:3rem;}}
+.login-logo h1{{font-family:'Merriweather',serif;font-size:1.4rem;color:#1B3A6B;margin:.4rem 0 .2rem;}}
+.login-logo p{{font-size:.82rem;color:#6B7280;}}
+.tab-row{{display:flex;gap:.4rem;background:#F3F4F6;border-radius:10px;padding:.3rem;margin-bottom:1.5rem;}}
+.tab-btn{{flex:1;padding:.55rem;border:none;border-radius:8px;font-family:'Nunito',sans-serif;font-weight:700;font-size:.88rem;cursor:pointer;transition:all .2s;background:transparent;color:#6B7280;}}
+.tab-btn.active{{background:#fff;color:#1B3A6B;box-shadow:0 1px 4px rgba(0,0,0,.1);}}
+.form-group{{margin-bottom:1rem;}}
+label{{display:block;font-weight:700;font-size:.85rem;margin-bottom:.4rem;color:#374151;}}
+select,input[type=password]{{width:100%;padding:.75rem 1rem;border:2px solid #E5E7EB;border-radius:10px;font-family:'Nunito',sans-serif;font-size:.95rem;font-weight:600;outline:none;transition:border .2s;}}
+select:focus,input:focus{{border-color:#1B3A6B;}}
+.pin-row{{display:flex;gap:.5rem;justify-content:center;margin:.5rem 0;}}
+.pin-digit{{width:52px;height:60px;border:2px solid #E5E7EB;border-radius:12px;font-size:1.6rem;font-weight:900;text-align:center;font-family:'Nunito',sans-serif;outline:none;transition:border .2s;}}
+.pin-digit:focus{{border-color:#1B3A6B;}}
+.btn-login{{width:100%;padding:.85rem;background:#1B3A6B;color:#fff;border:none;border-radius:12px;font-family:'Nunito',sans-serif;font-size:1rem;font-weight:800;cursor:pointer;transition:background .2s;margin-top:.5rem;}}
+.btn-login:hover{{background:#2d5496;}}
+.error-msg{{background:#FEE2E2;color:#991B1B;border-radius:8px;padding:.65rem 1rem;font-size:.85rem;font-weight:700;margin-top:.75rem;display:none;text-align:center;}}
+</style>
+</head>
+<body>
+<div class="login-card">
+  <div class="login-logo">
+    <div class="emoji">🍀</div>
+    <h1>Peppin's Tuition Centre</h1>
+    <p>Junior Cycle Mathematics · Cork</p>
+  </div>
+
+  <div class="tab-row">
+    <button class="tab-btn active" onclick="switchRole('student',this)">👩‍🎓 Student</button>
+    <button class="tab-btn" onclick="switchRole('parent',this)">👨‍👧 Parent</button>
+  </div>
+
+  <div id="student-form">
+    <div class="form-group">
+      <label>Who are you?</label>
+      <select id="student-select">
+        <option value="">— Select your name —</option>
+        <option value="reya">Reya</option>
+        <option value="arnav">Arnav</option>
+        <option value="sanjith">Sanjith</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Enter your PIN</label>
+      <div class="pin-row">
+        <input class="pin-digit" id="s0" maxlength="1" type="password" inputmode="numeric" oninput="moveFocus(this,'s1')">
+        <input class="pin-digit" id="s1" maxlength="1" type="password" inputmode="numeric" oninput="moveFocus(this,'s2')">
+        <input class="pin-digit" id="s2" maxlength="1" type="password" inputmode="numeric" oninput="moveFocus(this,'s3')">
+        <input class="pin-digit" id="s3" maxlength="1" type="password" inputmode="numeric" onkeyup="if(event.key==='Enter')doLogin()">
+      </div>
+    </div>
+    <button class="btn-login" onclick="doLogin()">Login →</button>
+  </div>
+
+  <div id="parent-form" style="display:none">
+    <div class="form-group">
+      <label>Who are you?</label>
+      <select id="parent-select">
+        <option value="">— Select your name —</option>
+        <option value="peppin">Peppin (Reya's Dad)</option>
+        <option value="viren">Viren (Arnav's Dad)</option>
+        <option value="muthu">Muthu (Sanjith's Dad)</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Enter your PIN</label>
+      <div class="pin-row">
+        <input class="pin-digit" id="p0" maxlength="1" type="password" inputmode="numeric" oninput="moveFocus(this,'p1')">
+        <input class="pin-digit" id="p1" maxlength="1" type="password" inputmode="numeric" oninput="moveFocus(this,'p2')">
+        <input class="pin-digit" id="p2" maxlength="1" type="password" inputmode="numeric" oninput="moveFocus(this,'p3')">
+        <input class="pin-digit" id="p3" maxlength="1" type="password" inputmode="numeric" onkeyup="if(event.key==='Enter')doLogin()">
+      </div>
+    </div>
+    <button class="btn-login" onclick="doLogin()">Login →</button>
+  </div>
+
+  <div class="error-msg" id="error-msg">❌ Incorrect name or PIN. Please try again.</div>
+</div>
+
+<script>
+const STUDENTS = {students_json};
+const PARENTS  = {parents_json};
+let currentRole = 'student';
+
+function switchRole(role, btn){{
+  currentRole = role;
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('student-form').style.display = role==='student'?'block':'none';
+  document.getElementById('parent-form').style.display  = role==='parent' ?'block':'none';
+  document.getElementById('error-msg').style.display='none';
+}}
+
+function moveFocus(el, nextId){{
+  if(el.value.length===1){{
+    var next=document.getElementById(nextId);
+    if(next) next.focus();
+  }}
+}}
+
+function getPin(prefix){{
+  return ['0','1','2','3'].map(i=>document.getElementById(prefix+i).value).join('');
+}}
+
+function doLogin(){{
+  document.getElementById('error-msg').style.display='none';
+  if(currentRole==='student'){{
+    var key=document.getElementById('student-select').value;
+    var pin=getPin('s');
+    var match=STUDENTS.find(s=>s.key===key && s.pin===pin);
+    if(match){{
+      sessionStorage.setItem('ptc_session', JSON.stringify({{role:'student',key:match.key,name:match.name}}));
+      location.replace('index.html');
+    }} else {{
+      document.getElementById('error-msg').style.display='block';
+      ['s0','s1','s2','s3'].forEach(id=>document.getElementById(id).value='');
+      document.getElementById('s0').focus();
+    }}
+  }} else {{
+    var key=document.getElementById('parent-select').value;
+    var pin=getPin('p');
+    var match=PARENTS.find(p=>p.key===key && p.pin===pin);
+    if(match){{
+      sessionStorage.setItem('ptc_session', JSON.stringify({{role:'parent',key:match.key,name:match.name,child_key:match.child_key,child_name:match.child_name}}));
+      location.replace('parent.html');
+    }} else {{
+      document.getElementById('error-msg').style.display='block';
+      ['p0','p1','p2','p3'].forEach(id=>document.getElementById(id).value='');
+      document.getElementById('p0').focus();
+    }}
+  }}
+}}
+
+// If already logged in, skip login page
+var existing = JSON.parse(sessionStorage.getItem('ptc_session')||'null');
+if(existing){{
+  location.replace(existing.role==='parent'?'parent.html':'index.html');
+}}
+</script>
+</body></html>"""
+
+
+# ─── PARENT DASHBOARD ─────────────────────────────────────────────────────────
+def generate_parent():
+    day_topics_json = json.dumps({d["day"]: d["topic"] for d in DAYS})
+    return f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parent Dashboard · Peppin's Tuition Centre</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+{PARENT_GUARD}
+<nav class="navbar">
+  <div class="nav-brand">
+    <span class="nav-logo">🍀</span>
+    <div>
+      <div class="nav-title">Peppin's Maths</div>
+      <div class="nav-sub">Parent Dashboard</div>
+    </div>
+  </div>
+  <div style="margin-left:auto;display:flex;align-items:center;gap:.75rem;">
+    <span id="parent-greeting" style="font-size:.85rem;font-weight:700;color:var(--navy);"></span>
+    <button onclick="sessionStorage.removeItem('ptc_session');location.replace('login.html');" class="btn btn-sm" style="background:#fee2e2;color:#991b1b;border:none;cursor:pointer;">🚪 Logout</button>
+  </div>
+</nav>
+
+<div style="background:linear-gradient(135deg,var(--navy),#2d5496);color:#fff;padding:2rem 1.5rem;">
+  <div style="max-width:900px;margin:0 auto;">
+    <div style="font-size:2rem;margin-bottom:.5rem">👨‍👧</div>
+    <h1 id="dashboard-title" style="font-family:'Merriweather',serif;font-size:1.6rem;margin-bottom:.3rem;"></h1>
+    <p id="dashboard-sub" style="opacity:.8;font-size:.9rem;"></p>
+  </div>
+</div>
+
+<div class="container" style="max-width:900px;">
+  <div class="stats-strip mt3">
+    <div class="stat-box"><div class="stat-num" id="p-days-done" style="color:var(--navy)">0</div><div class="stat-label">Days Complete</div></div>
+    <div class="stat-box"><div class="stat-num" id="p-pct" style="color:var(--green)">0%</div><div class="stat-label">Progress</div></div>
+    <div class="stat-box"><div class="stat-num" id="p-days-left" style="color:var(--gold)">45</div><div class="stat-label">Days Remaining</div></div>
+  </div>
+
+  <div class="card mt3" style="padding:1.25rem;">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.75rem;">
+      <strong id="progress-title">Progress</strong>
+      <span id="p-overall-label" style="color:var(--muted);font-size:.85rem;"></span>
+    </div>
+    <div class="progress-bar" style="height:14px;">
+      <div class="progress-fill" id="p-overall-fill" style="background:linear-gradient(90deg,var(--navy),var(--green));width:0%"></div>
+    </div>
+  </div>
+
+  <h3 style="margin:1.5rem 0 .75rem;font-family:'Merriweather',serif;">Day-by-Day Progress</h3>
+  <p class="muted mb2" style="font-size:.85rem;">✅ = completed · 📖 = not yet started</p>
+  <div id="p-day-tracker" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:.5rem;"></div>
+
+  <div class="card mt4" style="padding:1.25rem;background:#FFF8E1;border-left:4px solid var(--gold);">
+    <strong>📌 Note for Parents</strong>
+    <p style="font-size:.88rem;margin-top:.4rem;color:#555;">This view shows your child's progress as stored on <em>their device</em>. Progress is saved automatically each time they mark a day complete. If your child uses a different device, progress may differ.</p>
+  </div>
+</div>
+
+<footer style="background:var(--navy);color:rgba(255,255,255,.7);text-align:center;padding:1.5rem;font-size:.82rem;margin-top:3rem;">
+  <strong style="color:#fff">Peppin's Tuition Centre, Cork</strong> · Parent Dashboard · Junior Cycle Mathematics
+</footer>
+
+<script>
+const DAY_TOPICS = {day_topics_json};
+
+function loadParentDashboard(){{
+  var sess = JSON.parse(sessionStorage.getItem('ptc_session')||'null');
+  if(!sess || sess.role!=='parent') return;
+
+  document.getElementById('parent-greeting').textContent = 'Hi, ' + sess.name + '!';
+  document.getElementById('dashboard-title').textContent = sess.child_name + "'s Progress Dashboard";
+  document.getElementById('dashboard-sub').textContent = "Viewing " + sess.child_name + "'s Junior Cycle Maths journey";
+  document.getElementById('progress-title').textContent = sess.child_name + "'s Overall Progress";
+
+  // Read child's localStorage — parent must be on same device OR child shares device
+  // Progress keys are prefixed with child's key
+  var childKey = sess.child_key;
+  var done = 0;
+  var total = 45;
+  var html = '';
+
+  for(var i=1; i<=total; i++){{
+    var complete = !!localStorage.getItem('day_complete_' + childKey + '_' + i);
+    if(complete) done++;
+    var topic = DAY_TOPICS[i] || '';
+    html += '<div title="Day '+i+': '+topic+'" style="display:flex;flex-direction:column;align-items:center;justify-content:center;background:'+(complete?'var(--green)':'#fff')+';color:'+(complete?'#fff':'var(--text)')+';border:2px solid '+(complete?'var(--green)':'var(--border)')+';border-radius:10px;padding:.5rem .25rem;font-weight:800;font-size:.82rem;text-align:center;">'
+      + '<span style="font-size:1.1rem">'+(complete?'✅':'📖')+'</span>'
+      + '<span>Day '+i+'</span>'
+      + '</div>';
+  }}
+
+  document.getElementById('p-day-tracker').innerHTML = html;
+  document.getElementById('p-days-done').textContent = done;
+  document.getElementById('p-pct').textContent = Math.round(done/total*100) + '%';
+  document.getElementById('p-days-left').textContent = total - done;
+  document.getElementById('p-overall-label').textContent = done + ' / ' + total + ' days';
+  document.getElementById('p-overall-fill').style.width = Math.round(done/total*100) + '%';
+}}
+
+loadParentDashboard();
+</script>
+</body></html>"""
+
+
+# ─── UPDATED GENERATE_PROGRESS (student-scoped storage) ──────────────────────
+def generate_progress():
+    day_topics_json = json.dumps({d["day"]: d["topic"] for d in DAYS})
+    return f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Progress · Peppin's Maths</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+{AUTH_GUARD}
+{nav_bar("progress")}
+<div class="page-hero">
+  <h1>📈 My Progress</h1>
+  <p id="progress-sub">Track your journey through the 45-day programme</p>
+</div>
+<div class="container" style="max-width:900px;">
+  <div class="stats-strip mt3">
+    <div class="stat-box"><div class="stat-num" id="days-done" style="color:var(--navy)">0</div><div class="stat-label">Days Complete</div></div>
+    <div class="stat-box"><div class="stat-num" id="pct-done" style="color:var(--green)">0%</div><div class="stat-label">Progress</div></div>
+    <div class="stat-box"><div class="stat-num" id="days-left" style="color:var(--gold)">45</div><div class="stat-label">Days Remaining</div></div>
+  </div>
+  <div class="card mt3" style="padding:1.25rem;">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:.75rem;">
+      <strong>Overall Progress</strong>
+      <span id="overall-label" style="color:var(--muted);font-size:.85rem">0 / 45 days</span>
+    </div>
+    <div class="progress-bar" style="height:14px"><div class="progress-fill" id="overall-fill" style="background:linear-gradient(90deg,var(--navy),var(--green))"></div></div>
+  </div>
+  <h3 style="margin:1.5rem 0 .75rem;font-family:'Merriweather',serif;">Day-by-Day Tracker</h3>
+  <div id="day-tracker" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:.5rem;"></div>
+  <div style="text-align:center;margin-top:2rem;">
+    <button class="btn btn-red" onclick="resetProgress()">🗑️ Reset My Progress</button>
+  </div>
+</div>
+<footer style="background:var(--navy);color:rgba(255,255,255,.7);text-align:center;padding:1.5rem;font-size:.82rem;margin-top:3rem;">
+  <strong style="color:#fff">Peppin's Tuition Centre, Cork</strong> · Junior Cycle Mathematics Progress Tracker
+</footer>
+<script>
+const DAY_TOPICS = {day_topics_json};
+
+function getStudentKey(){{
+  var sess = JSON.parse(sessionStorage.getItem('ptc_session')||'null');
+  return sess ? sess.key : null;
+}}
+
+function storageKey(day){{
+  return 'day_complete_' + getStudentKey() + '_' + day;
+}}
+
+function loadProgress(){{
+  var sess = JSON.parse(sessionStorage.getItem('ptc_session')||'null');
+  if(sess) document.getElementById('progress-sub').textContent = sess.name + "'s journey through the 45-day programme";
+
+  var done=0, total=45, html='';
+  for(var i=1;i<=total;i++){{
+    var complete=!!localStorage.getItem(storageKey(i));
+    if(complete) done++;
+    var topic=DAY_TOPICS[i]||'';
+    html+='<a href="day'+i+'.html" title="Day '+i+': '+topic+'" style="display:flex;flex-direction:column;align-items:center;justify-content:center;background:'+(complete?'var(--green)':'#fff')+';color:'+(complete?'#fff':'var(--text)')+';border:2px solid '+(complete?'var(--green)':'var(--border)')+';border-radius:10px;padding:.5rem .25rem;font-weight:800;font-size:.82rem;text-decoration:none;">'
+      +'<span style="font-size:1.1rem">'+(complete?'✅':'📖')+'</span>'
+      +'<span>Day '+i+'</span>'
+      +'</a>';
+  }}
+  document.getElementById('day-tracker').innerHTML=html;
+  document.getElementById('days-done').textContent=done;
+  document.getElementById('pct-done').textContent=Math.round(done/total*100)+'%';
+  document.getElementById('days-left').textContent=total-done;
+  document.getElementById('overall-label').textContent=done+' / '+total+' days';
+  document.getElementById('overall-fill').style.width=Math.round(done/total*100)+'%';
+}}
+
+function resetProgress(){{
+  if(confirm('Reset all your progress? This cannot be undone.')){{
+    var k=getStudentKey();
+    for(var i=1;i<=45;i++) localStorage.removeItem('day_complete_'+k+'_'+i);
+    loadProgress();
+  }}
+}}
+
+loadProgress();
+</script>
+</body></html>"""
+
+
+# ─── UPDATED GENERATE_INDEX (student-scoped marks) ────────────────────────────
+def generate_index():
+    block_sections = {}
+    for d in DAYS:
+        b = d["block"]
+        block_sections.setdefault(b, []).append(d)
+
+    hero = f"""
+{nav_bar("home")}
+<div class="page-hero">
+  <div style="font-size:2.5rem;margin-bottom:.5rem">📐 🔢 📊</div>
+  <h1>Junior Cycle Mathematics</h1>
+  <p id="hero-sub">Peppin's Tuition Centre, Cork · First Year · 45-Day Study Programme</p>
+  <div style="display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin-top:1.25rem;">
+    <a href="plan.html" class="btn btn-gold btn-lg">📅 View 45-Day Plan</a>
+    <a href="quiz.html" class="btn btn-primary btn-lg" style="background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.4);">⚡ Quick Quiz</a>
+  </div>
+</div>
+"""
+    stats = f"""
+<div class="container">
+  <div class="stats-strip">
+    <div class="stat-box"><div class="stat-num" style="color:var(--navy)">45</div><div class="stat-label">Study Days</div></div>
+    <div class="stat-box"><div class="stat-num" style="color:var(--green)">5</div><div class="stat-label">Topic Blocks</div></div>
+    <div class="stat-box"><div class="stat-num" style="color:var(--gold)">{sum(len(d['questions']) for d in DAYS)}</div><div class="stat-label">Practice Questions</div></div>
+    <div class="stat-box"><div class="stat-num" style="color:var(--red)">{len(DAYS)}</div><div class="stat-label">Lessons</div></div>
+  </div>
+"""
+
+    content = ""
+    for block_name, block_days in block_sections.items():
+        info = BLOCKS.get(block_name, {"color":"#555","icon":"📚"})
+        color = info["color"]
+        icon = info["icon"]
+        content += f"""
+  <div class="mt4">
+    <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1rem;padding-bottom:.6rem;border-bottom:3px solid {color};">
+      <span style="font-size:1.5rem">{icon}</span>
+      <div>
+        <h2 style="font-family:'Merriweather',serif;color:{color};font-size:1.25rem;">{block_name}</h2>
+        <div style="font-size:.8rem;color:var(--muted);">Days {block_days[0]['day']}–{block_days[-1]['day']}</div>
+      </div>
+    </div>
+    <div class="grid-3">
+"""
+        for d in block_days:
+            lc = level_color(d["level"])
+            content += f"""
+      <a href="day{d['day']}.html" class="card day-card" style="border-left-color:{d['color']}">
+        <div class="card-header" style="padding:.75rem 1rem;">
+          <div>
+            <div class="day-num" style="color:{d['color']}">Day {d['day']}</div>
+            <div class="day-topic">{d['topic']}</div>
+            <div class="day-sub">{d['subtopic']}</div>
+            <div class="day-meta">
+              <span class="level-badge" style="background:{lc}">{d['level']}</span>
+              <span style="font-size:.72rem;color:var(--muted)">{len(d['questions'])} questions</span>
+              <span class="completed-mark" id="mark-{d['day']}"></span>
+            </div>
+          </div>
+        </div>
+      </a>
+"""
+        content += "    </div>\n  </div>\n"
+
+    footer = """
+  <footer style="background:var(--navy);color:rgba(255,255,255,.7);text-align:center;padding:1.5rem;font-size:.82rem;margin-top:3rem;">
+    <strong style="color:#fff">Peppin's Tuition Centre, Cork</strong> · Junior Cycle Mathematics · 45-Day Tuition Programme
+  </footer>
+"""
+    script = """
+<script>
+// Auth guard
+(function(){
+  var sess=JSON.parse(sessionStorage.getItem('ptc_session')||'null');
+  if(!sess){location.replace('login.html');return;}
+  if(sess.role==='parent'){location.replace('parent.html');return;}
+  // personalise
+  document.getElementById('hero-sub').textContent=sess.name+"'s Junior Cycle Maths · Peppin's Tuition Centre, Cork";
+  var el=document.getElementById('nav-student-name');if(el)el.textContent=sess.name;
+  // load completion marks scoped to this student
+  document.querySelectorAll('[id^="mark-"]').forEach(function(el){
+    var day=el.id.replace('mark-','');
+    if(localStorage.getItem('day_complete_'+sess.key+'_'+day)) el.textContent='✅';
+  });
+})();
+</script>
+"""
+    return html_head("Peppin's Maths · Home") + "<body>" + AUTH_GUARD + hero + stats + content + "</div>" + footer + script + "</body></html>"
+
+
+# ─── UPDATED GENERATE_DAY_PAGE (student-scoped markComplete) ─────────────────
+def generate_day_page(d):
+    day_num = d["day"]
+    lc = level_color(d["level"])
+    c = d["concept"]
+
+    explains = "".join(f"<p>{p}</p>" for p in c["explain"])
+    mistakes = "".join(f"<li>{m}</li>" for m in c["mistakes"])
+    formulae = "".join(f"<code>{f}</code>" for f in c["formulae"])
+    steps    = "".join(f"<li>{s}</li>" for s in c["worked"]["steps"])
+
+    concept_html = f"""
+<div class="tab-content active" id="tab-concept">
+  <div class="concept-section mt2">
+    <div class="section-label" style="color:#1565C0">📘 What is this topic?</div>
+    <div class="explain-box">{explains}</div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--gold)">💡 Analogy — How to picture it</div>
+    <div class="analogy-box"><p>{c['analogy']}</p></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--green)">🔍 Worked Example</div>
+    <div class="worked-box">
+      <strong style="display:block;margin-bottom:.6rem">{c['worked']['title']}</strong>
+      <ol class="step-list">{steps}</ol>
+    </div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:#BF360C">⚠️ Common Mistakes</div>
+    <div class="mistake-box"><ul style="padding-left:1.2rem">{mistakes}</ul></div>
+  </div>
+  <div class="concept-section">
+    <div class="section-label" style="color:var(--navy)">📌 Key Formulae</div>
+    <div class="formula-box">{formulae}</div>
+  </div>
+  <div class="tip-box mt2">
+    <strong>🎯 SEC Exam Insight:</strong> {d.get('tip','')}
+  </div>
+</div>
+"""
+
+    q_html = '<div class="tab-content" id="tab-questions">\n'
+    for q in d["questions"]:
+        q_html += f"""
+<div class="question-card">
+  <div class="q-header">
+    <span class="q-num">Q{q['q']}</span>
+    <span style="flex:1;font-size:.9rem">{q['text']}</span>
+    <span class="q-marks">{q['marks']} mark{'s' if q['marks']>1 else ''}</span>
+  </div>
+  <div class="q-hint" id="hint-{day_num}-{q['q']}">💡 <em>{q['hint']}</em></div>
+  <div class="q-answer" id="ans-{day_num}-{q['q']}"><strong>✅ Answer:</strong> {q['answer']}</div>
+  <div class="q-actions">
+    <button class="btn btn-hint btn-sm" onclick="toggleEl('hint-{day_num}-{q['q']}')">💡 Hint</button>
+    <button class="btn btn-answer btn-sm" onclick="toggleEl('ans-{day_num}-{q['q']}')">✅ Show Answer</button>
+  </div>
+</div>
+"""
+    q_html += "</div>\n"
+
+    prev_link = f'<a href="day{day_num-1}.html" class="btn btn-primary">← Day {day_num-1}</a>' if day_num > 1 else ""
+    next_link = f'<a href="day{day_num+1}.html" class="btn btn-green">Day {day_num+1} →</a>' if day_num < 45 else ""
+
+    body = f"""
+{AUTH_GUARD}
+{nav_bar()}
+<div style="background:{d['color']};color:#fff;padding:1.5rem 1.5rem 1rem;">
+  <div style="max-width:900px;margin:0 auto;">
+    <a href="index.html" style="color:rgba(255,255,255,.7);font-size:.82rem;font-weight:700;">← Back to Home</a>
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:1rem;margin-top:.6rem;">
+      <div>
+        <div style="font-size:.75rem;opacity:.7;font-weight:800;letter-spacing:.1em;text-transform:uppercase;">Day {day_num} of 45 · {d['block']}</div>
+        <h1 style="font-family:'Merriweather',serif;font-size:clamp(1.3rem,3vw,2rem);margin:.3rem 0;">{d['topic']}</h1>
+        <div style="font-size:1rem;opacity:.85;">{d['subtopic']}</div>
+        <div style="margin-top:.6rem;display:flex;gap:.5rem;flex-wrap:wrap;align-items:center;">
+          <span class="level-badge" style="background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.4)">{d['level']}</span>
+          <span style="font-size:.78rem;opacity:.7">{len(d['questions'])} questions · {sum(q['marks'] for q in d['questions'])} marks total</span>
+        </div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:2.5rem;line-height:1">{'🔢' if d['block']=='Number' else '✖️' if d['block']=='Algebra' else '📐' if d['block']=='Geometry' else '📊' if d['block']=='Statistics' else '📝'}</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" style="max-width:900px;">
+  <div class="tab-bar">
+    <button class="tab active" onclick="switchTab('concept',this)">📖 Concept</button>
+    <button class="tab" onclick="switchTab('questions',this)">✏️ Practice Questions</button>
+  </div>
+  {concept_html}
+  {q_html}
+  <div style="display:flex;gap:.75rem;justify-content:space-between;flex-wrap:wrap;margin-top:2rem;padding-top:1rem;border-top:2px solid var(--border);">
+    {prev_link}
+    <button class="btn btn-gold" id="complete-btn" onclick="markComplete({day_num})">✅ Mark Day {day_num} Complete</button>
+    {next_link}
+  </div>
+</div>
+
+<footer style="background:var(--navy);color:rgba(255,255,255,.7);text-align:center;padding:1.5rem;font-size:.82rem;margin-top:3rem;">
+  <strong style="color:#fff">Peppin's Tuition Centre, Cork</strong> · Day {day_num} · {d['topic']}
+</footer>
+
+<script>
+function switchTab(name,btn){{
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('tab-'+name).classList.add('active');
+  btn.classList.add('active');
+}}
+function toggleEl(id){{
+  var el=document.getElementById(id);
+  el.style.display=el.style.display==='block'?'none':'block';
+}}
+function getStudentKey(){{
+  var sess=JSON.parse(sessionStorage.getItem('ptc_session')||'null');
+  return sess?sess.key:null;
+}}
+function markComplete(day){{
+  var k=getStudentKey();
+  if(!k) return;
+  localStorage.setItem('day_complete_'+k+'_'+day,'1');
+  var btn=document.getElementById('complete-btn');
+  btn.textContent='🎉 Day '+day+' Complete!';
+  btn.style.background='var(--green)';
+  btn.disabled=true;
+}}
+// Check if already complete
+(function(){{
+  var k=getStudentKey();
+  if(k && localStorage.getItem('day_complete_'+k+'_{day_num}')){{
+    var btn=document.getElementById('complete-btn');
+    if(btn){{btn.textContent='🎉 Day {day_num} Complete!';btn.style.background='var(--green)';btn.disabled=true;}}
+  }}
+}})();
+</script>
+"""
+    return html_head(f"Day {day_num} · {d['topic']} · Peppin's Maths") + "<body>" + body + "</body></html>"
+
+
+# ─── BUILD ────────────────────────────────────────────────────────────────────
 def build():
     if OUT.exists():
         shutil.rmtree(OUT)
     OUT.mkdir(parents=True)
 
-    print("🔨 Building Peppin's Junior Cycle Maths Study App...")
+    print("🔨 Building Peppin's Tuition Centre Maths App (with multi-user auth)...")
 
-    # CSS
     (OUT / "style.css").write_text(generate_css(), encoding="utf-8")
     print("  ✅ style.css")
 
-    # Index
+    (OUT / "login.html").write_text(generate_login(), encoding="utf-8")
+    print("  ✅ login.html  (students + parents)")
+
+    (OUT / "parent.html").write_text(generate_parent(), encoding="utf-8")
+    print("  ✅ parent.html  (Peppin / Viren / Muthu)")
+
     (OUT / "index.html").write_text(generate_index(), encoding="utf-8")
     print("  ✅ index.html")
 
-    # Plan
     (OUT / "plan.html").write_text(generate_plan(), encoding="utf-8")
     print("  ✅ plan.html")
 
-    # Quiz
     (OUT / "quiz.html").write_text(generate_quiz(), encoding="utf-8")
     print("  ✅ quiz.html")
 
-    # Progress
     (OUT / "progress.html").write_text(generate_progress(), encoding="utf-8")
     print("  ✅ progress.html")
 
-    # Day pages
     for d in DAYS:
-        fname = f"day{d['day']}.html"
-        (OUT / fname).write_text(generate_day_page(d), encoding="utf-8")
-    print(f"  ✅ {len(DAYS)} day pages (day1.html – day45.html)")
+        (OUT / f"day{d['day']}.html").write_text(generate_day_page(d), encoding="utf-8")
+    print(f"  ✅ {len(DAYS)} day pages")
 
-    # README
     Path("README.md").write_text(generate_readme(), encoding="utf-8")
     print("  ✅ README.md")
 
-    # 404
     (OUT / "404.html").write_text(generate_404(), encoding="utf-8")
     print("  ✅ 404.html")
 
-    # .nojekyll for GitHub Pages
     (OUT / ".nojekyll").write_text("", encoding="utf-8")
 
     total_files = len(list(OUT.iterdir()))
-    total_size = sum(f.stat().st_size for f in OUT.iterdir() if f.is_file())
+    total_size  = sum(f.stat().st_size for f in OUT.iterdir() if f.is_file())
     print(f"\n🎉 Done! {total_files} files · {total_size//1024} KB total")
-    print(f"📁 Output: ./{OUT}/")
-    print(f"\nTo preview locally:")
-    print(f"  cd {OUT} && python3 -m http.server 8080")
-    print(f"  → Open http://localhost:8080\n")
-    print(f"To publish on GitHub Pages:")
-    print(f"  1. Push to GitHub")
-    print(f"  2. Settings → Pages → Source: main branch, /docs folder")
-    print(f"  3. Live at https://YOUR_USERNAME.github.io/YOUR_REPO/\n")
+    print(f"\n📋 LOGIN CREDENTIALS:")
+    print(f"  STUDENTS         PIN")
+    for s in STUDENTS:
+        print(f"  {s['name']:<16} {s['pin']}")
+    print(f"\n  PARENTS          PIN   (sees child's progress)")
+    for p in PARENTS:
+        print(f"  {p['name']:<16} {p['pin']}   → {p['child_name']}")
+    print(f"\n  ⚠️  Change PINs in the STUDENTS / PARENTS section at the top of generate.py")
+    print(f"\nTo preview:  cd docs && python3 -m http.server 8080\n")
 
 
 if __name__ == "__main__":
