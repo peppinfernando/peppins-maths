@@ -826,7 +826,7 @@ def generate_plan():
   <strong>The 3 Amigos Tuition Centre, Cork · Kildare · Limerick</strong> · Junior Cycle Mathematics · 45-Day Tuition Programme
 </footer>
 """
-    return html_head("45-Day Plan · 3 Amigos Maths") + "<body>" + body + "</body></html>"
+    return html_head("45-Day Plan · 3 Amigos Maths") + "<body>" + AUTH_GUARD + body + "</body></html>"
 
 
 def generate_quiz():
@@ -1026,7 +1026,7 @@ function resetQuiz(){{
 }}
 </script>
 """
-    return html_head("Quick Quiz · 3 Amigos Maths") + "<body>" + body + "</body></html>"
+    return html_head("Quick Quiz · 3 Amigos Maths") + "<body>" + AUTH_GUARD + body + "</body></html>"
 
 
 def generate_readme():
@@ -2209,7 +2209,12 @@ async function gistLoad() {
 
 async function gistSave(obj) {
   var sess = getSession();
-  if (!sess || !sess.gist_id) return false;
+  if (!sess || !sess.gist_id) { console.error('No session or gist_id'); return false; }
+  if (!sess.token || sess.token === '' || sess.token === 'REPLACED') {
+    console.error('Invalid token');
+    alert('Setup error: Gist token is missing. Please ask your tutor to regenerate the app.');
+    return false;
+  }
   var files = {};
   files[sess.gist_file] = { content: JSON.stringify(obj, null, 2) };
   try {
@@ -2222,7 +2227,15 @@ async function gistSave(obj) {
       },
       body: JSON.stringify({ files: files })
     });
-    return res.ok;
+    if (res.status === 401) {
+      alert('⚠️ Your session token has expired or been revoked. Please ask your tutor to update the app with a new token.');
+      return false;
+    }
+    if (!res.ok) {
+      console.error('gistSave HTTP error', res.status);
+      return false;
+    }
+    return true;
   } catch(e) { console.error('gistSave error', e); return false; }
 }
 

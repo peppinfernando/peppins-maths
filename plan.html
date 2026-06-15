@@ -10,6 +10,16 @@
 <script src="gist_store.js"></script>
 
 </head><body>
+<script>
+(function(){
+  var sess=JSON.parse(sessionStorage.getItem('ptc_session')||'null');
+  if(!sess){location.replace('login.html');return;}
+  if(sess.role==='parent'){location.replace('parent.html');return;}
+  var el=document.getElementById('nav-student-name');
+  if(el)el.textContent=sess.name;
+})();
+</script>
+
 <nav class="navbar">
   <div class="nav-brand">
     <span class="nav-logo">🍀</span>
