@@ -1705,7 +1705,7 @@ def generate_day_page(d):
     <button class="btn btn-hint btn-sm" onclick="toggleHint({day_num},{q['q']})">💡 Hint</button>
   </div>
   <div class="q-result" id="result-{day_num}-{q['q']}"></div>
-  <div class="q-answer-reveal" id="ans-{day_num}-{q['q']}">
+  <div class="q-answer-reveal" id="ans-{day_num}-{q['q']}" style="display:none">
     <strong>✅ Model Answer:</strong> {q['answer']}
   </div>
 </div>
