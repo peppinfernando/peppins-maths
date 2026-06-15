@@ -4,3 +4,6 @@
 config.js
 docs/config.js
 .env
+docs/login.html
+docs/parent.html
+docs/gist_store.js
